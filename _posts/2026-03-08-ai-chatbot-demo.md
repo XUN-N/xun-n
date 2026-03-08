@@ -19,15 +19,33 @@ Experience our AI chatbot powered by GPT-20B model! Try it right here, right now
 
 ## 💬 Chat Interface
 
-<div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.1); margin: 2rem 0;">
-  <iframe 
-    src="https://huggingface.co/spaces/cenxun/chatbox" 
-    width="100%" 
-    height="750px"
-    frameborder="0"
-    style="border-radius: 12px;">
-  </iframe>
-</div>
+<!-- 
+  ╔════════════════════════════════════════════════════════════════╗
+  ║  Gradio Chatbot Embed - Official Integration                   ║
+  ║  Gradio Chatbot 嵌入 - 官方集成                                 ║
+  ╠════════════════════════════════════════════════════════════════╣
+  ║  Technology: Gradio Web Components (Shadow DOM)                ║
+  ║  Version: 6.5.1                                                ║
+  ║  Source: https://cenxun-chatbox.hf.space                       ║
+  ║  CDN: https://gradio.s3-us-west-2.amazonaws.com/6.5.1/         ║
+  ╠════════════════════════════════════════════════════════════════╣
+  ║  Features:                                                     ║
+  ║  ✅ Automatic responsive design                                ║
+  ║  ✅ Shadow DOM isolation (style encapsulation)                 ║
+  ║  ✅ WebSocket real-time communication                          ║
+  ║  ✅ Lazy loading optimization                                    ║
+  ║  ✅ Cross-origin resource sharing (CORS)                       ║
+  ╠════════════════════════════════════════════════════════════════╣
+  ║  Usage: Just include the script and <gradio-app> tag           ║
+  ║  使用：只需引入脚本和<gradio-app>标签                           ║
+  ╚════════════════════════════════════════════════════════════════╝
+-->
+
+<!-- Load Gradio Web Components (加载 Gradio Web 组件) -->
+<script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/6.5.1/gradio.js"></script>
+
+<!-- Embed Chatbot (嵌入 Chatbot) -->
+<gradio-app src="https://cenxun-chatbox.hf.space"></gradio-app>
 
 ---
 
