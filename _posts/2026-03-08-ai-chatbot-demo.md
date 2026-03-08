@@ -47,6 +47,14 @@ Experience our AI chatbot powered by GPT-20B model! Try it right here, right now
 <!-- Embed Chatbot (嵌入 Chatbot) -->
 <gradio-app src="https://cenxun-chatbox.hf.space"></gradio-app>
 
+<script
+	type="module"
+	src="https://gradio.s3-us-west-2.amazonaws.com/6.5.1/gradio.js"
+></script>
+
+<gradio-app src="https://cenxun-chatbox2.hf.space"></gradio-app>
+
+
 ---
 
 ## 🚀 How to Use
