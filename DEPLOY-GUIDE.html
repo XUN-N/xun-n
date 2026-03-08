@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub 部署指南 - CDT501 博客</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #3b82f6;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .status {
+            background: #f0f4f8;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        
+        .status h2 {
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+        }
+        
+        .status-icon {
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+        
+        .step {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .step-number {
+            background: #3b82f6;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        .step h3 {
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .code-block .command {
+            color: #4ade80;
+        }
+        
+        .code-block .comment {
+            color: #94a3b8;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59,130,246,0.4);
+        }
+        
+        .btn-secondary {
+            background: #64748b;
+        }
+        
+        .btn-secondary:hover {
+            background: #475569;
+        }
+        
+        .alert {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .alert h4 {
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+        
+        .alert p {
+            color: #78350f;
+        }
+        
+        .success {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .success h4 {
+            color: #065f46;
+            margin-bottom: 10px;
+        }
+        
+        .checklist {
+            list-style: none;
+        }
+        
+        .checklist li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        
+        .checklist li::before {
+            content: "✅ ";
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 GitHub 部署指南</h1>
+        <p class="subtitle">CDT501 个人博客 - 最后一步即可完成部署</p>
+        
+        <div class="status">
+            <h2>📊 当前状态</h2>
+            <div class="status-item">
+                <span class="status-icon">✅</span>
+                <span>所有文件已更新（仓库名：xun-n.git）</span>
+            </div>
+            <div class="status-item">
+                <span class="status-icon">✅</span>
+                <span>Git 提交完成（66bc60b）</span>
+            </div>
+            <div class="status-item">
+                <span class="status-icon">⏳</span>
+                <span>等待推送到 GitHub（需要认证）</span>
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>方法一：使用 GitHub Token（推荐）</h3>
+            <p>创建一个 Personal Access Token 来完成推送：</p>
+            
+            <a href="https://github.com/settings/tokens/new" target="_blank" class="btn">
+                🔑 创建 Token
+            </a>
+            
+            <div class="code-block">
+<span class="comment"># 1. 访问上面的链接创建 Token</span>
+<span class="comment"># 2. 选择 scopes: repo, workflow</span>
+<span class="comment"># 3. 复制生成的 Token</span>
+<span class="comment"># 4. 在终端执行以下命令（替换 YOUR_TOKEN）：</span>
+
+<span class="command">cd /home/xun/xun-n-.github.io</span>
+<span class="command">git push https://YOUR_TOKEN@github.com/XUN-N/xun-n.git master</span>
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>方法二：使用 SSH（如果您已配置）</h3>
+            
+            <div class="code-block">
+<span class="comment"># 1. 更新远程仓库为 SSH</span>
+<span class="command">git remote set-url origin git@github.com:XUN-N/xun-n.git</span>
+
+<span class="comment"># 2. 推送</span>
+<span class="command">git push origin master</span>
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>方法三：使用 GitHub Desktop（图形界面）</h3>
+            <p>如果您更喜欢图形界面：</p>
+            
+            <a href="https://desktop.github.com/" target="_blank" class="btn btn-secondary">
+                🖥️ 下载 GitHub Desktop
+            </a>
+            
+            <div class="code-block">
+<span class="comment"># 1. 安装 GitHub Desktop</span>
+<span class="comment"># 2. 登录 GitHub 账户</span>
+<span class="comment"># 3. 添加本地仓库：/home/xun/xun-n-.github.io</span>
+<span class="comment"># 4. 点击 "Push origin" 按钮</span>
+            </div>
+        </div>
+        
+        <div class="alert">
+            <h4>⚠️ 注意事项</h4>
+            <p><strong>推送成功后</strong>，GitHub 会自动构建并部署您的网站：</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>等待 2-3 分钟</li>
+                <li>访问：<a href="https://xun-n.github.io/" target="_blank">https://xun-n.github.io/</a></li>
+                <li>在 GitHub 仓库的 Settings → Pages 查看部署状态</li>
+            </ul>
+        </div>
+        
+        <div class="success">
+            <h4>✅ 部署后您可以：</h4>
+            <ul class="checklist">
+                <li>添加新博客文章（在 _posts/ 目录创建 .md 文件）</li>
+                <li>更新个人信息（编辑 about.html）</li>
+                <li>添加项目（在 _projects/ 目录创建 .md 文件）</li>
+                <li>自定义样式（编辑 assets/css/style.css）</li>
+            </ul>
+        </div>
+        
+        <div class="alert" style="background: #dbeafe; border-left-color: #3b82f6;">
+            <h4 style="color: #1e40af;">📂 项目位置</h4>
+            <p style="color: #1e3a8a;"><strong>/home/xun/xun-n-.github.io/</strong></p>
+            <p style="color: #1e3a8a; margin-top: 10px;">
+                打开终端执行上面的推送命令即可完成部署！
+            </p>
+        </div>
+    </div>
+</body>
+</html>

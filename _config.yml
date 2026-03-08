@@ -2,7 +2,7 @@
 title: XUN's Blog
 description: A light-themed tech blog
 url: https://xun-n.github.io
-baseurl: ''
+baseurl: /xun-n
 
 # Build settings
 markdown: kramdown
