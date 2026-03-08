@@ -1,125 +1,196 @@
-Research Group Web Site Template
-================================
+# XUN's Personal Blog
 
-This is a [Jekyll][]-based Web site intended for research groups. Your group should be able to get up and running with minimal fuss.
+A modern, light-themed personal blog built with Jekyll and deployed on GitHub Pages.
 
-<p align="center">
-<img src="screenshot.png" width="387" height="225" alt="screenshot of the template">
-</p>
+![Tech Theme](screenshot.png)
 
-This project originated at the University of Washington.  You can see the machinery working live at [our site][sampa].
+## ✨ Features
 
-This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][license].
+- 🎨 **Light Tech Theme** - Clean, modern design with blue accents
+- 📱 **Fully Responsive** - Works on all devices
+- ⚡ **Fast Performance** - Minimal dependencies, optimized assets
+- 🚀 **GitHub Pages Ready** - Automatic deployment with GitHub Actions
+- 📝 **Blog System** - Easy-to-write posts with Markdown
+- 🏷️ **Tag Support** - Organize posts with tags
+- 🔍 **SEO Friendly** - Meta tags and semantic HTML
 
-[sampa]: http://sampa.cs.washington.edu/
-[license]: https://creativecommons.org/licenses/by-nc/4.0/
+## 🛠 Tech Stack
 
+- **Static Site Generator**: Jekyll
+- **Language**: HTML, CSS, JavaScript
+- **Hosting**: GitHub Pages
+- **Version Control**: Git
 
-Features
---------
+## 🚀 Quick Start
 
-* Thanks to [Jekyll][], content is just text files. So even faculty should be able to figure it out.
-* Publications list generated from BibTeX.
-* Personnel list. Organize your professors, students, staff, and alumni.
-* Combined news stream and blog posts.
-* Easily extensible navigation bar.
-* Responsive (mobile-ready) design based on [Bootstrap][].
+### Prerequisites
 
-[Bootstrap]: http://getbootstrap.com/
+- Ruby 3.1 or higher
+- Bundler (`gem install bundler`)
+- Git
 
+### Local Development
 
-Setup
------
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/XUN-N/xun-n.git
+   cd xun-n.git
+   ```
 
-1. Install the dependencies. You will need [Python][], [bibble][] (`pip install bibble`), and [Jekyll][] (`gem install jekyll`).
-2. [Fork][] this repository on GitHub.
-3. Clone the fork to your own machine: `git clone git@github.com:yourgroup/research-group-web.git`.
-4. Add an "upstream" remote for the original repository so you can stay abreast of bugfixes: `git remote add upstream git://github.com/uwsampa/research-group-web.git`.
-5. Customize. Start with the `_config.yml` file, where you enter the name of the site and its URL.
-6. Type `make` to build the site and then run `make serve` to view your site.
-7. Keep adding content. See below for instructions for each of the various sections.
-8. Periodically pull from the upstream repository: `git pull upstream master`.
+2. **Install dependencies**
+   ```bash
+   bundle install
+   ```
 
-[Python]: https://www.python.org/
-[Fork]: https://github.com/uwsampa/research-group-web/fork
+3. **Start the development server**
+   ```bash
+   bundle exec jekyll serve
+   ```
 
+4. **Open your browser**
+   Navigate to `http://localhost:4000`
 
-Publication List
-----------------
+### Creating a New Post
 
-The list of publications is in `bib/pubs.bib`. Typing `make` will generate `pubs.html`, which contains a pretty, sorted HTML-formatted list of papers. The public page, `publications.html`, also has a link to download the original BibTeX.
+1. Create a new file in `_posts/` with the format:
+   ```
+   YYYY-MM-DD-title-of-post.md
+   ```
 
+2. Add front matter at the top:
+   ```yaml
+   ---
+   layout: post
+   title: "Your Post Title"
+   date: 2026-03-08 12:00:00 +0800
+   tags: [tag1, tag2]
+   excerpt: "Brief description"
+   ---
+   
+   Your content here...
+   ```
 
-News Items and Blog Posts
--------------------------
+3. Write your post in Markdown
 
-For both long-form blog posts and short news updates, we use Jekyll's blogging system. To post a new item of either type, you create a file in the `_posts` directory using the naming convention `YYYY-MM-DD-title-for-url.md`. The date part of the filename always matters; the title part is currently only used for full blog posts (but is still required for news updates).
+4. Commit and push - GitHub Pages will auto-deploy!
 
-The file must begin with [YAML front matter][yfm]. For news updates, use this:
+### Creating a Project
 
-    ---
-    layout: post
-    shortnews: true
-    ---
+1. Create a new file in `_projects/`:
+   ```
+   project-name.md
+   ```
 
-For full blog posts, use this format:
+2. Add front matter:
+   ```yaml
+   ---
+   layout: project
+   title: "Project Name"
+   subtitle: "Brief tagline"
+   tags: [tech1, tech2]
+   github: https://github.com/your-repo
+   excerpt: "Short description"
+   ---
+   
+   Project details...
+   ```
 
-    ---
-    layout: post
-    title:  "Some Great Title Here"
-    ---
+## 🎨 Customization
 
-And concoct a page title for your post. The body of the post goes after the `---` in either case.
+### Change Colors
 
-You can also customize the icon that is displayed on the news feed. By default it's `newspaper-o`. We use icons from the [FontAwesome][fa] icon set.
+Edit `assets/css/style.css` and modify the CSS variables:
 
-[yfm]: http://jekyllrb.com/docs/frontmatter/
-[fa]: http://fontawesome.io/icons/
+```css
+:root {
+  --bg-primary: #f0f4f8;      /* Main background */
+  --accent-blue: #3b82f6;     /* Primary accent */
+  --text-primary: #1a202c;    /* Main text color */
+}
+```
 
-Projects
---------
+### Update Site Info
 
-To create a project, just create a markdown file in the `_projects` folder. Here are the things you can put in the YAML frontmatter:
+Edit `_config.yml`:
 
-- `title:` The project title.
-- `notitle:` Set this to `true` if you don't want a title displayed on the project card. Optional.
-- `description:` The text shown in the project card. It supports markdown.
-- `people:` The people working on the project. This is a list of keys from the `_data/people.yml` file.
-- `layout: project` This sets the layout of the actual project page. It should be set to `project`.
-- `image:` The URL of an image for the project. This is shown on both the project page and the project card. Optional.
-- `last-updated:` Date in the format of `YYYY-MM-DD`. The project cards are sorted by this, most recent first.
-- `status: inactive` Set this to `inactive` if don't want the project to appear on the front page. Just ignore it otherwise.
-- `link:` Set this to an external URL if this project has a page somewhere else on the web. If you don't have a `link:`, then the content of this markdown file (below the YAML frontmatter) will be this project's page.
-- `no-link: true` Set this if you just don't want a project page for your project.
+```yaml
+title: Your Blog Name
+description: Your blog description
+url: https://yourusername.github.io
+social:
+  github: https://github.com/yourusername
+  email: your@email.com
+```
 
-Personnel
----------
+### Modify Navigation
 
-People are listed in a [YAML][] file in `_data/people.yml`. You can list the name, link, bio, and role of each person. Roles (e.g., "Faculty", "Staff", and "Students") are defined in `_config.yml`.
+In `_config.yml`, update the `navigation` array:
 
-[YAML]: https://en.wikipedia.org/wiki/YAML
+```yaml
+navigation:
+  - title: Home
+    link: /
+  - title: Blog
+    link: /blog.html
+  # Add more items...
+```
 
+## 📁 Project Structure
 
-Building
---------
+```
+.
+├── _config.yml              # Site configuration
+├── _layouts/                # HTML templates
+│   ├── default.html        # Base layout
+│   ├── post.html           # Blog post layout
+│   └── project.html        # Project layout
+├── _posts/                  # Blog posts
+├── _projects/               # Project showcases
+├── assets/
+│   └── css/
+│       └── style.css       # Custom styles
+├── .github/
+│   └── workflows/
+│       └── jekyll.yml      # GitHub Actions
+├── index.html              # Homepage
+├── blog.html               # Blog listing
+├── about.html              # About page
+├── projects.html           # Projects page
+└── README.md               # This file
+```
 
-The requirements for building the site are:
+## 🌐 Deployment
 
-* [Jekyll][]: run `gem install jekyll`
-* [bibble][]: available on `pip`
-* ssh and rsync, only if you want to deploy directly.
+### Automatic (Recommended)
 
-`make` compiles the bibliography and the website content to the `_site`
-directory. To preview the site, run `jekyll serve`` and head to
-http://0.0.0.0:5000.
+The site uses GitHub Actions for automatic deployment:
 
+1. Push to the `main` branch
+2. GitHub Actions builds the site
+3. Deployed to GitHub Pages automatically
 
-Deploying to Your Sever
------------------------
+### Manual
 
-To set up deployments, edit the Makefile and look for the lines where `HOST` and `DIR` are defined. Change these to the host where your HTML files should be copied to.
+1. Build the site:
+   ```bash
+   bundle exec jekyll build
+   ```
 
-To upload a new version of the site via rsync over ssh, type `make deploy`. A web hook does this automatically when you push to GitHub. Be aware that the Makefile is configured to have rsync delete stray files from the destination directory.
+2. Upload the `_site/` folder to your hosting
 
-[Jekyll]: http://jekyllrb.com/
-[bibble]: https://github.com/sampsyo/bibble/
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Feel free to fork this project and customize it for your own use!
+
+## 📬 Contact
+
+- **GitHub**: [@XUN-N](https://github.com/XUN-N)
+- **Email**: [xun@example.com](mailto:xun@example.com)
+
+---
+
+Built with ❤️ using Jekyll and GitHub Pages

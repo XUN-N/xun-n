@@ -1,74 +1,89 @@
 ---
 layout: default
 title: Home
-notitle: true
-
-# groups of columns of {roles: list, width: num, image: bool}
-role-tables:
-- - roles: [faculty, postdoc, staff]
-    width: 4
-    image: true
-  - roles: [grad]
-    width: 8
-    image: true
-- - roles: [collab, ugrad, ugrad-alum]
-    width: 5
-    image: false
-  - roles: [alum]
-    width: 7
-    image: false
-
 ---
 
-<div class="jumbotron">
+<!-- Hero Section -->
+<section class="hero">
+    <h1>Welcome to My Blog</h1>
     <p>
-        <b>肖航课题组</b>开发了首个<b>基于字符串的可逆晶体表示法: SLICES</b>,实现了生成式AI驱动的<b>Text2Crystal</b>。SLICES有望成为AI驱动的晶体材料逆向设计的标准工具,即<b>晶体材料的"SMILES"</b>。 
+        Exploring technology, coding, and creative projects. 
+        Join me on this journey of learning and building.
     </p>
-    <p>
-    The <b>XIAO Research Group</b> developed the first <b>string-based invertible, invariant crystallographic representation: SLICES</b>, achieving <b>Text2Crystal</b> powered by generative AI. SLICES has the potential to become a standard tool for <i> in-silico </i> materials discovery, i.e. "SMILES" for crystal structures.
-    </p>
-</div>
+    <div style="margin-top: 2rem;">
+        <a href="/blog.html" class="btn btn-primary">Read Blog Posts</a>
+    </div>
+</section>
 
+<!-- Latest Posts -->
 <section>
-    <h2>News</h2>
-    <ul class="news list-unstyled">
-        {% for post in site.posts limit: site.front_page_news %}
-            {% include news-item.html item=post %}
+    <h2 style="margin-bottom: 1.5rem; font-size: 1.75rem;">Latest Posts</h2>
+    <div class="card-grid">
+        {% for post in site.posts limit: 6 %}
+        <div class="card">
+            <h3 class="card-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h3>
+            <div class="card-meta">
+                <time datetime="{{ post.date | date_to_xmlschema }}">
+                    {{ post.date | date: '%B %d, %Y' }}
+                </time>
+            </div>
+            <p class="card-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+            {% if post.tags %}
+            <div style="margin-top: 1rem;">
+                {% for tag in post.tags limit: 3 %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
         {% endfor %}
-    </ul>
-    {% assign numposts = site.posts | size %}
-    {% if numposts >= 1 %}
-        <p>
-            <span class="fa fa-fw fa-history"></span>
-            <a href="{{ site.base }}/blog.html">Older posts&hellip;</a>
-        </p>
+    </div>
+    
+    {% if site.posts.size > 6 %}
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="/blog.html" class="btn btn-primary">View All Posts</a>
+    </div>
     {% endif %}
 </section>
 
-<script
-	type="module"
-	src="https://gradio.s3-us-west-2.amazonaws.com/4.41.0/gradio.js"
-></script>
+<!-- Featured Projects -->
+{% if site.projects.size > 0 %}
+<section style="margin-top: 3rem;">
+    <h2 style="margin-bottom: 1.5rem; font-size: 1.75rem;">Featured Projects</h2>
+    <div class="card-grid">
+        {% for project in site.projects limit: 3 %}
+        <div class="card">
+            <h3 class="card-title">
+                <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+            </h3>
+            {% if project.subtitle %}
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                {{ project.subtitle }}
+            </p>
+            {% endif %}
+            <p class="card-excerpt">{{ project.excerpt | strip_html | truncatewords: 15 }}</p>
+            {% if project.github %}
+            <div style="margin-top: 1rem;">
+                <a href="{{ project.github }}" target="_blank" style="font-size: 0.9rem;">
+                    View on GitHub →
+                </a>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
 
-<gradio-app src="https://xiaohang07-slices.hf.space" theme_mode="light"></gradio-app>
-
-<gradio-app src="https://xiaohang07-mattergpt-cpu.hf.space" theme_mode="light"></gradio-app>
-
-
-
-
-
-<div id="people">
-    <h2>People</h2>
-    {% for role-table in page.role-tables %}
-        <section class="people row justify-content-between">
-            {% for role-column in role-table %}
-                <div class="col-md-{{ role-column.width }}">
-                    {% for role in role-column.roles %}
-                        {% include role-people.html role=role image=role-column.image %}
-                    {% endfor %}
-                </div>
-            {% endfor %}
-        </section>
-    {% endfor %}
-</div>
+<!-- About Preview -->
+<section style="margin-top: 3rem; background: var(--bg-secondary); padding: 2.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+    <h2 style="margin-bottom: 1rem; font-size: 1.75rem;">About Me</h2>
+    <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+        Hi! I'm a developer passionate about building things for the web. 
+        I love exploring new technologies, solving problems, and sharing my learning journey.
+        This blog is where I document my projects, thoughts, and discoveries.
+    </p>
+    <a href="/about.html" class="btn btn-primary">Learn More About Me</a>
+</section>

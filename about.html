@@ -1,0 +1,90 @@
+---
+layout: default
+title: About
+---
+
+<div class="post">
+    <header class="post-header">
+        <h1 class="post-title">About Me</h1>
+    </header>
+    
+    <div class="post-content">
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; align-items: flex-start;">
+            <div style="flex: 1; min-width: 250px;">
+                <h2 style="margin-bottom: 1rem;">Hi, I'm XUN 👋</h2>
+                <p>
+                    Welcome to my personal blog! I'm a developer passionate about technology, 
+                    creativity, and continuous learning. This space is where I share my thoughts, 
+                    projects, and experiences in the world of coding.
+                </p>
+                <p>
+                    I believe in the power of open source, clean code, and building things that 
+                    make a difference. When I'm not coding, you can find me exploring new 
+                    technologies, contributing to projects, or sharing knowledge with the community.
+                </p>
+            </div>
+            
+            <div style="flex: 0 0 300px; background: var(--bg-tertiary); padding: 2rem; border-radius: var(--radius-lg); text-align: center;">
+                <div style="font-size: 5rem; margin-bottom: 1rem;">👨‍💻</div>
+                <h3 style="margin-bottom: 1rem;">Let's Connect</h3>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    {% if site.social.github %}
+                    <a href="{{ site.social.github }}" target="_blank" class="btn btn-primary">
+                        GitHub
+                    </a>
+                    {% endif %}
+                    {% if site.social.email %}
+                    <a href="mailto:{{ site.social.email }}" class="btn" style="background: var(--bg-secondary); color: var(--text-primary);">
+                        Email Me
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <h2 style="margin-top: 2rem; margin-bottom: 1rem;">What I Do</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+            <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: var(--radius); box-shadow: var(--shadow-sm);">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚀</div>
+                <h3 style="margin-bottom: 0.5rem;">Web Development</h3>
+                <p style="color: var(--text-secondary);">Building responsive and performant web applications with modern technologies.</p>
+            </div>
+            <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: var(--radius); box-shadow: var(--shadow-sm);">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">💡</div>
+                <h3 style="margin-bottom: 0.5rem;">Problem Solving</h3>
+                <p style="color: var(--text-secondary);">Tackling complex challenges with creative and efficient solutions.</p>
+            </div>
+            <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: var(--radius); box-shadow: var(--shadow-sm);">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">📚</div>
+                <h3 style="margin-bottom: 0.5rem;">Continuous Learning</h3>
+                <p style="color: var(--text-secondary);">Always exploring new technologies and expanding my skill set.</p>
+            </div>
+        </div>
+        
+        <h2 style="margin-top: 2rem; margin-bottom: 1rem;">Tech Stack</h2>
+        <div style="margin-bottom: 2rem;">
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">Here are some technologies I work with:</p>
+            <div>
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Python</span>
+                <span class="tag">Git</span>
+                <span class="tag">Jekyll</span>
+                <span class="tag">GitHub Pages</span>
+            </div>
+        </div>
+        
+        <h2 style="margin-top: 2rem; margin-bottom: 1rem;">About This Blog</h2>
+        <p>
+            This blog is built with <strong>Jekyll</strong> and deployed on <strong>GitHub Pages</strong>. 
+            It features a custom light-themed design with a modern tech aesthetic. The goal is to 
+            create a clean, readable space for sharing content.
+        </p>
+        <p>
+            Feel free to explore the posts, check out my projects, or reach out if you'd like to 
+            collaborate or just say hello!
+        </p>
+    </div>
+</div>

@@ -1,42 +1,53 @@
-name: 肖航课题组  Xiao Research Group
-url: https://xiaohang007.github.io/
+# CDT501 Personal Blog Configuration
+title: XUN's Blog
+description: A light-themed tech blog
+url: https://xun-n.github.io
+baseurl: ''
 
-exclude: [bibble, README.md, Makefile, screenshot.png]
-
-# colorize code snippets with the pygments module
-highlighter: pygments
-
-# The path structure for blog posts.
+# Build settings
+markdown: kramdown
+highlighter: rouge
 permalink: /blog/:year/:month/:day/:title.html
-encoding: utf-8
-# Sections on the "people" page.
-roles:
-  - key: faculty
-    name: 教师 Faculty
-  - key: grad
-    name: 研究生 Graduate Students
-  - key: ugrad
-    name: 本科生 Undergraduate Students
-  - key: collab
-    name: 合作者 Collaborators
 
+# Exclude from build
+exclude:
+  - README.md
+  - Makefile
+  - screenshot.png
+  - Gemfile
+  - Gemfile.lock
 
-# Number of news stories on the front page.
-front_page_news: 8
-
-# Base pathname for links.
-base: ''
-
-# make pages for the _projects folder
+# Collections
 collections:
   projects:
     output: true
 
-# Navigation bar links.
+# Navigation
 navigation:
-  - title: 主页 Home
+  - title: Home
     link: /
-  - title: 科研 Research
-    link: /research.html
-  - title: 论文 Publications
-    link: /publications.html
+  - title: Blog
+    link: /blog.html
+  - title: About
+    link: /about.html
+  - title: Projects
+    link: /projects.html
+
+# Social links
+social:
+  github: https://github.com/XUN-N
+  email: xun@example.com
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: XUN
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: project
