@@ -31,22 +31,22 @@ This project presents a comprehensive analysis of the [UCI Online Retail Dataset
 Explore the complete analysis through our detailed documentation:
 
 ### 📚 Documentation
-- [**Project Overview**](/cdt502/steps/overview/) — Introduction, dataset description, and key findings
-- [**Methodology**](/cdt502/steps/methodology/) — Analysis strategies, decision rationale, and evaluation metrics
-- [**Evolution**](/cdt502/steps/evolution/) — Our journey from simple RFM to K-Means clustering
+- [**Project Overview**]({{ '/cdt502/overview/' | relative_url }}) — Introduction, dataset description, and key findings
+- [**Methodology**]({{ '/cdt502/methodology/' | relative_url }}) — Analysis strategies, decision rationale, and evaluation metrics
+- [**Evolution**]({{ '/cdt502/evolution/' | relative_url }}) — Our journey from simple RFM to K-Means clustering
 
 ### 🔬 8-Step Analysis Pipeline
 
 | Step | Topic | Description |
 |------|-------|-------------|
-| [Step 1](/cdt502/steps/step-01-data-loading/) | Data Loading | Loading and initial exploration |
-| [Step 2](/cdt502/steps/step-02-data-cleaning/) | Data Cleaning | Handling missing values, outliers, and duplicates |
-| [Step 3](/cdt502/steps/step-03-rfm-analysis/) | RFM Analysis | Recency, Frequency, Monetary scoring with 3D visualization |
-| [Step 4](/cdt502/steps/step-04-customer-clustering/) | Customer Clustering | K-Means clustering for customer segmentation |
-| [Step 5](/cdt502/steps/step-05-clv-analysis/) | CLV Analysis | Customer Lifetime Value calculation |
-| [Step 6](/cdt502/steps/step-06-churn-prediction/) | Churn Prediction | Predicting customer churn risk |
-| [Step 7](/cdt502/steps/step-07-sales-forecast/) | Sales Forecast | Time series forecasting |
-| [Step 8](/cdt502/steps/step-08-country-analysis/) | Country Analysis | Geographic analysis of customer behavior |
+| [Step 1]({{ '/cdt502/steps/step-01-data-loading/' | relative_url }}) | Data Loading | Loading and initial exploration |
+| [Step 2]({{ '/cdt502/steps/step-02-data-cleaning/' | relative_url }}) | Data Cleaning | Handling missing values, outliers, and duplicates |
+| [Step 3]({{ '/cdt502/steps/step-03-rfm-analysis/' | relative_url }}) | RFM Analysis | Recency, Frequency, Monetary scoring with 3D visualization |
+| [Step 4]({{ '/cdt502/steps/step-04-customer-clustering/' | relative_url }}) | Customer Clustering | K-Means clustering for customer segmentation |
+| [Step 5]({{ '/cdt502/steps/step-05-clv-analysis/' | relative_url }}) | CLV Analysis | Customer Lifetime Value calculation |
+| [Step 6]({{ '/cdt502/steps/step-06-churn-prediction/' | relative_url }}) | Churn Prediction | Predicting customer churn risk |
+| [Step 7]({{ '/cdt502/steps/step-07-sales-forecast/' | relative_url }}) | Sales Forecast | Time series forecasting |
+| [Step 8]({{ '/cdt502/steps/step-08-country-analysis/' | relative_url }}) | Country Analysis | Geographic analysis of customer behavior |
 
 ---
 
