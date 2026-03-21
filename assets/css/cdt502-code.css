@@ -36,58 +36,58 @@
 
 /* ===== Rouge Syntax Highlighting Colors ===== */
 
-/* Comments */
+/* Comments - Brighter gray */
 .highlight .c, .highlight .c1, .highlight .cm, .highlight .cp, .highlight .cs {
-  color: #6b7280 !important;
+  color: #9ca3af !important;
   font-style: italic !important;
 }
 
-/* Keywords */
+/* Keywords - Vibrant purple */
 .highlight .k, .highlight .kc, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kt {
-  color: #c678dd !important;
-  font-weight: 500 !important;
+  color: #f472b6 !important;
+  font-weight: 600 !important;
 }
 
-/* Strings */
+/* Strings - Bright green */
 .highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx {
-  color: #98c379 !important;
+  color: #a3e635 !important;
 }
 
-/* Numbers */
+/* Numbers - Bright orange */
 .highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo, .highlight .il {
-  color: #d19a66 !important;
+  color: #fb923c !important;
 }
 
-/* Names, Functions */
+/* Names, Functions - Bright yellow */
 .highlight .n, .highlight .na, .highlight .nb, .highlight .nc, .highlight .nd, .highlight .ne, .highlight .nf, .highlight .nl, .highlight .nn, .highlight .nx, .highlight .py {
-  color: #e5c07b !important;
+  color: #fde047 !important;
 }
 
-/* Operators */
+/* Operators - Bright cyan */
 .highlight .o, .highlight .ow {
-  color: #56b6c2 !important;
+  color: #22d3ee !important;
 }
 
-/* Punctuation */
+/* Punctuation - Light gray */
 .highlight .p {
-  color: #abb2bf !important;
+  color: #d1d5db !important;
 }
 
-/* Built-ins */
+/* Built-ins - Bright red/pink */
 .highlight .bp, .highlight .vc, .highlight .vg, .highlight .vi {
-  color: #e06c75 !important;
+  color: #f87171 !important;
 }
 
-/* Docstrings */
+/* Docstrings - Muted green */
 .highlight .sd {
-  color: #6b7280 !important;
+  color: #86efac !important;
   font-style: italic !important;
 }
 
 /* Errors */
 .highlight .err {
-  color: #f38ba8 !important;
-  background: rgba(243, 139, 168, 0.1) !important;
+  color: #fca5a5 !important;
+  background: rgba(248, 113, 113, 0.2) !important;
 }
 
 /* Generic output */
