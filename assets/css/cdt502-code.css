@@ -237,7 +237,7 @@
 /* Don't apply inline styles to code blocks */
 .step-section .highlight pre code {
   background: transparent !important;
-  color: inherit !important;
+  color: #ffffff !important;
   padding: 0 !important;
   border: none !important;
   font-size: inherit !important;
