@@ -6,7 +6,7 @@
 |-------|-------|
 | **Course** | CDT501 - 探索人工智能 (Exploring Artificial Intelligence) |
 | **Deployment Date** | 2026-03-22 |
-| **Git Commit Hash** | `f9d6913` (main) / `5311289` (deploy record) |
+| **Git Commit Hash** | `15d2ebd` (main) / `4097104` (deploy record) |
 | **Live URL** | https://xun-n.github.io/xun-n/cdt501/ |
 
 ## Structure Created
