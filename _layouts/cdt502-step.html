@@ -7,6 +7,15 @@ layout: default
 <script src="{{ '/assets/js/cdt502-code.js' | relative_url }}" defer></script>
 
 <style>
+/* ===== FORCE ALL CODE TO BE VISIBLE ===== */
+.highlight pre code,
+.highlight pre code *,
+.highlight pre code span,
+.step-section .highlight pre code,
+.step-section .highlight pre code * {
+  color: #ffffff !important;
+}
+
 /* ===== CDT502 Page Shared Styles ===== */
 :root {
   --cdt502-bg: #f8fafc;
