@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 1 · 数据加载 - CDT502</title>
+    <style>
+        :root {
+            --cdt502-bg: #f8fafc;
+            --cdt502-card: #ffffff;
+            --cdt502-text: #1e293b;
+            --cdt502-text-secondary: #64748b;
+            --cdt502-accent-blue: #3b82f6;
+            --cdt502-accent-green: #10b981;
+            --cdt502-border: #e2e8f0;
+            --cdt502-code-bg: #1e1e2e;
+            --cdt502-code-text: #e2e8f0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--cdt502-bg);
+            color: var(--cdt502-text);
+            line-height: 1.7;
+        }
+        
+        /* Layout */
+        .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+        .layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 2rem;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            font-size: 0.875rem;
+            color: var(--cdt502-text-secondary);
+        }
+        .breadcrumb a { color: var(--cdt502-accent-blue); text-decoration: none; }
+        
+        /* Sidebar Progress Rail */
+        .progress-rail {
+            position: sticky;
+            top: 2rem;
+            background: var(--cdt502-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .progress-rail-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--cdt502-text-secondary);
+            margin-bottom: 1rem;
+        }
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 0;
+            font-size: 0.875rem;
+            border-left: 3px solid transparent;
+            padding-left: 0.75rem;
+            margin-left: -0.75rem;
+        }
+        .step-item:hover { background: #f1f5f9; border-radius: 6px; }
+        .step-item.active {
+            border-left-color: var(--cdt502-accent-blue);
+            background: #eff6ff;
+            border-radius: 0 6px 6px 0;
+            font-weight: 600;
+        }
+        .step-item.completed { color: var(--cdt502-accent-green); }
+        .step-number {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .step-item.active .step-number { background: var(--cdt502-accent-blue); color: white; }
+        .step-item.completed .step-number { background: var(--cdt502-accent-green); color: white; }
+        
+        /* Header */
+        .step-header {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+        }
+        .step-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+        .step-header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .step-subtitle { opacity: 0.9; margin-bottom: 1.5rem; }
+        .step-nav { display: flex; gap: 1rem; margin-top: 1.5rem; }
+        .step-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 6px;
+            font-size: 0.875rem;
+        }
+        .step-nav a:hover { background: rgba(255,255,255,0.3); }
+        
+        /* Section */
+        .step-section {
+            background: var(--cdt502-card);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .step-section h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--cdt502-border);
+        }
+        .step-section h3 { font-size: 1rem; margin: 1.5rem 0 1rem; color: var(--cdt502-text-secondary); }
+        
+        /* Decision Tag */
+        .decision-tag {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+        
+        /* Strategy Grid */
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .strategy-card {
+            background: #f8fafc;
+            padding: 1.25rem;
+            border-radius: 8px;
+            border: 1px solid var(--cdt502-border);
+        }
+        .strategy-card h4 { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--cdt502-text); }
+        .strategy-card p { font-size: 0.85rem; color: var(--cdt502-text-secondary); }
+        
+        /* Code Block */
+        .code-block {
+            background: var(--cdt502-code-bg);
+            color: var(--cdt502-code-text);
+            padding: 1.25rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        .code-block code { color: #a5b4fc; }
+        
+        /* Code Explain Grid */
+        .code-explain-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        /* Details/Summary */
+        details {
+            background: #f8fafc;
+            border: 1px solid var(--cdt502-border);
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        summary {
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        details .code-block { border-radius: 0 0 8px 8px; margin: 0; }
+        
+        /* Findings List */
+        .findings-list {
+            list-style: none;
+            padding: 0;
+        }
+        .findings-list li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            border-bottom: 1px solid var(--cdt502-border);
+        }
+        .findings-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--cdt502-accent-blue);
+            font-weight: bold;
+        }
+        
+        /* Bottom Nav */
+        .bottom-step-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--cdt502-border);
+        }
+        .bottom-step-nav a {
+            padding: 0.75rem 1.5rem;
+            background: var(--cdt502-card);
+            border: 1px solid var(--cdt502-border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--cdt502-text);
+        }
+        .bottom-step-nav a.next {
+            background: var(--cdt502-accent-blue);
+            color: white;
+            border-color: var(--cdt502-accent-blue);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .layout { grid-template-columns: 1fr; }
+            .progress-rail { display: none; }
+            .code-explain-grid { grid-template-columns: 1fr; }
+            .strategy-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="/">首页</a> → <a href="/cdt502/">CDT502</a> → <a href="/cdt502/overview/">概览</a> → Step 1
+    </div>
+
+    <div class="container">
+        <div class="layout">
+            <!-- Sidebar -->
+            <div class="progress-rail">
+                <div class="progress-rail-title">分析流程</div>
+                <div class="step-item completed"><span class="step-number">✓</span> 概览</div>
+                <div class="step-item active"><span class="step-number">1</span> 数据加载</div>
+                <div class="step-item"><span class="step-number">2</span> 数据清洗</div>
+                <div class="step-item"><span class="step-number">3</span> RFM分析</div>
+                <div class="step-item"><span class="step-number">4</span> 客户聚类</div>
+                <div class="step-item"><span class="step-number">5</span> CLV分析</div>
+                <div class="step-item"><span class="step-number">6</span> 流失预测</div>
+                <div class="step-item"><span class="step-number">7</span> 销售预测</div>
+                <div class="step-item"><span class="step-number">8</span> 国家分析</div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Header -->
+                <div class="step-header">
+                    <div class="step-label">Step 1 / 8</div>
+                    <h1>📥 数据加载</h1>
+                    <div class="step-subtitle">将原始 Excel 文件读入 pandas DataFrame，建立分析的起点</div>
+                    <div class="step-nav">
+                        <a href="#">← 概览</a>
+                        <a href="#">下一步 →</a>
+                    </div>
+                </div>
+
+                <!-- Background -->
+                <div class="step-section">
+                    <h2>🎯 背景与目标</h2>
+                    <p>数据加载是整个分析流水线的第零步。我们的目标是：</p>
+                    <ul style="margin: 1rem 0 1rem 1.5rem; line-height: 2;">
+                        <li>将 Excel 文件读取为结构化 DataFrame</li>
+                        <li>将 <code>InvoiceDate</code> 解析为 Python <code>datetime</code> 类型</li>
+                        <li>了解数据的基本规模：行数、列数、时间跨度</li>
+                        <li>为后续步骤准备"干净的加载状态"</li>
+                    </ul>
+                </div>
+
+                <!-- Strategy -->
+                <div class="step-section">
+                    <h2>🧠 策略与决策</h2>
+
+                    <p><span class="decision-tag">⚡ 决策</span> <strong>为什么不用 CSV？</strong></p>
+                    <p style="margin-left: 1rem; margin-top: 0.5rem; color: var(--cdt502-text-secondary);">原始数据来自 Excel（<code>.xlsx</code>），包含中文描述字段。CSV 可能引发编码问题，而 <code>pd.read_excel()</code> 对 Excel 原生支持更好。</p>
+
+                    <p style="margin-top: 1.5rem;"><span class="decision-tag">⚡ 决策</span> <strong>为什么显式转换 <code>InvoiceDate</code>？</strong></p>
+                    <p style="margin-left: 1rem; margin-top: 0.5rem; color: var(--cdt502-text-secondary);">原始日期是字符串或 Excel serial date，不进行类型转换会导致后续按时间排序、分组等操作出错。显式转换让数据类型清晰可见。</p>
+
+                    <div class="strategy-grid" style="margin-top: 1.5rem;">
+                        <div class="strategy-card">
+                            <h4>📄 数据文件</h4>
+                            <p>online_retail_II.xlsx — 包含 2009-2011 年英国在线零售交易数据</p>
+                        </div>
+                        <div class="strategy-card">
+                            <h4>🛠 加载策略</h4>
+                            <p>直接 <code>pd.read_excel()</code>，无特殊参数，速度可接受（< 54 万行）</p>
+                        </div>
+                        <div class="strategy-card">
+                            <h4>📅 日期解析</h4>
+                            <p><code>pd.to_datetime()</code> 自动识别格式，避免手动指定 format 字符串</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code -->
+                <div class="step-section">
+                    <h2>💻 执行细节</h2>
+
+                    <h3>核心代码 — 数据加载函数</h3>
+
+                    <details open>
+                        <summary>查看完整代码 (core/cleaning.py — load_data)</summary>
+                        <div class="code-block"><pre><code>def load_data(input_path: Path) -> pd.DataFrame:
+    """
+    加载原始 Excel 数据文件
+    
+    参数:
+        input_path: Excel 文件路径 (.xlsx)
+    
+    返回:
+        pd.DataFrame: 包含所有交易记录的 DataFrame
+    """
+    df = pd.read_excel(input_path)
+    df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
+    return df</code></pre></div>
+                    </details>
+
+                    <h3 style="margin-top: 1.5rem;">代码逐行解析</h3>
+
+                    <div class="code-explain-grid">
+                        <div class="code-block"><pre><code>df = pd.read_excel(input_path)</code></pre></div>
+                        <div>
+                            <strong>加载 Excel 文件</strong><br>
+                            <span style="color: var(--cdt502-text-secondary);">pandas 的 <code>read_excel()</code> 内部调用 xlrd 或 openpyxl 引擎，自动识别工作表。此处无特殊参数，读取第一个工作表全部数据。</span>
+                        </div>
+                    </div>
+
+                    <div class="code-explain-grid">
+                        <div class="code-block"><pre><code>df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])</code></pre></div>
+                        <div>
+                            <strong>日期列类型转换</strong><br>
+                            <span style="color: var(--cdt502-text-secondary);">将发票日期列转换为 datetime 类型。后续需要按时间排序、按月分组、计算 RFM 中的 Recency，都依赖这个转换。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Findings -->
+                <div class="step-section">
+                    <h2>🔍 关键发现</h2>
+                    <ul class="findings-list">
+                        <li>原始数据共 <strong>541,909 条</strong> 交易记录，规模适中，可全量加载到内存</li>
+                        <li>时间跨度 <strong>2 年 10 天</strong>（2009-12-01 至 2011-12-09），足够做季节性分析</li>
+                        <li>数据来自 <strong>37 个国家</strong>，英国为主</li>
+                        <li>字段结构清晰，8 个字段无需额外解析可直接使用</li>
+                    </ul>
+                </div>
+
+                <!-- Bottom Nav -->
+                <div class="bottom-step-nav">
+                    <a href="#">← 概览</a>
+                    <a href="#" class="next">数据清洗 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

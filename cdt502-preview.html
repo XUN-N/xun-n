@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDT502 Analysis - Preview</title>
+    <style>
+        :root {
+            --bg-primary: #f0f4f8;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        
+        /* Header */
+        .hero {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #6366f1 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; }
+        
+        /* Steps */
+        .step {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .step-title h2 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+        .step-title p { color: var(--text-secondary); }
+        
+        /* Tags */
+        .tags { display: flex; gap: 0.5rem; margin-left: auto; }
+        .tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .tag-success { background: #d1fae5; color: #065f46; }
+        .tag-info { background: #dbeafe; color: #1e40af; }
+        
+        /* Chart Gallery */
+        .chart-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .chart-card {
+            background: var(--bg-primary);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .chart-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .chart-card h4 {
+            margin-top: 0.75rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Report Block */
+        .report-block {
+            background: #f8fafc;
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+        .report-block h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        .data-table th,
+        .data-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .data-table th {
+            background: var(--bg-primary);
+            font-weight: 600;
+        }
+        
+        /* Status Banner */
+        .status-banner {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .hero h1 { font-size: 1.75rem; }
+            .step-header { flex-direction: column; align-items: flex-start; }
+            .tags { margin-left: 0; margin-top: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Status -->
+        <div class="status-banner">
+            🚧 <strong>预览模式</strong> - Phase 1 完成 | 静态HTML预览版本
+        </div>
+
+        <!-- Hero -->
+        <section class="hero">
+            <h1>CDT502 Online Retail Analysis</h1>
+            <p>端到端客户数据分析 — RFM · 聚类 · Churn预测 · 销售预测</p>
+        </section>
+
+        <!-- Step 1: Data Cleaning -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">
+                    <h2>数据清洗与预处理</h2>
+                    <p>清洗原始交易数据，处理缺失值，准备分析特征</p>
+                </div>
+                <div class="tags">
+                    <span class="tag tag-success">✓ 完成</span>
+                    <span class="tag tag-info">392K+ 行</span>
+                </div>
+            </div>
+            <div class="report-block">
+                <h3>📊 数据质量报告</h3>
+                <table class="data-table">
+                    <tr><th>指标</th><th>数值</th></tr>
+                    <tr><td>原始数据</td><td>541,909 条交易</td></tr>
+                    <tr><td>清洗后</td><td>392,732 条 (72.5%)</td></tr>
+                    <tr><td>唯一客户</td><td>4,339 人</td></tr>
+                    <tr><td>时间跨度</td><td>2010-12-01 至 2011-12-09</td></tr>
+                    <tr><td>退货率</td><td>2.27% (8,905条)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Step 2: RFM Analysis -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">
+                    <h2>RFM 分析</h2>
+                    <p>计算客户最近购买、购买频率、消费金额得分</p>
+                </div>
+                <div class="tags">
+                    <span class="tag tag-success">✓ 完成</span>
+                    <span class="tag tag-info">9 个细分群体</span>
+                </div>
+            </div>
+            
+            <div class="chart-gallery">
+                <div class="chart-card">
+                    <svg width="100%" height="200" viewBox="0 0 400 200">
+                        <!-- 模拟RFM分布图 -->
+                        <rect x="50" y="150" width="40" height="40" fill="#3b82f6" opacity="0.8"/>
+                        <rect x="100" y="100" width="40" height="90" fill="#3b82f6" opacity="0.8"/>
+                        <rect x="150" y="60" width="40" height="130" fill="#3b82f6" opacity="0.8"/>
+                        <rect x="200" y="80" width="40" height="110" fill="#3b82f6" opacity="0.8"/>
+                        <rect x="250" y="120" width="40" height="70" fill="#3b82f6" opacity="0.8"/>
+                        <text x="230" y="30" text-anchor="middle" fill="#1a202c" font-size="14" font-weight="bold">RFM Score Distribution</text>
+                    </svg>
+                    <h4>RFM 分数分布</h4>
+                </div>
+                <div class="chart-card">
+                    <svg width="100%" height="200" viewBox="0 0 400 200">
+                        <circle cx="120" cy="100" r="60" fill="#10b981" opacity="0.7"/>
+                        <circle cx="200" cy="100" r="50" fill="#f59e0b" opacity="0.7"/>
+                        <circle cx="280" cy="100" r="40" fill="#ef4444" opacity="0.7"/>
+                        <text x="230" y="30" text-anchor="middle" fill="#1a202c" font-size="14" font-weight="bold">Customer Segments</text>
+                    </svg>
+                    <h4>客户细分分布</h4>
+                </div>
+            </div>
+
+            <div class="report-block">
+                <h3>💡 核心洞察</h3>
+                <ul style="margin-left: 1.5rem; line-height: 2;">
+                    <li><strong>Champions (冠军客户):</strong> 最近购买、高频、高消费 — 重点维护</li>
+                    <li><strong>Loyal Customers (忠诚客户):</strong> 高频购买但金额中等 —  Upsell机会</li>
+                    <li><strong>Potential Loyalists (潜在忠诚):</strong> 最近购买但频率低 — 培育对象</li>
+                    <li><strong>At Risk (风险客户):</strong> 曾经高价值但近期未购 — 挽回行动</li>
+                    <li><strong>Lost (流失客户):</strong> 长期未购买 — 激活成本高</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Step 3: Clustering -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">
+                    <h2>K-Means 聚类分析</h2>
+                    <p>基于RFM得分的无监督客户分群</p>
+                </div>
+                <div class="tags">
+                    <span class="tag tag-success">✓ 完成</span>
+                    <span class="tag tag-info">5 个聚类</span>
+                </div>
+            </div>
+            
+            <div class="chart-gallery">
+                <div class="chart-card">
+                    <svg width="100%" height="200" viewBox="0 0 400 200">
+                        <line x1="50" y1="180" x2="350" y2="180" stroke="#ccc"/>
+                        <line x1="50" y1="180" x2="50" y2="20" stroke="#ccc"/>
+                        <circle cx="100" cy="150" r="5" fill="#3b82f6"/>
+                        <circle cx="120" cy="140" r="5" fill="#3b82f6"/>
+                        <circle cx="150" cy="120" r="5" fill="#10b981"/>
+                        <circle cx="180" cy="100" r="5" fill="#10b981"/>
+                        <circle cx="220" cy="80" r="5" fill="#f59e0b"/>
+                        <circle cx="280" cy="60" r="5" fill="#ef4444"/>
+                        <text x="230" y="30" text-anchor="middle" fill="#1a202c" font-size="14" font-weight="bold">PCA Cluster Visualization</text>
+                    </svg>
+                    <h4>PCA 聚类可视化</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: CLV -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-title">
+                    <h2>客户生命周期价值 (CLV)</h2>
+                    <p>预测客户未来价值，识别高价值客户</p>
+                </div>
+                <div class="tags">
+                    <span class="tag tag-success">✓ 完成</span>
+                    <span class="tag tag-info">BG/NBD模型</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 5: Churn -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <div class="step-title">
+                    <h2>流失预测</h2>
+                    <p>基于历史行为预测客户流失风险</p>
+                </div>
+                <div class="tags">
+                    <span class="tag tag-success">✓ 完成</span>
+                    <span class="tag tag-info">XGBoost</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 2rem; color: var(--text-secondary);">
+            <p>📁 完整项目代码: <a href="https://github.com/XUN-N/xun-n-.github.io" style="color: var(--accent-blue);">GitHub Repository</a></p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Phase 1 完成 | Phase 2 进行中</p>
+        </div>
+    </div>
+</body>
+</html>
