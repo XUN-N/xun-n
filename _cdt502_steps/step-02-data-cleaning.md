@@ -15,8 +15,8 @@ layout: cdt502-step
   <h1>🧹 数据清洗</h1>
   <div class="step-subtitle">处理缺失值、异常值、分离退货订单，为后续分析准备高质量数据</div>
   <div class="step-nav">
-    <a href="/cdt502/steps/step-01-data-loading/">← 上一步</a>
-    <a href="/cdt502/steps/step-03-rfm-analysis/">下一步 →</a>
+    <a href="{{ site.baseurl }}/cdt502/steps/step-01-data-loading/">← 上一步</a>
+    <a href="{{ site.baseurl }}/cdt502/steps/step-03-rfm-analysis/">下一步 →</a>
   </div>
 </div>
 
@@ -286,6 +286,6 @@ df_micro = df[df['CustomerID'].notnull()]
 
 <!-- Bottom nav -->
 <div class="bottom-step-nav">
-  <a href="/cdt502/steps/step-01-data-loading/">← 数据加载</a>
-  <a href="/cdt502/steps/step-03-rfm-analysis/" class="next">RFM分析 →</a>
+  <a href="{{ site.baseurl }}/cdt502/steps/step-01-data-loading/">← 数据加载</a>
+  <a href="{{ site.baseurl }}/cdt502/steps/step-03-rfm-analysis/" class="next">RFM分析 →</a>
 </div>
