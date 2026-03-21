@@ -3,6 +3,12 @@
 /* Import JetBrains Mono font */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
+/* Default: ALL code text is white (ensures visibility) */
+.step-section .highlight pre code,
+.step-section .highlight pre code * {
+  color: #ffffff !important;
+}
+
 /* ===== Rouge Highlight Container ===== */
 
 .step-section .highlight {
