@@ -16,6 +16,15 @@ exclude:
   - screenshot.png
   - Gemfile
   - Gemfile.lock
+  - DEPLOY-GUIDE.html
+  - DEPLOYMENT.md
+  - DOCKER-SETUP.md
+  - PROJECT-SUMMARY.md
+  - QUICK-DEPLOY.md
+  - QUICK-START.md
+  - UPDATE-SUMMARY.md
+  - cdt502-preview.html
+  - cdt502-step1-preview.html
 
 # Collections
 collections:
