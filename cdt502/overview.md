@@ -91,7 +91,7 @@ step_icon: 🏠
   <p>整个分析分为 8 个步骤，每一步的输出作为下一步的输入，形成完整的数据处理流水线：</p>
 
   <div style="margin-top: 1.5rem;">
-    {% assign steps = site.cdt502-steps | sort: 'step_number' %}
+    {% assign steps = site.cdt502_steps | sort: 'step_number' %}
     {% for step in steps %}
       {% unless step.step_number == 0 %}
         <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 0.75rem; background: white;">

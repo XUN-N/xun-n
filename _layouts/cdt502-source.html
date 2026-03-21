@@ -97,7 +97,7 @@ pre code { font-family: 'JetBrains Mono', 'Fira Code', monospace !important; fon
     <!-- Sidebar -->
     <aside class="source-sidebar">
       <div class="source-sidebar-title">源码模块</div>
-      {% assign sources = site.cdt502-source | sort: 'source_order' %}
+      {% assign sources = site.cdt502_source | sort: 'source_order' %}
       {% for src in sources %}
         <a href="{{ src.url }}"
            class="source-nav-item {% if page.title == src.title %}active{% endif %}">

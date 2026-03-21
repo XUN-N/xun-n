@@ -365,7 +365,7 @@ details pre {
     <aside class="progress-rail">
       <div class="progress-rail-title">分析流程</div>
       <nav class="progress-steps">
-        {% assign steps = site.cdt502-steps | sort: 'step_number' %}
+        {% assign steps = site.cdt502_steps | sort: 'step_number' %}
         {% for step in steps %}
           {% assign s = step.step_number %}
           {% assign is_active = false %}
