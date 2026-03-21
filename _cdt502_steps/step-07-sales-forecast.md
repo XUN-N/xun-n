@@ -14,8 +14,8 @@ layout: cdt502-step
   <h1>📈 销售预测</h1>
   <div class="step-subtitle">基于时间序列分析预测未来销售趋势，识别季节性模式和增长动力</div>
   <div class="step-nav">
-    <a href="{{ '/cdt502/steps/step-06-churn-prediction/' | relative_url }}"003e← 上一步</a>
-    <a href="{{ '/cdt502/steps/step-08-country-analysis/' | relative_url }}"003e下一步 →</a>
+    <a href="{{ '/cdt502/steps/step-06-churn-prediction/' | relative_url }}">← 上一步</a>
+    <a href="{{ '/cdt502/steps/step-08-country-analysis/' | relative_url }}">下一步 →</a>
   </div>
 </div>
 
@@ -293,6 +293,6 @@ predicted_sales = trend_value * seasonal_indices.get(month, 1.0)
 
 <!-- Bottom nav -->
 <div class="bottom-step-nav">
-  <a href="{{ '/cdt502/steps/step-06-churn-prediction/' | relative_url }}"003e← 流失预测</a>
+  <a href="{{ '/cdt502/steps/step-06-churn-prediction/' | relative_url }}">← 流失预测</a>
   <a href="{{ '/cdt502/steps/step-08-country-analysis/' | relative_url }}" class="next">国家分析 →</a>
 </div>

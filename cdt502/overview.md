@@ -101,7 +101,7 @@ permalink: /cdt502/overview/
             <div style="font-weight: 600; color: #1e293b;">{{ step.title }}</div>
             <div style="font-size: 0.8rem; color: #64748b; margin-top: 0.2rem;">{{ step.description }}</div>
           </div>
-          <a href="{{ step.url }}" style="padding: 0.4rem 1rem; background: #f1f5f9; border-radius: 6px; text-decoration: none; font-size: 0.8rem; color: #3b82f6; font-weight: 600;">阅读 →</a>
+          <a href="{{ step.url | relative_url }}" style="padding: 0.4rem 1rem; background: #f1f5f9; border-radius: 6px; text-decoration: none; font-size: 0.8rem; color: #3b82f6; font-weight: 600;">阅读 →</a>
         </div>
       {% endunless %}
     {% endfor %}

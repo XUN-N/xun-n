@@ -14,8 +14,8 @@ layout: cdt502-step
   <h1>⚠️ 流失预测</h1>
   <div class="step-subtitle">构建客户流失预测模型，识别高风险客户，制定精准挽留策略</div>
   <div class="step-nav">
-    <a href="{{ '/cdt502/steps/step-05-clv-analysis/' | relative_url }}"003e← 上一步</a>
-    <a href="{{ '/cdt502/steps/step-07-sales-forecast/' | relative_url }}"003e下一步 →</a>
+    <a href="{{ '/cdt502/steps/step-05-clv-analysis/' | relative_url }}">← 上一步</a>
+    <a href="{{ '/cdt502/steps/step-07-sales-forecast/' | relative_url }}">下一步 →</a>
   </div>
 </div>
 
@@ -299,6 +299,6 @@ def assign_risk_level(prob):
 
 <!-- Bottom nav -->
 <div class="bottom-step-nav">
-  <a href="{{ '/cdt502/steps/step-05-clv-analysis/' | relative_url }}"003e← CLV分析</a>
+  <a href="{{ '/cdt502/steps/step-05-clv-analysis/' | relative_url }}">← CLV分析</a>
   <a href="{{ '/cdt502/steps/step-07-sales-forecast/' | relative_url }}" class="next">销售预测 →</a>
 </div>

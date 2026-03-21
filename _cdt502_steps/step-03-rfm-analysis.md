@@ -14,8 +14,8 @@ layout: cdt502-step
   <h1>📊 RFM 分析</h1>
   <div class="step-subtitle">通过 Recency、Frequency、Monetary 三维指标评估客户价值，实现精准客户分层</div>
   <div class="step-nav">
-    <a href="{{ '/cdt502/steps/step-02-data-cleaning/' | relative_url }}"003e← 上一步</a>
-    <a href="{{ '/cdt502/steps/step-04-customer-clustering/' | relative_url }}"003e下一步 →</a>
+    <a href="{{ '/cdt502/steps/step-02-data-cleaning/' | relative_url }}">← 上一步</a>
+    <a href="{{ '/cdt502/steps/step-04-customer-clustering/' | relative_url }}">下一步 →</a>
   </div>
 </div>
 
@@ -296,6 +296,6 @@ elif r <= 2 and f >= 4 and m >= 4:
 
 <!-- Bottom nav -->
 <div class="bottom-step-nav">
-  <a href="{{ '/cdt502/steps/step-02-data-cleaning/' | relative_url }}"003e← 数据清洗</a>
+  <a href="{{ '/cdt502/steps/step-02-data-cleaning/' | relative_url }}">← 数据清洗</a>
   <a href="{{ '/cdt502/steps/step-04-customer-clustering/' | relative_url }}" class="next">客户聚类 →</a>
 </div>

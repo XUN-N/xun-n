@@ -59,8 +59,8 @@ permalink: /cdt502/evolution/
   <h1>🔄 我们的分析工具探索之路</h1>
   <div class="step-subtitle">从简单 RFM 三分类到 K-Means 聚类 — 逐步深入的探索历程</div>
   <div class="step-nav">
-    <a href="{{ '/cdt502/steps/methodology/' | relative_url }}"003e← 方法论</a>
-    <a href="{{ '/cdt502/steps/step-03-rfm-analysis/' | relative_url }}"003eRFM分析 →</a>
+    <a href="{{ '/cdt502/methodology/' | relative_url }}">← 方法论</a>
+    <a href="{{ '/cdt502/steps/step-03-rfm-analysis/' | relative_url }}">RFM分析 →</a>
   </div>
 </div>
 
@@ -533,6 +533,6 @@ print(centroids)
 
 <!-- Bottom nav -->
 <div class="bottom-step-nav">
-  <a href="{{ '/cdt502/steps/methodology/' | relative_url }}"003e← 方法论</a>
+  <a href="{{ '/cdt502/methodology/' | relative_url }}">← 方法论</a>
   <a href="{{ '/cdt502/steps/step-03-rfm-analysis/' | relative_url }}" class="next">RFM分析 →</a>
 </div>

@@ -323,6 +323,6 @@ pattern = 'Wholesale' if wholesale_ratio > 0.3 else 'Retail'
 
 <!-- Bottom nav -->
 <div class="bottom-step-nav">
-  <a href="{{ '/cdt502/steps/step-07-sales-forecast/' | relative_url }}"003e← 销售预测</a>
-  <a href="{{ '/cdt502/steps/overview/' | relative_url }}" class="next">返回概览 →</a>
+  <a href="{{ '/cdt502/steps/step-07-sales-forecast/' | relative_url }}">← 销售预测</a>
+  <a href="{{ '/cdt502/overview/' | relative_url }}" class="next">返回概览 →</a>
 </div>
