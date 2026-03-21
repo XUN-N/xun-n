@@ -14,8 +14,8 @@ layout: cdt502-step
   <h1>💎 CLV 分析</h1>
   <div class="step-subtitle">预测客户生命周期价值，识别高价值客户，优化营销资源分配策略</div>
   <div class="step-nav">
-    <a href="{{ site.baseurl }}/cdt502/steps/step-04-customer-clustering/">← 上一步</a>
-    <a href="{{ site.baseurl }}/cdt502/steps/step-06-churn-prediction/">下一步 →</a>
+    <a href="{{ '/cdt502/steps/step-04-customer-clustering/' | relative_url }}"003e← 上一步</a>
+    <a href="{{ '/cdt502/steps/step-06-churn-prediction/' | relative_url }}"003e下一步 →</a>
   </div>
 </div>
 
@@ -293,6 +293,6 @@ def assign_clv_tier(clv):
 
 <!-- Bottom nav -->
 <div class="bottom-step-nav">
-  <a href="{{ site.baseurl }}/cdt502/steps/step-04-customer-clustering/">← 客户聚类</a>
-  <a href="{{ site.baseurl }}/cdt502/steps/step-06-churn-prediction/" class="next">流失预测 →</a>
+  <a href="{{ '/cdt502/steps/step-04-customer-clustering/' | relative_url }}"003e← 客户聚类</a>
+  <a href="{{ '/cdt502/steps/step-06-churn-prediction/' | relative_url }}" class="next">流失预测 →</a>
 </div>

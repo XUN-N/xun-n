@@ -14,8 +14,8 @@ layout: cdt502-step
   <h1>🌍 国家分析</h1>
   <div class="step-subtitle">分析 37 个国家的消费差异，识别市场机会和跨国购买行为模式</div>
   <div class="step-nav">
-    <a href="{{ site.baseurl }}/cdt502/steps/step-07-sales-forecast/">← 上一步</a>
-    <a href="{{ site.baseurl }}/cdt502/steps/overview/">返回概览 →</a>
+    <a href="{{ '/cdt502/steps/step-07-sales-forecast/' | relative_url }}">← 上一步</a>
+    <a href="{{ '/cdt502/overview/' | relative_url }}">返回概览 →</a>
   </div>
 </div>
 
@@ -323,6 +323,6 @@ pattern = 'Wholesale' if wholesale_ratio > 0.3 else 'Retail'
 
 <!-- Bottom nav -->
 <div class="bottom-step-nav">
-  <a href="{{ site.baseurl }}/cdt502/steps/step-07-sales-forecast/">← 销售预测</a>
-  <a href="{{ site.baseurl }}/cdt502/steps/overview/" class="next">返回概览 →</a>
+  <a href="{{ '/cdt502/steps/step-07-sales-forecast/' | relative_url }}"003e← 销售预测</a>
+  <a href="{{ '/cdt502/steps/overview/' | relative_url }}" class="next">返回概览 →</a>
 </div>

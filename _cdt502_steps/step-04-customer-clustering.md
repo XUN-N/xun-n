@@ -14,8 +14,8 @@ layout: cdt502-step
   <h1>🎯 客户聚类</h1>
   <div class="step-subtitle">使用 K-Means 算法进行无监督分群，发现数据中隐藏的客户模式和行为特征</div>
   <div class="step-nav">
-    <a href="{{ site.baseurl }}/cdt502/steps/step-03-rfm-analysis/">← 上一步</a>
-    <a href="{{ site.baseurl }}/cdt502/steps/step-05-clv-analysis/">下一步 →</a>
+    <a href="{{ '/cdt502/steps/step-03-rfm-analysis/' | relative_url }}"003e← 上一步</a>
+    <a href="{{ '/cdt502/steps/step-05-clv-analysis/' | relative_url }}"003e下一步 →</a>
   </div>
 </div>
 
@@ -324,6 +324,6 @@ print(f"PC2 explains {pca.explained_variance_ratio_[1]:.1%} variance")
 
 <!-- Bottom nav -->
 <div class="bottom-step-nav">
-  <a href="{{ site.baseurl }}/cdt502/steps/step-03-rfm-analysis/">← RFM分析</a>
-  <a href="{{ site.baseurl }}/cdt502/steps/step-05-clv-analysis/" class="next">CLV分析 →</a>
+  <a href="{{ '/cdt502/steps/step-03-rfm-analysis/' | relative_url }}"003e← RFM分析</a>
+  <a href="{{ '/cdt502/steps/step-05-clv-analysis/' | relative_url }}" class="next">CLV分析 →</a>
 </div>
