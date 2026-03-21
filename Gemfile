@@ -2,21 +2,19 @@
 
 source "https://rubygems.org"
 
-# Jekyll core
-gem "jekyll", "~> 4.3"
-
-# GitHub Pages compatibility
+# GitHub Pages compatibility - includes Jekyll 3.x
+# Note: Do NOT specify jekyll version directly when using github-pages
 gem "github-pages", group: :jekyll_plugins
 
 # Markdown processor
-gem "kramdown", "~> 2.1"
+gem "kramdown", "~> 2.3"
 
 # Syntax highlighting
-gem "rouge", "~> 4.0"
+gem "rouge", "~> 3.26"
 
 # Development dependencies
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
+  gem "jekyll-feed", "~> 0.15"
   gem "jekyll-sitemap", "~> 1.4"
 end
 
