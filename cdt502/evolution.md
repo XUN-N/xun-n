@@ -5,6 +5,7 @@ step_icon: 🔄
 title: 方法论演进历程
 description: 从简单 RFM 到 K-Means 聚类 — 我们的分析工具探索之路
 layout: cdt502-step
+permalink: /cdt502/evolution/
 ---
 
 <style>.step-header { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important; }

@@ -5,6 +5,7 @@ step_icon: 🧠
 title: 分析方法论
 description: 策略、决策与技术选型全解析
 layout: cdt502-step
+permalink: /cdt502/methodology/
 ---
 
 <style>.step-header { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%) !important; }</style>

@@ -4,6 +4,7 @@ title: 项目概览
 step_number: 0
 step_name: 项目概览
 step_icon: 🏠
+permalink: /cdt502/overview/
 ---
 
 <!-- Overview page - no step nav -->
