@@ -31,12 +31,7 @@
       </div>
       {% endif %}
       <div class="cdt502-chart-body">
-        {% assign ext = chart_file | split: "." | last | downcase %}
-        {% if ext == "svg" %}
-          {% include {{ chart_file }} %}
-        {% else %}
-          <img src="{{ chart_file | relative_url }}" alt="{{ chart_title | default: 'Chart' }}" loading="lazy">
-        {% endif %}
+        <img src="{{ chart_file | relative_url }}" alt="{{ chart_title | default: 'Chart' }}" loading="lazy">
       </div>
       {% if chart_caption != "" %}
       <div class="cdt502-chart-caption">{{ chart_caption | markdownify }}</div>

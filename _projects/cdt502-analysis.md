@@ -24,12 +24,12 @@ The initial dataset contains over 500,000 transactions from a UK-based online re
 - Identifying and analyzing return patterns
 
 {% include cdt502/report-block.html title="Data Quality Report" icon="📊" %}
+
 **Original Dataset:** 541,909 transactions  
 **After Cleaning:** 392,732 valid transactions (72.5% retention)  
 **Unique Customers:** 4,339  
 **Date Range:** 2010-12-01 to 2011-12-09  
 **Return Rate:** 2.27% (8,905 return transactions)
-{% endinclude %}
 
 ---
 
@@ -48,6 +48,7 @@ RFM (Recency, Frequency, Monetary) analysis segments customers based on:
    charts="/assets/cdt502/figures/hypothesis_test_rejection_region.svg:RFM Score Distribution:Distribution of RFM scores across customer base" %}
 
 {% include cdt502/report-block.html title="Key RFM Insights" icon="💡" %}
+
 **Top Segments:**
 - **Champions (555):** 633 customers — Highest value, most recent, most frequent
 - **Loyal Customers:** 817 customers — High frequency and monetary value
@@ -56,7 +57,6 @@ RFM (Recency, Frequency, Monetary) analysis segments customers based on:
 **At-Risk Segments:**
 - **At Risk:** 593 customers — Were valuable but haven't purchased recently
 - **Lost:** 963 customers — Low recency, frequency, and monetary scores
-{% endinclude %}
 
 ---
 
