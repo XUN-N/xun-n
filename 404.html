@@ -13,7 +13,7 @@ permalink: /404.html
         Oops! The page you're looking for doesn't exist or has been moved.
     </p>
     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="/" class="btn btn-primary">Go Home</a>
-        <a href="/blog.html" class="btn" style="background: var(--bg-secondary); color: var(--text-primary);">Browse Blog</a>
+        <a href="{{ '/' | relative_url }}" class="btn btn-primary">Go Home</a>
+        <a href="{{ '/blog.html' | relative_url }}" class="btn" style="background: var(--bg-secondary); color: var(--text-primary);">Browse Blog</a>
     </div>
 </div>

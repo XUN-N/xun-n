@@ -11,7 +11,7 @@ title: Home
         Join me on this journey of learning and building.
     </p>
     <div style="margin-top: 2rem;">
-        <a href="/blog.html" class="btn btn-primary">Read Blog Posts</a>
+        <a href="{{ '/blog.html' | relative_url }}" class="btn btn-primary">Read Blog Posts</a>
     </div>
 </section>
 
@@ -43,7 +43,7 @@ title: Home
     
     {% if site.posts.size > 6 %}
     <div style="text-align: center; margin-top: 2rem;">
-        <a href="/blog.html" class="btn btn-primary">View All Posts</a>
+        <a href="{{ '/blog.html' | relative_url }}" class="btn btn-primary">View All Posts</a>
     </div>
     {% endif %}
 </section>
@@ -85,5 +85,5 @@ title: Home
         I love exploring new technologies, solving problems, and sharing my learning journey.
         This blog is where I document my projects, thoughts, and discoveries.
     </p>
-    <a href="/about.html" class="btn btn-primary">Learn More About Me</a>
+    <a href="{{ '/about.html' | relative_url }}" class="btn btn-primary">Learn More About Me</a>
 </section>
