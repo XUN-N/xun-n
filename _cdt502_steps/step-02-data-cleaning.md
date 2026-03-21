@@ -232,21 +232,21 @@ df_micro = df[df['CustomerID'].notnull()]
   <h2>📊 结果可视化</h2>
 
   <div class="figure-block">
-    <img src="{{ "/assets/cdt502/figures/01_monthly_sales_trend.png" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/02_monthly_sales_trend.png" | relative_url }}"
          alt="月度销售趋势"
          loading="lazy" />
     <div class="figure-caption">图 2.1: 月度销售趋势（2010年12月 - 2011年12月）— 清洗后的数据分布，总销售额达 £8.15M</div>
   </div>
 
   <div class="figure-block" style="margin-top: 2rem;">
-    <img src="{{ "/assets/cdt502/figures/15_weekly_sales_pattern.png" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/03_weekly_sales_pattern.png" | relative_url }}"
          alt="每周销售模式"
          loading="lazy" />
     <div class="figure-caption">图 2.2: 每周销售模式 — 周四、周五是销售高峰，周末有所下降</div>
   </div>
 
   <div class="figure-block" style="margin-top: 2rem;">
-    <img src="{{ "/assets/cdt502/figures/16_hourly_purchase_distribution.png" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/04_hourly_distribution.png" | relative_url }}"
          alt="小时购买分布"
          loading="lazy" />
     <div class="figure-caption">图 2.3: 小时购买分布 — 上午10-12点是购买高峰，符合 B2B 业务特征</div>

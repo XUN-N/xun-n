@@ -249,28 +249,28 @@ predicted_sales = trend_value * seasonal_indices.get(month, 1.0)
   <h2>📊 结果可视化</h2>
 
   <div class="figure-block">
-    <img src="{{ "/assets/cdt502/figures/01_monthly_sales_trend.png" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/02_monthly_sales_trend.png" | relative_url }}"
          alt="月度销售趋势"
          loading="lazy" />
     <div class="figure-caption">图 7.1: 月度销售趋势（2010年12月 - 2011年12月）— 展示历史销售数据和增长趋势，11月达到峰值 £1.2M</div>
   </div>
 
   <div class="figure-block" style="margin-top: 2rem;">
-    <img src="{{ "/assets/cdt502/figures/08_sales_seasonal_decomposition.png" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/21_time_series_decomposition.png" | relative_url }}"
          alt="销售季节性分解"
          loading="lazy" />
     <div class="figure-caption">图 7.2: 销售季节性分解 — 将时间序列分解为趋势、季节性和残差成分。Q4 呈现明显的销售高峰</div>
   </div>
 
   <div class="figure-block" style="margin-top: 2rem;">
-    <img src="{{ "/assets/cdt502/figures/09_sales_forecast_comparison.png" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/22_sales_forecast.png" | relative_url }}"
          alt="销售预测对比"
          loading="lazy" />
     <div class="figure-caption">图 7.3: 销售预测对比 — 预测 2012 年 Q1 销售额约 £850K-950K，保持温和增长趋势</div>
   </div>
 
   <div class="figure-block" style="margin-top: 2rem;">
-    <img src="{{ "/assets/cdt502/figures/19_sales_forecast_confidence.png" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/22_sales_forecast.png" | relative_url }}"
          alt="销售预测置信区间"
          loading="lazy" />
     <div class="figure-caption">图 7.4: 销售预测置信区间 — 提供 95% 置信区间（虚线范围），量化预测不确定性</div>

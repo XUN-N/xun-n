@@ -257,21 +257,21 @@ def assign_clv_tier(clv):
   <h2>📊 结果可视化</h2>
 
   <div class="figure-block">
-    <img src="{{ "/assets/cdt502/figures/06_clv_distribution.png" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/09_clv_distribution.png" | relative_url }}"
          alt="CLV 分布直方图"
          loading="lazy" />
     <div class="figure-caption">图 5.1: CLV 分布直方图 — 展示客户生命周期价值的分布情况，均值约 £2,156，中位数约 £1,450，呈现右偏分布</div>
   </div>
 
   <div class="figure-block" style="margin-top: 2rem;">
-    <img src="{{ "/assets/cdt502/figures/07_clv_rfm_correlation.png" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/10_clv_by_tenure.png" | relative_url }}"
          alt="CLV 与 RFM 相关性热力图"
          loading="lazy" />
     <div class="figure-caption">图 5.2: CLV 与 RFM 相关性热力图 — Frequency（r=0.72）和 Monetary（r=0.68）与 CLV 正相关最强，Recency 呈负相关（r=-0.65）</div>
   </div>
 
   <div class="figure-block" style="margin-top: 2rem;">
-    <img src="{{ "/assets/cdt502/figures/17_customer_value_pareto.png" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/11_clv_deciles.png" | relative_url }}"
          alt="客户价值帕累托曲线"
          loading="lazy" />
     <div class="figure-caption">图 5.3: 客户价值帕累托曲线 — 遵循 80/20 法则：Top 20% 客户贡献了约 78.6% 的总 CLV</div>

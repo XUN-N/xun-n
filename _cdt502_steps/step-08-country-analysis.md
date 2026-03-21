@@ -233,14 +233,14 @@ pattern = 'Wholesale' if wholesale_ratio > 0.3 else 'Retail'
   <h2>📊 结果可视化</h2>
 
   <div class="figure-block">
-    <img src="{{ "/assets/cdt502/figures/14_country_sales_distribution.png" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/25_country_transaction_distribution.png" | relative_url }}"
          alt="国家销售分布"
          loading="lazy" />
     <div class="figure-caption">图 8.1: Top 10 国家销售分布 — UK 以 £7.45M 绝对领先，占总额 91.4%</div>
   </div>
 
   <div class="figure-block" style="margin-top: 2rem;">
-    <img src="{{ "/assets/cdt502/figures/05_rfm_score_heatmap.png" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/28_country_rfm_heatmap.png" | relative_url }}"
          alt="国家 RFM 热力图"
          loading="lazy" />
     <div class="figure-caption">图 8.2: 各国 RFM 特征对比热力图 — 颜色深浅表示指标高低，可直观比较不同国家客户的行为差异</div>

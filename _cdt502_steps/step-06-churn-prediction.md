@@ -269,14 +269,14 @@ def assign_risk_level(prob):
   <h2>📊 结果可视化</h2>
 
   <div class="figure-block">
-    <img src="{{ "/assets/cdt502/figures/10_churn_risk_distribution.png" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/12_churn_distribution.png" | relative_url }}"
          alt="流失风险分布"
          loading="lazy" />
     <div class="figure-caption">图 6.1: 客户流失风险分布 — 18.4% 客户处于 High Risk 状态，需优先挽留</div>
   </div>
 
   <div class="figure-block" style="margin-top: 2rem;">
-    <img src="{{ "/assets/cdt502/figures/11_high_risk_customers.png" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/13_churn_model_performance.png" | relative_url }}"
          alt="高风险客户分布"
          loading="lazy" />
     <div class="figure-caption">图 6.2: 高风险客户分布 — 散点图展示 Recency vs Monetary 关系，颜色表示购买频次。高风险客户集中在右上角（高 Recency、高 Monetary、低 Frequency）</div>

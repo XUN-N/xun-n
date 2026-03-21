@@ -234,14 +234,14 @@ print(f"PC2 explains {pca.explained_variance_ratio_[1]:.1%} variance")
   <h2>📊 结果可视化</h2>
 
   <div class="figure-block">
-    <img src="{{ "/assets/cdt502/figures/other_02_clustering.html" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/16_kmeans_clusters.svg" | relative_url }}"
          alt="K-Means 聚类结果"
          loading="lazy" />
-    <div class="figure-caption">图 4.1: K-Means 聚类结果（3D 散点图）— 在 RFM 三维空间中展示 5 个聚类的分布</div>
+    <div class="figure-caption">图 4.1: K-Means 聚类结果 — 展示 5 个聚类的分布</div>
   </div>
 
   <div class="figure-block" style="margin-top: 2rem;">
-    <img src="{{ "/assets/cdt502/figures/03_rfm_3d_scatter.png" | relative_url }}"
+    <img src="{{ "/assets/cdt502/figures/rfm_3d_scatter.png" | relative_url }}"
          alt="RFM 三维聚类分布"
          loading="lazy" />
     <div class="figure-caption">图 4.2: RFM 三维散点图（按聚类着色）— 颜色表示不同聚类，展示各群体的空间分布特征</div>
