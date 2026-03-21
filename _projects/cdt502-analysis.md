@@ -31,9 +31,9 @@ This project presents a comprehensive analysis of the [UCI Online Retail Dataset
 Explore the complete analysis through our detailed documentation:
 
 ### 📚 Documentation
-- [**Project Overview**](/cdt502/overview/) — Introduction, dataset description, and key findings
-- [**Methodology**](/cdt502/methodology/) — Analysis strategies, decision rationale, and evaluation metrics
-- [**Evolution**](/cdt502/evolution/) — Our journey from simple RFM to K-Means clustering
+- [**Project Overview**](/cdt502/steps/overview/) — Introduction, dataset description, and key findings
+- [**Methodology**](/cdt502/steps/methodology/) — Analysis strategies, decision rationale, and evaluation metrics
+- [**Evolution**](/cdt502/steps/evolution/) — Our journey from simple RFM to K-Means clustering
 
 ### 🔬 8-Step Analysis Pipeline
 
