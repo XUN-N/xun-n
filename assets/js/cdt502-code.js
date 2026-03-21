@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function enhanceCodeBlocks() {
   // Find all Rouge highlight containers
-  const codeBlocks = document.querySelectorAll('.step-section .highlight');
+  const codeBlocks = document.querySelectorAll('.highlight');
   
   codeBlocks.forEach((highlight, index) => {
     // Skip if already processed

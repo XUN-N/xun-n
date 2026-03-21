@@ -3,15 +3,9 @@
 /* Import JetBrains Mono font */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* Default: ALL code text is white (ensures visibility) */
-.step-section .highlight pre code,
-.step-section .highlight pre code * {
-  color: #ffffff !important;
-}
-
 /* ===== Rouge Highlight Container ===== */
 
-.step-section .highlight {
+.highlight {
   position: relative !important;
   margin: 1rem 0 !important;
   border-radius: 12px !important;
@@ -21,7 +15,7 @@
   background: #0f172a !important;
 }
 
-.step-section .highlight pre {
+.highlight pre {
   margin: 0 !important;
   padding: 1.25rem !important;
   background: #0f172a !important;
@@ -32,142 +26,111 @@
   color: #e2e8f0 !important;
 }
 
-.step-section .highlight pre code {
+.highlight pre code {
   font-family: inherit !important;
   font-size: inherit !important;
   background: transparent !important;
   padding: 0 !important;
-  color: #ffffff !important;
+  color: #f8f8f2 !important;
 }
 
 /* ===== Syntax Highlighting Colors - High Contrast ===== */
 
 /* Keywords - Bright Pink */
-.step-section .highlight .k,
-.step-section .highlight .kc,
-.step-section .highlight .kd,
-.step-section .highlight .kn,
-.step-section .highlight .kp,
-.step-section .highlight .kr,
-.step-section .highlight .kt {
+.highlight .k,
+.highlight .kc,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt {
   color: #ff79c6 !important;
   font-weight: 600 !important;
 }
 
 /* Strings - Bright Green */
-.step-section .highlight .s,
-.step-section .highlight .s1,
-.step-section .highlight .s2,
-.step-section .highlight .sb,
-.step-section .highlight .sc,
-.step-section .highlight .sd,
-.step-section .highlight .se,
-.step-section .highlight .sh,
-.step-section .highlight .si,
-.step-section .highlight .sx {
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx {
   color: #50fa7b !important;
 }
 
 /* Numbers - Bright Orange */
-.step-section .highlight .m,
-.step-section .highlight .mf,
-.step-section .highlight .mh,
-.step-section .highlight .mi,
-.step-section .highlight .mo,
-.step-section .highlight .il {
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .il {
   color: #ffb86c !important;
 }
 
 /* Names, Functions - Bright Cyan */
-.step-section .highlight .n,
-.step-section .highlight .na,
-.step-section .highlight .nb,
-.step-section .highlight .nc,
-.step-section .highlight .nd,
-.step-section .highlight .ne,
-.step-section .highlight .nf,
-.step-section .highlight .nl,
-.step-section .highlight .nn,
-.step-section .highlight .nx,
-.step-section .highlight .py {
+.highlight .n,
+.highlight .na,
+.highlight .nb,
+.highlight .nc,
+.highlight .nd,
+.highlight .ne,
+.highlight .nf,
+.highlight .nl,
+.highlight .nn,
+.highlight .nx,
+.highlight .py {
   color: #8be9fd !important;
 }
 
 /* Operators - Bright Purple */
-.step-section .highlight .o,
-.step-section .highlight .ow {
+.highlight .o,
+.highlight .ow {
   color: #bd93f9 !important;
 }
 
 /* Punctuation - Light Gray */
-.step-section .highlight .p {
+.highlight .p {
   color: #f8f8f2 !important;
 }
 
 /* Built-ins - Bright Red */
-.step-section .highlight .bp,
-.step-section .highlight .vc,
-.step-section .highlight .vg,
-.step-section .highlight .vi {
+.highlight .bp,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi {
   color: #ff5555 !important;
 }
 
 /* Comments - Gray */
-.step-section .highlight .c,
-.step-section .highlight .c1,
-.step-section .highlight .cm,
-.step-section .highlight .cp,
-.step-section .highlight .cs {
+.highlight .c,
+.highlight .c1,
+.highlight .cm,
+.highlight .cp,
+.highlight .cs {
   color: #6272a4 !important;
   font-style: italic !important;
 }
 
 /* Docstrings - Light Green */
-.step-section .highlight .sd {
+.highlight .sd {
   color: #69ff94 !important;
   font-style: italic !important;
 }
 
 /* Errors */
-.step-section .highlight .err {
+.highlight .err {
   color: #ff6b6b !important;
   background: rgba(255, 107, 107, 0.2) !important;
 }
 
 /* Generic output */
-.step-section .highlight .go {
+.highlight .go {
   color: #f8f8f2 !important;
-}
-
-/* ===== Line Numbers ===== */
-
-.step-section .highlight {
-  counter-reset: line !important;
-}
-
-.step-section .highlight pre {
-  padding-left: 3.5rem !important;
-}
-
-.step-section .highlight pre code > * {
-  display: block !important;
-  position: relative !important;
-}
-
-.step-section .highlight pre code > *::before {
-  counter-increment: line !important;
-  content: counter(line) !important;
-  position: absolute !important;
-  left: -3rem !important;
-  top: 0 !important;
-  width: 2.5rem !important;
-  color: #6272a4 !important;
-  text-align: right !important;
-  font-size: 0.75rem !important;
-  line-height: 1.7 !important;
-  padding-right: 0.75rem !important;
-  border-right: 1px solid #44475a !important;
-  user-select: none !important;
 }
 
 /* ===== Copy Button ===== */
@@ -192,7 +155,7 @@
   opacity: 0 !important;
 }
 
-.step-section .highlight:hover .code-copy-btn {
+.highlight:hover .code-copy-btn {
   opacity: 1 !important;
 }
 
@@ -212,7 +175,7 @@
 .code-language-badge {
   position: absolute !important;
   top: 0.75rem !important;
-  left: 3.5rem !important;
+  left: 0.75rem !important;
   padding: 0.25rem 0.5rem !important;
   background: rgba(189, 147, 249, 0.2) !important;
   color: #bd93f9 !important;
@@ -227,23 +190,9 @@
 
 /* ===== Inline Code ===== */
 
-.step-section p code,
-.step-section li code,
-.step-section td code {
-  background: rgba(189, 147, 249, 0.1) !important;
-  color: #bd93f9 !important;
-  padding: 0.2em 0.4em !important;
-  border-radius: 4px !important;
-  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
-  font-size: 0.9em !important;
-  font-weight: 500 !important;
-  border: 1px solid rgba(189, 147, 249, 0.2) !important;
-}
-
-/* Don't apply inline styles to code blocks */
-.step-section .highlight pre code {
+.highlight pre code {
   background: transparent !important;
-  color: #ffffff !important;
+  color: #f8f8f2 !important;
   padding: 0 !important;
   border: none !important;
   font-size: inherit !important;
