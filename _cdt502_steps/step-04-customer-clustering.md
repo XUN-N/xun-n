@@ -69,7 +69,7 @@ layout: cdt502-step
 
   <details>
     <summary>查看完整代码 (cluster.py / analysis_core.py)</summary>
-```python
+{% highlight python %}
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
@@ -164,12 +164,12 @@ def visualize_clusters_pca(rfm_df, centers=None):
     ax.legend()
     
     return fig
-```
+{% endhighlight %}
   </details>
 
   <div class="code-explain-grid" style="margin-top: 1.5rem;">
     <div class="code-block">
-```python
+{% highlight python %}
 # 标准化是关键步骤
 scaler = StandardScaler()
 features_scaled = scaler.fit_transform(features)
@@ -181,7 +181,7 @@ kmeans = KMeans(
     n_init=10
 )
 cluster_labels = kmeans.fit_predict(features_scaled)
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>标准化 + K-Means</strong><br>
@@ -191,7 +191,7 @@ cluster_labels = kmeans.fit_predict(features_scaled)
 
   <div class="code-explain-grid">
     <div class="code-block">
-```python
+{% highlight python %}
 # 肘部法则寻找最优 K
 inertias = []
 for k in range(2, 10):
@@ -203,7 +203,7 @@ for k in range(2, 10):
 plt.plot(range(2, 10), inertias, 'bo-')
 plt.xlabel('Number of Clusters (K)')
 plt.ylabel('Inertia (SSE)')
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>肘部法则</strong><br>
@@ -213,14 +213,14 @@ plt.ylabel('Inertia (SSE)')
 
   <div class="code-explain-grid">
     <div class="code-block">
-```python
+{% highlight python %}
 # PCA 降维可视化
 pca = PCA(n_components=2)
 features_pca = pca.fit_transform(rfm_df[['R', 'F', 'M']])
 
 print(f"PC1 explains {pca.explained_variance_ratio_[0]:.1%} variance")
 print(f"PC2 explains {pca.explained_variance_ratio_[1]:.1%} variance")
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>PCA 降维</strong><br>

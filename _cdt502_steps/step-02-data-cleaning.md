@@ -121,7 +121,7 @@ layout: cdt502-step
 
   <details>
     <summary>查看完整代码 (core/cleaning.py)</summary>
-<div class="code-block"><pre><code># =======================================================================
+<div class="code-block"><pre><code class="language-python"># =======================================================================
 # 步骤 1: 分离取消交易 (InvoiceNo 以 C 开头)
 # ========================================================================
 cancel_mask = df['InvoiceNo'].astype(str).str.startswith('C')
@@ -175,7 +175,7 @@ df['DayOfWeek'] = df['InvoiceDate'].dt.dayofweek
   <h3 style="margin-top: 1.5rem;">关键代码解析</h3>
 
   <div class="code-explain-grid">
-    <div class="code-block"><pre><code># 删除完全重复行
+    <div class="code-block"><pre><code class="language-python"># 删除完全重复行
 df = df.drop_duplicates()
 
 # 保留条件：InvoiceNo 或时间不同
@@ -187,7 +187,7 @@ df = df.drop_duplicates()
   </div>
 
   <div class="code-explain-grid">
-    <div class="code-block"><pre><code># 过滤价格
+    <div class="code-block"><pre><code class="language-python"># 过滤价格
 df = df[df['UnitPrice'] > 0].copy()
 
 # 超低价（如£0.01）保留 — 可能是小配件
@@ -199,7 +199,7 @@ df = df[df['UnitPrice'] > 0].copy()
   </div>
 
   <div class="code-explain-grid">
-    <div class="code-block"><pre><code># 标注异常值但不删除
+    <div class="code-block"><pre><code class="language-python"># 标注异常值但不删除
 df['IsOutlier'] = (df['Quantity'] < qty_lower) | 
                   (df['Quantity'] > qty_upper)
 
@@ -212,7 +212,7 @@ df['IsOutlier'] = (df['Quantity'] < qty_lower) |
   </div>
 
   <div class="code-explain-grid">
-    <div class="code-block"><pre><code># 双场景 CustomerID 处理
+    <div class="code-block"><pre><code class="language-python"># 双场景 CustomerID 处理
 # 场景1: 宏观分析（趋势/时段）
 df_macro['CustomerID'].fillna('ANONYMOUS')
 

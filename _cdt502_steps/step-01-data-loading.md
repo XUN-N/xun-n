@@ -68,7 +68,7 @@ layout: cdt502-step
 
   <details>
     <summary>查看完整代码 (core/cleaning.py — load_data)</summary>
-```python
+{% highlight python %}
 def load_data(input_path: Path) -> pd.DataFrame:
     """
     加载原始 Excel 数据文件
@@ -82,14 +82,14 @@ def load_data(input_path: Path) -> pd.DataFrame:
     df = pd.read_excel(input_path)
     df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
     return df
-```
+{% endhighlight %}
   </details>
 
   <div class="code-explain-grid" style="margin-top: 1.5rem;">
     <div class="code-block">
-```python
+{% highlight python %}
 df = pd.read_excel(input_path)
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>加载 Excel 文件</strong><br>
@@ -99,9 +99,9 @@ df = pd.read_excel(input_path)
 
   <div class="code-explain-grid">
     <div class="code-block">
-```python
+{% highlight python %}
 df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>日期列类型转换</strong><br>

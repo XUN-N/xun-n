@@ -69,7 +69,7 @@ layout: cdt502-step
 
   <details>
     <summary>查看完整代码 (step_05_sales_forecast.py)</summary>
-```python
+{% highlight python %}
 def forecast_sales(df: pd.DataFrame, periods: int = 4) -> pd.DataFrame:
     """
     销售预测 - 基于时间序列分析
@@ -197,17 +197,17 @@ def analyze_trend(df: pd.DataFrame) -> dict:
         'worst_month': worst_month,
         'seasonality_ratio': monthly_pattern.max() / monthly_pattern.min()
     }
-```
+{% endhighlight %}
   </details>
 
   <div class="code-explain-grid" style="margin-top: 1.5rem;">
     <div class="code-block">
-```python
+{% highlight python %}
 # 月度销售聚合
 monthly_sales = df.groupby(
     df['OrderDate'].dt.to_period('M').dt.to_timestamp()
 )['Amount'].sum().reset_index()
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>时间序列重采样</strong><br>
@@ -217,11 +217,11 @@ monthly_sales = df.groupby(
 
   <div class="code-explain-grid">
     <div class="code-block">
-```python
+{% highlight python %}
 # 趋势分解：线性回归
 slope = (n * sum_xy - sum_x * sum_y) / (n * sum_x2 - sum_x ** 2)
 trend_value = slope * future_index + intercept
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>趋势提取</strong><br>
@@ -231,11 +231,11 @@ trend_value = slope * future_index + intercept
 
   <div class="code-explain-grid">
     <div class="code-block">
-```python
+{% highlight python %}
 # 季节性调整
 seasonal_indices = monthly_avg / overall_avg
 predicted_sales = trend_value * seasonal_indices.get(month, 1.0)
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>季节性调整</strong><br>

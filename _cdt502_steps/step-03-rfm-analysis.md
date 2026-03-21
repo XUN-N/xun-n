@@ -68,7 +68,7 @@ layout: cdt502-step
 
   <details>
     <summary>查看完整代码 (step_03_rfm_analysis.py)</summary>
-```python
+{% highlight python %}
 def calculate_rfm(df: pd.DataFrame, reference_date: datetime = None) -> pd.DataFrame:
     """
     计算 RFM 指标（Recency, Frequency, Monetary）
@@ -137,16 +137,16 @@ def segment_customers(rfm_df: pd.DataFrame, n_segments: int = 11) -> pd.DataFram
     
     df['Segment'] = df.apply(assign_segment, axis=1)
     return df
-```
+{% endhighlight %}
   </details>
 
   <div class="code-explain-grid" style="margin-top: 1.5rem;">
     <div class="code-block">
-```python
+{% highlight python %}
 # R 评分：Recency 越小越好，倒序打分
 df['R_Score'] = pd.qcut(df['R'].rank(method='first'), 
                         q=5, labels=[5,4,3,2,1])
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>R 评分逻辑</strong><br>
@@ -156,13 +156,13 @@ df['R_Score'] = pd.qcut(df['R'].rank(method='first'),
 
   <div class="code-explain-grid">
     <div class="code-block">
-```python
+{% highlight python %}
 # F/M 评分：值越大越好，正序打分
 df['F_Score'] = pd.qcut(df['F'].rank(method='first'), 
                         q=5, labels=[1,2,3,4,5])
 df['M_Score'] = pd.qcut(df['M'].rank(method='first'), 
                         q=5, labels=[1,2,3,4,5])
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>F/M 评分逻辑</strong><br>
@@ -172,7 +172,7 @@ df['M_Score'] = pd.qcut(df['M'].rank(method='first'),
 
   <div class="code-explain-grid">
     <div class="code-block">
-```python
+{% highlight python %}
 # RFM 客户分层规则
 if r >= 4 and f >= 4 and m >= 4:
     return 'Champions'        # 冠军客户
@@ -180,7 +180,7 @@ elif r >= 3 and f >= 3 and m >= 3:
     return 'Loyal Customers'  # 忠诚客户
 elif r <= 2 and f >= 4 and m >= 4:
     return "Can't Lose Them"  # 不可失去
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>分层规则示例</strong><br>

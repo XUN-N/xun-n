@@ -69,7 +69,7 @@ layout: cdt502-step
 
   <details>
     <summary>查看完整代码 (step_06_churn_prediction.py)</summary>
-```python
+{% highlight python %}
 def predict_churn(df: pd.DataFrame) -> pd.DataFrame:
     """
     客户流失预测
@@ -205,18 +205,18 @@ def predict_churn(df: pd.DataFrame) -> pd.DataFrame:
     )
     
     return customer_features
-```
+{% endhighlight %}
   </details>
 
   <div class="code-explain-grid" style="margin-top: 1.5rem;">
     <div class="code-block">
-```python
+{% highlight python %}
 # 核心特征：最近购买时间
 # 最重要的流失预测指标
 customer_features['RecencyDays'] = (
     reference_date - customer_features['LastPurchase']
 ).dt.days
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>Recency 特征</strong><br>
@@ -226,7 +226,7 @@ customer_features['RecencyDays'] = (
 
   <div class="code-explain-grid">
     <div class="code-block">
-```python
+{% highlight python %}
 # 流失概率计算（基于规则）
 if row['RecencyDays'] <= 30:
     recency_score = 0.1      # 30天内：活跃
@@ -234,7 +234,7 @@ elif row['RecencyDays'] <= 180:
     recency_score = 0.7      # 3-6个月：风险
 else:
     recency_score = 0.9      # 6个月以上：高流失风险
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>规则引擎设计</strong><br>
@@ -244,7 +244,7 @@ else:
 
   <div class="code-explain-grid">
     <div class="code-block">
-```python
+{% highlight python %}
 # 风险等级分层
 def assign_risk_level(prob):
     if prob >= 0.7:
@@ -255,7 +255,7 @@ def assign_risk_level(prob):
         return 'Low Risk'       # 正常监控
     else:
         return 'Very Low Risk'  # 健康客户
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>风险分层策略</strong><br>

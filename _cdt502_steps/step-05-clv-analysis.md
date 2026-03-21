@@ -69,7 +69,7 @@ layout: cdt502-step
 
   <details>
     <summary>查看完整代码 (step_04_clv_analysis.py)</summary>
-```python
+{% highlight python %}
 def predict_clv(df: pd.DataFrame, prediction_period: int = 12) -> pd.DataFrame:
     """
     预测客户生命周期价值（CLV）
@@ -190,19 +190,19 @@ def analyze_clv_distribution(clv_df: pd.DataFrame) -> dict:
         )
     
     return report
-```
+{% endhighlight %}
   </details>
 
   <div class="code-explain-grid" style="margin-top: 1.5rem;">
     <div class="code-block">
-```python
+{% highlight python %}
 # 计算月购买频率
 # 反映客户的活跃程度
 customer_metrics['MonthlyFrequency'] = (
     customer_metrics['Frequency'] / 
     max(customer_metrics['CustomerAge'], 1)
 )
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>月购买频率计算</strong><br>
@@ -212,7 +212,7 @@ customer_metrics['MonthlyFrequency'] = (
 
   <div class="code-explain-grid">
     <div class="code-block">
-```python
+{% highlight python %}
 # CLV 预测公式
 # 简化版：预期交易次数 × 平均金额
 customer_metrics['CLV'] = (
@@ -220,7 +220,7 @@ customer_metrics['CLV'] = (
     customer_metrics['MonthlyFrequency'] * 
     prediction_period
 )
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>CLV 计算逻辑</strong><br>
@@ -230,7 +230,7 @@ customer_metrics['CLV'] = (
 
   <div class="code-explain-grid">
     <div class="code-block">
-```python
+{% highlight python %}
 # 五分位数分层
 def assign_clv_tier(clv):
     if clv >= clv_percentiles[0.9]:
@@ -243,7 +243,7 @@ def assign_clv_tier(clv):
         return 'Low-Medium Value' # 25%-50%
     else:
         return 'Low Value'        # Bottom 25%
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>CLV 等级分层</strong><br>

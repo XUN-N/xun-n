@@ -45,7 +45,7 @@ layout: cdt502-step
   
   <p>以下代码展示了数据加载和清洗的核心逻辑：</p>
 
-```python
+{% highlight python %}
 import pandas as pd
 from pathlib import Path
 
@@ -82,7 +82,7 @@ df_clean, df_returns = load_and_clean_data(
     Path('data/online_retail.xlsx')
 )
 print(f"清洗后记录数: {len(df_clean):,}")
-```
+{% endhighlight %}
 
   <p>代码说明：</p>
   <ul>
@@ -98,7 +98,7 @@ print(f"清洗后记录数: {len(df_clean):,}")
   
   <p>RFM 分析的核心 SQL 查询：</p>
 
-```sql
+{% highlight sql %}
 -- RFM 分析查询
 WITH customer_stats AS (
     SELECT
@@ -125,7 +125,7 @@ SELECT *
 FROM rfm_scores
 ORDER BY Monetary DESC
 LIMIT 100;
-```
+{% endhighlight %}
 </div>
 
 <!-- Section: Collapsible Code -->
@@ -137,7 +137,7 @@ LIMIT 100;
   <details class="code-details">
     <summary>📄 查看完整数据清洗代码 (cleaning.py)</summary>
 
-```python
+{% highlight python %}
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -231,7 +231,7 @@ print(f"正常交易: {len(df_clean):,} 条")
 print(f"退货记录: {len(df_returns):,} 条")
 for log in cleaner.cleaning_log:
     print(f"  ✓ {log}")
-```
+{% endhighlight %}
 
   </details>
 </div>
@@ -244,7 +244,7 @@ for log in cleaner.cleaning_log:
 
   <div class="code-explain-grid">
     <div>
-```python
+{% highlight python %}
 # 计算 RFM 指标
 rfm = df.groupby('CustomerID').agg({
     'InvoiceDate': lambda x: (snapshot_date - x.max()).days,
@@ -253,7 +253,7 @@ rfm = df.groupby('CustomerID').agg({
 }).reset_index()
 
 rfm.columns = ['CustomerID', 'Recency', 'Frequency', 'Monetary']
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>RFM 指标计算</strong><br><br>
@@ -265,7 +265,7 @@ rfm.columns = ['CustomerID', 'Recency', 'Frequency', 'Monetary']
 
   <div class="code-explain-grid">
     <div>
-```python
+{% highlight python %}
 # 客户分层
 rfm['Segment'] = rfm.apply(
     lambda x: 
@@ -275,7 +275,7 @@ rfm['Segment'] = rfm.apply(
     else 'Others',
     axis=1
 )
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>客户分层规则</strong><br><br>

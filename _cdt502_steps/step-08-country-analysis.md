@@ -69,7 +69,7 @@ layout: cdt502-step
 
   <details>
     <summary>查看完整代码 (analysis_core.py - Country Analysis)</summary>
-```python
+{% highlight python %}
 def analyze_by_country(df):
     """
     按国家分析客户行为
@@ -172,19 +172,19 @@ def identify_cross_border_patterns(df):
         }
     
     return pd.DataFrame(patterns).T
-```
+{% endhighlight %}
   </details>
 
   <div class="code-explain-grid" style="margin-top: 1.5rem;">
     <div class="code-block">
-```python
+{% highlight python %}
 # 国家维度聚合
 country_stats = df.groupby('Country').agg({
     'InvoiceNo': 'nunique',        # 订单数
     'CustomerID': 'nunique',       # 客户数
     'Revenue': ['sum', 'mean']     # 总收入、客单价
 })
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>国家聚合指标</strong><br>
@@ -194,7 +194,7 @@ country_stats = df.groupby('Country').agg({
 
   <div class="code-explain-grid">
     <div class="code-block">
-```python
+{% highlight python %}
 # 国家分组策略
 def assign_country_tier(row):
     if row['RevenueShare'] >= 80:
@@ -205,7 +205,7 @@ def assign_country_tier(row):
         return 'Emerging Market'    # NL/BE/CH...
     else:
         return 'Long Tail'          # Others
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>市场分层逻辑</strong><br>
@@ -215,11 +215,11 @@ def assign_country_tier(row):
 
   <div class="code-explain-grid">
     <div class="code-block">
-```python
+{% highlight python %}
 # 跨国购买模式识别
 wholesale_ratio = large_orders / total_orders
 pattern = 'Wholesale' if wholesale_ratio > 0.3 else 'Retail'
-```
+{% endhighlight %}
     </div>
     <div class="explanation">
       <strong>模式识别</strong><br>
