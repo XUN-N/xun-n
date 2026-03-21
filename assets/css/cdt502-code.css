@@ -3,397 +3,395 @@
 /* Import JetBrains Mono font */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* Code Block Container */
-.code-block-wrapper {
-  position: relative;
-  margin: 1.5rem 0;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  border: 1px solid #e2e8f0;
+/* ===== Base Code Block Styling ===== */
+
+/* Main code block container - target pre elements directly */
+.step-section pre {
+  background: #0f172a !important;
+  border-radius: 12px !important;
+  padding: 1.25rem !important;
+  margin: 1rem 0 !important;
+  overflow-x: auto !important;
+  border: 1px solid #1e293b !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  position: relative !important;
 }
 
-/* Code Block Header (Filename + Copy Button) */
-.code-block-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #334155;
-}
-
-.code-block-filename {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #94a3b8;
-  font-size: 0.85rem;
-  font-family: 'JetBrains Mono', monospace;
-}
-
-.code-block-filename::before {
-  content: '📄';
-  font-size: 0.9rem;
-}
-
-/* Copy Button */
-.code-copy-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.75rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  color: #e2e8f0;
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.code-copy-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.code-copy-btn.copied {
-  background: rgba(34, 197, 94, 0.2);
-  border-color: rgba(34, 197, 94, 0.4);
-  color: #4ade80;
-}
-
-.code-copy-btn svg {
-  width: 14px;
-  height: 14px;
-}
-
-/* Code Block Body */
-.code-block-body {
-  position: relative;
-  background: #0f172a;
-  overflow-x: auto;
-}
-
-/* Line Numbers */
-.code-with-lines {
-  display: flex;
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  font-size: 0.85rem;
-  line-height: 1.6;
-}
-
-.line-numbers {
-  display: flex;
-  flex-direction: column;
-  background: #1e293b;
-  color: #64748b;
-  padding: 1rem 0.75rem;
-  text-align: right;
-  user-select: none;
-  border-right: 1px solid #334155;
-  font-size: 0.8rem;
-}
-
-.line-numbers span {
-  min-width: 1.5rem;
-}
-
-.code-content {
-  flex: 1;
-  padding: 1rem;
-  overflow-x: auto;
-}
-
-.code-content pre {
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  font-size: inherit !important;
-}
-
-.code-content code {
-  background: transparent !important;
-  padding: 0 !important;
-  font-family: inherit !important;
-  font-size: inherit !important;
-}
-
-/* Enhanced Syntax Highlighting - GitHub Dark Theme */
-.highlight {
-  background: transparent;
-}
-
-.highlight .c,   /* Comment */
-.highlight .cm,
-.highlight .cp,
-.highlight .c1,
-.highlight .cs { color: #6b7280; font-style: italic; }
-
-.highlight .k,   /* Keyword */
-.highlight .kc,
-.highlight .kd,
-.highlight .kn,
-.highlight .kp,
-.highlight .kr,
-.highlight .kt { color: #c678dd; font-weight: 500; }
-
-.highlight .s,   /* String */
-.highlight .sb,
-.highlight .sc,
-.highlight .sd,
-.highlight .s2,
-.highlight .se,
-.highlight .sh,
-.highlight .si,
-.highlight .sx,
-.highlight .s1 { color: #98c379; }
-
-.highlight .m,   /* Number */
-.highlight .mf,
-.highlight .mh,
-.highlight .mi,
-.highlight .mo,
-.highlight .il { color: #d19a66; }
-
-.highlight .n,   /* Name */
-.highlight .na,
-.highlight .nb,
-.highlight .nc,
-.highlight .nd,
-.highlight .ne,
-.highlight .nf,
-.highlight .nl,
-.highlight .nn,
-.highlight .nx,
-.highlight .py { color: #e5c07b; }
-
-.highlight .o,   /* Operator */
-.highlight .ow { color: #56b6c2; }
-
-.highlight .p { color: #abb2bf; }  /* Punctuation */
-
-.highlight .bp,  /* Built-in */
-.highlight .vc,
-.highlight .vg,
-.highlight .vi { color: #e06c75; }
-
-/* Code Block without Line Numbers */
-.code-block-simple {
-  background: #0f172a;
-  border-radius: 0 0 12px 12px;
-  padding: 1rem;
-  overflow-x: auto;
-}
-
-.code-block-simple pre {
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-}
-
-.code-block-simple code {
+/* Code content */
+.step-section pre code {
   font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
   font-size: 0.85rem !important;
-  line-height: 1.6 !important;
+  line-height: 1.7 !important;
+  color: #e2e8f0 !important;
   background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  display: block !important;
 }
 
-/* Inline Code Enhancement */
-.step-section code {
-  background: rgba(59, 130, 246, 0.1);
-  color: #2563eb;
-  padding: 0.2em 0.4em;
-  border-radius: 4px;
+/* Inline code */
+.step-section p code,
+.step-section li code,
+.step-section td code {
+  background: rgba(59, 130, 246, 0.1) !important;
+  color: #2563eb !important;
+  padding: 0.2em 0.4em !important;
+  border-radius: 4px !important;
   font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
-  font-size: 0.9em;
-  font-weight: 500;
+  font-size: 0.9em !important;
+  font-weight: 500 !important;
+  border: 1px solid rgba(59, 130, 246, 0.2) !important;
+}
+
+/* Don't apply inline styles to pre code */
+.step-section pre code {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+/* ===== Syntax Highlighting - GitHub Dark Theme ===== */
+
+/* Comments */
+.step-section pre .c,
+.step-section pre .cm,
+.step-section pre .c1,
+.step-section pre .cp,
+.step-section pre .cs { 
+  color: #6b7280 !important; 
+  font-style: italic !important; 
+}
+
+/* Keywords */
+.step-section pre .k,
+.step-section pre .kc,
+.step-section pre .kd,
+.step-section pre .kn,
+.step-section pre .kp,
+.step-section pre .kr,
+.step-section pre .kt { 
+  color: #c678dd !important; 
+  font-weight: 500 !important; 
+}
+
+/* Strings */
+.step-section pre .s,
+.step-section pre .sb,
+.step-section pre .sc,
+.step-section pre .sd,
+.step-section pre .s2,
+.step-section pre .se,
+.step-section pre .sh,
+.step-section pre .si,
+.step-section pre .sx,
+.step-section pre .s1 { 
+  color: #98c379 !important; 
+}
+
+/* Numbers */
+.step-section pre .m,
+.step-section pre .mf,
+.step-section pre .mh,
+.step-section pre .mi,
+.step-section pre .mo,
+.step-section pre .il { 
+  color: #d19a66 !important; 
+}
+
+/* Functions, Classes, Names */
+.step-section pre .n,
+.step-section pre .na,
+.step-section pre .nb,
+.step-section pre .nc,
+.step-section pre .nd,
+.step-section pre .ne,
+.step-section pre .nf,
+.step-section pre .nl,
+.step-section pre .nn,
+.step-section pre .nx,
+.step-section pre .py { 
+  color: #e5c07b !important; 
+}
+
+/* Operators */
+.step-section pre .o,
+.step-section pre .ow { 
+  color: #56b6c2 !important; 
+}
+
+/* Punctuation */
+.step-section pre .p { 
+  color: #abb2bf !important; 
+}
+
+/* Built-ins */
+.step-section pre .bp,
+.step-section pre .vc,
+.step-section pre .vg,
+.step-section pre .vi { 
+  color: #e06c75 !important; 
+}
+
+/* Docstrings */
+.step-section pre .sd { 
+  color: #6b7280 !important;
+  font-style: italic !important;
+}
+
+/* Decorators */
+.step-section pre .nd { 
+  color: #c678dd !important; 
+}
+
+/* Self/This */
+.step-section pre .bp { 
+  color: #e06c75 !important; 
+}
+
+/* ===== Line Numbers ===== */
+
+/* Add line numbers using CSS counter */
+.step-section pre {
+  counter-reset: line !important;
 }
 
 .step-section pre code {
-  background: transparent !important;
-  color: inherit;
-  padding: 0;
+  display: block !important;
 }
 
-/* Collapsible Code Block Enhancement */
-details.code-details {
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  overflow: hidden;
-  margin: 1rem 0;
+.step-section pre code > span {
+  display: block !important;
+  position: relative !important;
+  padding-left: 3rem !important;
+  min-height: 1.5em !important;
 }
 
-details.code-details summary {
-  padding: 0.875rem 1rem;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  cursor: pointer;
-  font-weight: 600;
-  color: #475569;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: all 0.2s ease;
+.step-section pre code > span::before {
+  counter-increment: line !important;
+  content: counter(line) !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 2.5rem !important;
+  color: #475569 !important;
+  text-align: right !important;
+  font-size: 0.75rem !important;
+  line-height: 1.7 !important;
+  padding-right: 0.75rem !important;
+  border-right: 1px solid #334155 !important;
+  user-select: none !important;
 }
 
-details.code-details summary:hover {
-  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+/* Highlight specific lines */
+.step-section pre code > span.highlight-line {
+  background: rgba(59, 130, 246, 0.15) !important;
+  display: block !important;
+  margin: 0 -1.25rem !important;
+  padding-left: 4.25rem !important;
+  padding-right: 1.25rem !important;
 }
 
-details.code-details summary::marker,
-details.code-details summary::-webkit-details-marker {
-  display: none;
+/* ===== Collapsible Code Blocks ===== */
+
+details {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  margin: 1rem 0 !important;
+  background: #ffffff !important;
 }
 
-details.code-details summary::before {
-  content: '▶';
-  font-size: 0.7rem;
-  transition: transform 0.2s ease;
-  color: #64748b;
+details summary {
+  padding: 0.875rem 1rem !important;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+  color: #475569 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  transition: all 0.2s ease !important;
+  list-style: none !important;
 }
 
-details.code-details[open] summary::before {
-  transform: rotate(90deg);
+details summary:hover {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%) !important;
 }
 
-details.code-details .code-block-wrapper {
-  margin: 0;
-  border-radius: 0;
-  border: none;
-  box-shadow: none;
+details summary::marker,
+details summary::-webkit-details-marker {
+  display: none !important;
 }
 
-/* Code + Explanation Grid Enhancement */
+details summary::before {
+  content: '▶' !important;
+  font-size: 0.7rem !important;
+  transition: transform 0.2s ease !important;
+  color: #64748b !important;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg) !important;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+details pre {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ===== Code + Explanation Grid ===== */
+
 .code-explain-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin: 1.5rem 0;
-  align-items: start;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  align-items: start !important;
 }
 
 @media (max-width: 768px) {
   .code-explain-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
 
-.code-explain-grid .code-block-wrapper {
-  margin: 0;
+.code-explain-grid pre {
+  margin: 0 !important;
 }
 
 .code-explain-grid .explanation {
-  font-size: 0.9rem;
-  line-height: 1.7;
-  color: #475569;
-  padding: 1rem;
-  background: #f8fafc;
-  border-radius: 8px;
-  border-left: 3px solid #3b82f6;
+  font-size: 0.9rem !important;
+  line-height: 1.7 !important;
+  color: #475569 !important;
+  padding: 1rem !important;
+  background: #f8fafc !important;
+  border-radius: 12px !important;
+  border-left: 3px solid #3b82f6 !important;
 }
 
 .code-explain-grid .explanation strong {
-  color: #1d4ed8;
-  font-weight: 600;
+  color: #1d4ed8 !important;
+  font-weight: 600 !important;
 }
 
-/* Terminal-style Code Block */
+/* ===== Terminal Style ===== */
+
 .code-terminal {
-  background: #1e1e2e;
-  border-radius: 12px;
-  overflow: hidden;
-  margin: 1rem 0;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  background: #1e1e2e !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  margin: 1rem 0 !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #313244 !important;
 }
 
 .code-terminal-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  background: #313244;
-  border-bottom: 1px solid #45475a;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.75rem 1rem !important;
+  background: #313244 !important;
+  border-bottom: 1px solid #45475a !important;
 }
 
 .code-terminal-header .dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
 }
 
-.code-terminal-header .dot.red { background: #f38ba8; }
-.code-terminal-header .dot.yellow { background: #f9e2af; }
-.code-terminal-header .dot.green { background: #a6e3a1; }
+.code-terminal-header .dot.red { background: #f38ba8 !important; }
+.code-terminal-header .dot.yellow { background: #f9e2af !important; }
+.code-terminal-header .dot.green { background: #a6e3a1 !important; }
 
 .code-terminal-header .title {
-  margin-left: 0.5rem;
-  color: #cdd6f4;
-  font-size: 0.8rem;
-  font-family: 'JetBrains Mono', monospace;
+  margin-left: 0.5rem !important;
+  color: #cdd6f4 !important;
+  font-size: 0.8rem !important;
+  font-family: 'JetBrains Mono', monospace !important;
 }
 
 .code-terminal-body {
-  padding: 1rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
-  color: #cdd6f4;
+  padding: 1rem !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.85rem !important;
+  color: #cdd6f4 !important;
+  background: #1e1e2e !important;
 }
 
 .code-terminal-body pre {
-  margin: 0;
+  margin: 0 !important;
   background: transparent !important;
-}
-
-/* Diff-style Code Block */
-.code-diff-add {
-  background: rgba(34, 197, 94, 0.1);
-  border-left: 3px solid #22c55e;
-  padding-left: 0.75rem;
-  margin-left: -1rem;
-  padding-right: 1rem;
-}
-
-.code-diff-remove {
-  background: rgba(239, 68, 68, 0.1);
-  border-left: 3px solid #ef4444;
-  padding-left: 0.75rem;
-  margin-left: -1rem;
-  padding-right: 1rem;
-}
-
-/* Highlight specific lines */
-.highlight-line {
-  background: rgba(59, 130, 246, 0.15);
-  display: block;
-  margin: 0 -1rem;
-  padding: 0 1rem;
-}
-
-/* Code output/result block */
-.code-output {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-top: none;
-  border-radius: 0 0 12px 12px;
-  padding: 1rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
-  color: #475569;
-}
-
-.code-output-label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
-  color: #64748b;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.code-output pre {
-  margin: 0;
-  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
   padding: 0 !important;
+}
+
+/* ===== Copy Button ===== */
+
+.code-copy-btn {
+  position: absolute !important;
+  top: 0.75rem !important;
+  right: 0.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.4rem !important;
+  padding: 0.4rem 0.75rem !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 6px !important;
+  color: #e2e8f0 !important;
+  font-size: 0.8rem !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  z-index: 10 !important;
+}
+
+.code-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.code-copy-btn.copied {
+  background: rgba(34, 197, 94, 0.2) !important;
+  border-color: rgba(34, 197, 94, 0.4) !important;
+  color: #4ade80 !important;
+}
+
+/* Hide copy button by default, show on hover */
+.step-section pre {
+  position: relative !important;
+}
+
+.step-section pre .code-copy-btn {
+  opacity: 0 !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.step-section pre:hover .code-copy-btn {
+  opacity: 1 !important;
+}
+
+/* ===== Language Badge ===== */
+
+.code-language-badge {
+  position: absolute !important;
+  top: 0.75rem !important;
+  left: 0.75rem !important;
+  padding: 0.25rem 0.5rem !important;
+  background: rgba(59, 130, 246, 0.2) !important;
+  color: #60a5fa !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  border-radius: 4px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  z-index: 10 !important;
 }
