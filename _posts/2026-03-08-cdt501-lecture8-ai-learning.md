@@ -143,8 +143,8 @@ Based on Lecture 8, you should be able to:
 
 ## 📖 Related Posts
 
-- [Building This Blog: CDT501 Project](/blog/2026/03/08/building-cdt501-blog.html)
-- [Welcome to My Blog](/blog/2026/03/08/welcome-to-my-blog.html)
+- [Building This Blog: CDT501 Project]({{ '/blog/2026/03/08/building-cdt501-blog.html' | relative_url }})
+- [Welcome to My Blog]({{ '/blog/2026/03/08/welcome-to-my-blog.html' | relative_url }})
 
 ---
 

@@ -213,8 +213,8 @@ For the best experience, open in a new tab:
 
 ## 📝 Related Posts
 
-- [CDT501 Lecture 8: AI-Assisted Learning](/blog/2026/03/08/cdt501-lecture8-ai-learning.html)
-- [Building This Blog: CDT501 Project](/blog/2026/03/08/building-cdt501-blog.html)
+- [CDT501 Lecture 8: AI-Assisted Learning]({{ '/blog/2026/03/08/cdt501-lecture8-ai-learning.html' | relative_url }})
+- [Building This Blog: CDT501 Project]({{ '/blog/2026/03/08/building-cdt501-blog.html' | relative_url }})
 
 ---
 
