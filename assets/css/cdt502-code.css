@@ -1,35 +1,129 @@
-/* ===== Enhanced Code Block Styles for CDT502 ===== */
+/* ===== Enhanced Code Block Styles for CDT502 (Prism.js + Custom) ===== */
 
 /* Import JetBrains Mono font */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* ===== Base Code Block Styling ===== */
+/* ===== Prism.js Overrides ===== */
 
-/* Main code block container - target pre elements directly */
-.step-section pre {
-  background: #0f172a !important;
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace !important;
+  font-size: 0.85rem !important;
+  line-height: 1.7 !important;
+  text-shadow: none !important;
+}
+
+pre[class*="language-"] {
   border-radius: 12px !important;
   padding: 1.25rem !important;
   margin: 1rem 0 !important;
-  overflow-x: auto !important;
+  background: #0f172a !important;
   border: 1px solid #1e293b !important;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
   position: relative !important;
 }
 
 /* Code content */
-.step-section pre code {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
-  font-size: 0.85rem !important;
-  line-height: 1.7 !important;
+code[class*="language-"] {
   color: #e2e8f0 !important;
   background: transparent !important;
   padding: 0 !important;
-  border-radius: 0 !important;
+}
+
+/* Line Numbers Plugin */
+pre[class*="language-"].line-numbers {
+  position: relative !important;
+  padding-left: 3.5rem !important;
+  counter-reset: linenumber !important;
+}
+
+pre[class*="language-"].line-numbers > code {
+  position: relative !important;
+  white-space: inherit !important;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute !important;
+  pointer-events: none !important;
+  top: 1.25rem !important;
+  left: 0 !important;
+  width: 2.5rem !important;
+  border-right: 1px solid #334155 !important;
+  padding-right: 0.75rem !important;
+  user-select: none !important;
+}
+
+.line-numbers-rows > span {
+  display: block !important;
+  counter-increment: linenumber !important;
+  color: #475569 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.7 !important;
+  text-align: right !important;
+}
+
+.line-numbers-rows > span::before {
+  content: counter(linenumber) !important;
   display: block !important;
 }
 
-/* Inline code */
+/* ===== Copy Button ===== */
+
+.code-copy-btn {
+  position: absolute !important;
+  top: 0.75rem !important;
+  right: 0.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.4rem !important;
+  padding: 0.4rem 0.75rem !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 6px !important;
+  color: #e2e8f0 !important;
+  font-size: 0.8rem !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  z-index: 10 !important;
+  opacity: 0 !important;
+}
+
+pre[class*="language-"]:hover .code-copy-btn {
+  opacity: 1 !important;
+}
+
+.code-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.code-copy-btn.copied {
+  background: rgba(34, 197, 94, 0.2) !important;
+  border-color: rgba(34, 197, 94, 0.4) !important;
+  color: #4ade80 !important;
+}
+
+/* ===== Language Badge ===== */
+
+.code-language-badge {
+  position: absolute !important;
+  top: 0.75rem !important;
+  left: 3.5rem !important;
+  padding: 0.25rem 0.5rem !important;
+  background: rgba(59, 130, 246, 0.2) !important;
+  color: #60a5fa !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  border-radius: 4px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  z-index: 10 !important;
+}
+
+/* ===== Inline Code ===== */
+
 .step-section p code,
 .step-section li code,
 .step-section td code {
@@ -43,153 +137,13 @@
   border: 1px solid rgba(59, 130, 246, 0.2) !important;
 }
 
-/* Don't apply inline styles to pre code */
+/* Don't apply inline styles to code blocks */
 .step-section pre code {
   background: transparent !important;
   color: inherit !important;
   padding: 0 !important;
   border: none !important;
-}
-
-/* ===== Syntax Highlighting - GitHub Dark Theme ===== */
-
-/* Comments */
-.step-section pre .c,
-.step-section pre .cm,
-.step-section pre .c1,
-.step-section pre .cp,
-.step-section pre .cs { 
-  color: #6b7280 !important; 
-  font-style: italic !important; 
-}
-
-/* Keywords */
-.step-section pre .k,
-.step-section pre .kc,
-.step-section pre .kd,
-.step-section pre .kn,
-.step-section pre .kp,
-.step-section pre .kr,
-.step-section pre .kt { 
-  color: #c678dd !important; 
-  font-weight: 500 !important; 
-}
-
-/* Strings */
-.step-section pre .s,
-.step-section pre .sb,
-.step-section pre .sc,
-.step-section pre .sd,
-.step-section pre .s2,
-.step-section pre .se,
-.step-section pre .sh,
-.step-section pre .si,
-.step-section pre .sx,
-.step-section pre .s1 { 
-  color: #98c379 !important; 
-}
-
-/* Numbers */
-.step-section pre .m,
-.step-section pre .mf,
-.step-section pre .mh,
-.step-section pre .mi,
-.step-section pre .mo,
-.step-section pre .il { 
-  color: #d19a66 !important; 
-}
-
-/* Functions, Classes, Names */
-.step-section pre .n,
-.step-section pre .na,
-.step-section pre .nb,
-.step-section pre .nc,
-.step-section pre .nd,
-.step-section pre .ne,
-.step-section pre .nf,
-.step-section pre .nl,
-.step-section pre .nn,
-.step-section pre .nx,
-.step-section pre .py { 
-  color: #e5c07b !important; 
-}
-
-/* Operators */
-.step-section pre .o,
-.step-section pre .ow { 
-  color: #56b6c2 !important; 
-}
-
-/* Punctuation */
-.step-section pre .p { 
-  color: #abb2bf !important; 
-}
-
-/* Built-ins */
-.step-section pre .bp,
-.step-section pre .vc,
-.step-section pre .vg,
-.step-section pre .vi { 
-  color: #e06c75 !important; 
-}
-
-/* Docstrings */
-.step-section pre .sd { 
-  color: #6b7280 !important;
-  font-style: italic !important;
-}
-
-/* Decorators */
-.step-section pre .nd { 
-  color: #c678dd !important; 
-}
-
-/* Self/This */
-.step-section pre .bp { 
-  color: #e06c75 !important; 
-}
-
-/* ===== Line Numbers ===== */
-
-/* Add line numbers using CSS counter */
-.step-section pre {
-  counter-reset: line !important;
-}
-
-.step-section pre code {
-  display: block !important;
-}
-
-.step-section pre code > span {
-  display: block !important;
-  position: relative !important;
-  padding-left: 3rem !important;
-  min-height: 1.5em !important;
-}
-
-.step-section pre code > span::before {
-  counter-increment: line !important;
-  content: counter(line) !important;
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
-  width: 2.5rem !important;
-  color: #475569 !important;
-  text-align: right !important;
-  font-size: 0.75rem !important;
-  line-height: 1.7 !important;
-  padding-right: 0.75rem !important;
-  border-right: 1px solid #334155 !important;
-  user-select: none !important;
-}
-
-/* Highlight specific lines */
-.step-section pre code > span.highlight-line {
-  background: rgba(59, 130, 246, 0.15) !important;
-  display: block !important;
-  margin: 0 -1.25rem !important;
-  padding-left: 4.25rem !important;
-  padding-right: 1.25rem !important;
+  font-size: inherit !important;
 }
 
 /* ===== Collapsible Code Blocks ===== */
@@ -239,7 +193,7 @@ details[open] summary {
   border-bottom: 1px solid #e2e8f0 !important;
 }
 
-details pre {
+details pre[class*="language-"] {
   margin: 0 !important;
   border-radius: 0 !important;
   border: none !important;
@@ -262,7 +216,7 @@ details pre {
   }
 }
 
-.code-explain-grid pre {
+.code-explain-grid pre[class*="language-"] {
   margin: 0 !important;
 }
 
@@ -332,66 +286,4 @@ details pre {
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
-}
-
-/* ===== Copy Button ===== */
-
-.code-copy-btn {
-  position: absolute !important;
-  top: 0.75rem !important;
-  right: 0.75rem !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.4rem !important;
-  padding: 0.4rem 0.75rem !important;
-  background: rgba(255, 255, 255, 0.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  border-radius: 6px !important;
-  color: #e2e8f0 !important;
-  font-size: 0.8rem !important;
-  cursor: pointer !important;
-  transition: all 0.2s ease !important;
-  z-index: 10 !important;
-}
-
-.code-copy-btn:hover {
-  background: rgba(255, 255, 255, 0.2) !important;
-  border-color: rgba(255, 255, 255, 0.3) !important;
-}
-
-.code-copy-btn.copied {
-  background: rgba(34, 197, 94, 0.2) !important;
-  border-color: rgba(34, 197, 94, 0.4) !important;
-  color: #4ade80 !important;
-}
-
-/* Hide copy button by default, show on hover */
-.step-section pre {
-  position: relative !important;
-}
-
-.step-section pre .code-copy-btn {
-  opacity: 0 !important;
-  transition: opacity 0.2s ease !important;
-}
-
-.step-section pre:hover .code-copy-btn {
-  opacity: 1 !important;
-}
-
-/* ===== Language Badge ===== */
-
-.code-language-badge {
-  position: absolute !important;
-  top: 0.75rem !important;
-  left: 0.75rem !important;
-  padding: 0.25rem 0.5rem !important;
-  background: rgba(59, 130, 246, 0.2) !important;
-  color: #60a5fa !important;
-  font-size: 0.75rem !important;
-  font-weight: 500 !important;
-  border-radius: 4px !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  z-index: 10 !important;
 }
