@@ -3,44 +3,12 @@ layout: default
 ---
 
 <!-- Enhanced Code Styles -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sql.min.js"></script>
+<link rel="stylesheet" href="{{ '/assets/css/cdt502-code.css' | relative_url }}">
 <script src="{{ '/assets/js/cdt502-code.js' | relative_url }}" defer></script>
-
-<style>
-/* Override Prism styles for better integration */
-code[class*="language-"],
-pre[class*="language-"] {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
-  font-size: 0.85rem !important;
-  line-height: 1.7 !important;
-}
-
-pre[class*="language-"] {
-  border-radius: 12px !important;
-  padding: 1.25rem !important;
-  margin: 1rem 0 !important;
-  background: #0f172a !important;
-  border: 1px solid #1e293b !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Line numbers plugin */
-pre[class*="language-"].line-numbers {
-  padding-left: 3.5rem !important;
-}
-
-.line-numbers .line-numbers-rows {
-  border-right: 1px solid #334155 !important;
-  padding-right: 0.75rem !important;
-}
-
-.line-numbers-rows > span:before {
-  color: #475569 !important;
-}
-</style>
 
 <style>
 /* ===== CDT502 Page Shared Styles ===== */
