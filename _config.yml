@@ -43,6 +43,8 @@ navigation:
     link: /
   - title: Blog
     link: /blog.html
+  - title: CDT501
+    link: /cdt501/
   - title: CDT502
     link: /cdt502/
   - title: About
@@ -70,6 +72,11 @@ defaults:
       layout: project
   - scope:
       path: ""
+      type: "cdt501_pages"
+    values:
+      layout: default
+  - scope:
+      path: ""
       type: "cdt502_steps"
     values:
       layout: cdt502-step
@@ -77,4 +84,6 @@ defaults:
       path: ""
       type: "cdt502_source"
     values:
+      layout: cdt502-source
+es:
       layout: cdt502-source
