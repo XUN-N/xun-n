@@ -14,8 +14,8 @@ layout: cdt502-step
   <h1>📥 数据加载</h1>
   <div class="step-subtitle">将原始 Excel 文件读入 pandas DataFrame，建立分析的起点</div>
   <div class="step-nav">
-    <a href="/cdt502/overview/">← 概览</a>
-    <a href="/cdt502/steps/step-02-data-cleaning/">下一步 →</a>
+    <a href="{{ site.baseurl }}/cdt502/steps/overview/">← 概览</a>
+    <a href="{{ site.baseurl }}/cdt502/steps/step-02-data-cleaning/">下一步 →</a>
   </div>
 </div>
 
@@ -139,6 +139,6 @@ df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
 
 <!-- Bottom nav -->
 <div class="bottom-step-nav">
-  <a href="/cdt502/overview/">← 概览</a>
-  <a href="/cdt502/steps/step-02-data-cleaning/" class="next">数据清洗 →</a>
+  <a href="{{ site.baseurl }}/cdt502/steps/overview/">← 概览</a>
+  <a href="{{ site.baseurl }}/cdt502/steps/step-02-data-cleaning/" class="next">数据清洗 →</a>
 </div>

@@ -15,8 +15,8 @@ permalink: /cdt502/methodology/
   <h1>🧠 我们为什么这样做？</h1>
   <div class="step-subtitle">策略层 → 决策层 → 执行层 — 每一步分析背后的完整思考过程</div>
   <div class="step-nav">
-    <a href="/cdt502/overview/">← 概览</a>
-    <a href="/cdt502/steps/step-01-data-loading/">开始阅读 →</a>
+    <a href="{{ site.baseurl }}/cdt502/steps/overview/">← 概览</a>
+    <a href="{{ site.baseurl }}/cdt502/steps/step-01-data-loading/">开始阅读 →</a>
   </div>
 </div>
 
@@ -149,6 +149,6 @@ permalink: /cdt502/methodology/
 
 <!-- Bottom nav -->
 <div class="bottom-step-nav">
-  <a href="/cdt502/overview/">← 概览</a>
-  <a href="/cdt502/steps/step-01-data-loading/" class="next">开始阅读 Step 1 →</a>
+  <a href="{{ site.baseurl }}/cdt502/steps/overview/">← 概览</a>
+  <a href="{{ site.baseurl }}/cdt502/steps/step-01-data-loading/" class="next">开始阅读 Step 1 →</a>
 </div>
