@@ -355,8 +355,8 @@ details pre {
 
 <div class="cdt502-page">
   <div class="cdt502-breadcrumb">
-    <a href="{{ site.baseurl }}/">Home</a> /
-    <a href="{{ site.baseurl }}/cdt502/">CDT502</a> /
+    <a href="{{ '/' | relative_url }}">Home</a> /
+    <a href="{{ '/cdt502/' | relative_url }}">CDT502</a> /
     <span>{{ page.title }}</span>
   </div>
 
@@ -372,7 +372,7 @@ details pre {
           {% if page.step_number == s %}{% assign is_active = true %}{% endif %}
           {% assign is_done = false %}
           {% if page.step_number > s %}{% assign is_done = true %}{% endif %}
-          <a href="{{ step.url }}"
+          <a href="{{ step.url | relative_url }}"
              class="progress-step {% if is_active %}active{% elsif is_done %}done{% endif %}">
             <span class="step-num">{% if is_done %}✓{% else %}{{ s }}{% endif %}</span>
             <span>{{ step.step_name }}</span>
