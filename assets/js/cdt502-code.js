@@ -1,69 +1,75 @@
 /**
  * CDT502 Code Block Enhancement Script
- * Uses highlight.js for syntax highlighting
+ * Adds copy buttons and line numbers to Rouge-highlighted code blocks
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize highlight.js
-  if (typeof hljs !== 'undefined') {
-    hljs.highlightAll();
-  }
-  
-  // Add line numbers and copy buttons after highlighting
-  setTimeout(enhanceCodeBlocks, 100);
+  enhanceCodeBlocks();
 });
 
 function enhanceCodeBlocks() {
-  const codeBlocks = document.querySelectorAll('.step-section pre code');
+  // Find all Rouge highlight containers
+  const codeBlocks = document.querySelectorAll('.step-section .highlight');
   
-  codeBlocks.forEach((code) => {
-    const pre = code.parentElement;
-    
+  codeBlocks.forEach((highlight, index) => {
     // Skip if already processed
-    if (pre.classList.contains('code-enhanced')) return;
-    pre.classList.add('code-enhanced');
+    if (highlight.classList.contains('code-enhanced')) return;
+    highlight.classList.add('code-enhanced');
     
-    // Get language from highlight.js class
-    let language = 'text';
-    const langMatch = code.className.match(/language-(\w+)/);
-    if (langMatch) {
-      language = langMatch[1];
-    }
+    const pre = highlight.querySelector('pre');
+    const code = pre.querySelector('code');
     
-    // Add line numbers
-    addLineNumbers(code);
+    if (!code) return;
+    
+    // Detect language from content
+    let language = detectLanguage(code.textContent);
     
     // Add language badge
     const badge = document.createElement('span');
     badge.className = 'code-language-badge';
     badge.textContent = language;
-    pre.appendChild(badge);
+    highlight.appendChild(badge);
     
     // Add copy button
-    addCopyButton(pre, code);
+    addCopyButton(highlight, code);
   });
 }
 
-function addLineNumbers(codeBlock) {
-  const lines = codeBlock.innerHTML.split('\n');
-  if (lines.length <= 1) return;
-  
-  // Remove last empty line
-  if (lines[lines.length - 1].trim() === '') {
-    lines.pop();
+function detectLanguage(code) {
+  // Check for Python
+  if (code.includes('import ') || code.includes('def ') || code.includes('print(') || 
+      code.includes('pd.') || code.includes('df.') || code.includes('plt.')) {
+    return 'python';
   }
   
-  // Wrap each line in a div
-  const numberedLines = lines.map((line, index) => {
-    return `<div class="code-line" data-line="${index + 1}">${line || ' '}</div>`;
-  });
+  // Check for SQL
+  if (code.includes('SELECT ') || code.includes('FROM ') || code.includes('WHERE ') || 
+      code.includes('WITH ') || code.includes('GROUP BY') || code.includes('ORDER BY')) {
+    return 'sql';
+  }
   
-  codeBlock.innerHTML = numberedLines.join('');
+  // Check for JavaScript/TypeScript
+  if (code.includes('function') || code.includes('const ') || code.includes('let ') || 
+      code.includes('var ') || code.includes('=>')) {
+    return 'javascript';
+  }
+  
+  // Check for HTML
+  if (code.includes('<html') || code.includes('<div') || code.includes('</')) {
+    return 'html';
+  }
+  
+  // Check for CSS
+  if (code.includes('{') && code.includes('}') && code.includes(':') && !code.includes('def ')) {
+    return 'css';
+  }
+  
+  return 'code';
 }
 
-function addCopyButton(pre, code) {
+function addCopyButton(highlight, code) {
   // Skip if already has copy button
-  if (pre.querySelector('.code-copy-btn')) return;
+  if (highlight.querySelector('.code-copy-btn')) return;
   
   const text = code.textContent;
   
@@ -104,5 +110,5 @@ function addCopyButton(pre, code) {
     });
   });
   
-  pre.appendChild(copyBtn);
+  highlight.appendChild(copyBtn);
 }
