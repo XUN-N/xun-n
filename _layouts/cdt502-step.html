@@ -20,6 +20,102 @@ layout: default
   --cdt502-code-bg: #1e1e2e;
 }
 
+/* ===== Syntax Highlighting - Dracula Theme ===== */
+.step-section .highlight .k,
+.step-section .highlight .kc,
+.step-section .highlight .kd,
+.step-section .highlight .kn,
+.step-section .highlight .kp,
+.step-section .highlight .kr,
+.step-section .highlight .kt { color: #ff79c6 !important; font-weight: 600 !important; }
+
+.step-section .highlight .s,
+.step-section .highlight .s1,
+.step-section .highlight .s2,
+.step-section .highlight .sb,
+.step-section .highlight .sc,
+.step-section .highlight .sd,
+.step-section .highlight .se,
+.step-section .highlight .sh,
+.step-section .highlight .si,
+.step-section .highlight .sx { color: #50fa7b !important; }
+
+.step-section .highlight .m,
+.step-section .highlight .mf,
+.step-section .highlight .mh,
+.step-section .highlight .mi,
+.step-section .highlight .mo,
+.step-section .highlight .il { color: #ffb86c !important; }
+
+.step-section .highlight .n,
+.step-section .highlight .na,
+.step-section .highlight .nb,
+.step-section .highlight .nc,
+.step-section .highlight .nd,
+.step-section .highlight .ne,
+.step-section .highlight .nf,
+.step-section .highlight .nl,
+.step-section .highlight .nn,
+.step-section .highlight .nx,
+.step-section .highlight .py { color: #8be9fd !important; }
+
+.step-section .highlight .o,
+.step-section .highlight .ow { color: #bd93f9 !important; }
+
+.step-section .highlight .p { color: #f8f8f2 !important; }
+
+.step-section .highlight .bp,
+.step-section .highlight .vc,
+.step-section .highlight .vg,
+.step-section .highlight .vi { color: #ff5555 !important; }
+
+.step-section .highlight .c,
+.step-section .highlight .c1,
+.step-section .highlight .cm,
+.step-section .highlight .cp,
+.step-section .highlight .cs { color: #6272a4 !important; font-style: italic !important; }
+
+.step-section .highlight pre {
+  background: #0f172a !important;
+  padding: 1.25rem !important;
+  padding-left: 3.5rem !important;
+  border-radius: 12px !important;
+  overflow-x: auto !important;
+}
+
+.step-section .highlight pre code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.85rem !important;
+  line-height: 1.7 !important;
+}
+
+/* Line numbers */
+.step-section .highlight {
+  counter-reset: line !important;
+  position: relative !important;
+}
+
+.step-section .highlight pre code > * {
+  display: block !important;
+  position: relative !important;
+}
+
+.step-section .highlight pre code > *::before {
+  counter-increment: line !important;
+  content: counter(line) !important;
+  position: absolute !important;
+  left: -3rem !important;
+  top: 0 !important;
+  width: 2.5rem !important;
+  color: #6272a4 !important;
+  text-align: right !important;
+  font-size: 0.75rem !important;
+  line-height: 1.7 !important;
+  padding-right: 0.75rem !important;
+  border-right: 1px solid #44475a !important;
+  user-select: none !important;
+}
+
 .cdt502-page {
   background: var(--cdt502-bg);
   min-height: 100vh;
