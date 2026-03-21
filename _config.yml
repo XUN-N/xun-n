@@ -21,10 +21,10 @@ exclude:
 collections:
   projects:
     output: true
-  cdt502-steps:
+  cdt502_steps:
     output: true
     permalink: /cdt502/steps/:name/
-  cdt502-source:
+  cdt502_source:
     output: true
     permalink: /cdt502/source/:name/
 
@@ -61,11 +61,11 @@ defaults:
       layout: project
   - scope:
       path: ""
-      type: "cdt502-steps"
+      type: "cdt502_steps"
     values:
       layout: cdt502-step
   - scope:
       path: ""
-      type: "cdt502-source"
+      type: "cdt502_source"
     values:
       layout: cdt502-source
