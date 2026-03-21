@@ -1,0 +1,46 @@
+<!--
+  CDT502 Chart Gallery Component
+  Usage: 
+    {% include cdt502/chart-gallery.html 
+       layout="default" 
+       charts="chart1.png:Title 1:Caption 1|chart2.png:Title 2:Caption 2" %}
+  
+  Layout options: default, single, wide
+-->
+
+{% assign layout_class = include.layout | default: "default" %}
+{% if layout_class != "default" %}
+  {% assign layout_class = "cdt502-chart-gallery--" | append: layout_class %}
+{% endif %}
+
+<div class="cdt502-chart-gallery {{ layout_class }}">
+  {% assign chart_list = include.charts | split: "|" %}
+  {% for chart in chart_list %}
+    {% assign parts = chart | split: ":" %}
+    {% assign chart_file = parts[0] | strip %}
+    {% assign chart_title = parts[1] | default: "" | strip %}
+    {% assign chart_caption = parts[2] | default: "" | strip %}
+    
+    <div class="cdt502-chart-card">
+      {% if chart_title != "" %}
+      <div class="cdt502-chart-header">
+        <h4 class="cdt502-chart-title">{{ chart_title }}</h4>
+        {% if parts[3] %}
+        <p class="cdt502-chart-subtitle">{{ parts[3] | strip }}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+      <div class="cdt502-chart-body">
+        {% assign ext = chart_file | split: "." | last | downcase %}
+        {% if ext == "svg" %}
+          {% include {{ chart_file }} %}
+        {% else %}
+          <img src="{{ chart_file | relative_url }}" alt="{{ chart_title | default: 'Chart' }}" loading="lazy">
+        {% endif %}
+      </div>
+      {% if chart_caption != "" %}
+      <div class="cdt502-chart-caption">{{ chart_caption | markdownify }}</div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>

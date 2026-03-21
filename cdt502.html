@@ -1,0 +1,261 @@
+---
+layout: default
+title: CDT502 在线零售数据分析
+---
+
+<style>
+/* Landing page styles */
+.landing-page { background: #f0f4f8; min-height: 100vh; }
+.landing-hero {
+  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+  color: white;
+  padding: 5rem 2rem;
+  text-align: center;
+  border-radius: 0 0 32px 32px;
+}
+.landing-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+.landing-hero p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn {
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+.btn-primary { background: white; color: #3b82f6; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+.btn-secondary { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); }
+.btn-secondary:hover { background: rgba(255,255,255,0.25); }
+
+.landing-container { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+
+/* Metrics cards */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+.metric-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.75rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.2s;
+}
+.metric-card:hover { transform: translateY(-3px); }
+.metric-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #3b82f6;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.metric-label {
+  font-size: 0.85rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Flow diagram */
+.flow-section { margin-bottom: 3rem; }
+.flow-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #1e293b;
+}
+.flow-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #1e293b;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: all 0.2s;
+  min-width: 100px;
+}
+.flow-step:hover { background: rgba(59,130,246,0.08); }
+.flow-icon {
+  width: 48px;
+  height: 48px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.flow-step-num {
+  font-size: 0.7rem;
+  color: #3b82f6;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.flow-step-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+.flow-arrow {
+  color: #cbd5e1;
+  font-size: 1.5rem;
+}
+
+/* Highlights */
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+.highlight-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border-top: 3px solid #3b82f6;
+}
+.highlight-card.green { border-top-color: #10b981; }
+.highlight-card.orange { border-top-color: #f59e0b; }
+.highlight-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: #1e293b;
+}
+.highlight-card p {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+.highlight-stat {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #3b82f6;
+  margin-bottom: 0.25rem;
+}
+.highlight-card.green .highlight-stat { color: #10b981; }
+.highlight-card.orange .highlight-stat { color: #f59e0b; }
+
+/* CTA section */
+.cta-section {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: white;
+  border-radius: 16px;
+  padding: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.cta-section h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+.cta-section p { opacity: 0.7; margin-bottom: 1.5rem; }
+</style>
+
+<div class="landing-page">
+  <div class="landing-hero">
+    <h1>CDT502 在线零售数据分析</h1>
+    <p>8 步完整数据分析流程，从原始数据到商业洞察。<br>代码开源，方法论公开，每一步决策都有解释。</p>
+    <div class="hero-btns">
+      <a href="/cdt502/overview/" class="btn btn-primary">📊 开始阅读分析</a>
+      <a href="/cdt502/methodology/" class="btn btn-secondary">🧠 方法论</a>
+      <a href="https://github.com/XUN-N/CDT502" class="btn btn-secondary" target="_blank">💻 查看源码</a>
+    </div>
+  </div>
+
+  <div class="landing-container">
+    <!-- Key metrics -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">541,909</div>
+        <div class="metric-label">原始交易记录</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">397,884</div>
+        <div class="metric-label">清洗后记录</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">4,332</div>
+        <div class="metric-label">独立客户</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">37</div>
+        <div class="metric-label">覆盖国家</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">8</div>
+        <div class="metric-label">分析步骤</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">25+</div>
+        <div class="metric-label">可视化图表</div>
+      </div>
+    </div>
+
+    <!-- 8-step flow -->
+    <div class="flow-section">
+      <h2>8 步分析流程</h2>
+      <div class="flow-chart">
+        {% assign steps = site.cdt502-steps | sort: 'step_number' %}
+        {% for step in steps %}
+          <a href="{{ step.url }}" class="flow-step">
+            <div class="flow-icon">{{ step.step_icon }}</div>
+            <div class="flow-step-num">Step {{ step.step_number }}</div>
+            <div class="flow-step-name">{{ step.step_name }}</div>
+          </a>
+          {% unless forloop.last %}
+            <span class="flow-arrow">→</span>
+          {% endunless %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Key highlights -->
+    <div class="highlights-grid">
+      <div class="highlight-card">
+        <div class="highlight-stat">18.4%</div>
+        <h3>客户流失率</h3>
+        <p>通过 190 天沉默阈值识别高风险流失客户，Logistic Regression 模型 AUC 达 0.85</p>
+      </div>
+      <div class="highlight-card green">
+        <div class="highlight-stat">5 类</div>
+        <h3>RFM 客户分层</h3>
+        <p>基于 R/F/M 三维评分，将客户分为高价值、重要发展、重要保持、重要挽留、一般客户</p>
+      </div>
+      <div class="highlight-card orange">
+        <div class="highlight-stat">4 群</div>
+        <h3>K-Means 客户聚类</h3>
+        <p>Elbow Method 确定 K=4，揭示 4 类消费行为特征群体，显著差异化的运营策略</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>深入理解每一步分析</h2>
+      <p>不只是展示结果，更展示为什么这样做。<br>策略、决策、执行 — 每一步都有完整解释。</p>
+      <a href="/cdt502/overview/" class="btn btn-primary">探索完整分析 →</a>
+    </div>
+  </div>
+</div>

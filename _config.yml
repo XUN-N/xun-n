@@ -21,6 +21,12 @@ exclude:
 collections:
   projects:
     output: true
+  cdt502-steps:
+    output: true
+    permalink: /cdt502/steps/:name/
+  cdt502-source:
+    output: true
+    permalink: /cdt502/source/:name/
 
 # Navigation
 navigation:
@@ -28,6 +34,8 @@ navigation:
     link: /
   - title: Blog
     link: /blog.html
+  - title: CDT502
+    link: /cdt502.html
   - title: About
     link: /about.html
   - title: Projects
@@ -51,3 +59,13 @@ defaults:
       type: "projects"
     values:
       layout: project
+  - scope:
+      path: ""
+      type: "cdt502-steps"
+    values:
+      layout: cdt502-step
+  - scope:
+      path: ""
+      type: "cdt502-source"
+    values:
+      layout: cdt502-source
