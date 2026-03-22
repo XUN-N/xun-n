@@ -4,23 +4,129 @@ title: Home
 ---
 
 <!-- Hero Section -->
-<section class="hero">
-    <h1>Welcome to My Blog</h1>
-    <p>
-        Exploring technology, coding, and creative projects. 
-        Join me on this journey of learning and building.
+<section class="hero" data-animate>
+    <div class="hero-badge">🧠 HUMAN.OS Blog</div>
+    <h1 class="hero-title">Personal Development & AI Engineering</h1>
+    <p class="hero-subtitle">
+        Exploring efficiency science, multi-agent systems, and the future of human-AI collaboration.
     </p>
-    <div style="margin-top: 2rem;">
-        <a href="{{ '/blog.html' | relative_url }}" class="btn btn-primary">Read Blog Posts</a>
+    <div class="hero-cta">
+        <a href="#newsletter" class="btn btn-primary btn-lg">Subscribe</a>
+        <a href="https://github.com/xun-n" target="_blank" class="btn btn-secondary btn-lg">
+            GitHub <span class="arrow">→</span>
+        </a>
+    </div>
+    <div class="hero-social-proof">
+        <span class="social-item">
+            <span class="social-icon">⭐</span>
+            <span class="social-text">50+ stars</span>
+        </span>
+        <span class="social-item">
+            <span class="social-icon">📬</span>
+            <span class="social-text">100+ subscribers</span>
+        </span>
+        <span class="social-item">
+            <span class="social-icon">📖</span>
+            <span class="social-text">{{ site.posts.size }} articles</span>
+        </span>
     </div>
 </section>
 
-<!-- Latest Posts -->
-<section>
-    <h2 style="margin-bottom: 1.5rem; font-size: 1.75rem;">Latest Posts</h2>
+<!-- Featured Posts -->
+<section class="featured-section" data-animate>
+    <div class="section-header">
+        <h2 class="section-title">Featured Posts</h2>
+    </div>
+    <div class="featured-grid">
+        {% for post in site.posts limit: 4 %}
+        <article class="featured-card" data-animate-stagger>
+            <a href="{{ post.url | relative_url }}" class="featured-card-link">
+                <div class="featured-card-image">
+                    {% if post.image %}
+                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+                    {% else %}
+                    <div class="featured-card-placeholder">
+                        <span class="placeholder-icon">📝</span>
+                    </div>
+                    {% endif %}
+                    {% if post.tags %}
+                    <span class="featured-card-tag">{{ post.tags[0] }}</span>
+                    {% endif %}
+                </div>
+                <div class="featured-card-content">
+                    <h3 class="featured-card-title">{{ post.title }}</h3>
+                    <div class="featured-card-meta">
+                        <time datetime="{{ post.date | date_to_xmlschema }}">
+                            {{ post.date | date: '%b %d, %Y' }}
+                        </time>
+                        <span class="read-time">{% if post.read_time %}{{ post.read_time }}{% else %}5 min read{% endif %}</span>
+                    </div>
+                    <p class="featured-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+                    <span class="featured-card-cta">Read More <span class="arrow">→</span></span>
+                </div>
+            </a>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- About Preview -->
+<section class="about-preview" data-animate>
+    <div class="about-preview-inner">
+        <h2 class="section-title">About This Blog</h2>
+        <p class="about-preview-text">
+            Hi! I'm a developer passionate about building personal development systems powered by AI. 
+            This blog explores the intersection of technology and human potential.
+        </p>
+        <div class="about-topics">
+            <span class="topic-tag">🧠 Efficiency Science</span>
+            <span class="topic-tag">🤖 Multi-Agent AI</span>
+            <span class="topic-tag">📊 Product Design</span>
+            <span class="topic-tag">🎯 Personal Growth</span>
+        </div>
+        <a href="{{ '/about.html' | relative_url }}" class="btn btn-outline">
+            More About Me <span class="arrow">→</span>
+        </a>
+    </div>
+</section>
+
+<!-- Newsletter Signup -->
+<section id="newsletter" class="newsletter" data-animate>
+    <div class="newsletter-inner">
+        <h2 class="section-title">Subscribe to the Newsletter</h2>
+        <p class="newsletter-description">
+            Get weekly insights on productivity, AI, and personal development. No spam, unsubscribe anytime.
+        </p>
+        <form class="newsletter-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input 
+                type="email" 
+                name="email" 
+                class="newsletter-input" 
+                placeholder="your@email.com" 
+                required
+                aria-label="Email address"
+            >
+            <button type="submit" class="newsletter-button">Subscribe</button>
+        </form>
+        <div class="newsletter-benefits">
+            <span class="benefit-item">✓ Weekly insights</span>
+            <span class="benefit-item">✓ No spam</span>
+            <span class="benefit-item">✓ Unsubscribe anytime</span>
+        </div>
+    </div>
+</section>
+
+<!-- Recent Posts -->
+<section class="recent-posts" data-animate>
+    <div class="section-header">
+        <h2 class="section-title">Recent Posts</h2>
+        <a href="{{ '/blog.html' | relative_url }}" class="view-all-link">
+            View All <span class="arrow">→</span>
+        </a>
+    </div>
     <div class="card-grid">
         {% for post in site.posts limit: 6 %}
-        <div class="card">
+        <div class="card" data-animate-stagger>
             <h3 class="card-title">
                 <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </h3>
@@ -31,7 +137,7 @@ title: Home
             </div>
             <p class="card-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
             {% if post.tags %}
-            <div style="margin-top: 1rem;">
+            <div class="card-tags">
                 {% for tag in post.tags limit: 3 %}
                 <span class="tag">{{ tag }}</span>
                 {% endfor %}
@@ -42,7 +148,7 @@ title: Home
     </div>
     
     {% if site.posts.size > 6 %}
-    <div style="text-align: center; margin-top: 2rem;">
+    <div class="view-all-container">
         <a href="{{ '/blog.html' | relative_url }}" class="btn btn-primary">View All Posts</a>
     </div>
     {% endif %}
@@ -50,24 +156,27 @@ title: Home
 
 <!-- Featured Projects -->
 {% if site.projects.size > 0 %}
-<section style="margin-top: 3rem;">
-    <h2 style="margin-bottom: 1.5rem; font-size: 1.75rem;">Featured Projects</h2>
+<section class="featured-projects" data-animate>
+    <div class="section-header">
+        <h2 class="section-title">Featured Projects</h2>
+        <a href="{{ '/projects.html' | relative_url }}" class="view-all-link">
+            View All <span class="arrow">→</span>
+        </a>
+    </div>
     <div class="card-grid">
         {% for project in site.projects limit: 3 %}
-        <div class="card">
+        <div class="card" data-animate-stagger>
             <h3 class="card-title">
                 <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
             </h3>
             {% if project.subtitle %}
-            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-                {{ project.subtitle }}
-            </p>
+            <p class="card-subtitle">{{ project.subtitle }}</p>
             {% endif %}
             <p class="card-excerpt">{{ project.excerpt | strip_html | truncatewords: 15 }}</p>
             {% if project.github %}
-            <div style="margin-top: 1rem;">
-                <a href="{{ project.github }}" target="_blank" style="font-size: 0.9rem;">
-                    View on GitHub →
+            <div class="card-link">
+                <a href="{{ project.github }}" target="_blank">
+                    View on GitHub <span class="arrow">→</span>
                 </a>
             </div>
             {% endif %}
@@ -78,44 +187,31 @@ title: Home
 {% endif %}
 
 <!-- Courses Section -->
-<section style="margin-top: 3rem;">
-    <h2 style="margin-bottom: 1.5rem; font-size: 1.75rem;">📚 Courses</h2>
+<section class="courses-section" data-animate>
+    <div class="section-header">
+        <h2 class="section-title">📚 Courses</h2>
+    </div>
     <div class="card-grid">
-        <div class="card" style="border-top: 3px solid #1a73e8;">
+        <div class="card card-highlight" data-animate-stagger>
             <h3 class="card-title">
                 <a href="{{ '/cdt501/' | relative_url }}">CDT501 - 探索人工智能</a>
             </h3>
-            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-                Exploring Artificial Intelligence
-            </p>
+            <p class="card-subtitle">Exploring Artificial Intelligence</p>
             <p class="card-excerpt">人工智能基础理论与实践应用。课程内容包括机器学习、深度学习、自然语言处理、计算机视觉等核心主题。</p>
-            <div style="margin-top: 1rem;">
-                <span class="tag" style="background: #e8f0fe; color: #1a73e8;">Coming Soon</span>
+            <div class="card-tags">
+                <span class="tag tag-highlight">Coming Soon</span>
             </div>
         </div>
-        <div class="card" style="border-top: 3px solid #3b82f6;">
+        <div class="card card-highlight-blue" data-animate-stagger>
             <h3 class="card-title">
                 <a href="{{ '/cdt502/' | relative_url }}">CDT502 - 在线零售数据分析</a>
             </h3>
-            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-                Online Retail Data Analytics
-            </p>
+            <p class="card-subtitle">Online Retail Data Analytics</p>
             <p class="card-excerpt">8 步完整数据分析流程，从原始数据到商业洞察。包含 RFM 分析、客户聚类、流失预测、销售预测等实战内容。</p>
-            <div style="margin-top: 1rem;">
-                <span class="tag" style="background: #dbeafe; color: #3b82f6;">8 Steps</span>
-                <span class="tag" style="background: #dbeafe; color: #3b82f6;">25+ Charts</span>
+            <div class="card-tags">
+                <span class="tag tag-blue">8 Steps</span>
+                <span class="tag tag-blue">25+ Charts</span>
             </div>
         </div>
     </div>
-</section>
-
-<!-- About Preview -->
-<section style="margin-top: 3rem; background: var(--bg-secondary); padding: 2.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-    <h2 style="margin-bottom: 1rem; font-size: 1.75rem;">About Me</h2>
-    <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
-        Hi! I'm a developer passionate about building things for the web. 
-        I love exploring new technologies, solving problems, and sharing my learning journey.
-        This blog is where I document my projects, thoughts, and discoveries.
-    </p>
-    <a href="{{ '/about.html' | relative_url }}" class="btn btn-primary">Learn More About Me</a>
 </section>
