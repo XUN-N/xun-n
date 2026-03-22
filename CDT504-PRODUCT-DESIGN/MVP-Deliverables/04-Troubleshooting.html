@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04 Troubleshooting</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; }
+        h2 { color: #764ba2; margin-top: 30px; }
+        h3 { color: #555; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        pre code { background: none; padding: 0; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #667eea; color: white; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        a { color: #667eea; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        blockquote { border-left: 4px solid #667eea; margin: 0; padding-left: 20px; color: #666; }
+        ul, ol { padding-left: 30px; }
+        .nav { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 30px; }
+        .nav a { margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">← Back to Home</a>
+        <a href="https://github.com/openclaw">GitHub</a>
+    </div>
+<h1>Peer Guidance Scripts</h1>
+<br>
+<blockquote>**Give a man a fish, and you feed him for a day.**</blockquote>
+<blockquote>**Teach a man to fish, and you feed him for a lifetime.**</blockquote>
+<blockquote></blockquote>
+<blockquote>**Our goal: Make you no longer need us.**</blockquote>
+<br>
+<p>---</p>
+<br>
+<h2>Hello, this is peer guidance scripts</h2>
+<br>
+<p><strong>This is not traditional "customer service scripts", but—</strong></p>
+<br>
+<blockquote>Scripts that help you learn to solve problems independently.</blockquote>
+<br>
+<p><strong>Our philosophy:</strong></p>
+<br>
+<p>- ❌ Not giving you answers directly</p>
+<p>- ✅ But teaching you how to find answers</p>
+<br>
+<p>- ❌ Not accompanying full-time</p>
+<p>- ✅ But intervening when necessary</p>
+<br>
+<p>- ❌ Not making you dependent</p>
+<p>- ✅ But making you independent</p>
+<br>
+<p>---</p>
+<br>
+<h2>Usage Scenarios</h2>
+<br>
+<h3>Scenario 1: User Reports Error</h3>
+<br>
+<p><strong>User says:</strong></p>
+<blockquote>"I encountered XXX error, what to do?"</blockquote>
+<br>
+<p><strong>❌ Don't give answer directly:</strong></p>
+<pre><code>Oh, this error, you need to modify .env file, add XXX config.</code></pre>
+<br>
+<p><strong>✅ Guide self-check:</strong></p>
+<pre><code>This error is very common, we have detailed solutions in our error library.
+
+👉 Click to view: [ERR-XXX](03-Error-Guide.md#err-xxx)
+
+Follow the steps, usually solved within 5 minutes.
+
+If you still have questions, come back anytime.</code></pre>
+<br>
+<p><strong>Why guide this way:</strong></p>
+<p>- Empathy ("very common") → Reduce anxiety</p>
+<p>- Clear link → Reduce search cost</p>
+<p>- Time expectation ("5 minutes") → Boost confidence</p>
+<p>- Maintain support ("come back anytime") → Sense of security</p>
+<br>
+<p>---</p>
+<br>
+<h3>Scenario 2: Config Problem</h3>
+<br>
+<p><strong>User says:</strong></p>
+<blockquote>"Config seems to have problems, don't know what's wrong"</blockquote>
+<br>
+<p><strong>❌ Don't directly help check:</strong></p>
+<pre><code>Send me your .env file, I'll help check.</code></pre>
+<br>
+<p><strong>✅ Guide tool usage:</strong></p>
+<pre><code>Suggest running one-click diagnosis first to see the specific problem.
+
+👉 Run command:</code></pre>
+<p>python scripts/diagnose.py</p>
+<pre><code>
+Diagnosis report will tell you:
+1. Which config has problems
+2. Specific error code
+3. Solution link
+
+Send me the report after running, I'll help you analyze.</code></pre>
+<br>
+<p><strong>Why guide this way:</strong></p>
+<p>- Teach tool usage → Cultivate self-check capability</p>
+<p>- Explain output content → Lower usage barrier</p>
+<p>- Express willingness to help → Maintain support attitude</p>
+<br>
+<p>---</p>
+<br>
+<h3>Scenario 3: User Wants to Give Up</h3>
+<br>
+<p><strong>User says:</strong></p>
+<blockquote>"Too hard, don't want to continue"</blockquote>
+<br>
+<p><strong>❌ Don't give empty encouragement:</strong></p>
+<pre><code>Keep going, you can do it! Don't give up!</code></pre>
+<br>
+<p><strong>✅ Empathy + show progress + give options:</strong></p>
+<pre><code>Understand your feelings, every beginner encounters this stage. 😊
+
+Let me see your progress...
+You've completed [X]% of configuration, very close to success!
+
+How about:
+1. Take a break first, come back to continue
+2. Let me help see where you're stuck
+3. We'll go step by step, I'll accompany you
+
+Which do you choose?</code></pre>
+<br>
+<p><strong>Why guide this way:</strong></p>
+<p>- Empathy and recognition → Reduce frustration</p>
+<p>- Show progress → Let user see achievement</p>
+<p>- Provide options → Give user control</p>
+<br>
+<p>---</p>
+<br>
+<h3>Scenario 4: Duplicate Question</h3>
+<br>
+<p><strong>User says:</strong></p>
+<blockquote>(Asks a question in error library)</blockquote>
+<br>
+<p><strong>❌ Don't answer directly:</strong></p>
+<pre><code>This error is because XXX, you need XXX.</code></pre>
+<br>
+<p><strong>✅ Guide document lookup:</strong></p>
+<pre><code>We have detailed documentation for this question!
+
+👉 [Question Title](03-Error-Guide.md#err-xxx)
+
+Documentation includes:
+- Error cause
+- Solution steps (1-2-3)
+- Validation method
+
+Try following the documentation first, come to me if you get stuck.</code></pre>
+<br>
+<p><strong>Why guide this way:</strong></p>
+<p>- Don't give answer directly → Cultivate lookup habit</p>
+<p>- Explain document content → Increase lookup motivation</p>
+<p>- Maintain support attitude → Don't make user feel rejected</p>
+<br>
+<p>---</p>
+<br>
+<h3>Scenario 5: Problem Escalation</h3>
+<br>
+<p><strong>User says:</strong></p>
+<blockquote>(Encountered error not in library)</blockquote>
+<br>
+<p><strong>❌ Don't force answer:</strong></p>
+<pre><code>This... I'm not sure either, let me research.</code></pre>
+<br>
+<p><strong>✅ Honest + plan + collect info:</strong></p>
+<pre><code>This problem is quite special, not in error library yet.
+
+I'll help you:
+1. First record your error info
+2. I'll research it
+3. Update to error library after solving, help others
+
+Please provide:
+- Complete error message
+- Solutions you've tried
+- Your config (hide sensitive info)</code></pre>
+<br>
+<p><strong>Why guide this way:</strong></p>
+<p>- Acknowledge knowledge boundary → Honest and trustworthy</p>
+<p>- Explain handling plan → Reassure user</p>
+<p>- Collect necessary info → Improve solution efficiency</p>
+<p>- Promise to update library → Turn problem into value</p>
+<br>
+<p>---</p>
+<br>
+<h3>Scenario 6: User Thanks</h3>
+<br>
+<p><strong>User says:</strong></p>
+<blockquote>"Thanks! Solved!"</blockquote>
+<br>
+<p><strong>❌ Don't simply reply:</strong></p>
+<pre><code>You're welcome.</code></pre>
+<br>
+<p><strong>✅ Reinforce achievement + encourage sharing:</strong></p>
+<pre><code>Great! Congratulations! 🎉
+
+You've unlocked another new skill～
+
+If convenient, welcome to share your solution process to community,
+help others who encounter the same problem.
+
+Keep going!</code></pre>
+<br>
+<p><strong>Why guide this way:</strong></p>
+<p>- Celebrate achievement → Enhance positive feedback</p>
+<p>- Encourage sharing → Cultivate community awareness</p>
+<p>- Keep going → Maintain learning motivation</p>
+<br>
+<p>---</p>
+<br>
+<h2>Guidance Principles</h2>
+<br>
+<h3>Principle 1: Guide Self-check First, Then Provide Help</h3>
+<br>
+<p><strong>Order:</strong></p>
+<pre><code>1. Guide to check error library
+   ↓ (If can't solve)
+2. Guide to use diagnosis tool
+   ↓ (If still can't solve)
+3. Provide human support</code></pre>
+<br>
+<p><strong>Why:</strong></p>
+<p>- Cultivate independence</p>
+<p>- Reduce duplicate questions</p>
+<p>- Let human support focus on complex problems</p>
+<br>
+<p>---</p>
+<br>
+<h3>Principle 2: Give Method, Not Answer</h3>
+<br>
+<p><strong>Comparison:</strong></p>
+<br>
+<tr><td>❌ Give Answer</td><td>✅ Give Method</td></tr>
+<tr><td>"You need to modify .env file"</td><td>"Suggest running diagnosis script first"</td></tr>
+<tr><td>"Add XXX config"</td><td>"Diagnosis report will tell you which config has problems"</td></tr>
+<tr><td>"Then restart"</td><td>"Follow document steps"</td></tr>
+<br>
+<p><strong>Why:</strong></p>
+<p>- Give answer → Still won't next time</p>
+<p>- Give method → Can solve independently next time</p>
+<br>
+<p>---</p>
+<br>
+<h3>Principle 3: Empathy First, Solution Later</h3>
+<br>
+<p><strong>Order:</strong></p>
+<pre><code>1. Empathy ("Understand your feelings")
+   ↓
+2. Normalize ("This is very common")
+   ↓
+3. Solution ("Suggest...")
+   ↓
+4. Support ("Come to me anytime")</code></pre>
+<br>
+<p><strong>Why:</strong></p>
+<p>- Users can't hear solutions when emotional</p>
+<p>- Process emotion first, then process problem</p>
+<br>
+<p>---</p>
+<br>
+<h3>Principle 4: Give Expectation, Reduce Anxiety</h3>
+<br>
+<p><strong>Example:</strong></p>
+<br>
+<tr><td>❌ No expectation</td><td>✅ Give expectation</td></tr>
+<tr><td>"Try this"</td><td>"Usually solved within 5 minutes"</td></tr>
+<tr><td>"Should work"</td><td>"90% of users solved with this method"</td></tr>
+<tr><td>"Not sure if it works"</td><td>"This is the most common solution"</td></tr>
+<br>
+<p><strong>Why:</strong></p>
+<p>- Uncertainty increases anxiety</p>
+<p>- Clear expectation boosts confidence</p>
+<br>
+<p>---</p>
+<br>
+<h3>Principle 5: Maintain Support, But Don't Do Everything</h3>
+<br>
+<p><strong>Balance:</strong></p>
+<br>
+<pre><code>Excessive support ←————→ Insufficient support
+(Do everything)        (Leave alone)
+        ↓
+    Moderate support
+    (Guide + Backup)</code></pre>
+<br>
+<p><strong>How to把握:</strong></p>
+<p>- Guide users to try solving independently</p>
+<p>- But let users know "there's backup"</p>
+<p>- When really difficult, intervene timely</p>
+<br>
+<p>---</p>
+<br>
+<h2>Common Script Templates</h2>
+<br>
+<h3>Template 1: Guide to Check Error Library</h3>
+<br>
+<pre><code>This error is very common, we have detailed solutions in our error library.
+
+👉 Click to view: [Error Name](03-Error-Guide.md#error-link)
+
+Follow the steps, usually solved within [X] minutes.
+
+If you still have questions, come back anytime.</code></pre>
+<br>
+<h3>Template 2: Guide to Use Tool</h3>
+<br>
+<pre><code>Suggest running [Tool Name] first to see the specific problem.
+
+👉 Run command:</code></pre>
+<p>[Command]</p>
+<pre><code>
+[Tool] will tell you:
+1. [Output 1]
+2. [Output 2]
+3. [Output 3]
+
+Send me the result after running, I'll help you analyze.</code></pre>
+<br>
+<h3>Template 3: Empathy + Encouragement</h3>
+<br>
+<pre><code>Understand your feelings, [normalization description].
+
+You've completed [X]%, very close to success!
+
+How about:
+1. [Option 1]
+2. [Option 2]
+3. [Option 3]
+
+Which do you choose?</code></pre>
+<br>
+<h3>Template 4: Problem Escalation Handling</h3>
+<br>
+<pre><code>This problem is quite special, [error library/document] doesn't have it yet.
+
+I'll help you:
+1. First record your error info
+2. I'll research it
+3. Update to [error library/document] after solving, help others
+
+Please provide:
+- [Info 1]
+- [Info 2]
+- [Info 3]</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>FAQ</h2>
+<br>
+<p><strong>Q1: User just doesn't want to check themselves, what to do?</strong></p>
+<br>
+<p>A: Understand user mood, but insist on guiding:</p>
+<pre><code>I understand you want to solve quickly now.
+But learning to check error library yourself means you can solve similar problems quickly in the future.
+This time I'll accompany you to check, next time you'll know.</code></pre>
+<br>
+<p><strong>Q2: After guidance user still can't solve, what to do?</strong></p>
+<br>
+<p>A: Intervene timely, don't let user repeatedly frustrated:</p>
+<pre><code>Looks like this problem is a bit complex.
+Let me help you check...
+[Provide specific help]</code></pre>
+<br>
+<p><strong>Q3: User's question is too simple, should I guide?</strong></p>
+<br>
+<p>A: The simpler the question, the more need to guide:</p>
+<p>- Simple questions easiest to cultivate dependence</p>
+<p>- Simple questions most suitable for practicing self-check</p>
+<p>- Simple questions' solutions easiest to remember</p>
+<br>
+<p><strong>Q4: User thinks I'm shirking, what to do?</strong></p>
+<br>
+<p>A: Clarify intention + show value:</p>
+<pre><code>I understand you might think I'm shirking.
+But actually I want to help you learn to solve this type of problem yourself.
+You won't have to wait for me every time in the future, solve it yourself in 5 minutes.
+
+This time I'll accompany you to check, next time you'll know.</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>Final Words</h2>
+<br>
+<p><strong>The core of peer guidance is not "scripts", but—</strong></p>
+<br>
+<blockquote>Sincerely hope users grow.</blockquote>
+<br>
+<p><strong>We believe:</strong></p>
+<br>
+<p>- Every user has the capability to solve problems independently</p>
+<p>- Just need correct methods and guidance</p>
+<p>- Once learned, they'll be stronger than you imagined</p>
+<br>
+<p><strong>So, our goal is not to make users dependent on us, but—</strong></p>
+<br>
+<blockquote>**Make users no longer need us.**</blockquote>
+<br>
+<p><strong>But this doesn't mean we ignore users.</strong></p>
+<br>
+<blockquote>From "holding hands" to "watching from the side".</blockquote>
+<blockquote></blockquote>
+<blockquote>When you need, I'm always here.</blockquote>
+<blockquote>When you're independent, I applaud for you.</blockquote>
+<br>
+<p><strong>This is the meaning of peer guidance.</strong></p>
+<br>
+<p>---</p>
+<br>
+<p><em>Peer Guidance Scripts · v1.0</em>  </p>
+<p><em>© 2026 OpenClaw Onboarding Project · CC BY-NC-SA 4.0</em></p>
+<br>
+
+    <hr>
+    <footer style="text-align: center; color: #666; padding: 20px;">
+        <p>© 2026 OpenClaw Onboarding Project · CC BY-NC-SA 4.0</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06 MVP Feature List</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; }
+        h2 { color: #764ba2; margin-top: 30px; }
+        h3 { color: #555; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        pre code { background: none; padding: 0; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #667eea; color: white; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        a { color: #667eea; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        blockquote { border-left: 4px solid #667eea; margin: 0; padding-left: 20px; color: #666; }
+        ul, ol { padding-left: 30px; }
+        .nav { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 30px; }
+        .nav a { margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">← Back to Home</a>
+        <a href="https://github.com/openclaw">GitHub</a>
+    </div>
+<h1>MVP Feature List</h1>
+<br>
+<p><strong>Product Name:</strong> OpenClaw Onboarding and Knowledge Tuning Service  </p>
+<p><strong>Version:</strong> v1.0 (MVP)  </p>
+<p><strong>Created Date:</strong> 2026-03-19  </p>
+<p><strong>Phase:</strong> 2 - Product Specification Development  </p>
+<p><strong>Method:</strong> CDT504 Lesson 5 - MVP Scope Definition</p>
+<br>
+<p>---</p>
+<br>
+<h2>I. MVP Definition</h2>
+<br>
+<h3>1.1 MVP Principles</h3>
+<br>
+<tr><td>Principle</td><td>Description</td></tr>
+<tr><td>**Minimum**</td><td>Only include features essential to validate core value</td></tr>
+<tr><td>**Viable**</td><td>Can be completed within 2 weeks (within 140 hours)</td></tr>
+<tr><td>**Testable**</td><td>Can validate core assumptions (users need systematic guidance)</td></tr>
+<br>
+<h3>1.2 MVP Goals</h3>
+<br>
+<p><strong>Assumptions to Validate:</strong></p>
+<p>- H1: Users need systematic onboarding guidance (vs. scattered documentation)</p>
+<p>- H2: 5-minute quick onboarding can significantly reduce churn</p>
+<p>- H3: Configuration wizard can reduce configuration errors</p>
+<br>
+<p><strong>Success Criteria:</strong></p>
+<p>- 80% of 10 test users complete first task within 5 minutes</p>
+<p>- Configuration error rate reduced by 50%</p>
+<p>- User satisfaction ≥4/5</p>
+<br>
+<p>---</p>
+<br>
+<h2>II. MVP Feature List (3 Core Features)</h2>
+<br>
+<h3>Feature F1: 5-Minute Quick Onboarding Flow ⭐⭐⭐⭐⭐</h3>
+<br>
+<p><strong>Priority:</strong> P0 - Required  </p>
+<p><strong>Corresponding Spec:</strong> S1  </p>
+<p><strong>Estimated Hours:</strong> 20 hours</p>
+<br>
+<h4>Feature Description</h4>
+<br>
+<p>Provide structured first-time usage guidance for new users, from launch to first task completion ≤5 minutes.</p>
+<br>
+<h4>Feature Composition</h4>
+<br>
+<pre><code>Quick Onboarding Flow
+│
+├── 1. Welcome Screen
+│   ├── Product brief (1 sentence)
+│   ├── Expected time hint ("Complete first task in 5 minutes")
+│   └── Start button
+│
+├── 2. Configuration Check
+│   ├── Auto-detect .env file
+│   ├── Detect key config items (FEISHU_APP_ID, etc.)
+│   ├── Highlight problematic items
+│   └── Repair guidance links
+│
+├── 3. First Task Guidance
+│   ├── Task description ("Send first message")
+│   ├── Step decomposition (1-2-3)
+│   ├── Code/command examples
+│   └── Verification method
+│
+└── 4. Completion Celebration
+    ├── Success notification
+    ├── Achievement badge ("First task complete!")
+    └── Next step recommendation ("Learn configuration skills")</code></pre>
+<br>
+<h4>Acceptance Criteria</h4>
+<br>
+<tr><td>Criteria</td><td>Target</td><td>Measurement Method</td></tr>
+<tr><td>Completion time</td><td>≤5 min (80% users)</td><td>User testing timing</td></tr>
+<tr><td>Completion rate</td><td>≥80%</td><td>User testing statistics</td></tr>
+<tr><td>User satisfaction</td><td>≥4/5</td><td>Post-test survey</td></tr>
+<br>
+<h4>Deliverables</h4>
+<br>
+<tr><td>Deliverable</td><td>Format</td><td>Path</td></tr>
+<tr><td>Quick onboarding guide</td><td>Markdown</td><td>`guides/01-Quick-Start.md`</td></tr>
+<tr><td>Configuration check script</td><td>Shell/Python</td><td>`scripts/check-config.py`</td></tr>
+<tr><td>Welcome screen</td><td>Feishu document</td><td>(To be created)</td></tr>
+<br>
+<p>---</p>
+<br>
+<h3>Feature F2: Configuration Wizard (5 Core Config Items) ⭐⭐⭐⭐⭐</h3>
+<br>
+<p><strong>Priority:</strong> P0 - Required  </p>
+<p><strong>Corresponding Spec:</strong> S2  </p>
+<p><strong>Estimated Hours:</strong> 40 hours</p>
+<br>
+<h4>Feature Description</h4>
+<br>
+<p>Provide step-by-step guidance for 5 core configuration items, each with explanation, examples, and verification.</p>
+<br>
+<h4>Config Item Scope</h4>
+<br>
+<tr><td>Config Item</td><td>Importance</td><td>Complexity</td><td>Priority</td></tr>
+<tr><td>FEISHU_APP_ID</td><td>⭐⭐⭐⭐⭐</td><td>Low</td><td>P0</td></tr>
+<tr><td>FEISHU_APP_SECRET</td><td>⭐⭐⭐⭐⭐</td><td>Low</td><td>P0</td></tr>
+<tr><td>FEISHU_GROUP_XXX</td><td>⭐⭐⭐⭐⭐</td><td>Medium</td><td>P0</td></tr>
+<tr><td>DASHSCOPE_API_KEY</td><td>⭐⭐⭐⭐</td><td>Low</td><td>P0</td></tr>
+<tr><td>Model configuration</td><td>⭐⭐⭐⭐</td><td>Medium</td><td>P0</td></tr>
+<br>
+<h4>Feature Composition</h4>
+<br>
+<pre><code>Configuration Wizard (Each Config Item)
+│
+├── 1. Config Explanation
+│   ├── Config item name
+│   ├── Purpose description (1-2 sentences)
+│   ├── How to obtain (link to detailed doc)
+│   └── Example value
+│
+├── 2. Step-by-step Guidance
+│   ├── Step 1: Open Feishu developer console
+│   ├── Step 2: Create application
+│   ├── Step 3: Copy App ID
+│   └── Step 4: Paste into .env file
+│
+├── 3. Real-time Validation
+│   ├── Format validation (non-empty, correct format)
+│   ├── Connection test (call API to verify)
+│   └── Success/failure feedback
+│
+└── 4. Common Questions
+    ├── Q1 + Answer
+    ├── Q2 + Answer
+    └── Q3 + Answer</code></pre>
+<br>
+<h4>Acceptance Criteria</h4>
+<br>
+<tr><td>Criteria</td><td>Target</td><td>Measurement Method</td></tr>
+<tr><td>Config explanation coverage</td><td>100%</td><td>Document review</td></tr>
+<tr><td>Config completion rate</td><td>≥80%</td><td>User testing statistics</td></tr>
+<tr><td>Config error rate</td><td>≤20%</td><td>User testing statistics</td></tr>
+<tr><td>User satisfaction</td><td>≥4/5</td><td>Post-test survey</td></tr>
+<br>
+<h4>Deliverables</h4>
+<br>
+<tr><td>Deliverable</td><td>Format</td><td>Path</td></tr>
+<tr><td>Configuration wizard documents (5)</td><td>Markdown</td><td>`guides/02-Config-Wizard-{1-5}.md`</td></tr>
+<tr><td>Config validation script</td><td>Python</td><td>`scripts/verify-config.py`</td></tr>
+<tr><td>FAQ document</td><td>Markdown</td><td>`guides/Config-FAQ.md`</td></tr>
+<br>
+<p>---</p>
+<br>
+<h3>Feature F3: Error Guidance Library (50 Common Errors) ⭐⭐⭐⭐</h3>
+<br>
+<p><strong>Priority:</strong> P0 - Required  </p>
+<p><strong>Corresponding Spec:</strong> S3  </p>
+<p><strong>Estimated Hours:</strong> 30 hours</p>
+<br>
+<h4>Feature Description</h4>
+<br>
+<p>Provide clear error messages and solution guidance for 50 common errors, covering 70% of user problems.</p>
+<br>
+<h4>Error Classification</h4>
+<br>
+<tr><td>Category</td><td>Error Count</td><td>Examples</td></tr>
+<tr><td>**Config Errors**</td><td>15</td><td>Environment variables not set, format errors</td></tr>
+<tr><td>**Permission Errors**</td><td>10</td><td>Feishu app insufficient permissions</td></tr>
+<tr><td>**Network Errors**</td><td>8</td><td>API timeout, connection failed</td></tr>
+<tr><td>**Skill Errors**</td><td>10</td><td>Skill not found, skill execution failed</td></tr>
+<tr><td>**Other Errors**</td><td>7</td><td>File path errors, permission issues</td></tr>
+<br>
+<h4>Feature Composition</h4>
+<br>
+<pre><code>Error Guidance (Each Error)
+│
+├── 1. Error Code
+│   └── ERR-CONFIG-001 (Category-Number)
+│
+├── 2. Error Message
+│   ├── User-visible message (plain language)
+│   └── Technical info (complete info in logs)
+│
+├── 3. Cause Explanation
+│   ├── Cause 1 (most common)
+│   ├── Cause 2
+│   └── Cause 3
+│
+├── 4. Solution Steps
+│   ├── Step 1: Check X
+│   ├── Step 2: Modify Y
+│   └── Step 3: Retry
+│
+└── 5. Related Resources
+    ├── Related document links
+    └── Similar issues on GitHub</code></pre>
+<br>
+<h4>Acceptance Criteria</h4>
+<br>
+<tr><td>Criteria</td><td>Target</td><td>Measurement Method</td></tr>
+<tr><td>Error coverage</td><td>≥70% common errors</td><td>Error log analysis</td></tr>
+<tr><td>Resolution rate</td><td>≥70% users solve independently</td><td>User testing</td></tr>
+<tr><td>Readability score</td><td>≥4/5</td><td>User survey</td></tr>
+<br>
+<h4>Deliverables</h4>
+<br>
+<tr><td>Deliverable</td><td>Format</td><td>Path</td></tr>
+<tr><td>Error guidance library</td><td>Markdown</td><td>`guides/Error-Guide.md`</td></tr>
+<tr><td>Error code index</td><td>Markdown</td><td>`guides/Error-Codes.md`</td></tr>
+<tr><td>Quick reference table</td><td>Markdown</td><td>`guides/Error-Quick-Ref.md`</td></tr>
+<br>
+<p>---</p>
+<br>
+<h2>III. Out-of-Scope Features (P1/P2)</h2>
+<br>
+<h3>3.1 P1 Features (Future Versions)</h3>
+<br>
+<tr><td>Feature</td><td>Estimated Hours</td><td>Planned Version</td><td>Description</td></tr>
+<tr><td>Learning path map</td><td>20 hours</td><td>v1.1</td><td>Visualize learning progress</td></tr>
+<tr><td>Skill card library</td><td>30 hours</td><td>v1.1</td><td>20 skill cards</td></tr>
+<tr><td>Workflow template library</td><td>30 hours</td><td>v1.2</td><td>10 workflow templates</td></tr>
+<tr><td>Configuration template function</td><td>15 hours</td><td>v1.2</td><td>Config export/import</td></tr>
+<br>
+<h3>3.2 P2 Features (Future Planning)</h3>
+<br>
+<tr><td>Feature</td><td>Estimated Hours</td><td>Planned Version</td><td>Description</td></tr>
+<tr><td>Experience recording and sharing</td><td>25 hours</td><td>v2.0</td><td>User note function</td></tr>
+<tr><td>Version management and backup</td><td>20 hours</td><td>v2.0</td><td>Config version history</td></tr>
+<tr><td>Smart recommendations</td><td>30 hours</td><td>v2.1</td><td>Behavior-based recommendations</td></tr>
+<br>
+<p>---</p>
+<br>
+<h2>IV. MVP Delivery Plan</h2>
+<br>
+<h3>4.1 Timeline</h3>
+<br>
+<pre><code>2026-03-19 (Phase 2)   Specification Development  ████████████████████ Complete
+2026-03-20~21 (Phase 3)  Concept Generation       ████████████████████
+2026-03-22~23 (Phase 4)  Concept Selection        ████████████████████
+2026-03-24~26 (Phase 5)  Architecture Design      ████████████████████
+2026-03-27~29 (Phase 6)  Design Presentation      ████████████████████
+                       MVP Delivery</code></pre>
+<br>
+<h3>4.2 Milestones</h3>
+<br>
+<tr><td>Milestone</td><td>Date</td><td>Deliverable</td></tr>
+<tr><td>M1: Specs complete</td><td>03-19</td><td>This document</td></tr>
+<tr><td>M2: Concepts complete</td><td>03-23</td><td>Concept proposal documents</td></tr>
+<tr><td>M3: Architecture complete</td><td>03-26</td><td>Product architecture diagram</td></tr>
+<tr><td>M4: MVP delivery</td><td>03-29</td><td>3 core features</td></tr>
+<br>
+<h3>4.3 Resource Allocation</h3>
+<br>
+<tr><td>Role</td><td>Personnel</td><td>Hours</td><td>Responsibility</td></tr>
+<tr><td>Product Design</td><td>1 person</td><td>42 hours</td><td>Full process design</td></tr>
+<tr><td>Content Production</td><td>1 person (can be concurrent)</td><td>98 hours</td><td>Documents, scripts, FAQ</td></tr>
+<tr><td>**Total**</td><td>**140 hours**</td></tr>
+<br>
+<p>---</p>
+<br>
+<h2>V. MVP Success Metrics</h2>
+<br>
+<h3>5.1 User Metrics</h3>
+<br>
+<tr><td>Metric</td><td>Target</td><td>Measurement Method</td></tr>
+<tr><td>5-minute completion rate</td><td>≥80%</td><td>User testing</td></tr>
+<tr><td>Config completion rate</td><td>≥80%</td><td>User testing</td></tr>
+<tr><td>Error resolution rate</td><td>≥70%</td><td>User testing</td></tr>
+<tr><td>User satisfaction</td><td>≥4/5</td><td>Satisfaction survey</td></tr>
+<tr><td>NPS</td><td>≥50</td><td>NPS survey</td></tr>
+<br>
+<h3>5.2 Content Metrics</h3>
+<br>
+<tr><td>Metric</td><td>Target</td><td>Measurement Method</td></tr>
+<tr><td>Onboarding doc completeness</td><td>100%</td><td>Document review</td></tr>
+<tr><td>Config wizard coverage</td><td>5 core configs</td><td>Document review</td></tr>
+<tr><td>Error guidance coverage</td><td>50 errors</td><td>Document review</td></tr>
+<br>
+<h3>5.3 Technical Metrics</h3>
+<br>
+<tr><td>Metric</td><td>Target</td><td>Measurement Method</td></tr>
+<tr><td>Document loading time</td><td>≤2 sec</td><td>Performance testing</td></tr>
+<tr><td>Script execution success rate</td><td>≥95%</td><td>Automated testing</td></tr>
+<tr><td>Config validation accuracy</td><td>≥95%</td><td>Test cases</td></tr>
+<br>
+<p>---</p>
+<br>
+<h2>VI. Risks and Mitigation</h2>
+<br>
+<h3>6.1 Scope Risks</h3>
+<br>
+<tr><td>Risk</td><td>Likelihood</td><td>Impact</td><td>Mitigation</td></tr>
+<tr><td>Scope creep</td><td>High</td><td>Medium</td><td>Strictly limit to 3 core features</td></tr>
+<tr><td>Content production overtime</td><td>Medium</td><td>Medium</td><td>Prioritize P0 content completion</td></tr>
+<tr><td>Technical difficulty exceeds expectation</td><td>Low</td><td>High</td><td>Early technical validation</td></tr>
+<br>
+<h3>6.2 Time Risks</h3>
+<br>
+<tr><td>Risk</td><td>Likelihood</td><td>Impact</td><td>Mitigation</td></tr>
+<tr><td>Phase delay</td><td>Medium</td><td>Medium</td><td>Daily progress check</td></tr>
+<tr><td>Review delay</td><td>Medium</td><td>Low</td><td>Pre-schedule review times</td></tr>
+<tr><td>User testing recruitment difficulty</td><td>Low</td><td>Medium</td><td>Pre-contact test users</td></tr>
+<br>
+<h3>6.3 Quality Risks</h3>
+<br>
+<tr><td>Risk</td><td>Likelihood</td><td>Impact</td><td>Mitigation</td></tr>
+<tr><td>Document quality inconsistency</td><td>Medium</td><td>Medium</td><td>Unified template + review</td></tr>
+<tr><td>Script bugs</td><td>Medium</td><td>High</td><td>Sufficient testing + error handling</td></tr>
+<tr><td>Error guidance inaccuracy</td><td>Low</td><td>High</td><td>Actual validation of each error</td></tr>
+<br>
+<p>---</p>
+<br>
+<h2>VII. Post-MVP Roadmap</h2>
+<br>
+<h3>7.1 v1.1 Version (04-01 ~ 04-07)</h3>
+<br>
+<tr><td>Feature</td><td>Priority</td><td>Hours</td><td>Description</td></tr>
+<tr><td>Learning path map</td><td>P1</td><td>20 hours</td><td>Visualize learning progress</td></tr>
+<tr><td>Skill card library (10)</td><td>P1</td><td>15 hours</td><td>Core skill cards</td></tr>
+<br>
+<h3>7.2 v1.2 Version (04-08 ~ 04-14)</h3>
+<br>
+<tr><td>Feature</td><td>Priority</td><td>Hours</td><td>Description</td></tr>
+<tr><td>Workflow template library (5)</td><td>P1</td><td>20 hours</td><td>Common workflow templates</td></tr>
+<tr><td>Configuration template function</td><td>P1</td><td>15 hours</td><td>Config export/import</td></tr>
+<tr><td>Skill card library (remaining 10)</td><td>P1</td><td>15 hours</td><td>Complete 20 skills</td></tr>
+<br>
+<h3>7.3 v2.0 Version (04-15 ~ 04-30)</h3>
+<br>
+<tr><td>Feature</td><td>Priority</td><td>Hours</td><td>Description</td></tr>
+<tr><td>Experience recording and sharing</td><td>P2</td><td>25 hours</td><td>User note function</td></tr>
+<tr><td>Version management and backup</td><td>P2</td><td>20 hours</td><td>Config version history</td></tr>
+<br>
+<p>---</p>
+<br>
+<h2>VIII. Phase 2 Completion Confirmation</h2>
+<br>
+<h3>8.1 Deliverables Checklist</h3>
+<br>
+<tr><td>Deliverable</td><td>Status</td><td>Path</td></tr>
+<tr><td>Product Specifications Document</td><td>✅ Complete</td><td>`05-Product-Specifications.md`</td></tr>
+<tr><td>MVP Feature List</td><td>✅ Complete</td><td>`06-MVP-Feature-List.md` (This file)</td></tr>
+<tr><td>Needs-Specification Matrix</td><td>✅ Complete</td><td>See 05 document</td></tr>
+<tr><td>Cost Model</td><td>✅ Complete</td><td>See 05 document</td></tr>
+<br>
+<h3>8.2 MVP Feature Confirmation</h3>
+<br>
+<tr><td>Feature</td><td>Priority</td><td>Status</td></tr>
+<tr><td>F1: 5-Minute Quick Onboarding Flow</td><td>P0</td><td>✅ Confirmed</td></tr>
+<tr><td>F2: Configuration Wizard (5 config items)</td><td>P0</td><td>✅ Confirmed</td></tr>
+<tr><td>F3: Error Guidance Library (50 errors)</td><td>P0</td><td>✅ Confirmed</td></tr>
+<br>
+<p><strong>MVP Total Hours:</strong> 90 hours (20+40+30)  </p>
+<p><strong>Content Production Hours:</strong> 98 hours  </p>
+<p><strong>Total:</strong> 188 hours (~4.7 person-weeks, controllable within 2 weeks)</p>
+<br>
+<h3>8.3 Review Conclusion</h3>
+<br>
+<p><strong>Decision:</strong> ✅ <strong>Phase 2 complete, MVP scope confirmed, recommend entering Phase 3 - Concept Generation</strong></p>
+<br>
+<p><strong>Reviewer:</strong> Consulting-Coordinator  </p>
+<p><strong>Review Date:</strong> 2026-03-19</p>
+<br>
+<p>---</p>
+<br>
+<h2>IX. Next Steps</h2>
+<br>
+<p><strong>Execute Immediately:</strong></p>
+<p>1. ✅ Phase 2 deliverables complete</p>
+<p>2. ⏳ Wait for PM/user review</p>
+<p>3. ⏳ Enter Phase 3 after review approval</p>
+<br>
+<p><strong>Phase 3 Preparation:</strong></p>
+<p>- Prepare concept generation methods (problem decomposition, external search, internal search)</p>
+<p>- Prepare concept classification tree template</p>
+<p>- Prepare concept combination table template</p>
+<p>- Goal: Generate 10-20 concept proposals</p>
+<br>
+<p>---</p>
+<br>
+<p><em>MVP Feature List v1.0 — 2026-03-19</em>  </p>
+<p><em>3 Core Features, 188 Hours, 2-Week Delivery</em>  </p>
+<p><em>Phase 2 Complete, Awaiting Review → Phase 3</em></p>
+<br>
+
+    <hr>
+    <footer style="text-align: center; color: #666; padding: 20px;">
+        <p>© 2026 OpenClaw Onboarding Project · CC BY-NC-SA 4.0</p>
+    </footer>
+</body>
+</html>

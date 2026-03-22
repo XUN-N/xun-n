@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07 Concept Generation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; }
+        h2 { color: #764ba2; margin-top: 30px; }
+        h3 { color: #555; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        pre code { background: none; padding: 0; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #667eea; color: white; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        a { color: #667eea; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        blockquote { border-left: 4px solid #667eea; margin: 0; padding-left: 20px; color: #666; }
+        ul, ol { padding-left: 30px; }
+        .nav { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 30px; }
+        .nav a { margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">← Back to Home</a>
+        <a href="https://github.com/openclaw">GitHub</a>
+    </div>
+<h1>Concept Generation Proposal</h1>
+<br>
+<p><strong>Product Name:</strong> OpenClaw Onboarding and Knowledge Tuning Service  </p>
+<p><strong>Generation Date:</strong> 2026-03-19  </p>
+<p><strong>Phase:</strong> 3 - Concept Generation  </p>
+<p><strong>Method:</strong> CDT504 Lesson 6 - 5-Step Concept Generation Method</p>
+<br>
+<p>---</p>
+<br>
+<h2>I. Problem Clarification</h2>
+<br>
+<h3>1.1 Problem Decomposition</h3>
+<br>
+<p>Based on MVP's 3 core features (F1/F2/F3), decomposed into the following sub-problems:</p>
+<br>
+<tr><td>Sub-problem</td><td>Corresponding Feature</td><td>Core Challenge</td></tr>
+<tr><td>**SP1:** How to let users complete first task within 5 minutes?</td><td>F1 Quick Onboarding</td><td>Reduce cognitive load, reduce config steps</td></tr>
+<tr><td>**SP2:** How to make configuration process simpler and verifiable?</td><td>F2 Config Wizard</td><td>Step-by-step guidance, real-time feedback, error prevention</td></tr>
+<tr><td>**SP3:** How to make error messages more friendly and solvable?</td><td>F3 Error Guidance</td><td>Plain language, step-by-step solutions, resource links</td></tr>
+<br>
+<h3>1.2 Priority Ranking</h3>
+<br>
+<tr><td>Sub-problem</td><td>Priority</td><td>Reason</td></tr>
+<tr><td>SP1: Quick Onboarding</td><td>P0</td><td>First impression, determines user retention</td></tr>
+<tr><td>SP2: Config Wizard</td><td>P0</td><td>Configuration is the biggest barrier</td></tr>
+<tr><td>SP3: Error Guidance</td><td>P0</td><td>Problem-solving capability determines user confidence</td></tr>
+<br>
+<p>---</p>
+<br>
+<h2>II. External Search</h2>
+<br>
+<h3>2.1 Reference Product Analysis</h3>
+<br>
+<tr><td>Product</td><td>Learnable Points</td><td>Applicable Feature</td></tr>
+<tr><td>**Duolingo**</td><td>Gamified learning path, instant feedback</td><td>F1</td></tr>
+<tr><td>**Notion Template Library**</td><td>One-click template reuse, categorized browsing</td><td>F2</td></tr>
+<tr><td>**GitHub Copilot**</td><td>Context-aware, smart prompts</td><td>F2</td></tr>
+<tr><td>**Stack Overflow**</td><td>Error Q&A community, voting sorting</td><td>F3</td></tr>
+<tr><td>**Dedao APP**</td><td>Knowledge service copywriting, launch letter style</td><td>Product marketing</td></tr>
+<tr><td>**Xiao Ai Assistant**</td><td>Voice guidance, step-by-step teaching</td><td>F1</td></tr>
+<br>
+<h3>2.2 Dedao Launch Letter Style Analysis</h3>
+<br>
+<p><strong>Core Characteristics of Dedao APP Launch Letters:</strong></p>
+<br>
+<tr><td>Characteristic</td><td>Description</td><td>Example Structure</td></tr>
+<tr><td>**Opening hook**</td><td>Grab attention with a pain point question or counter-intuitive view</td><td>"Have you ever thought..."</td></tr>
+<tr><td>**Value promise**</td><td>Clearly state what users can gain</td><td>"This course will help you..."</td></tr>
+<tr><td>**Trust endorsement**</td><td>Instructor credentials, success cases</td><td>"I'm XXX, have done..."</td></tr>
+<tr><td>**Content preview**</td><td>Show course outline and highlights</td><td>"We'll discuss three questions..."</td></tr>
+<tr><td>**Call to action**</td><td>Clear next action</td><td>"Start now..."</td></tr>
+<br>
+<p><strong>Copywriting Structure Template:</strong></p>
+<pre><code>1. Pain point resonance (Have you ever...)
+2. Value proposition (This product will...)
+3. Trust building (Why me...)
+4. Content preview (What you'll get...)
+5. Call to action (Start immediately...)</code></pre>
+<br>
+<h3>2.3 Knowledge Service Copywriting Best Practices</h3>
+<br>
+<tr><td>Practice</td><td>Description</td><td>Application</td></tr>
+<tr><td>**User perspective**</td><td>Use "you" instead of "we"</td><td>Product introduction</td></tr>
+<tr><td>**Specific promises**</td><td>Avoid vague words, use numbers</td><td>"Complete in 5 minutes"</td></tr>
+<tr><td>**Scenario-based**</td><td>Describe specific usage scenarios</td><td>"Monday morning, you..."</td></tr>
+<tr><td>**Social proof**</td><td>User reviews, cases</td><td>"100+ users already..."</td></tr>
+<tr><td>**Lower barriers**</td><td>Emphasize simple, fast</td><td>"No technical background needed"</td></tr>
+<br>
+<p>---</p>
+<br>
+<h2>III. Internal Search</h2>
+<br>
+<h3>3.1 Brainstorming Principles</h3>
+<br>
+<p>Following 4 principles from CDT504 Lesson 6:</p>
+<p>1. <strong>Suspend judgment</strong> — Don't criticize any ideas</p>
+<p>2. <strong>Pursue quantity</strong> — Target 10-20 concepts</p>
+<p>3. <strong>Welcome seemingly infeasible ideas</strong> — May refine into feasible solutions</p>
+<p>4. <strong>Use sketches and models</strong> — Describe "sketches" in words</p>
+<br>
+<h3>3.2 Concept Generation Meeting Notes</h3>
+<br>
+<p><strong>Participants:</strong> Consulting-Coordinator (simulated team discussion)  </p>
+<p><strong>Time:</strong> 60 minutes  </p>
+<p><strong>Method:</strong> Individual brainstorming (15 min) + Group synthesis (45 min)</p>
+<br>
+<p><strong>Generated concept fragments:</strong></p>
+<p>- Interactive checklist</p>
+<p>- Video guidance + hands-on practice</p>
+<p>- One-click config template application</p>
+<p>- Error diagnosis bot</p>
+<p>- Learning progress visualization</p>
+<p>- Peer learning groups</p>
+<p>- Achievement badge system</p>
+<p>- AI assistant real-time guidance</p>
+<p>- Config sandbox environment</p>
+<p>- Error scenario simulation</p>
+<br>
+<p>---</p>
+<br>
+<h2>IV. Concept Proposals (15 Concepts)</h2>
+<br>
+<h3>Concept C1: Interactive Onboarding Checklist</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Name**</td><td>Interactive Onboarding Checklist</td></tr>
+<tr><td>**Core Idea**</td><td>Decompose 5-minute onboarding into checkable items, check off each completed item</td></tr>
+<tr><td>**User Value**</td><td>Progress visualization, reduced cognitive load, sense of achievement</td></tr>
+<tr><td>**Technical Implementation**</td><td>Markdown checkboxes + simple script validation</td></tr>
+<tr><td>**Applicable Feature**</td><td>F1</td></tr>
+<tr><td>**Differentiation**</td><td>Gamified progress tracking</td></tr>
+<tr><td>**Pros/Cons**</td><td>✅ Simple implementation / ❌ Limited interactivity</td></tr>
+<br>
+<h3>Concept C2: Video Guidance + Hands-on Practice</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Name**</td><td>Video Guidance + Hands-on Practice</td></tr>
+<tr><td>**Core Idea**</td><td>3-minute video tutorial + step-by-step pause practice</td></tr>
+<tr><td>**User Value**</td><td>Visual learning, follow-along experience</td></tr>
+<tr><td>**Technical Implementation**</td><td>Screen recording video + timestamp practice points</td></tr>
+<tr><td>**Applicable Feature**</td><td>F1</td></tr>
+<tr><td>**Differentiation**</td><td>Video learning experience</td></tr>
+<tr><td>**Pros/Cons**</td><td>✅ Intuitive / ❌ High production cost</td></tr>
+<br>
+<h3>Concept C3: AI Assistant Real-time Guidance</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Name**</td><td>AI Assistant Real-time Guidance</td></tr>
+<tr><td>**Core Idea**</td><td>Use OpenClaw's own capability to guide users through configuration</td></tr>
+<tr><td>**User Value**</td><td>Personalized guidance, instant Q&A</td></tr>
+<tr><td>**Technical Implementation**</td><td>Preset guidance skills + conversational interaction</td></tr>
+<tr><td>**Applicable Features**</td><td>F1, F2</td></tr>
+<tr><td>**Differentiation**</td><td>Teach product using product</td></tr>
+<tr><td>**Pros/Cons**</td><td>✅ Highly personalized / ❌ Complex development</td></tr>
+<br>
+<h3>Concept C4: One-click Config Template Application</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Name**</td><td>One-click Config Template Application</td></tr>
+<tr><td>**Core Idea**</td><td>Provide pre-configured templates, users only modify key parameters</td></tr>
+<tr><td>**User Value**</td><td>Greatly simplified configuration, fewer errors</td></tr>
+<tr><td>**Technical Implementation**</td><td>.env.template + replacement script</td></tr>
+<tr><td>**Applicable Feature**</td><td>F2</td></tr>
+<tr><td>**Differentiation**</td><td>Template-based configuration</td></tr>
+<tr><td>**Pros/Cons**</td><td>✅ Minimalist experience / ❌ Reduced flexibility</td></tr>
+<br>
+<h3>Concept C5: Config Wizard Forms</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Name**</td><td>Config Wizard Forms</td></tr>
+<tr><td>**Core Idea**</td><td>Multi-step forms, 1-2 inputs per step, real-time validation</td></tr>
+<tr><td>**User Value**</td><td>Step-by-step guidance, instant feedback, reduced pressure</td></tr>
+<tr><td>**Technical Implementation**</td><td>Feishu forms/Typeform + validation scripts</td></tr>
+<tr><td>**Applicable Feature**</td><td>F2</td></tr>
+<tr><td>**Differentiation**</td><td>Form-based interaction</td></tr>
+<tr><td>**Pros/Cons**</td><td>✅ Clear structure / ❌ Requires external tools</td></tr>
+<br>
+<h3>Concept C6: Config Sandbox Environment</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Name**</td><td>Config Sandbox Environment</td></tr>
+<tr><td>**Core Idea**</td><td>Provide test environment where users can safely experiment</td></tr>
+<tr><td>**User Value**</td><td>Risk-free practice, bold experimentation</td></tr>
+<tr><td>**Technical Implementation**</td><td>Docker container/virtual machine</td></tr>
+<tr><td>**Applicable Feature**</td><td>F2</td></tr>
+<tr><td>**Differentiation**</td><td>Safe experimentation space</td></tr>
+<tr><td>**Pros/Cons**</td><td>✅ Safe and secure / ❌ Technical complexity</td></tr>
+<br>
+<h3>Concept C7: Automated Config Validation</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Name**</td><td>Automated Config Validation</td></tr>
+<tr><td>**Core Idea**</td><td>Auto-test connection after each config item completion</td></tr>
+<tr><td>**User Value**</td><td>Instant confirmation, reduced doubt</td></tr>
+<tr><td>**Technical Implementation**</td><td>Python validation script + API testing</td></tr>
+<tr><td>**Applicable Feature**</td><td>F2</td></tr>
+<tr><td>**Differentiation**</td><td>Auto-validation</td></tr>
+<tr><td>**Pros/Cons**</td><td>✅ Instant feedback / ❌ Requires API support</td></tr>
+<br>
+<h3>Concept C8: Error Diagnosis Bot</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Name**</td><td>Error Diagnosis Bot</td></tr>
+<tr><td>**Core Idea**</td><td>User pastes error message, bot diagnoses and provides solution</td></tr>
+<tr><td>**User Value**</td><td>Quick positioning, precise resolution</td></tr>
+<tr><td>**Technical Implementation**</td><td>Error code matching + rule engine</td></tr>
+<tr><td>**Applicable Feature**</td><td>F3</td></tr>
+<tr><td>**Differentiation**</td><td>Interactive diagnosis</td></tr>
+<tr><td>**Pros/Cons**</td><td>✅ Precise and efficient / ❌ Requires error library</td></tr>
+<br>
+<h3>Concept C9: Error Scenario Simulation</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Name**</td><td>Error Scenario Simulation</td></tr>
+<tr><td>**Core Idea**</td><td>Preset common error scenarios, users learn to identify and solve</td></tr>
+<tr><td>**User Value**</td><td>Preventive learning, draw inferences</td></tr>
+<tr><td>**Technical Implementation**</td><td>Simulated errors + solution practice</td></tr>
+<tr><td>**Applicable Feature**</td><td>F3</td></tr>
+<tr><td>**Differentiation**</td><td>Proactive learning</td></tr>
+<tr><td>**Pros/Cons**</td><td>✅ Deep learning / ❌ High content production</td></tr>
+<br>
+<h3>Concept C10: Error Solution Library</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Name**</td><td>Error Solution Library (Stack Overflow style)</td></tr>
+<tr><td>**Core Idea**</td><td>Each error has standard solution, supports voting and comments</td></tr>
+<tr><td>**User Value**</td><td>Community wisdom, continuous improvement</td></tr>
+<tr><td>**Technical Implementation**</td><td>Feishu documents + comment function</td></tr>
+<tr><td>**Applicable Feature**</td><td>F3</td></tr>
+<tr><td>**Differentiation**</td><td>Community-driven</td></tr>
+<tr><td>**Pros/Cons**</td><td>✅ Continuous updates / ❌ Requires operations</td></tr>
+<br>
+<h3>Concept C11: Learning Path Map</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Name**</td><td>Learning Path Map</td></tr>
+<tr><td>**Core Idea**</td><td>Visualize learning path, show current progress and next steps</td></tr>
+<tr><td>**User Value**</td><td>Clear direction, sense of achievement</td></tr>
+<tr><td>**Technical Implementation**</td><td>Mind map/flowchart + progress markers</td></tr>
+<tr><td>**Applicable Feature**</td><td>F1</td></tr>
+<tr><td>**Differentiation**</td><td>Global perspective</td></tr>
+<tr><td>**Pros/Cons**</td><td>✅ Clear direction / ❌ Requires maintenance</td></tr>
+<br>
+<h3>Concept C12: Achievement Badge System</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Name**</td><td>Achievement Badge System</td></tr>
+<tr><td>**Core Idea**</td><td>Earn badges for completing milestones, motivate continued learning</td></tr>
+<tr><td>**User Value**</td><td>Gamified motivation, social sharing</td></tr>
+<tr><td>**Technical Implementation**</td><td>Badge images + achievement tracking</td></tr>
+<tr><td>**Applicable Feature**</td><td>F1</td></tr>
+<tr><td>**Differentiation**</td><td>Gamified</td></tr>
+<tr><td>**Pros/Cons**</td><td>✅ High motivation / ❌ May distract</td></tr>
+<br>
+<h3>Concept C13: Peer Learning Groups</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Name**</td><td>Peer Learning Groups</td></tr>
+<tr><td>**Core Idea**</td><td>Form learning groups, mutual supervision and Q&A</td></tr>
+<tr><td>**User Value**</td><td>Social learning, sustained motivation</td></tr>
+<tr><td>**Technical Implementation**</td><td>Feishu groups + learning check-ins</td></tr>
+<tr><td>**Applicable Feature**</td><td>F1</td></tr>
+<tr><td>**Differentiation**</td><td>Social learning</td></tr>
+<tr><td>**Pros/Cons**</td><td>✅ Sustained motivation / ❌ Requires organization</td></tr>
+<br>
+<h3>Concept C14: Config Health Score</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Name**</td><td>Config Health Score</td></tr>
+<tr><td>**Core Idea**</td><td>Score configuration and point out improvement suggestions</td></tr>
+<tr><td>**User Value**</td><td>Quantified assessment, improvement direction</td></tr>
+<tr><td>**Technical Implementation**</td><td>Scoring rules + report generation</td></tr>
+<tr><td>**Applicable Feature**</td><td>F2</td></tr>
+<tr><td>**Differentiation**</td><td>Quantified assessment</td></tr>
+<tr><td>**Pros/Cons**</td><td>✅ Clear assessment / ❌ Complex rules</td></tr>
+<br>
+<h3>Concept C15: One-click Diagnosis Report</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Name**</td><td>One-click Diagnosis Report</td></tr>
+<tr><td>**Core Idea**</td><td>Run diagnosis script, generate config and problem report</td></tr>
+<tr><td>**User Value**</td><td>Comprehensive check, problem positioning</td></tr>
+<tr><td>**Technical Implementation**</td><td>Python diagnosis script + report generation</td></tr>
+<tr><td>**Applicable Features**</td><td>F2, F3</td></tr>
+<tr><td>**Differentiation**</td><td>Comprehensive diagnosis</td></tr>
+<tr><td>**Pros/Cons**</td><td>✅ Comprehensive / ❌ Report may be complex</td></tr>
+<br>
+<p>---</p>
+<br>
+<h2>V. Concept Classification Tree</h2>
+<br>
+<pre><code>OpenClaw Onboarding Concept Space
+│
+├── Quick Onboarding (F1)
+│   ├── Interactive
+│   │   ├── C1: Interactive Checklist
+│   │   ├── C3: AI Assistant Real-time Guidance
+│   │   └── C11: Learning Path Map
+│   │
+│   ├── Multimedia
+│   │   ├── C2: Video Guidance + Practice
+│   │   └── (Audio guidance - not generated)
+│   │
+│   └── Gamified
+│       ├── C12: Achievement Badge System
+│       └── C13: Peer Learning Groups
+│
+├── Config Wizard (F2)
+│   ├── Simplified
+│   │   ├── C4: One-click Config Template
+│   │   └── C5: Config Wizard Forms
+│   │
+│   ├── Validated
+│   │   ├── C7: Automated Config Validation
+│   │   └── C14: Config Health Score
+│   │
+│   └── Secure
+│       ├── C6: Config Sandbox Environment
+│       └── C15: One-click Diagnosis Report
+│
+└── Error Guidance (F3)
+    ├── Interactive
+    │   ├── C8: Error Diagnosis Bot
+    │   └── C9: Error Scenario Simulation
+    │
+    └── Documentation
+        ├── C10: Error Solution Library
+        └── (Traditional FAQ - baseline)</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>VI. Concept Combination Table</h2>
+<br>
+<h3>6.1 Recommended Combination Options</h3>
+<br>
+<tr><td>Combination</td><td>F1 Quick Onboarding</td><td>F2 Config Wizard</td><td>F3 Error Guidance</td><td>Characteristics</td></tr>
+<tr><td>**Combo A**</td><td>C1 Interactive Checklist</td><td>C5 Config Wizard Forms</td><td>C10 Error Solution Library</td><td>Simple implementation, doc-based</td></tr>
+<tr><td>**Combo B**</td><td>C3 AI Assistant</td><td>C4 Config Template</td><td>C8 Error Diagnosis Bot</td><td>Highly automated, tech-intensive</td></tr>
+<tr><td>**Combo C**</td><td>C2 Video Guidance</td><td>C7 Config Validation</td><td>C9 Error Scenario Simulation</td><td>Multimedia, deep learning</td></tr>
+<tr><td>**Combo D**</td><td>C11 Learning Path</td><td>C15 One-click Diagnosis</td><td>C10 Error Library</td><td>Systematic, comprehensive</td></tr>
+<tr><td>**Combo E**</td><td>C1+C12 Checklist + Badges</td><td>C4+C7 Template + Validation</td><td>C8+C10 Diagnosis + Library</td><td>Comprehensive optimal (recommended)</td></tr>
+<br>
+<h3>6.2 Combo E (Recommended) Detailed Description</h3>
+<br>
+<p><strong>Combination Name:</strong> Progressive Guidance System</p>
+<br>
+<tr><td>Feature</td><td>Selected Concept</td><td>Reason</td></tr>
+<tr><td>**F1**</td><td>C1 Interactive Checklist + C12 Achievement Badges</td><td>Simple implementation + gamified motivation</td></tr>
+<tr><td>**F2**</td><td>C4 Config Template + C7 Config Validation</td><td>Minimalist config + instant confirmation</td></tr>
+<tr><td>**F3**</td><td>C8 Error Diagnosis + C10 Error Library</td><td>Interactive diagnosis + doc reference</td></tr>
+<br>
+<p><strong>Core Advantages:</strong></p>
+<p>- Moderate implementation difficulty</p>
+<p>- Excellent user experience</p>
+<p>- Covers all MVP needs</p>
+<p>- Strong scalability</p>
+<br>
+<p>---</p>
+<br>
+<h2>VII. Product Introduction Copywriting (Dedao Launch Letter Style)</h2>
+<br>
+<h3>7.1 Copywriting Structure Analysis</h3>
+<br>
+<p>Based on Dedao APP launch letter style, design the following structure:</p>
+<br>
+<pre><code>1. Pain point resonance (Hook)
+2. Value proposition (Promise)
+3. Trust building (Credibility)
+4. Content preview (Preview)
+5. Call to action (Call to Action)</code></pre>
+<br>
+<h3>7.2 Product Introduction Copywriting v1</h3>
+<br>
+<p>---</p>
+<br>
+<h1>OpenClaw Onboarding Service · Launch Letter</h1>
+<br>
+<h2>Hello, Welcome to the World of OpenClaw</h2>
+<br>
+<p><strong>I am [Product Name], your OpenClaw onboarding guide.</strong></p>
+<br>
+<p>Before we begin, I want to ask you a question:</p>
+<br>
+<blockquote>**Have you ever experienced this—**</blockquote>
+<blockquote></blockquote>
+<blockquote>Downloaded a powerful tool, opened it with full expectation,</blockquote>
+<blockquote>but was deterred by a pile of configuration files and unfamiliar terminology?</blockquote>
+<blockquote></blockquote>
+<blockquote>You wanted to use automation to improve work efficiency,</blockquote>
+<blockquote>but got stuck at the first step of "environment variable configuration"?</blockquote>
+<blockquote>> You searched for many tutorials, but each assumed you already knew a lot,</blockquote>
+<blockquote>and finally could only silently close it, telling yourself "maybe I'm not suitable"?</blockquote>
+<br>
+<p><strong>If yes, this is not your problem. It's the tool's problem.</strong></p>
+<br>
+<p>---</p>
+<br>
+<h2>What will this product help you with?</h2>
+<br>
+<p><strong>OpenClaw Onboarding Service</strong>, with only one goal:</p>
+<br>
+<blockquote>**Let you complete your first successful experience in 5 minutes.**</blockquote>
+<br>
+<p>Not 30 minutes, not 1 hour, but 5 minutes.</p>
+<br>
+<p>In these 5 minutes, you will:</p>
+<p>- ✅ Complete environment configuration check</p>
+<p>- ✅ Send your first message</p>
+<p>- ✅ See what OpenClaw can really do</p>
+<p>- ✅ Gain confidence to continue exploring</p>
+<br>
+<p><strong>After 5 minutes, you may not be an expert yet, but you're already on your way.</strong></p>
+<br>
+<p>---</p>
+<br>
+<h2>Why me?</h2>
+<br>
+<p><strong>Because this guidance comes from real trial-and-error experience.</strong></p>
+<br>
+<p>- I've seen too many users give up at the "Feishu app configuration" step</p>
+<p>- I know how frustrating the "insufficient permission" error can be</p>
+<p>- I understand the helplessness when you see a bunch of error messages</p>
+<br>
+<p><strong>So, I've filled in all these pitfalls.</strong></p>
+<br>
+<p>This guidance includes:</p>
+<p>- <strong>5 core configuration step-by-step wizards</strong> — Each config has explanation, examples, and verification</p>
+<p>- <strong>50 common error solutions</strong> — Plain language telling you what happened and how to solve it</p>
+<p>- <strong>Interactive checklist</strong> — Check off each step, visualize progress</p>
+<br>
+<p><strong>I'm not telling you what you should do, but accompanying you to get it done.</strong></p>
+<br>
+<p>---</p>
+<br>
+<h2>What will you get?</h2>
+<br>
+<p><strong>After completing the onboarding guidance, you will have:</strong></p>
+<br>
+<p>1. <strong>A working OpenClaw environment</strong> — Can send messages, use skills</p>
+<p>2. <strong>A configuration check report</strong> — Know which configs are done, which need attention</p>
+<p>3. <strong>An error solution manual</strong> — No panic when encountering problems, somewhere to check</p>
+<p>4. <strong>A clear learning path</strong> — Know what to learn next</p>
+<br>
+<p><strong>More importantly, you will have a feeling:</strong></p>
+<br>
+<blockquote>"I can handle this tool."</blockquote>
+<br>
+<p>---</p>
+<br>
+<h2>Who is this product for?</h2>
+<br>
+<p><strong>If you are:</strong></p>
+<p>- ✅ First-time OpenClaw user, want to get started quickly</p>
+<p>- ✅ Tried before but got stuck at configuration</p>
+<p>- ✅ Can use basic software but not familiar with command line</p>
+<p>- ✅ Want to improve work efficiency, willing to try new tools</p>
+<br>
+<p><strong>Then this product is designed for you.</strong></p>
+<br>
+<p><strong>If you are:</strong></p>
+<p>- ❌ Already an OpenClaw expert</p>
+<p>- ❌ Prefer to read official documentation directly</p>
+<p>- ❌ Enjoy the process of exploring on your own</p>
+<br>
+<p><strong>Then you may not need this guidance.</strong></p>
+<br>
+<p>---</p>
+<br>
+<h2>Start Now</h2>
+<br>
+<p><strong>Onboarding only takes 5 minutes.</strong></p>
+<br>
+<p>Click here to start your first OpenClaw experience →</p>
+<br>
+<p><strong>Looking forward to hearing your first "Success!" in 5 minutes.</strong></p>
+<br>
+<p>---</p>
+<br>
+<p><em>This is OpenClaw Onboarding Service.</em>  </p>
+<p><em>Not teaching you all knowledge, but helping you take the first step.</em>  </p>
+<p><em>Because the first step is often the hardest.</em></p>
+<br>
+<p>---</p>
+<br>
+<h3>7.3 Copywriting Variants</h3>
+<br>
+<h4>Variant A: Community Sharing Version (Short)</h4>
+<br>
+<pre><code>【OpenClaw Onboarding · 5-Minute Quick Start】
+
+Are you like this:
+- Downloaded OpenClaw but don't know where to start?
+- Deterred by configuration files, feel like you're not suitable?
+- Want to find tutorials but each is too difficult?
+
+We made something specifically to solve this problem:
+✅ Complete first task in 5 minutes
+✅ 5 core configurations step-by-step guidance
+✅ 50 common error solutions
+
+Not telling you what you should do, but accompanying you to get it done.
+
+After 5 minutes, you may not be an expert yet, but you're already on your way.
+
+👉 Click to start: [Link]</code></pre>
+<br>
+<h4>Variant B: Product Introduction Page Version (Detailed)</h4>
+<br>
+<pre><code># OpenClaw Onboarding Service
+
+## Complete your first OpenClaw experience in 5 minutes
+
+### Pain Points
+- Complex configuration, don't know where to start
+- Frequent errors, don't know how to solve
+- Scattered documentation, unclear learning path
+
+### Solutions
+- **Interactive Checklist** — Check off each step, visualize progress
+- **Config Wizard** — 5 core configs, step-by-step + real-time validation
+- **Error Guidance Library** — 50 common errors, plain language + step-by-step solutions
+
+### For Whom
+- First-time OpenClaw users
+- Tried before but got stuck at configuration
+- Want to improve work efficiency
+
+### What You'll Get
+- Working OpenClaw environment
+- Configuration check report
+- Error solution manual
+- Clear learning path
+
+### Start Learning
+[Start Now] [View Details] [User Reviews]</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>VIII. Phase 3 Completion Confirmation</h2>
+<br>
+<h3>8.1 Deliverables Checklist</h3>
+<br>
+<tr><td>Deliverable</td><td>Status</td><td>Path</td></tr>
+<tr><td>Concept Generation Proposal</td><td>✅ Complete</td><td>`07-Concept-Generation.md`</td></tr>
+<tr><td>Concept count</td><td>✅ 15</td><td>Cover F1/F2/F3</td></tr>
+<tr><td>Concept classification tree</td><td>✅ Complete</td><td>Section V</td></tr>
+<tr><td>Concept combination table</td><td>✅ Complete</td><td>Section VI</td></tr>
+<tr><td>Product introduction copywriting</td><td>✅ Complete</td><td>Section VII (Dedao launch letter style)</td></tr>
+<br>
+<h3>8.2 Concept Generation Review Checklist</h3>
+<br>
+<tr><td>Review Item</td><td>Status</td><td>Description</td></tr>
+<tr><td>Is concept quantity sufficient?</td><td>✅ Pass</td><td>15 concepts (target 10-20)</td></tr>
+<tr><td>Are concepts differentiated?</td><td>✅ Pass</td><td>Interactive/multimedia/gamified etc.</td></tr>
+<tr><td>Do they cover MVP features?</td><td>✅ Pass</td><td>F1/F2/F3 fully covered</td></tr>
+<tr><td>Is recommended option reasonable?</td><td>✅ Pass</td><td>Combo E (Progressive guidance)</td></tr>
+<tr><td>Does product copywriting match style?</td><td>✅ Pass</td><td>Dedao launch letter style</td></tr>
+<tr><td>Can we enter Phase 4?</td><td>✅ Pass</td><td>Recommend entering concept selection</td></tr>
+<br>
+<h3>8.3 Review Conclusion</h3>
+<br>
+<p><strong>Decision:</strong> ✅ <strong>Phase 3 complete, approved to enter Phase 4 - Concept Selection</strong></p>
+<br>
+<p><strong>Reviewer:</strong> Consulting-Coordinator  </p>
+<p><strong>Review Date:</strong> 2026-03-19</p>
+<br>
+<p>---</p>
+<br>
+<h2>IX. Next Steps</h2>
+<br>
+<p><strong>Execute Immediately:</strong></p>
+<p>1. ✅ Phase 3 deliverables complete</p>
+<p>2. ⏳ Wait for PM/user review</p>
+<p>3. ⏳ Enter Phase 4 after review approval</p>
+<br>
+<p><strong>Phase 4 Preparation:</strong></p>
+<p>- Prepare concept screening matrix (+/0/−)</p>
+<p>- Prepare concept scoring matrix (weighted 1-5)</p>
+<p>- Determine selection criteria and weights</p>
+<p>- Goal: Select 3-5 concepts from 15 for MVP</p>
+<br>
+<p>---</p>
+<br>
+<p><em>Concept Generation Proposal v1.0 — 2026-03-19</em>  </p>
+<p><em>15 Concept Proposals + Dedao Launch Letter Style Product Introduction</em>  </p>
+<p><em>Phase 3 Complete, Awaiting Review → Phase 4</em></p>
+<br>
+
+    <hr>
+    <footer style="text-align: center; color: #666; padding: 20px;">
+        <p>© 2026 OpenClaw Onboarding Project · CC BY-NC-SA 4.0</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>00 Product Design Plan</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; }
+        h2 { color: #764ba2; margin-top: 30px; }
+        h3 { color: #555; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        pre code { background: none; padding: 0; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #667eea; color: white; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        a { color: #667eea; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        blockquote { border-left: 4px solid #667eea; margin: 0; padding-left: 20px; color: #666; }
+        ul, ol { padding-left: 30px; }
+        .nav { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 30px; }
+        .nav a { margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">← Back to Home</a>
+        <a href="https://github.com/openclaw">GitHub</a>
+    </div>
+<h1>OpenClaw Knowledge Service Product Design Plan</h1>
+<br>
+<p><strong>Task ID:</strong> CONSULT-2026-03-19-002  </p>
+<p><strong>Product Name:</strong> OpenClaw Onboarding and Knowledge Tuning Service  </p>
+<p><strong>Design Method:</strong> CDT504 Product Development Process  </p>
+<p><strong>Created Date:</strong> 2026-03-19  </p>
+<p><strong>Status:</strong> Phase 0 - Initiation</p>
+<br>
+<p>---</p>
+<br>
+<h2>I. Product Vision</h2>
+<br>
+<h3>1.1 Product Positioning</h3>
+<br>
+<p>Provide <strong>systematic onboarding guidance</strong> and <strong>continuous knowledge tuning services</strong> for OpenClaw users to help them:</p>
+<p>- Get started with the OpenClaw framework quickly</p>
+<p>- Establish efficient workflows</p>
+<p>- Achieve a closed loop of knowledge acquisition → organization → processing → output</p>
+<br>
+<h3>1.2 Target Users</h3>
+<br>
+<tr><td>User Type</td><td>Characteristics</td><td>Core Needs</td></tr>
+<tr><td>**Beginner Users**</td><td>First-time OpenClaw users</td><td>Quick onboarding, avoid pitfalls</td></tr>
+<tr><td>**Intermediate Users**</td><td>Using but with low efficiency</td><td>Workflow optimization, skill improvement</td></tr>
+<tr><td>**Advanced Users**</td><td>High-frequency users</td><td>Knowledge沉淀, capability reuse</td></tr>
+<br>
+<h3>1.3 Product Format</h3>
+<br>
+<p>- <strong>Onboarding System</strong> — Interactive onboarding flow</p>
+<p>- <strong>Knowledge Tuning Service</strong> — Regular reviews, optimization suggestions, best practice sharing</p>
+<p>- <strong>Workflow Template Library</strong> — Reusable workflow configurations</p>
+<br>
+<p>---</p>
+<br>
+<h2>II. Phased Implementation Plan</h2>
+<br>
+<p>Based on the CDT504 Universal Product Development Process (6 phases + 7 frontend activities), design the following 7 phases:</p>
+<br>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                    Product Design Full Process                   │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  Phase 0          Phase 1          Phase 2          Phase 3      │
+│  Opportunity → Requirements → Specifications → Concept          │
+│  Assessment      Analysis        Development     Generation     │
+│  (Lesson 2-3)   (Lesson 4)      (Lesson 5)      (Lesson 6)      │
+│      ↓              ↓              ↓              ↓             │
+│  Mission       Requirements    Specifications  Concept        │
+│  Statement       Hierarchy       Document      Proposals      │
+│                                                                 │
+│  Phase 4          Phase 5          Phase 6                      │
+│  Concept Selection → Architecture → Design Presentation         │
+│  (Lesson 7)       (Lesson 8)      (Lesson 9)                    │
+│      ↓              ↓              ↓                             │
+│  Selected      Architecture    Final Design                    │
+│  Concept       Diagram                                        │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>III. Detailed Phase Plans</h2>
+<br>
+<h3>Phase 0: Opportunity Assessment and Planning (Current Phase)</h3>
+<br>
+<p><strong>Corresponding Lessons:</strong> Lesson 2 (Opportunity Identification) + Lesson 3 (Product Planning)</p>
+<br>
+<tr><td>Element</td><td>Content</td></tr>
+<tr><td>**Input**</td><td>User learning needs after CDT504, OpenClaw usage pain points</td></tr>
+<tr><td>**Process**</td><td>Opportunity identification (RWW framework), product planning (mission statement development)</td></tr>
+<tr><td>**Output**</td><td>`00-Mission-Statement.md` — Product Mission Statement</td></tr>
+<tr><td>**Tools**</td><td>Innovation Charter, RWW Framework, Mission Statement Template</td></tr>
+<tr><td>**Review Criteria**</td><td>Is the opportunity real? Can we win? Is it worth it?</td></tr>
+<br>
+<p><strong>Key Questions for This Phase:</strong></p>
+<p>1. Does this product opportunity really exist? (Real)</p>
+<p>2. Do we have the capability to do it well? (Win)</p>
+<p>3. Is the ROI reasonable? (Worth it)</p>
+<br>
+<p>---</p>
+<br>
+<h3>Phase 1: Customer Needs Analysis</h3>
+<br>
+<p><strong>Corresponding Lesson:</strong> Lesson 4 (Identifying Customer Needs)</p>
+<br>
+<tr><td>Element</td><td>Content</td></tr>
+<tr><td>**Input**</td><td>Target user group definition</td></tr>
+<tr><td>**Process**</td><td>User interviews, needs collection, needs interpretation, hierarchical organization</td></tr>
+<tr><td>**Output**</td><td>`01-Customer-Needs.md` — Customer Needs Hierarchy</td></tr>
+<tr><td>**Tools**</td><td>5-Step Needs Identification Method, Needs Hierarchy Diagram, Customer Data Template</td></tr>
+<tr><td>**Review Criteria**</td><td>Are needs complete? Do they cover latent needs? Is the hierarchy clear?</td></tr>
+<br>
+<p><strong>Key Activities for This Phase:</strong></p>
+<p>- Collect raw data (interviews/observations)</p>
+<p>- Interpret as need statements</p>
+<p>- Organize into hierarchical structure (primary/secondary/tertiary)</p>
+<p>- Establish relative importance</p>
+<br>
+<p>---</p>
+<br>
+<h3>Phase 2: Product Specification Development</h3>
+<br>
+<p><strong>Corresponding Lesson:</strong> Lesson 5 (Product Specifications)</p>
+<br>
+<tr><td>Element</td><td>Content</td></tr>
+<tr><td>**Input**</td><td>Customer needs hierarchy structure</td></tr>
+<tr><td>**Process**</td><td>Needs-Specification matrix, competitive benchmarking, target specification setting</td></tr>
+<tr><td>**Output**</td><td>`02-Product-Specifications.md` — Product Target Specifications</td></tr>
+<tr><td>**Tools**</td><td>Needs-Specification Matrix, Competitive Benchmarking Charts, Specification Types (≥/≤/X-Y/=)</td></tr>
+<tr><td>**Review Criteria**</td><td>Are specifications measurable? Is there competitive benchmarking? Are they achievable?</td></tr>
+<br>
+<p><strong>Key Activities for This Phase:</strong></p>
+<p>- Prepare metrics list (transform needs into measurable indicators)</p>
+<p>- Collect competitive benchmarking information (existing similar products/services)</p>
+<p>- Set ideal and marginal acceptable values</p>
+<p>- Develop technical models and cost models (BOM)</p>
+<br>
+<p>---</p>
+<br>
+<h3>Phase 3: Concept Generation</h3>
+<br>
+<p><strong>Corresponding Lesson:</strong> Lesson 6 (Concept Generation)</p>
+<br>
+<tr><td>Element</td><td>Content</td></tr>
+<tr><td>**Input**</td><td>Product target specifications</td></tr>
+<tr><td>**Process**</td><td>Problem decomposition, external search, internal search, systematic exploration</td></tr>
+<tr><td>**Output**</td><td>`03-Concept-Alternatives.md` — Multiple Product Concept Proposals</td></tr>
+<tr><td>**Tools**</td><td>Functional Decomposition, External Search 5 Strategies, Concept Classification Tree, Concept Combination Table</td></tr>
+<tr><td>**Review Criteria**</td><td>Concept quantity (10-20), diversity, innovativeness</td></tr>
+<br>
+<p><strong>Key Activities for This Phase:</strong></p>
+<p>- Clarify problem (functional decomposition)</p>
+<p>- External search (lead users, experts, patents, literature, benchmarking)</p>
+<p>- Internal search (brainstorming, individual + group)</p>
+<p>- Systematic exploration (classification tree + combination table)</p>
+<br>
+<p>---</p>
+<br>
+<h3>Phase 4: Concept Selection</h3>
+<br>
+<p><strong>Corresponding Lesson:</strong> Lesson 7 (Concept Selection)</p>
+<br>
+<tr><td>Element</td><td>Content</td></tr>
+<tr><td>**Input**</td><td>Multiple product concept proposals</td></tr>
+<tr><td>**Process**</td><td>Concept screening (+/0/−), concept scoring (weighted 1-5)</td></tr>
+<tr><td>**Output**</td><td>`04-Selected-Concept.md` — Selected Concept Proposal</td></tr>
+<tr><td>**Tools**</td><td>Screening Matrix, Scoring Matrix, Reference Concept, Weight Allocation</td></tr>
+<tr><td>**Review Criteria**</td><td>Is the selection justified? Is there team consensus? Is it aligned with specifications?</td></tr>
+<br>
+<p><strong>Key Activities for This Phase:</strong></p>
+<p>- Prepare selection matrix</p>
+<p>- Evaluate concepts (screen → score)</p>
+<p>- Rank concepts</p>
+<p>- Combine and improve concepts</p>
+<p>- Select one or more concepts</p>
+<br>
+<p>---</p>
+<br>
+<h3>Phase 5: Product Architecture Design</h3>
+<br>
+<p><strong>Corresponding Lesson:</strong> Lesson 8 (Product Architecture & IP)</p>
+<br>
+<tr><td>Element</td><td>Content</td></tr>
+<tr><td>**Input**</td><td>Selected concept proposal</td></tr>
+<tr><td>**Process**</td><td>Functional element definition, physical element clustering, architecture type selection</td></tr>
+<tr><td>**Output**</td><td>`05-Product-Architecture.md` — Product Architecture Diagram + IP Strategy</td></tr>
+<tr><td>**Tools**</td><td>Product Schematic, Module Clustering, Interaction Diagram/Matrix, IP Type Selection</td></tr>
+<tr><td>**Review Criteria**</td><td>Does the architecture support change? Does it support diversity? Is it manufacturable?</td></tr>
+<br>
+<p><strong>Key Activities for This Phase:</strong></p>
+<p>- Create product schematic</p>
+<p>- Cluster elements into modules</p>
+<p>- Develop rough geometric layout</p>
+<p>- Identify essential vs. incidental interactions</p>
+<p>- IP strategy (Copyright/Trademark/Patent/Trade Secret)</p>
+<br>
+<p>---</p>
+<br>
+<h3>Phase 6: Industrial Design and Service Design</h3>
+<br>
+<p><strong>Corresponding Lesson:</strong> Lesson 9 (Industrial Design & Service Design)</p>
+<br>
+<tr><td>Element</td><td>Content</td></tr>
+<tr><td>**Input**</td><td>Product architecture diagram</td></tr>
+<tr><td>**Process**</td><td>User interface design, service process design, visual design</td></tr>
+<tr><td>**Output**</td><td>`06-Final-Design.md` — Final Design Proposal + Service Process</td></tr>
+<tr><td>**Tools**</td><td>Industrial Design 6-Step Method, Dieter Rams 10 Principles, Service Process Flowchart</td></tr>
+<tr><td>**Review Criteria**</td><td>User experience, aesthetic quality, service feasibility</td></tr>
+<br>
+<p><strong>Key Activities for This Phase:</strong></p>
+<p>- Investigate user needs (ID perspective)</p>
+<p>- Conceptualize (form + interface)</p>
+<p>- Preliminary refinement (models)</p>
+<p>- Further refinement and final selection</p>
+<p>- Control drawings/models</p>
+<p>- Service process design (storyboard + flowchart)</p>
+<br>
+<p>---</p>
+<br>
+<h2>IV. Phase 0 Execution Plan (Execute Immediately)</h2>
+<br>
+<h3>4.1 Phase 0 Task List</h3>
+<br>
+<tr><td>No.</td><td>Task</td><td>Tool</td><td>Estimated Time</td></tr>
+<tr><td>1</td><td>Clarify product opportunity assumptions</td><td>Innovation Charter</td><td>30 min</td></tr>
+<tr><td>2</td><td>RWW framework assessment</td><td>RWW Three Questions</td><td>30 min</td></tr>
+<tr><td>3</td><td>Develop product mission statement</td><td>Mission Statement Template</td><td>60 min</td></tr>
+<tr><td>4</td><td>Phase review</td><td>Review Checklist</td><td>15 min</td></tr>
+<br>
+<h3>4.2 Phase 0 Output Document Structure</h3>
+<br>
+<pre><code>/home/xun/Sync/03-Resources/CDT504/PRODUCT-DESIGN/
+├── 00-Product-Design-Plan.md          ← This file (Overall Plan)
+├── 01-Opportunity-Assessment.md       ← Opportunity Assessment (RWW Framework)
+├── 02-Mission-Statement.md            ← Product Mission Statement
+└── Phases 1-6/
+    ├── 03-Customer-Needs.md
+    ├── 04-Product-Specifications.md
+    ├── 05-Concept-Alternatives.md
+    ├── 06-Selected-Concept.md
+    ├── 07-Product-Architecture.md
+    └── 08-Final-Design.md</code></pre>
+<br>
+<h3>4.3 Phase 0 Review Checklist</h3>
+<br>
+<p><strong>Opportunity Identification Review:</strong></p>
+<p>- [ ] Does the opportunity really exist? (Clear user pain points)</p>
+<p>- [ ] Is the market opportunity large enough?</p>
+<p>- [ ] Is the timing appropriate?</p>
+<br>
+<p><strong>Capability Assessment Review:</strong></p>
+<p>- [ ] Are necessary technical capabilities available?</p>
+<p>- [ ] Are there channels to reach users?</p>
+<p>- [ ] Are there competitive advantages?</p>
+<br>
+<p><strong>Value Assessment Review:</strong></p>
+<p>- [ ] Is the ROI reasonable?</p>
+<p>- [ ] Does it align with long-term strategy?</p>
+<p>- [ ] Is there a sustainable business model?</p>
+<br>
+<p>---</p>
+<br>
+<h2>V. Timeline</h2>
+<br>
+<tr><td>Phase</td><td>Estimated Start</td><td>Estimated Complete</td><td>Milestone</td></tr>
+<tr><td>Phase 0: Opportunity Assessment & Planning</td><td>2026-03-19</td><td>2026-03-19</td><td>Mission statement complete</td></tr>
+<tr><td>Phase 1: Customer Needs Analysis</td><td>2026-03-20</td><td>2026-03-21</td><td>Needs hierarchy complete</td></tr>
+<tr><td>Phase 2: Product Specification Development</td><td>2026-03-22</td><td>2026-03-23</td><td>Specifications document complete</td></tr>
+<tr><td>Phase 3: Concept Generation</td><td>2026-03-24</td><td>2026-03-26</td><td>Concept proposals complete</td></tr>
+<tr><td>Phase 4: Concept Selection</td><td>2026-03-27</td><td>2026-03-28</td><td>Selected concept complete</td></tr>
+<tr><td>Phase 5: Product Architecture Design</td><td>2026-03-29</td><td>2026-03-31</td><td>Architecture diagram complete</td></tr>
+<tr><td>Phase 6: Design Presentation</td><td>2026-04-01</td><td>2026-04-03</td><td>Final proposal complete</td></tr>
+<br>
+<p>---</p>
+<br>
+<h2>VI. Risks and Mitigation</h2>
+<br>
+<tr><td>Risk</td><td>Likelihood</td><td>Impact</td><td>Mitigation</td></tr>
+<tr><td>Requirements understanding deviation</td><td>Medium</td><td>High</td><td>Multi-round user validation, rapid prototype testing</td></tr>
+<tr><td>Scope creep</td><td>High</td><td>Medium</td><td>Strict mission statement constraints, phase reviews</td></tr>
+<tr><td>Time shortage</td><td>Medium</td><td>Medium</td><td>Priority ranking, scope reduction if necessary</td></tr>
+<tr><td>Technical feasibility</td><td>Low</td><td>High</td><td>Early technical validation, backup plans</td></tr>
+<br>
+<p>---</p>
+<br>
+<h2>VII. Next Steps</h2>
+<br>
+<p><strong>Execute Immediately:</strong></p>
+<p>1. ✅ Create directory structure</p>
+<p>2. ✅ Develop this planning document</p>
+<p>3. ⏳ Execute Phase 0: Opportunity Assessment and Planning</p>
+<p>   - Write <code>01-Opportunity-Assessment.md</code></p>
+<p>   - Write <code>02-Mission-Statement.md</code></p>
+<p>4. ⏳ Phase 0 review</p>
+<br>
+<p><strong>After Review Enter:</strong> Phase 1 - Customer Needs Analysis</p>
+<br>
+<p>---</p>
+<br>
+<p><em>Product Design Plan v1.0 — 2026-03-19</em>  </p>
+<p><em>Based on CDT504 Universal Product Development Process</em></p>
+<br>
+
+    <hr>
+    <footer style="text-align: center; color: #666; padding: 20px;">
+        <p>© 2026 OpenClaw Onboarding Project · CC BY-NC-SA 4.0</p>
+    </footer>
+</body>
+</html>

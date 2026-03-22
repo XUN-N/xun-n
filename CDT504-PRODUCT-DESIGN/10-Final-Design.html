@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Final Design</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; }
+        h2 { color: #764ba2; margin-top: 30px; }
+        h3 { color: #555; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        pre code { background: none; padding: 0; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #667eea; color: white; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        a { color: #667eea; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        blockquote { border-left: 4px solid #667eea; margin: 0; padding-left: 20px; color: #666; }
+        ul, ol { padding-left: 30px; }
+        .nav { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 30px; }
+        .nav a { margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">← Back to Home</a>
+        <a href="https://github.com/openclaw">GitHub</a>
+    </div>
+<h1>Final Design Proposal</h1>
+<br>
+<p><strong>Product Name:</strong> OpenClaw Onboarding and Knowledge Tuning Service  </p>
+<p><strong>Version:</strong> v1.0 (MVP)  </p>
+<p><strong>Created Date:</strong> 2026-03-19  </p>
+<p><strong>Phase:</strong> 6 - Design Presentation  </p>
+<p><strong>Method:</strong> CDT504 Lesson 9 - Industrial Design + Service Design</p>
+<br>
+<p>---</p>
+<br>
+<h2>I. Design Overview</h2>
+<br>
+<h3>1.1 MVP Final Scope</h3>
+<br>
+<p>Based on Phase 5 architecture design, MVP v1.0 includes:</p>
+<br>
+<tr><td>Module</td><td>Concept</td><td>Deliverable</td><td>Hours</td></tr>
+<tr><td>**Quick Onboarding**</td><td>C1</td><td>Interactive checklist document</td><td>15h</td></tr>
+<tr><td>**Config Wizard**</td><td>C4+C7</td><td>Config template + validation scripts</td><td>35h</td></tr>
+<tr><td>**Diagnosis Report**</td><td>C15</td><td>Diagnosis script + report template</td><td>25h</td></tr>
+<tr><td>**Error Guidance**</td><td>C10+C9</td><td>Error library + peer guidance scripts</td><td>35h</td></tr>
+<tr><td>**Content Production/Testing**</td><td>All</td><td>Document writing, script testing</td><td>100h</td></tr>
+<tr><td>**Total**</td><td>**210h**</td></tr>
+<br>
+<h3>1.2 Design Principles</h3>
+<br>
+<p>Based on Dieter Rams 10 principles, establish this product's design principles:</p>
+<br>
+<tr><td>Principle</td><td>This Product Application</td></tr>
+<tr><td>**Innovative**</td><td>Interactive onboarding guidance, not traditional docs</td></tr>
+<tr><td>**Useful**</td><td>Solve beginners' core pain points: 5-minute onboarding</td></tr>
+<tr><td>**Aesthetic**</td><td>Clear Markdown format and visual hierarchy</td></tr>
+<tr><td>**Understandable**</td><td>Plain language, avoid technical jargon</td></tr>
+<tr><td>**Unobtrusive**</td><td>Only include MVP essential functions, no redundancy</td></tr>
+<tr><td>**Honest**</td><td>Don't exaggerate features, clearly state scope</td></tr>
+<tr><td>**Long-lasting**</td><td>Content design supports long-term maintenance and updates</td></tr>
+<tr><td>**Thorough**</td><td>Each error has complete solution</td></tr>
+<tr><td>**Environmentally friendly**</td><td>Digital product, no physical resource consumption</td></tr>
+<tr><td>**Minimal**</td><td>"Less but better" — focus on core functions</td></tr>
+<br>
+<p>---</p>
+<br>
+<h2>II. Final Design Document List</h2>
+<br>
+<h3>2.1 Deliverables Overview</h3>
+<br>
+<pre><code>/home/xun/Sync/03-Resources/CDT504/PRODUCT-DESIGN/
+│
+├── Design Phase Documents (Completed)
+│   ├── 00-Product-Design-Plan.md
+│   ├── 01-Opportunity-Assessment.md
+│   ├── 02-Mission-Statement.md
+│   ├── 03-Customer-Needs-Analysis.md
+│   ├── 04-User-Personas.md
+│   ├── 05-Product-Specifications.md
+│   ├── 06-MVP-Feature-List.md
+│   ├── 07-Concept-Generation.md
+│   ├── 08-Concept-Selection.md
+│   └── 09-Product-Architecture.md
+│
+├── MVP Deliverables (Phase 6 Production)
+│   ├── guides/
+│   │   ├── 01-Quick-Start.md          ← Quick onboarding checklist
+│   │   ├── 02-Config-Wizard.md        ← Config wizard
+│   │   ├── 03-Error-Guide.md          ← Error solution library
+│   │   └── 04-Troubleshooting.md      ← Peer guidance scripts
+│   │
+│   ├── scripts/
+│   │   ├── check-config.py            ← Config check script
+│   │   ├── verify-config.py           ← Config validation script
+│   │   └── diagnose.py                ← One-click diagnosis script
+│   │
+│   ├── templates/
+│   │   ├── .env.template              ← Config template
+│   │   └── diagnose-report.md         ← Diagnosis report template
+│   │
+│   └── README.md                      ← Product usage guide
+│
+└── Testing and Validation
+    ├── test-plan.md                   ← Testing plan
+    └── user-test-results.md           ← User testing results</code></pre>
+<br>
+<h3>2.2 Deliverables Detailed Design</h3>
+<br>
+<h4>Deliverable 1: Quick Onboarding Checklist (01-Quick-Start.md)</h4>
+<br>
+<p><strong>Design Goal:</strong> Complete first task within 5 minutes</p>
+<br>
+<p><strong>Document Structure:</strong></p>
+<pre><code># 5-Minute Quick Start OpenClaw
+
+> After completing this guide, you will successfully send your first message,
+> verifying OpenClaw runs normally.
+
+## Pre-start Check (30 sec)
+- [ ] OpenClaw and dependencies installed
+- [ ] Feishu app credentials obtained (App ID, App Secret)
+- [ ] 5 minutes free time
+
+## Step 1: Config Check (2 min)
+- [ ] Run config check script
+  ```bash
+  python scripts/check-config.py
+  ```
+- [ ] Confirm output shows ".env file exists"
+- [ ] Fix according to prompts if warnings
+
+## Step 2: Send First Message (2 min)
+- [ ] Copy code to test file
+  ```python
+  from openclaw import send_message
+  send_message("test", "Hello from OpenClaw!")
+  ```
+- [ ] Run code
+- [ ] Confirm Feishu group received message
+
+## Step 3: Completion Celebration (1 min)
+- [ ] 🎉 Congrats on completing first task!
+- [ ] Screenshot and share your achievement
+- [ ] Continue next: [Config Wizard](02-Config-Wizard.md)
+
+## Problems?
+- View [Error Solution Library](03-Error-Guide.md)
+- Or run [One-click Diagnosis](scripts/diagnose.py)</code></pre>
+<br>
+<p><strong>Estimated Hours:</strong> 10h content + 5h testing = 15h</p>
+<br>
+<p>---</p>
+<br>
+<h4>Deliverable 2: Config Wizard (02-Config-Wizard.md + .env.template)</h4>
+<br>
+<p><strong>Design Goal:</strong> 5 core config items, each with explanation, examples, validation</p>
+<br>
+<p><strong>Document Structure:</strong></p>
+<pre><code># Config Wizard
+
+## Config Item 1: FEISHU_APP_ID
+
+### What is it
+Unique identifier for Feishu app, used for API call authentication.
+
+### How to obtain
+1. Open Feishu developer console: https://open.feishu.cn
+2. Create enterprise self-built app
+3. Copy App ID from "Credentials & Basic Info" page
+
+### How to configure
+1. Open .env file
+2. Add: `FEISHU_APP_ID=cli_xxxxxxxxxxxxx`
+3. Save file
+
+### Validate Config
+Run: `python scripts/verify-config.py --check FEISHU_APP_ID`
+
+### Common Questions
+- Q: What format is App ID?
+- A: String starting with "cli_"
+
+[View detailed error solutions](03-Error-Guide.md#err-config-001)
+
+---
+
+## Config Item 2: FEISHU_APP_SECRET
+... (Similar structure)
+
+## Config Item 3: FEISHU_GROUP_ADMIN
+... (Similar structure)
+
+## Config Item 4: DASHSCOPE_API_KEY
+... (Similar structure)
+
+## Config Item 5: DEFAULT_MODEL
+... (Similar structure)</code></pre>
+<br>
+<p><strong>Config Template (.env.template):</strong></p>
+<pre><code># OpenClaw Config Template
+# Copy this file as .env and fill in your actual values
+
+# ========== Feishu App Configuration ==========
+# How to obtain: https://open.feishu.cn → Enterprise Self-built App → Credentials & Basic Info
+FEISHU_APP_ID=cli_xxxxxxxxxxxxx
+FEISHU_APP_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# Group ID (group for bot to join)
+FEISHU_GROUP_ADMIN=oc_xxxxxxxxxxxxx
+
+# ========== API Configuration ==========
+# Alibaba Cloud Bailian API Key: https://dashscope.console.aliyun.com
+DASHSCOPE_API_KEY=sk-xxxxxxxxxxxxxxxx
+
+# ========== Model Configuration ==========
+# Default model to use
+DEFAULT_MODEL=bailian/qwen3.5-plus
+
+# ========== Other Configuration ==========
+# Timezone (default Asia/Shanghai)
+TIMEZONE=Asia/Shanghai</code></pre>
+<br>
+<p><strong>Estimated Hours:</strong> 15h content + 10h scripts + 10h testing = 35h</p>
+<br>
+<p>---</p>
+<br>
+<h4>Deliverable 3: Error Solution Library (03-Error-Guide.md)</h4>
+<br>
+<p><strong>Design Goal:</strong> 50 common errors, each with clear solution</p>
+<br>
+<p><strong>Document Structure:</strong></p>
+<pre><code># Error Solution Library
+
+## Quick Index
+- [Config Errors](#config-errors) (15)
+- [Permission Errors](#permission-errors) (10)
+- [Network Errors](#network-errors) (8)
+- [Skill Errors](#skill-errors) (10)
+- [Other Errors](#other-errors) (7)
+
+---
+
+## Config Errors
+
+### ERR-CONFIG-001: FEISHU_APP_ID Not Configured
+
+**Error Message:**</code></pre>
+<p>ValueError: FEISHU_APP_ID is not set</p>
+<pre><code>
+**Cause:**
+.env file not configured with FEISHU_APP_ID
+
+**Impact:**
+Cannot call Feishu API, all message sending functions fail
+
+**Solution Steps:**
+1. Open .env file in project root
+2. Add line: `FEISHU_APP_ID=cli_xxxxxxxxxxxxx`
+3. Save file
+4. Re-run your code
+
+**Validate:**
+Run `python scripts/verify-config.py --check FEISHU_APP_ID`
+
+**Related Resources:**
+- [Config Wizard - FEISHU_APP_ID](02-Config-Wizard.md#config-item-1)
+- [Feishu App Creation Guide](https://open.feishu.cn/document/ukzMz0SOzQ3L4QSM)
+
+---
+
+### ERR-CONFIG-002: FEISHU_GROUP_ID Config Invalid
+... (Similar structure)
+
+---
+
+## Permission Errors
+
+### ERR-PERM-001: Feishu App Insufficient Permissions
+
+**Error Message:**</code></pre>
+<p>FeishuAPIError: insufficient permission</p>
+<pre><code>
+**Cause:**
+Feishu app not enabled required permissions
+
+**Solution Steps:**
+1. Open Feishu developer console
+2. Enter your app → Permission Management
+3. Enable following permissions:
+   - Send messages
+   - Read group info
+4. Save and publish version
+... (Continue 48 errors)</code></pre>
+<br>
+<p><strong>Estimated Hours:</strong> 25h content + 5h testing = 30h</p>
+<br>
+<p>---</p>
+<br>
+<h4>Deliverable 4: Peer Guidance Scripts (04-Troubleshooting.md)</h4>
+<br>
+<p><strong>Design Goal:</strong> 3-5 scenario guidance scripts, cultivate user independence</p>
+<br>
+<p><strong>Document Structure:</strong></p>
+<pre><code># Peer Guidance Scripts
+
+## Usage Scenarios
+
+These scripts are used to guide users to solve problems independently,
+cultivate self-check capabilities.
+
+---
+
+## Scenario 1: User Reports Error
+
+**User:** "I encountered XXX error"
+
+**Guidance Reply:**</code></pre>
+<p>This error is very common, we have detailed solutions in our error library.</p>
+<br>
+<p>👉 Click to view: <a href="03-Error-Guide.md#err-xxx">ERR-XXX</a></p>
+<br>
+<p>Follow the steps, usually solved within 5 minutes.</p>
+<br>
+<p>If you still have questions, come back anytime.</p>
+<pre><code>
+**Key Points:**
+- Empathy ("very common") → Reduce anxiety
+- Clear link → Reduce search cost
+- Time expectation ("5 minutes") → Boost confidence
+- Support ("come back anytime") → Sense of security
+
+---
+
+## Scenario 2: Config Problem
+
+**User:** "Config seems to have problems"
+
+**Guidance Reply:**</code></pre>
+<p>Suggest running one-click diagnosis first to see the specific problem.</p>
+<br>
+<p>👉 Run command:</p>
+<pre><code>python scripts/diagnose.py</code></pre>
+<br>
+<p>Diagnosis report will tell you:</p>
+<p>1. Which config has problems</p>
+<p>2. Specific error code</p>
+<p>3. Solution link</p>
+<br>
+<p>Send me the report after running, I'll help you analyze.</p>
+<pre><code>
+**Key Points:**
+- Teach tool usage → Cultivate self-check capability
+- Explain output content → Lower usage barrier
+- Express willingness to help → Maintain support attitude
+
+---
+
+## Scenario 3: User Wants to Give Up
+
+**User:** "Too hard, don't want to continue"
+
+**Guidance Reply:**</code></pre>
+<p>Understand your feelings, every beginner encounters this stage. 😊</p>
+<br>
+<p>Let me see your progress...</p>
+<p>You've completed [X]% of configuration, very close to success!</p>
+<br>
+<p>How about:</p>
+<p>1. Take a break first, come back to continue</p>
+<p>2. Let me help see where you're stuck</p>
+<p>3. We'll go step by step, I'll accompany you</p>
+<br>
+<p>Which do you choose?</p>
+<pre><code>
+**Key Points:**
+- Empathy and recognition → Reduce frustration
+- Show progress → Let user see achievement
+- Provide options → Give user control
+
+---
+
+## Scenario 4: Duplicate Question
+
+**User:** (Asks a question in error library)
+
+**Guidance Reply:**</code></pre>
+<p>This question we have detailed documentation!</p>
+<br>
+<p>👉 <a href="03-Error-Guide.md#err-xxx">Question Title</a></p>
+<br>
+<p>Documentation includes:</p>
+<p>- Error cause</p>
+<p>- Solution steps (1-2-3)</p>
+<p>- Validation method</p>
+<br>
+<p>Try following the documentation first, come to me if you get stuck.</p>
+<pre><code>
+**Key Points:**
+- Don't give answer directly → Cultivate lookup habit
+- Explain documentation content → Increase lookup motivation
+- Maintain support attitude → Don't make user feel rejected
+
+---
+
+## Scenario 5: Problem Escalation
+
+**User:** (Encountered error not in library)
+
+**Guidance Reply:**</code></pre>
+<p>This problem is quite special, not in error library yet.</p>
+<br>
+<p>I'll help you:</p>
+<p>1. First record your error info</p>
+<p>2. I'll research it</p>
+<p>3. Update to error library after solving, help others</p>
+<br>
+<p>Please provide:</p>
+<p>- Complete error message</p>
+<p>- Solutions you've tried</p>
+<p>- Your config (hide sensitive info)</p>
+<pre><code>
+**Key Points:**
+- Acknowledge knowledge boundary → Honest and trustworthy
+- Explain handling plan → Reassure user
+- Collect necessary info → Improve solution efficiency
+- Promise to update library → Turn problem into value</code></pre>
+<br>
+<p><strong>Estimated Hours:</strong> 3h content + 2h testing = 5h</p>
+<br>
+<p>---</p>
+<br>
+<h4>Deliverable 5: Diagnosis Script (diagnose.py)</h4>
+<br>
+<p><strong>Design Goal:</strong> One-click run, generate comprehensive diagnosis report</p>
+<br>
+<p><strong>Script Design:</strong></p>
+<pre><code>#!/usr/bin/env python3
+"""
+OpenClaw One-click Diagnosis Script
+Run to generate diagnosis report, pointing out config problems and solutions
+"""
+
+import os
+import sys
+from datetime import datetime
+
+def check_env_file():
+    """Check if .env file exists"""
+    if os.path.exists('.env'):
+        return True, ".env file exists"
+    return False, ".env file does not exist"
+
+def check_feishu_app_id():
+    """Check FEISHU_APP_ID config"""
+    app_id = os.getenv('FEISHU_APP_ID')
+    if not app_id:
+        return False, "FEISHU_APP_ID not configured", "ERR-CONFIG-001"
+    if not app_id.startswith('cli_'):
+        return False, "FEISHU_APP_ID format error", "ERR-CONFIG-003"
+    return True, "FEISHU_APP_ID config correct", None
+
+# ... More check items
+
+def generate_report(results):
+    """Generate diagnosis report"""
+    report = f"""# OpenClaw Config Diagnosis Report
+
+**Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M')}
+
+## Overview
+- Passed: {sum(1 for r in results if r[0])}/{len(results)}
+- Warnings: {sum(1 for r in results if r[0] and 'suggest' in r[1])}
+- Errors: {sum(1 for r in results if not r[0])}
+
+## Detailed Results
+"""
+    for passed, message, err_code in results:
+        status = "✅" if passed else "❌"
+        report += f"\n{status} {message}"
+        if err_code:
+            report += f"\n   Solution: [View](03-Error-Guide.md#{err_code.lower()})"
+    
+    return report
+
+def main():
+    results = []
+    results.append(check_env_file())
+    results.append(check_feishu_app_id())
+    # ... Run all checks
+    
+    report = generate_report(results)
+    
+    # Output report
+    with open('diagnose-report.md', 'w', encoding='utf-8') as f:
+        f.write(report)
+    
+    print("Diagnosis complete! Report saved to: diagnose-report.md")
+    print(f"\nOverview: {sum(1 for r in results if r[0])}/{len(results)} items passed")
+
+if __name__ == '__main__':
+    main()</code></pre>
+<br>
+<p><strong>Estimated Hours:</strong> 15h development + 5h testing = 20h</p>
+<br>
+<p>---</p>
+<br>
+<h4>Deliverable 6: Product Usage Guide (README.md)</h4>
+<br>
+<p><strong>Design Goal:</strong> Product overview and usage guide</p>
+<br>
+<p><strong>Document Structure:</strong></p>
+<pre><code># OpenClaw Onboarding Service
+
+> Complete your first OpenClaw experience in 5 minutes
+
+## Quick Start
+
+### Step 1: Download</code></pre>
+<p>git clone https://github.com/your-repo/openclaw-onboarding.git</p>
+<p>cd openclaw-onboarding</p>
+<pre><code>
+### Step 2: Run Quick Onboarding</code></pre>
+<h1>Follow interactive checklist to complete first task</h1>
+<p>open guides/01-Quick-Start.md</p>
+<pre><code>
+### Step 3: Configure Environment</code></pre>
+<h1>Copy config template</h1>
+<p>cp .env.template .env</p>
+<br>
+<h1>Follow config wizard to fill in your credentials</h1>
+<p>open guides/02-Config-Wizard.md</p>
+<pre><code>
+### Step 4: Validate Config</code></pre>
+<h1>Run config validation</h1>
+<p>python scripts/verify-config.py</p>
+<br>
+<h1>Or run comprehensive diagnosis</h1>
+<p>python scripts/diagnose.py</p>
+<pre><code>
+## Problems?
+
+1. View [Error Solution Library](guides/03-Error-Guide.md)
+2. Run one-click diagnosis: `python scripts/diagnose.py`
+3. Reference [Peer Guidance Scripts](guides/04-Troubleshooting.md)
+
+## Content List
+</code></pre>
+<p>guides/</p>
+<p>├── 01-Quick-Start.md       # 5-minute quick start</p>
+<p>├── 02-Config-Wizard.md     # Config wizard (5 config items)</p>
+<p>├── 03-Error-Guide.md       # 50 error solutions</p>
+<p>└── 04-Troubleshooting.md   # Peer guidance scripts</p>
+<br>
+<p>scripts/</p>
+<p>├── check-config.py         # Config check</p>
+<p>├── verify-config.py        # Config validation</p>
+<p>└── diagnose.py             # One-click diagnosis</p>
+<br>
+<p>templates/</p>
+<p>└── .env.template           # Config template</p>
+<pre><code>
+## Learning Path
+
+After completing onboarding, continue learning:
+1. [Skill Usage Guide](Link)
+2. [Workflow Design Tutorial](Link)
+3. [Best Practice Cases](Link)
+
+## Feedback and Support
+
+- Submit Issue: GitHub Issues
+- Community Discussion: OpenClaw Community
+- Document Updates: Welcome PRs
+
+## License
+
+© 2026 OpenClaw Onboarding Project  
+CC BY-NC-SA 4.0 License</code></pre>
+<br>
+<p><strong>Estimated Hours:</strong> 5h</p>
+<br>
+<p>---</p>
+<br>
+<h2>III. User Testing Plan</h2>
+<br>
+<h3>3.1 Testing Goals</h3>
+<br>
+<tr><td>Goal</td><td>Metric</td><td>Measurement Method</td></tr>
+<tr><td>Validate 5-minute onboarding</td><td>80% users ≤5 min</td><td>User testing timing</td></tr>
+<tr><td>Validate config wizard</td><td>80% users complete config independently</td><td>User testing observation</td></tr>
+<tr><td>Validate error guidance</td><td>70% errors solved independently</td><td>User testing statistics</td></tr>
+<tr><td>Validate user satisfaction</td><td>≥4/5</td><td>Post-test survey</td></tr>
+<br>
+<h3>3.2 Test User Recruitment</h3>
+<br>
+<tr><td>User Type</td><td>Target Number</td><td>Recruitment Channels</td></tr>
+<tr><td>Beginner users (Xiao Zhang)</td><td>5</td><td>OpenClaw community, friends</td></tr>
+<tr><td>Intermediate users (Lao Wang)</td><td>3</td><td>OpenClaw community, colleagues</td></tr>
+<tr><td>**Total**</td><td>**8**</td></tr>
+<br>
+<h3>3.3 Testing Process</h3>
+<br>
+<pre><code>Pre-test (15 min)
+│
+├── Sign testing consent form
+├── Introduce testing purpose and process
+└── Install necessary software
+│
+↓
+During Test (60 min)
+│
+├── Task 1: Quick onboarding (10 min)
+├── Task 2: Configure environment (20 min)
+├── Task 3: Run diagnosis (10 min)
+├── Task 4: Solve preset errors (20 min)
+└── Observation recording + timing
+│
+↓
+Post-test (15 min)
+│
+├── Satisfaction survey (5 min)
+├── In-depth interview (10 min)
+└── Thanks and rewards</code></pre>
+<br>
+<h3>3.4 Test Task Design</h3>
+<br>
+<p><strong>Task 1: Quick Onboarding</strong></p>
+<p>- Goal: Complete first message sending</p>
+<p>- Success criteria: ≤5 min, no external help</p>
+<p>- Measure: Completion time, whether help needed</p>
+<br>
+<p><strong>Task 2: Configure Environment</strong></p>
+<p>- Goal: Complete 5 core configs</p>
+<p>- Success criteria: Config correct, passes validation</p>
+<p>- Measure: Config time, error count</p>
+<br>
+<p><strong>Task 3: Run Diagnosis</strong></p>
+<p>- Goal: Run diagnosis script and understand report</p>
+<p>- Success criteria: Can interpret problems in report</p>
+<p>- Measure: Comprehension level, can locate problems</p>
+<br>
+<p><strong>Task 4: Solve Preset Errors</strong></p>
+<p>- Goal: Use error library to solve 3 preset errors</p>
+<p>- Success criteria: Independently solve ≥2</p>
+<p>- Measure: Number solved, document lookup count</p>
+<br>
+<h3>3.5 Satisfaction Survey</h3>
+<br>
+<pre><code># User Satisfaction Survey
+
+## Basic Info
+1. Your technical background?
+   ○ Non-technical ○ Basic technical ○ Technical expert
+
+2. Is this your first time using OpenClaw?
+   ○ Yes ○ No (Usage duration: ___)
+
+## Quick Onboarding Experience
+3. Is the quick onboarding checklist clear and understandable?
+   ○ 5 ○ 4 ○ 3 ○ 2 ○ 1
+
+4. How long did you take to complete quick onboarding?
+   ○ <5 min ○ 5-10 min ○ >10 min
+
+## Config Wizard Experience
+5. Did the config template simplify the config process?
+   ○ 5 ○ 4 ○ 3 ○ 2 ○ 1
+
+6. Was the config validation feedback timely and clear?
+   ○ 5 ○ 4 ○ 3 ○ 2 ○ 1
+
+## Error Guidance Experience
+7. Were the error solutions clear and understandable?
+   ○ 5 ○ 4 ○ 3 ○ 2 ○ 1
+
+8. Could you independently solve the preset errors?
+   ○ All ○ Most ○ Half ○ Few ○ None
+
+## Overall Evaluation
+9. Overall satisfaction
+   ○ 5 ○ 4 ○ 3 ○ 2 ○ 1
+
+10. Would you recommend this onboarding to friends? (NPS)
+    ○ 0-10
+
+11. What feature did you like most?
+    [Open answer]
+
+12. What do you most hope to improve?
+    [Open answer]</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>IV. Phase 6 Completion Confirmation</h2>
+<br>
+<h3>4.1 Deliverables Checklist</h3>
+<br>
+<tr><td>Deliverable</td><td>Status</td><td>Path</td><td>Hours</td></tr>
+<tr><td>Quick onboarding checklist</td><td>⏳ To produce</td><td>`guides/01-Quick-Start.md`</td><td>15h</td></tr>
+<tr><td>Config wizard doc</td><td>⏳ To produce</td><td>`guides/02-Config-Wizard.md`</td><td>15h</td></tr>
+<tr><td>Config template</td><td>⏳ To produce</td><td>`templates/.env.template`</td><td>5h</td></tr>
+<tr><td>Config validation script</td><td>⏳ To produce</td><td>`scripts/verify-config.py`</td><td>15h</td></tr>
+<tr><td>Error solution library</td><td>⏳ To produce</td><td>`guides/03-Error-Guide.md`</td><td>25h</td></tr>
+<tr><td>Peer guidance scripts</td><td>⏳ To produce</td><td>`guides/04-Troubleshooting.md`</td><td>5h</td></tr>
+<tr><td>Diagnosis script</td><td>⏳ To produce</td><td>`scripts/diagnose.py`</td><td>20h</td></tr>
+<tr><td>Diagnosis report template</td><td>⏳ To produce</td><td>`templates/diagnose-report.md`</td><td>5h</td></tr>
+<tr><td>Product usage guide</td><td>⏳ To produce</td><td>`README.md`</td><td>5h</td></tr>
+<tr><td>Testing plan</td><td>⏳ To produce</td><td>`test-plan.md`</td><td>5h</td></tr>
+<tr><td>User testing results</td><td>⏳ To produce</td><td>`user-test-results.md`</td><td>10h</td></tr>
+<tr><td>**Content Production/Testing**</td><td>**100h**</td></tr>
+<tr><td>**Phase 6 Total**</td><td>**210h**</td></tr>
+<br>
+<h3>4.2 Production Timeline</h3>
+<br>
+<tr><td>Task</td><td>Start Date</td><td>End Date</td><td>Responsible</td></tr>
+<tr><td>Quick onboarding doc</td><td>03-20</td><td>03-21</td><td>Product design</td></tr>
+<tr><td>Config wizard doc</td><td>03-21</td><td>03-22</td><td>Product design</td></tr>
+<tr><td>Config script development</td><td>03-22</td><td>03-23</td><td>Product design</td></tr>
+<tr><td>Error library writing</td><td>03-23</td><td>03-24</td><td>Product design</td></tr>
+<tr><td>Diagnosis script development</td><td>03-24</td><td>03-25</td><td>Product design</td></tr>
+<tr><td>Peer guidance scripts</td><td>03-25</td><td>03-25</td><td>Product design</td></tr>
+<tr><td>Integration testing</td><td>03-26</td><td>03-26</td><td>Product design</td></tr>
+<tr><td>User testing</td><td>03-27</td><td>03-28</td><td>Product design</td></tr>
+<tr><td>Final revision</td><td>03-29</td><td>03-29</td><td>Product design</td></tr>
+<tr><td>**MVP Delivery**</td><td>**03-29**</td></tr>
+<br>
+<h3>4.3 Phase 6 Review Checklist</h3>
+<br>
+<tr><td>Review Item</td><td>Status</td><td>Description</td></tr>
+<tr><td>Are design documents complete?</td><td>⏳ Pending review</td><td>11 deliverables</td></tr>
+<tr><td>Are scripts runnable?</td><td>⏳ Pending test</td><td>3 Python scripts</td></tr>
+<tr><td>Does user testing pass?</td><td>⏳ Pending execution</td><td>8 test users</td></tr>
+<tr><td>Is satisfaction达标?</td><td>⏳ Pending validation</td><td>≥4/5</td></tr>
+<tr><td>Is MVP deliverable?</td><td>⏳ Pending confirmation</td><td>03-29 delivery</td></tr>
+<br>
+<h3>4.4 Review Conclusion</h3>
+<br>
+<p><strong>Decision:</strong> ⏳ <strong>Phase 6 in progress, MVP delivery estimated 03-29</strong></p>
+<br>
+<p><strong>MVP Final Scope Confirmed:</strong></p>
+<p>- 4 core modules (Quick onboarding, Config wizard, Diagnosis report, Error guidance)</p>
+<p>- 11 deliverables (4 docs + 3 scripts + 2 templates + 1 README + 1 test)</p>
+<p>- 6 MVP concepts (C1+C4+C7+C9+C10+C15)</p>
+<p>- Total 210 hours (~5.25 person-weeks)</p>
+<br>
+<p><strong>Reviewer:</strong> Consulting-Coordinator  </p>
+<p><strong>Review Date:</strong> 2026-03-19</p>
+<br>
+<p>---</p>
+<br>
+<h2>V. Full Process Summary</h2>
+<br>
+<h3>5.1 6-Phase Completion Status</h3>
+<br>
+<tr><td>Phase</td><td>Status</td><td>Complete Date</td><td>Deliverables</td></tr>
+<tr><td>Phase 0: Opportunity Identification</td><td>✅ Complete</td><td>03-19</td><td>3 files</td></tr>
+<tr><td>Phase 1: Requirements Analysis</td><td>✅ Complete</td><td>03-19</td><td>2 files</td></tr>
+<tr><td>Phase 2: Specifications Development</td><td>✅ Complete</td><td>03-19</td><td>2 files</td></tr>
+<tr><td>Phase 3: Concept Generation</td><td>✅ Complete</td><td>03-19</td><td>1 file</td></tr>
+<tr><td>Phase 4: Concept Selection</td><td>✅ Complete</td><td>03-19</td><td>1 file</td></tr>
+<tr><td>Phase 5: Architecture Design</td><td>✅ Complete</td><td>03-19</td><td>1 file</td></tr>
+<tr><td>Phase 6: Design Presentation</td><td>⏳ In progress</td><td>03-29</td><td>11 deliverables</td></tr>
+<br>
+<h3>5.2 Design Process Assets</h3>
+<br>
+<p><strong>Design Phase Documents (10):</strong></p>
+<p>- Opportunity assessment, mission statement, requirements analysis, user personas</p>
+<p>- Product specifications, MVP list, concept generation, concept selection, architecture design, final design</p>
+<br>
+<p><strong>MVP Deliverables (11):</strong></p>
+<p>- 4 guide docs, 3 scripts, 2 templates, README, testing docs</p>
+<br>
+<p><strong>Total:</strong> 21 documents/files</p>
+<br>
+<h3>5.3 CDT504 Method Application</h3>
+<br>
+<tr><td>CDT504 Lesson</td><td>Application Content</td><td>Phase</td></tr>
+<tr><td>Lesson 1</td><td>Universal dev process (6 phases)</td><td>Full process</td></tr>
+<tr><td>Lesson 2</td><td>RWW opportunity assessment framework</td><td>Phase 0</td></tr>
+<tr><td>Lesson 3</td><td>Product planning mission statement</td><td>Phase 0</td></tr>
+<tr><td>Lesson 4</td><td>5-step needs identification</td><td>Phase 1</td></tr>
+<tr><td>Lesson 5</td><td>Needs-specification matrix</td><td>Phase 2</td></tr>
+<tr><td>Lesson 6</td><td>5-step concept generation</td><td>Phase 3</td></tr>
+<tr><td>Lesson 7</td><td>Concept screening/scoring matrix</td><td>Phase 4</td></tr>
+<tr><td>Lesson 8</td><td>Product architecture design (4-step)</td><td>Phase 5</td></tr>
+<tr><td>Lesson 9</td><td>Industrial design principles</td><td>Phase 6</td></tr>
+<br>
+<p><strong>Tools Applied:</strong> 20+ CDT504 tools</p>
+<br>
+<p>---</p>
+<br>
+<p><em>Final Design Proposal v1.0 — 2026-03-19</em>  </p>
+<p><em>6 phases complete, MVP deliverables to be produced (03-29)</em>  </p>
+<p><em>Phase 6 in progress, awaiting production execution</em></p>
+<br>
+
+    <hr>
+    <footer style="text-align: center; color: #666; padding: 20px;">
+        <p>© 2026 OpenClaw Onboarding Project · CC BY-NC-SA 4.0</p>
+    </footer>
+</body>
+</html>

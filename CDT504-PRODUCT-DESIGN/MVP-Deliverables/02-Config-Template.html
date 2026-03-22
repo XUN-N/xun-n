@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 Config Template</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; }
+        h2 { color: #764ba2; margin-top: 30px; }
+        h3 { color: #555; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        pre code { background: none; padding: 0; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #667eea; color: white; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        a { color: #667eea; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        blockquote { border-left: 4px solid #667eea; margin: 0; padding-left: 20px; color: #666; }
+        ul, ol { padding-left: 30px; }
+        .nav { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 30px; }
+        .nav a { margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">← Back to Home</a>
+        <a href="https://github.com/openclaw">GitHub</a>
+    </div>
+<h1>Config Template and Usage Guide</h1>
+<br>
+<blockquote>**Config without guessing, fill template directly.**</blockquote>
+<br>
+<p>---</p>
+<br>
+<h2>Why need config template?</h2>
+<br>
+<p><strong>Have you experienced this—</strong></p>
+<br>
+<p>Open a tool's config file, see a bunch of unfamiliar variable names:</p>
+<br>
+<pre><code>FEISHU_APP_ID=
+FEISHU_APP_SECRET=
+FEISHU_GROUP_ADMIN=
+DASHSCOPE_API_KEY=</code></pre>
+<br>
+<p>Then start wondering:</p>
+<p>- What are these?</p>
+<p>- Where to obtain?</p>
+<p>- What format?</p>
+<p>- What happens if filled wrong?</p>
+<br>
+<p><strong>Don't worry, this is not your problem.</strong></p>
+<br>
+<p>So we made this config template and usage guide.</p>
+<br>
+<blockquote>**Goal: Let you complete config like filling out a form.**</blockquote>
+<br>
+<p>---</p>
+<br>
+<h2>Config Template (Copy and Use)</h2>
+<br>
+<h3>Step 1: Copy Template</h3>
+<br>
+<pre><code># Execute in project root
+cp .env.template .env</code></pre>
+<br>
+<h3>Step 2: Open .env File</h3>
+<br>
+<pre><code># Open with your favorite editor
+nano .env
+# Or
+code .env
+# Or
+vim .env</code></pre>
+<br>
+<h3>Step 3: Fill in Your Values</h3>
+<br>
+<pre><code># ========== Feishu App Configuration ==========
+# How to obtain: https://open.feishu.cn → Enterprise Self-built App → Credentials & Basic Info
+
+# App ID: String starting with "cli_"
+FEISHU_APP_ID=cli_xxxxxxxxxxxxx
+
+# App Secret: 32-character string
+FEISHU_APP_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# Group ID: Group for bot to join, starting with "oc_"
+FEISHU_GROUP_ADMIN=oc_xxxxxxxxxxxxx
+
+# ========== API Configuration ==========
+# Alibaba Cloud Bailian API Key: https://dashscope.console.aliyun.com
+# Format: String starting with sk-
+DASHSCOPE_API_KEY=sk-xxxxxxxxxxxxxxxx
+
+# ========== Model Configuration ==========
+# Default model to use (optional values see below)
+DEFAULT_MODEL=bailian/qwen3.5-plus
+
+# ========== Other Configuration ==========
+# Timezone (default Asia/Shanghai)
+TIMEZONE=Asia/Shanghai</code></pre>
+<br>
+<h3>Step 4: Save and Validate</h3>
+<br>
+<pre><code># After saving file, run validation script
+python scripts/verify-config.py</code></pre>
+<br>
+<p><strong>See following output indicating config success:</strong></p>
+<br>
+<pre><code>✅ FEISHU_APP_ID config correct
+✅ FEISHU_APP_SECRET config correct
+✅ FEISHU_GROUP_ADMIN config correct
+✅ DASHSCOPE_API_KEY config correct
+✅ All config validations passed</code></pre>
+<br>
+<p><strong>Congratulations! Config complete.</strong> 🎉</p>
+<br>
+<p>---</p>
+<br>
+<h2>Config Item Detailed Explanation</h2>
+<br>
+<h3>1. FEISHU_APP_ID</h3>
+<br>
+<p><strong>What:</strong> Unique identifier for Feishu app</p>
+<br>
+<p><strong>Format:</strong> <code>cli_</code> + 13 characters (e.g., <code>cli_a93068b69f38dbef</code>)</p>
+<br>
+<p><strong>How to obtain:</strong></p>
+<p>1. Open Feishu developer console: https://open.feishu.cn</p>
+<p>2. Log in your Feishu account</p>
+<p>3. Click "Enterprise Self-built App" → "Create App"</p>
+<p>4. Fill app name (e.g., "OpenClaw Assistant")</p>
+<p>5. After creation, copy App ID from "Credentials & Basic Info" page</p>
+<br>
+<p><strong>FAQ:</strong></p>
+<p>- Q: What does App ID start with?</p>
+<p>- A: Starts with <code>cli_</code>, followed by 13 characters</p>
+<br>
+<p>- Q: Can multiple projects use same App ID?</p>
+<p>- A: Yes, but suggest creating independent apps for each project for easier management</p>
+<br>
+<p>---</p>
+<br>
+<h3>2. FEISHU_APP_SECRET</h3>
+<br>
+<p><strong>What:</strong> Secret key for Feishu app, used for API call authentication</p>
+<br>
+<p><strong>Format:</strong> 32-character string (e.g., <code>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code>)</p>
+<br>
+<p><strong>How to obtain:</strong></p>
+<p>1. Same as above, in Feishu developer console</p>
+<p>2. In "Credentials & Basic Info" page</p>
+<p>3. Click "Get Secret" (may need admin confirmation)</p>
+<p>4. Copy Secret (only shown once, suggest save immediately)</p>
+<br>
+<p><strong>⚠️ Important Reminders:</strong></p>
+<p>- Secret only shown once, lost needs regeneration</p>
+<p>- Don't share with others</p>
+<p>- Don't upload to GitHub or other public repos</p>
+<br>
+<p>---</p>
+<br>
+<h3>3. FEISHU_GROUP_ADMIN</h3>
+<br>
+<p><strong>What:</strong> Feishu group ID for bot to join</p>
+<br>
+<p><strong>Format:</strong> <code>oc_</code> + 13 characters (e.g., <code>oc_xxxxxxxxxxxxx</code>)</p>
+<br>
+<p><strong>How to obtain:</strong></p>
+<p>1. Open target group in Feishu</p>
+<p>2. Click top right "..." → "Group Info"</p>
+<p>3. Scroll to bottom, find "Group ID"</p>
+<p>4. Copy group ID</p>
+<br>
+<p><strong>⚠️ Notes:</strong></p>
+<p>- Bot must have joined this group</p>
+<p>- How to add bot to group:</p>
+<p>  1. Click top right "..." in group</p>
+<p>  2. Select "Add Members"</p>
+<p>  3. Search your app name</p>
+<p>  4. Add</p>
+<br>
+<p>---</p>
+<br>
+<h3>4. DASHSCOPE_API_KEY</h3>
+<br>
+<p><strong>What:</strong> API key for Alibaba Cloud Bailian platform, used to call AI models</p>
+<br>
+<p><strong>Format:</strong> <code>sk-</code> + 32 characters (e.g., <code>sk-xxxxxxxxxxxxxxxx</code>)</p>
+<br>
+<p><strong>How to obtain:</strong></p>
+<p>1. Open Alibaba Cloud Bailian console: https://dashscope.console.aliyun.com</p>
+<p>2. Log in your Alibaba Cloud account</p>
+<p>3. Click "API-KEY Management" → "Create New API-KEY"</p>
+<p>4. Copy API Key</p>
+<br>
+<p><strong>Free Quota:</strong></p>
+<p>- New users have free quota</p>
+<p>- Specific quota see official description</p>
+<p>- Charged by usage after exceeding</p>
+<br>
+<p>---</p>
+<br>
+<h3>5. DEFAULT_MODEL</h3>
+<br>
+<p><strong>What:</strong> Default AI model to use</p>
+<br>
+<p><strong>Optional Values:</strong></p>
+<br>
+<tr><td>Model</td><td>Description</td><td>Use Case</td></tr>
+<tr><td>`bailian/qwen3.5-plus`</td><td>Alibaba Cloud Tongyi Qianwen</td><td>General scenarios, recommended</td></tr>
+<tr><td>`zai/glm-5`</td><td>Zhipu GLM-5</td><td>Document analysis</td></tr>
+<tr><td>`minimax/MiniMax-M2.7-highspeed`</td><td>MiniMax high-speed</td><td>Fast response</td></tr>
+<tr><td>`kimi-coding/k2p5`</td><td>Kimi coding</td><td>Programming tasks</td></tr>
+<br>
+<p><strong>How to choose:</strong></p>
+<p>- Uncertain → Use <code>bailian/qwen3.5-plus</code> (default)</p>
+<p>- Need PDF/image analysis → Use <code>zai/glm-5</code></p>
+<p>- Need fast response → Use <code>minimax/MiniMax-M2.7-highspeed</code></p>
+<p>- Programming tasks → Use <code>kimi-coding/k2p5</code></p>
+<br>
+<p>---</p>
+<br>
+<h2>Validate Config</h2>
+<br>
+<h3>Method 1: Run Validation Script</h3>
+<br>
+<pre><code>python scripts/verify-config.py</code></pre>
+<br>
+<p><strong>Example Output:</strong></p>
+<pre><code>========== Config Validation Report ==========
+
+✅ FEISHU_APP_ID config correct
+✅ FEISHU_APP_SECRET config correct
+✅ FEISHU_GROUP_ADMIN config correct
+✅ DASHSCOPE_API_KEY config correct
+✅ DEFAULT_MODEL config correct
+
+All config validations passed! 🎉</code></pre>
+<br>
+<h3>Method 2: Run One-click Diagnosis</h3>
+<br>
+<pre><code>python scripts/diagnose.py</code></pre>
+<br>
+<p>Diagnosis script generates detailed report including:</p>
+<p>- Whether config is complete</p>
+<p>- Whether config is correct</p>
+<p>- Potential problems and suggestions</p>
+<br>
+<h3>Method 3: Send Test Message</h3>
+<br>
+<pre><code>from openclaw import send_message
+
+send_message(
+    target="test",
+    message="Config validation test"
+)</code></pre>
+<br>
+<p>If message sends successfully, Feishu config is correct.</p>
+<br>
+<p>---</p>
+<br>
+<h2>FAQ</h2>
+<br>
+<p><strong>Q1: Where to put config file?</strong></p>
+<br>
+<p>A: Put in project root, same level as <code>.env.template</code>.</p>
+<br>
+<p><strong>Q2: Should .env file be added to Git?</strong></p>
+<br>
+<p>A: <strong>Absolutely not!</strong> .env contains sensitive info, should add to <code>.gitignore</code>:</p>
+<pre><code># .gitignore
+.env</code></pre>
+<br>
+<p><strong>Q3: What if config is wrong?</strong></p>
+<br>
+<p>A: Directly modify .env file, save and re-run. Config is read in real-time.</p>
+<br>
+<p><strong>Q4: Can different environments use different configs?</strong></p>
+<br>
+<p>A: Yes. Suggest:</p>
+<p>- Development: <code>.env.dev</code></p>
+<p>- Production: <code>.env.prod</code></p>
+<p>- Copy corresponding file as <code>.env</code> when using</p>
+<br>
+<p><strong>Q5: Config validation failed, what to do?</strong></p>
+<br>
+<p>A: Troubleshoot in this order:</p>
+<p>1. Check format is correct (e.g., App ID starts with <code>cli_</code>)</p>
+<p>2. Check for spaces or extra characters</p>
+<p>3. Check Secret is completely copied (32 chars)</p>
+<p>4. Run diagnosis script to view detailed error</p>
+<p>5. <a href="03-Error-Guide.md">View error solutions</a></p>
+<br>
+<p>---</p>
+<br>
+<h2>Config Checklist</h2>
+<br>
+<p>After completing config, self-check with this list:</p>
+<br>
+<p>- [ ] .env file created (copied from .env.template)</p>
+<p>- [ ] FEISHU_APP_ID filled (starts with <code>cli_</code>)</p>
+<p>- [ ] FEISHU_APP_SECRET filled (32-character string)</p>
+<p>- [ ] FEISHU_GROUP_ADMIN filled (starts with <code>oc_</code>)</p>
+<p>- [ ] DASHSCOPE_API_KEY filled (starts with <code>sk-</code>)</p>
+<p>- [ ] DEFAULT_MODEL filled (or keep default)</p>
+<p>- [ ] .env file added to .gitignore</p>
+<p>- [ ] Run validation script, all checks passed</p>
+<br>
+<p><strong>All checked? Congratulations, config complete!</strong> 🎉</p>
+<br>
+<p>---</p>
+<br>
+<h2>Next Steps</h2>
+<br>
+<p>After config complete, suggest continuing:</p>
+<br>
+<p>1. <strong><a href="01-Quick-Start.md">Quick Start</a></strong> — If not completed yet, spend 5 min to complete first experience</p>
+<p>2. <strong><a href="03-Error-Guide.md">Error Solution Library</a></strong> — Learn solution methods for common problems</p>
+<p>3. <strong><a href="04-Troubleshooting.md">Peer Guidance Scripts</a></strong> — Learn how to solve problems independently</p>
+<br>
+<p>---</p>
+<br>
+<p><em>Config Template and Usage Guide · v1.0</em>  </p>
+<p><em>© 2026 OpenClaw Onboarding Project · CC BY-NC-SA 4.0</em></p>
+<br>
+
+    <hr>
+    <footer style="text-align: center; color: #666; padding: 20px;">
+        <p>© 2026 OpenClaw Onboarding Project · CC BY-NC-SA 4.0</p>
+    </footer>
+</body>
+</html>

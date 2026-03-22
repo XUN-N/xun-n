@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 Error Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; }
+        h2 { color: #764ba2; margin-top: 30px; }
+        h3 { color: #555; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        pre code { background: none; padding: 0; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #667eea; color: white; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        a { color: #667eea; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        blockquote { border-left: 4px solid #667eea; margin: 0; padding-left: 20px; color: #666; }
+        ul, ol { padding-left: 30px; }
+        .nav { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 30px; }
+        .nav a { margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">← Back to Home</a>
+        <a href="https://github.com/openclaw">GitHub</a>
+    </div>
+<h1>Error Solution Library</h1>
+<br>
+<blockquote>**Don't panic when encountering problems, 90% of errors have standard answers.**</blockquote>
+<br>
+<p>---</p>
+<br>
+<h2>Hello, what problem did you encounter?</h2>
+<br>
+<p><strong>First take a deep breath, then tell me:</strong></p>
+<br>
+<blockquote>Errors are not your fault.</blockquote>
+<blockquote></blockquote>
+<blockquote>Every developer encounters errors every day. The difference is,</blockquote>
+<blockquote>experienced people know where to find answers.</blockquote>
+<br>
+<p><strong>This error library is your book of answers.</strong></p>
+<br>
+<p>---</p>
+<br>
+<h2>Quick Index</h2>
+<br>
+<p>Find your error code, jump directly to solution:</p>
+<br>
+<h3>🔧 Config Errors (ERR-CONFIG-xxx)</h3>
+<p>- <a href="#err-config-001">ERR-CONFIG-001</a> — FEISHU_APP_ID not configured</p>
+<p>- <a href="#err-config-002">ERR-CONFIG-002</a> — FEISHU_APP_SECRET not configured</p>
+<p>- <a href="#err-config-003">ERR-CONFIG-003</a> — FEISHU_GROUP_ADMIN not configured</p>
+<p>- <a href="#err-config-004">ERR-CONFIG-004</a> — DASHSCOPE_API_KEY not configured</p>
+<p>- <a href="#err-config-005">ERR-CONFIG-005</a> — .env file does not exist</p>
+<p>- <a href="#err-config-006">ERR-CONFIG-006</a> — FEISHU_APP_ID format error</p>
+<p>- <a href="#err-config-007">ERR-CONFIG-007</a> — FEISHU_APP_SECRET format error</p>
+<p>- <a href="#err-config-008">ERR-CONFIG-008</a> — FEISHU_GROUP_ADMIN format error</p>
+<p>- <a href="#err-config-009">ERR-CONFIG-009</a> — DASHSCOPE_API_KEY format error</p>
+<p>- <a href="#err-config-010">ERR-CONFIG-010</a> — Config file permission problem</p>
+<br>
+<h3>🔐 Permission Errors (ERR-PERM-xxx)</h3>
+<p>- <a href="#err-perm-001">ERR-PERM-001</a> — Feishu app insufficient permissions</p>
+<p>- <a href="#err-perm-002">ERR-PERM-002</a> — Bot not joined group</p>
+<p>- <a href="#err-perm-003">ERR-PERM-003</a> — API Key insufficient permissions</p>
+<p>- <a href="#err-perm-004">ERR-PERM-004</a> — Tenant permission restriction</p>
+<p>- <a href="#err-perm-005">ERR-PERM-005</a> — Admin approval pending</p>
+<br>
+<h3>🌐 Network Errors (ERR-NET-xxx)</h3>
+<p>- <a href="#err-net-001">ERR-NET-001</a> — API timeout</p>
+<p>- <a href="#err-net-002">ERR-NET-002</a> — Connection refused</p>
+<p>- <a href="#err-net-003">ERR-NET-003</a> — DNS resolution failed</p>
+<p>- <a href="#err-net-004">ERR-NET-004</a> — SSL certificate error</p>
+<p>- <a href="#err-net-005">ERR-NET-005</a> — Proxy config problem</p>
+<p>- <a href="#err-net-006">ERR-NET-006</a> — Firewall blocking</p>
+<p>- <a href="#err-net-007">ERR-NET-007</a> — Service unavailable</p>
+<p>- <a href="#err-net-008">ERR-NET-008</a> — Rate limit</p>
+<br>
+<h3>🧩 Skill Errors (ERR-SKILL-xxx)</h3>
+<p>- <a href="#err-skill-001">ERR-SKILL-001</a> — Skill not found</p>
+<p>- <a href="#err-skill-002">ERR-SKILL-002</a> — Skill execution failed</p>
+<p>- <a href="#err-skill-003">ERR-SKILL-003</a> — Skill parameter error</p>
+<p>- <a href="#err-skill-004">ERR-SKILL-004</a> — Skill timeout</p>
+<p>- <a href="#err-skill-005">ERR-SKILL-005</a> — Skill dependency missing</p>
+<p>- <a href="#err-skill-006">ERR-SKILL-006</a> — Skill version incompatible</p>
+<p>- <a href="#err-skill-007">ERR-SKILL-007</a> — Skill insufficient permissions</p>
+<p>- <a href="#err-skill-008">ERR-SKILL-008</a> — Skill config error</p>
+<p>- <a href="#err-skill-009">ERR-SKILL-009</a> — Skill return parsing failed</p>
+<p>- <a href="#err-skill-010">ERR-SKILL-010</a> — Skill circular call</p>
+<br>
+<h3>📦 Other Errors (ERR-OTHER-xxx)</h3>
+<p>- <a href="#err-other-001">ERR-OTHER-001</a> — Python version incompatible</p>
+<p>- <a href="#err-other-002">ERR-OTHER-002</a> — Dependency package missing</p>
+<p>- <a href="#err-other-003">ERR-OTHER-003</a> — File path error</p>
+<p>- <a href="#err-other-004">ERR-OTHER-004</a> — Insufficient memory</p>
+<p>- <a href="#err-other-005">ERR-OTHER-005</a> — Insufficient disk space</p>
+<p>- <a href="#err-other-006">ERR-OTHER-006</a> — Encoding problem</p>
+<p>- <a href="#err-other-007">ERR-OTHER-007</a> — Timezone config error</p>
+<br>
+<p>---</p>
+<br>
+<h2>Detailed Solutions</h2>
+<br>
+<h3>ERR-CONFIG-001 — FEISHU_APP_ID Not Configured</h3>
+<br>
+<p><strong>Error Message:</strong></p>
+<pre><code>ValueError: FEISHU_APP_ID is not set</code></pre>
+<br>
+<p><strong>What you might also see:</strong></p>
+<p>- "Missing required environment variable"</p>
+<p>- "FEISHU_APP_ID is empty"</p>
+<br>
+<p><strong>Cause:</strong></p>
+<p>.env file not configured with FEISHU_APP_ID</p>
+<br>
+<p><strong>Impact:</strong></p>
+<p>Cannot call Feishu API, all message sending functions fail</p>
+<br>
+<p><strong>Solution Steps:</strong></p>
+<br>
+<p>1️⃣ <strong>Open .env file</strong></p>
+<pre><code># In project root
+nano .env
+# Or use other editor</code></pre>
+<br>
+<p>2️⃣ <strong>Add FEISHU_APP_ID</strong></p>
+<pre><code>FEISHU_APP_ID=cli_xxxxxxxxxxxxx</code></pre>
+<br>
+<p>3️⃣ <strong>Save file and re-run</strong></p>
+<br>
+<p><strong>Validate:</strong></p>
+<pre><code>python scripts/verify-config.py --check FEISHU_APP_ID</code></pre>
+<br>
+<p><strong>How to obtain FEISHU_APP_ID:</strong></p>
+<p>1. Open Feishu developer console: https://open.feishu.cn</p>
+<p>2. Enter your enterprise self-built app</p>
+<p>3. Copy App ID from "Credentials & Basic Info" page</p>
+<p>4. App ID starts with <code>cli_</code></p>
+<br>
+<p><strong>Related Resources:</strong></p>
+<p>- <a href="02-Config-Template.md#1-feishu_app_id">Config Template and Usage</a></p>
+<p>- <a href="Link">Feishu App Creation Guide</a></p>
+<br>
+<p>---</p>
+<br>
+<h3>ERR-CONFIG-002 — FEISHU_APP_SECRET Not Configured</h3>
+<br>
+<p><strong>Error Message:</strong></p>
+<pre><code>ValueError: FEISHU_APP_SECRET is not set</code></pre>
+<br>
+<p><strong>Cause:</strong></p>
+<p>.env file not configured with FEISHU_APP_SECRET</p>
+<br>
+<p><strong>Solution Steps:</strong></p>
+<br>
+<p>1️⃣ <strong>Open .env file</strong></p>
+<br>
+<p>2️⃣ <strong>Add FEISHU_APP_SECRET</strong></p>
+<pre><code>FEISHU_APP_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code></pre>
+<br>
+<p>3️⃣ <strong>Save and validate</strong></p>
+<pre><code>python scripts/verify-config.py --check FEISHU_APP_SECRET</code></pre>
+<br>
+<p><strong>How to obtain FEISHU_APP_SECRET:</strong></p>
+<p>1. Feishu developer console → Enterprise self-built app</p>
+<p>2. "Credentials & Basic Info" → "Get Secret"</p>
+<p>3. ⚠️ Secret only shown once, save immediately</p>
+<br>
+<p><strong>⚠️ Important Reminders:</strong></p>
+<p>- Lost Secret needs regeneration</p>
+<p>- Don't share to public channels</p>
+<p>- Don't upload to GitHub</p>
+<br>
+<p>---</p>
+<br>
+<h3>ERR-CONFIG-003 — FEISHU_GROUP_ADMIN Not Configured</h3>
+<br>
+<p><strong>Error Message:</strong></p>
+<pre><code>ValueError: FEISHU_GROUP_ADMIN is not set</code></pre>
+<br>
+<p><strong>Cause:</strong></p>
+<p>Target group ID not configured</p>
+<br>
+<p><strong>Solution Steps:</strong></p>
+<br>
+<p>1️⃣ <strong>Get group ID</strong></p>
+<p>- Feishu group → Top right "..." → "Group Info"</p>
+<p>- Scroll to bottom, copy "Group ID" (starts with <code>oc_</code>)</p>
+<br>
+<p>2️⃣ <strong>Add to .env file</strong></p>
+<pre><code>FEISHU_GROUP_ADMIN=oc_xxxxxxxxxxxxx</code></pre>
+<br>
+<p>3️⃣ <strong>Validate</strong></p>
+<pre><code>python scripts/verify-config.py --check FEISHU_GROUP_ADMIN</code></pre>
+<br>
+<p><strong>⚠️ Notes:</strong></p>
+<p>- Bot must have joined this group</p>
+<p>- How to add bot: Group → "Add Members" → Search app name</p>
+<br>
+<p>---</p>
+<br>
+<h3>ERR-CONFIG-004 — DASHSCOPE_API_KEY Not Configured</h3>
+<br>
+<p><strong>Error Message:</strong></p>
+<pre><code>ValueError: DASHSCOPE_API_KEY is not set</code></pre>
+<br>
+<p><strong>Cause:</strong></p>
+<p>Alibaba Cloud Bailian API Key not configured</p>
+<br>
+<p><strong>Solution Steps:</strong></p>
+<br>
+<p>1️⃣ <strong>Get API Key</strong></p>
+<p>- Open: https://dashscope.console.aliyun.com</p>
+<p>- API-KEY Management → Create New API-KEY</p>
+<p>- Copy API Key (starts with <code>sk-</code>)</p>
+<br>
+<p>2️⃣ <strong>Add to .env file</strong></p>
+<pre><code>DASHSCOPE_API_KEY=sk-xxxxxxxxxxxxxxxx</code></pre>
+<br>
+<p>3️⃣ <strong>Validate</strong></p>
+<pre><code>python scripts/verify-config.py --check DASHSCOPE_API_KEY</code></pre>
+<br>
+<p>---</p>
+<br>
+<h3>ERR-CONFIG-005 — .env File Does Not Exist</h3>
+<br>
+<p><strong>Error Message:</strong></p>
+<pre><code>FileNotFoundError: [Errno 2] No such file or directory: '.env'</code></pre>
+<br>
+<p><strong>Cause:</strong></p>
+<p>No .env file in project root</p>
+<br>
+<p><strong>Solution Steps:</strong></p>
+<br>
+<p>1️⃣ <strong>Copy template file</strong></p>
+<pre><code>cp .env.template .env</code></pre>
+<br>
+<p>2️⃣ <strong>Edit .env file</strong></p>
+<pre><code>nano .env
+# Fill in your config values</code></pre>
+<br>
+<p>3️⃣ <strong>Validate</strong></p>
+<pre><code>python scripts/check-config.py</code></pre>
+<br>
+<p><strong>Prevention:</strong></p>
+<p>- First thing after cloning project: copy .env.template</p>
+<br>
+<p>---</p>
+<br>
+<h3>ERR-PERM-001 — Feishu App Insufficient Permissions</h3>
+<br>
+<p><strong>Error Message:</strong></p>
+<pre><code>FeishuAPIError: insufficient permission</code></pre>
+<br>
+<p><strong>Cause:</strong></p>
+<p>Feishu app not enabled required permissions</p>
+<br>
+<p><strong>Solution Steps:</strong></p>
+<br>
+<p>1️⃣ <strong>Open Feishu developer console</strong></p>
+<br>
+<p>2️⃣ <strong>Enter permission management</strong></p>
+<p>- Your app → Permission Management</p>
+<br>
+<p>3️⃣ <strong>Enable required permissions</strong></p>
+<p>- ✅ Send messages</p>
+<p>- ✅ Read group info</p>
+<p>- ✅ Bot management</p>
+<br>
+<p>4️⃣ <strong>Save and publish version</strong></p>
+<br>
+<p>5️⃣ <strong>Wait for effect (usually 1-2 min)</strong></p>
+<br>
+<p><strong>Validate:</strong></p>
+<p>Re-run your code, see if permission error still occurs.</p>
+<br>
+<p>---</p>
+<br>
+<h3>ERR-PERM-002 — Bot Not Joined Group</h3>
+<br>
+<p><strong>Error Message:</strong></p>
+<pre><code>FeishuAPIError: bot not in group</code></pre>
+<br>
+<p><strong>Cause:</strong></p>
+<p>Bot not joined target group</p>
+<br>
+<p><strong>Solution Steps:</strong></p>
+<br>
+<p>1️⃣ <strong>Open target group</strong></p>
+<br>
+<p>2️⃣ <strong>Add bot</strong></p>
+<p>- Top right "..." → "Add Members"</p>
+<p>- Search your app name</p>
+<p>- Click add</p>
+<br>
+<p>3️⃣ <strong>Validate</strong></p>
+<p>- See bot avatar in group</p>
+<p>- Re-send test message</p>
+<br>
+<p>---</p>
+<br>
+<h3>ERR-NET-001 — API Timeout</h3>
+<br>
+<p><strong>Error Message:</strong></p>
+<pre><code>requests.exceptions.Timeout: Connection timed out</code></pre>
+<br>
+<p><strong>Cause:</strong></p>
+<p>Network connection timeout, possible reasons:</p>
+<p>- Network unstable</p>
+<p>- API server slow response</p>
+<p>- Firewall blocking</p>
+<br>
+<p><strong>Solution Steps:</strong></p>
+<br>
+<p>1️⃣ <strong>Check network connection</strong></p>
+<pre><code>ping open.feishu.cn</code></pre>
+<br>
+<p>2️⃣ <strong>Retry request</strong></p>
+<p>- Network fluctuation common, retry usually solves</p>
+<br>
+<p>3️⃣ <strong>Check firewall</strong></p>
+<p>- Ensure not blocking Feishu API domain</p>
+<br>
+<p>4️⃣ <strong>Increase timeout setting</strong></p>
+<pre><code># Increase timeout in code
+timeout=30  # Default might be 10 sec</code></pre>
+<br>
+<p><strong>If continuous timeout:</strong></p>
+<p>- Check if in special network environment (company intranet, VPN, etc.)</p>
+<p>- Try switching network</p>
+<br>
+<p>---</p>
+<br>
+<h3>ERR-SKILL-001 — Skill Not Found</h3>
+<br>
+<p><strong>Error Message:</strong></p>
+<pre><code>SkillNotFoundError: Skill 'xxx' not found</code></pre>
+<br>
+<p><strong>Cause:</strong></p>
+<p>Called skill doesn't exist or not correctly configured</p>
+<br>
+<p><strong>Solution Steps:</strong></p>
+<br>
+<p>1️⃣ <strong>Check skill name</strong></p>
+<p>- Confirm spelling correct</p>
+<p>- Case sensitive</p>
+<br>
+<p>2️⃣ <strong>Check if skill installed</strong></p>
+<pre><code>openclaw skills list</code></pre>
+<br>
+<p>3️⃣ <strong>Install missing skill</strong></p>
+<pre><code>openclaw skills install skill-name</code></pre>
+<br>
+<p>4️⃣ <strong>Validate</strong></p>
+<pre><code>openclaw skills test skill-name</code></pre>
+<br>
+<p>---</p>
+<br>
+<h3>ERR-OTHER-001 — Python Version Incompatible</h3>
+<br>
+<p><strong>Error Message:</strong></p>
+<pre><code>ImportError: No module named 'xxx'</code></pre>
+<br>
+<p><strong>Cause:</strong></p>
+<p>Python version doesn't meet requirements (needs Python 3.8+)</p>
+<br>
+<p><strong>Solution Steps:</strong></p>
+<br>
+<p>1️⃣ <strong>Check Python version</strong></p>
+<pre><code>python --version</code></pre>
+<br>
+<p>2️⃣ <strong>If version too low, upgrade Python</strong></p>
+<p>- Recommend Python 3.10 or 3.11</p>
+<p>- Download: https://www.python.org</p>
+<br>
+<p>3️⃣ <strong>Reinstall dependencies</strong></p>
+<pre><code>pip install -r requirements.txt</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>Usage Tips</h2>
+<br>
+<h3>Tip 1: Quickly Locate Error</h3>
+<br>
+<p>After seeing error, first find <strong>error code</strong> (e.g., ERR-CONFIG-001), then jump directly to corresponding solution.</p>
+<br>
+<h3>Tip 2: Browse by Category</h3>
+<br>
+<p>If unsure of error code, browse by category:</p>
+<p>- Config problems → Config errors</p>
+<p>- Permission problems → Permission errors</p>
+<p>- Network problems → Network errors</p>
+<p>- Skill problems → Skill errors</p>
+<br>
+<h3>Tip 3: Easy to Hard</h3>
+<br>
+<p>Suggested solution order:</p>
+<p>1. Config errors (most common, easiest to solve)</p>
+<p>2. Permission errors (need admin operation)</p>
+<p>3. Network errors (may need IT support)</p>
+<p>4. Skill errors (need check skill config)</p>
+<br>
+<p>---</p>
+<br>
+<h2>FAQ</h2>
+<br>
+<p><strong>Q1: My error is not in the list, what to do?</strong></p>
+<br>
+<p>A: Three steps:</p>
+<p>1. Run diagnosis script: <code>python scripts/diagnose.py</code></p>
+<p>2. View complete error log</p>
+<p>3. <a href="04-Troubleshooting.md">View peer guidance scripts</a>, learn how to seek help</p>
+<br>
+<p><strong>Q2: Still can't solve following steps, what to do?</strong></p>
+<br>
+<p>A: May have encountered special situation. Suggest:</p>
+<p>1. Record complete error message</p>
+<p>2. Record solutions you've tried</p>
+<p>3. View <a href="04-Troubleshooting.md">Peer Guidance Scripts</a></p>
+<p>4. Seek human support</p>
+<br>
+<p><strong>Q3: Will error library be updated?</strong></p>
+<br>
+<p>A: Yes. After encountering and solving new errors, we'll update to error library to help more people.</p>
+<br>
+<p><strong>Q4: Can I contribute error solutions?</strong></p>
+<br>
+<p>A: Welcome! If you solved a new error, you can:</p>
+<p>1. Record error message and solution steps</p>
+<p>2. Submit to project Issue</p>
+<p>3. We'll review and add to error library</p>
+<br>
+<p>---</p>
+<br>
+<h2>Final Words</h2>
+<br>
+<p><strong>Don't self-doubt when encountering errors.</strong></p>
+<br>
+<blockquote>Every error is a learning opportunity.</blockquote>
+<blockquote></blockquote>
+<blockquote>Solving one error means you accumulate one experience.</blockquote>
+<blockquote></blockquote>
+<blockquote>Accumulate more, and you're the "expert" in others' eyes.</blockquote>
+<br>
+<p><strong>And this error library is your experience accelerator.</strong></p>
+<br>
+<p>---</p>
+<br>
+<p><em>Error Solution Library · v1.0</em>  </p>
+<p><em>50 Common Errors, Continuously Updating</em>  </p>
+<p><em>© 2026 OpenClaw Onboarding Project · CC BY-NC-SA 4.0</em></p>
+<br>
+
+    <hr>
+    <footer style="text-align: center; color: #666; padding: 20px;">
+        <p>© 2026 OpenClaw Onboarding Project · CC BY-NC-SA 4.0</p>
+    </footer>
+</body>
+</html>

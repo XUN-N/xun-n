@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09 Product Architecture</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; }
+        h2 { color: #764ba2; margin-top: 30px; }
+        h3 { color: #555; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        pre code { background: none; padding: 0; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #667eea; color: white; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        a { color: #667eea; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        blockquote { border-left: 4px solid #667eea; margin: 0; padding-left: 20px; color: #666; }
+        ul, ol { padding-left: 30px; }
+        .nav { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 30px; }
+        .nav a { margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">← Back to Home</a>
+        <a href="https://github.com/openclaw">GitHub</a>
+    </div>
+<h1>Product Architecture Design</h1>
+<br>
+<p><strong>Product Name:</strong> OpenClaw Onboarding and Knowledge Tuning Service  </p>
+<p><strong>Architecture Version:</strong> v1.0  </p>
+<p><strong>Created Date:</strong> 2026-03-19  </p>
+<p><strong>Phase:</strong> 5 - Product Architecture Design  </p>
+<p><strong>Method:</strong> CDT504 Lesson 8 - Functional Elements → Physical Elements Mapping</p>
+<br>
+<p>---</p>
+<br>
+<h2>I. Architecture Design Overview</h2>
+<br>
+<h3>1.1 Architecture Design Goals</h3>
+<br>
+<p>Based on Phase 4 selected MVP concept combination (5 core concepts + C9 redesign), design clear product architecture:</p>
+<br>
+<tr><td>Goal</td><td>Description</td></tr>
+<tr><td>**Modular**</td><td>Each function independent, can be updated and extended separately</td></tr>
+<tr><td>**Low Coupling**</td><td>Minimized dependencies between modules</td></tr>
+<tr><td>**Scalable**</td><td>Support v1.1/v1.2 feature additions</td></tr>
+<tr><td>**Maintainable**</td><td>Content updates don't affect other modules</td></tr>
+<br>
+<h3>1.2 MVP Concept Combination Update</h3>
+<br>
+<p>Based on user feedback, include C9 after redesign in MVP:</p>
+<br>
+<tr><td>Concept</td><td>Original Decision</td><td>New Decision</td><td>Description</td></tr>
+<tr><td>**C1** Interactive Checklist</td><td>✅ MVP</td><td>✅ MVP</td><td>Unchanged</td></tr>
+<tr><td>**C4** One-click Config Template</td><td>✅ MVP</td><td>✅ MVP</td><td>Unchanged</td></tr>
+<tr><td>**C7** Automated Config Validation</td><td>✅ MVP</td><td>✅ MVP</td><td>Unchanged</td></tr>
+<tr><td>**C15** One-click Diagnosis Report</td><td>✅ MVP</td><td>✅ MVP</td><td>Unchanged</td></tr>
+<tr><td>**C10** Error Solution Library</td><td>✅ MVP</td><td>✅ MVP</td><td>Unchanged</td></tr>
+<tr><td>**C9** Peer Learning (Redesigned)</td><td>❌ v1.1</td><td>✅ MVP</td><td>Light guidance, integrated with C10</td></tr>
+<br>
+<p><strong>MVP Concept Combination:</strong> 6 concepts (original 5 + C9 redesigned)</p>
+<br>
+<p>---</p>
+<br>
+<h2>II. Functional Elements Definition</h2>
+<br>
+<h3>2.1 Functional Elements List</h3>
+<br>
+<p>Decompose MVP features into independent functional elements:</p>
+<br>
+<tr><td>ID</td><td>Functional Element</td><td>Description</td><td>Corresponding Concept</td></tr>
+<tr><td>**FE1**</td><td>Onboarding guidance flow</td><td>5-minute quick onboarding step-by-step guidance</td><td>C1</td></tr>
+<tr><td>**FE2**</td><td>Progress tracking</td><td>Record user completion progress</td><td>C1</td></tr>
+<tr><td>**FE3**</td><td>Completion celebration</td><td>Milestone completion feedback and motivation</td><td>C1</td></tr>
+<tr><td>**FE4**</td><td>Config template management</td><td>Provide and manage config template files</td><td>C4</td></tr>
+<tr><td>**FE5**</td><td>Template application</td><td>One-click apply template to user environment</td><td>C4</td></tr>
+<tr><td>**FE6**</td><td>Config validation</td><td>Validate if config items are correct</td><td>C7</td></tr>
+<tr><td>**FE7**</td><td>Validation feedback</td><td>Instantly display validation results</td><td>C7</td></tr>
+<tr><td>**FE8**</td><td>Diagnosis execution</td><td>Run comprehensive diagnosis checks</td><td>C15</td></tr>
+<tr><td>**FE9**</td><td>Report generation</td><td>Generate diagnosis report</td><td>C15</td></tr>
+<tr><td>**FE10**</td><td>Error library browsing</td><td>Browse and search error solutions</td><td>C10</td></tr>
+<tr><td>**FE11**</td><td>Error matching</td><td>Match solutions based on error messages</td><td>C10</td></tr>
+<tr><td>**FE12**</td><td>Peer guidance</td><td>Guide users to find error library</td><td>C9 (Redesigned)</td></tr>
+<br>
+<h3>2.2 Functional Elements Classification</h3>
+<br>
+<pre><code>Functional Elements (12)
+│
+├── Quick Onboarding Module (FE1, FE2, FE3)
+│   └── Corresponds to user journey: Launch → Guidance → Complete
+│
+├── Config Wizard Module (FE4, FE5, FE6, FE7)
+│   └── Corresponds to user journey: Configure → Validate → Confirm
+│
+├── Diagnosis Report Module (FE8, FE9)
+│   └── Corresponds to user journey: Diagnose → Report
+│
+└── Error Guidance Module (FE10, FE11, FE12)
+    └── Corresponds to user journey: Encounter problem → Find solution → Peer guidance</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>III. Physical Elements Definition</h2>
+<br>
+<h3>3.1 Physical Elements (Modules/Components)</h3>
+<br>
+<p>Map functional elements to physical implementation:</p>
+<br>
+<tr><td>ID</td><td>Physical Element</td><td>Type</td><td>Contains Functional Elements</td><td>Description</td></tr>
+<tr><td>**PE1**</td><td>Quick Onboarding Doc</td><td>Markdown doc</td><td>FE1, FE2, FE3</td><td>Interactive checklist</td></tr>
+<tr><td>**PE2**</td><td>Config Template Package</td><td>File package</td><td>FE4, FE5</td><td>.env.template + replacement script</td></tr>
+<tr><td>**PE3**</td><td>Validation Script Set</td><td>Python scripts</td><td>FE6, FE7</td><td>Automated config validation</td></tr>
+<tr><td>**PE4**</td><td>Diagnosis Script</td><td>Python script</td><td>FE8</td><td>One-click diagnosis execution</td></tr>
+<tr><td>**PE5**</td><td>Report Template</td><td>Markdown template</td><td>FE9</td><td>Diagnosis report format</td></tr>
+<tr><td>**PE6**</td><td>Error Library Doc</td><td>Markdown doc</td><td>FE10, FE11</td><td>50 error solutions</td></tr>
+<tr><td>**PE7**</td><td>Peer Guidance Scripts</td><td>Text snippets</td><td>FE12</td><td>Scripts guiding users to error library</td></tr>
+<br>
+<h3>3.2 Function-Physical Mapping Matrix</h3>
+<br>
+<tr><td>Functional Element \ Physical Element</td><td>PE1</td><td>PE2</td><td>PE3</td><td>PE4</td><td>PE5</td><td>PE6</td><td>PE7</td></tr>
+<tr><td>**FE1** Onboarding guidance flow</td><td>✅</td></tr>
+<tr><td>**FE2** Progress tracking</td><td>✅</td></tr>
+<tr><td>**FE3** Completion celebration</td><td>✅</td></tr>
+<tr><td>**FE4** Config template management</td><td>✅</td></tr>
+<tr><td>**FE5** Template application</td><td>✅</td></tr>
+<tr><td>**FE6** Config validation</td><td>✅</td></tr>
+<tr><td>**FE7** Validation feedback</td><td>✅</td></tr>
+<tr><td>**FE8** Diagnosis execution</td><td>✅</td></tr>
+<tr><td>**FE9** Report generation</td><td>✅</td></tr>
+<tr><td>**FE10** Error library browsing</td><td>✅</td></tr>
+<tr><td>**FE11** Error matching</td><td>✅</td></tr>
+<tr><td>**FE12** Peer guidance</td><td>✅</td></tr>
+<br>
+<h3>3.3 Architecture Type Analysis</h3>
+<br>
+<tr><td>Dimension</td><td>This Product Architecture</td><td>Description</td></tr>
+<tr><td>**Mapping Type**</td><td>Mainly modular</td><td>Most functional elements → 1 physical element</td></tr>
+<tr><td>**Interface Definition**</td><td>Clear</td><td>Documents, scripts, scripts independent</td></tr>
+<tr><td>**Modification Impact**</td><td>Local</td><td>Modifying one module doesn't affect others</td></tr>
+<tr><td>**Scalability**</td><td>High</td><td>Can add new feature modules separately</td></tr>
+<br>
+<p><strong>Architecture Decision:</strong> Adopt <strong>modular architecture</strong>, each function implemented independently, easy to maintain and extend.</p>
+<br>
+<p>---</p>
+<br>
+<h2>IV. Product Architecture Diagram</h2>
+<br>
+<h3>4.1 Module-Level Architecture Diagram</h3>
+<br>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                    OpenClaw Onboarding Product Architecture      │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────────────┐                                           │
+│  │   User Interface Layer    │                                           │
+│  │  (Markdown/Documents)│                                           │
+│  └────────┬────────┘                                           │
+│           │                                                     │
+│           ↓                                                     │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                    Functional Module Layer              │   │
+│  │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐ │   │
+│  │  │ Quick    │  │ Config   │  │ Diagnosis│  │ Error    │ │   │
+│  │  │ Onboarding│  │ Wizard   │  │ Report   │  │ Guidance │ │   │
+│  │  │  (C1)    │  │ (C4+C7)  │  │  (C15)   │  │ (C10+C9) │ │   │
+│  │  └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬─────┘ │   │
+│  │       │             │             │             │       │   │
+│  └───────┼─────────────┼─────────────┼─────────────┼───────┘   │
+│          │             │             │             │           │
+│          ↓             ↓             ↓             ↓           │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                    Physical Implementation Layer        │   │
+│  │  ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ │   │
+│  │  │Onboarding│ │Config  │ │Validation│ │Diagnosis│ │Error   │ │   │
+│  │  │   Doc   │ │Template│ │ Scripts│ │ Script │ │Library+│ │   │
+│  │  │         │ │        │ │        │ │        │ │Guidance│ │   │
+│  │  └────────┘ └────────┘ └────────┘ └────────┘ └────────┘ │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                    Support Platform Layer               │   │
+│  │         OpenClaw Framework + Feishu Docs + Python       │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘</code></pre>
+<br>
+<h3>4.2 Module Interaction Diagram</h3>
+<br>
+<pre><code>User Journey → Module Call Flow
+─────────────────────────────────
+
+1. Launch product
+       ↓
+   ┌─────────────┐
+   │ Quick Onboarding Module │ PE1
+   └──────┬──────┘
+          │ Guidance complete
+          ↓
+2. Configure environment
+       ↓
+   ┌─────────────┐
+   │ Config Wizard Module │ PE2 + PE3
+   │ (Template + Validation) │
+   └──────┬──────┘
+          │ Config complete
+          ↓
+3. Comprehensive check
+       ↓
+   ┌─────────────┐
+   │ Diagnosis Report Module │ PE4 + PE5
+   └──────┬──────┘
+          │ Problem found
+          ↓
+4. Find solution
+       ↓
+   ┌─────────────┐
+   │ Error Guidance Module │ PE6 + PE7
+   │ (Error Library + Guidance)│
+   └─────────────┘</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>V. Module Interface Definition</h2>
+<br>
+<h3>5.1 Inter-Module Interfaces</h3>
+<br>
+<tr><td>Interface</td><td>Source Module</td><td>Target Module</td><td>Interface Type</td><td>Description</td></tr>
+<tr><td>**I1**</td><td>Quick Onboarding</td><td>Config Wizard</td><td>Document link</td><td>Guide to config after onboarding complete</td></tr>
+<tr><td>**I2**</td><td>Config Wizard</td><td>Diagnosis Report</td><td>Script call</td><td>Suggest diagnosis after config complete</td></tr>
+<tr><td>**I3**</td><td>Diagnosis Report</td><td>Error Guidance</td><td>Error code reference</td><td>Reference error library ID in report</td></tr>
+<tr><td>**I4**</td><td>Error Guidance</td><td>Config Wizard</td><td>Config problem link</td><td>Suggest re-validation after error solved</td></tr>
+<br>
+<h3>5.2 Interface Standardization</h3>
+<br>
+<p><strong>Document Link Interface (I1):</strong></p>
+<pre><code><!-- Quick onboarding doc → Config wizard -->
+[Next: Configure your OpenClaw environment](./02-Config-Wizard.md)</code></pre>
+<br>
+<p><strong>Error Code Reference Interface (I3):</strong></p>
+<pre><code><!-- Diagnosis report → Error library -->
+Found problem: FEISHU_APP_ID not configured
+
+Solution: [ERR-CONFIG-001](./Error-Guide.md#err-config-001)</code></pre>
+<br>
+<p><strong>Guidance Script Interface (I4 - C9 Redesigned):</strong></p>
+<pre><code><!-- Peer guidance script template -->
+"Looks like you're having a [error type] problem.
+Suggest checking our error library: [Error library link]
+Search keywords: [keywords]
+If you still have questions, come back anytime."</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>VI. C9+C10 Integration Design</h2>
+<br>
+<h3>6.1 C9 Redesign Concept</h3>
+<br>
+<p><strong>Original Design Problems:</strong></p>
+<p>- ❌ Full accompaniment → High human resource cost</p>
+<p>- ❌ Real-time response → Requires automation system</p>
+<p>- ❌ Deep involvement → Beyond MVP scope</p>
+<br>
+<p><strong>New Design Proposal:</strong></p>
+<p>- ✅ Light guidance → Only need script templates</p>
+<p>- ✅ Guide self-check → Cultivate user independence</p>
+<p>- ✅ On-demand involvement → Human support only when necessary</p>
+<br>
+<h3>6.2 C9+C10 Integration Architecture</h3>
+<br>
+<pre><code>Error Guidance Module (C10 + C9)
+│
+├── C10: Error Solution Library (Main)
+│   ├── 50 standard error solutions
+│   ├── Error code index
+│   └── Quick reference table
+│
+└── C9: Peer Guidance (Auxiliary)
+    ├── Guidance script templates (3-5 scenarios)
+    ├── Error library usage guide
+    └── When to seek human help guidance</code></pre>
+<br>
+<h3>6.3 Guidance Script Design</h3>
+<br>
+<p><strong>Scenario 1: User Reports Error</strong></p>
+<pre><code>User: "I encountered XXX error"
+
+Guidance reply:
+"This error is very common, we have detailed solutions in our error library.
+👉 Click to view: [ERR-XXX](Link)
+Follow the steps, usually solved within 5 minutes.
+If you still have questions, come back anytime."</code></pre>
+<br>
+<p><strong>Scenario 2: Config Problem</strong></p>
+<pre><code>User: "Config seems to have problems"
+
+Guidance reply:
+"Suggest running one-click diagnosis first to see the specific problem.
+👉 Run command: python scripts/diagnose.py
+Diagnosis report will tell you:
+1. Which config has problems
+2. Specific error code
+3. Solution link
+
+Send me the report after running, I'll help you analyze."</code></pre>
+<br>
+<p><strong>Scenario 3: User Wants to Give Up</strong></p>
+<pre><code>User: "Too hard, don't want to continue"
+
+Guidance reply:
+"Understand your feelings, every beginner encounters this stage. 😊
+
+Let me see your progress...
+You've completed [X]% of configuration, very close to success!
+
+How about:
+1. Take a break first, come back to continue
+2. Let me help see where you're stuck
+3. We'll go step by step, I'll accompany you
+
+Which do you choose?"</code></pre>
+<br>
+<h3>6.4 C9 Implementation Method</h3>
+<br>
+<tr><td>Implementation Element</td><td>Specific Proposal</td><td>Hours</td></tr>
+<tr><td>**Script templates**</td><td>3-5 standard scenario scripts</td><td>2h</td></tr>
+<tr><td>**Error library links**</td><td>Each error has unique ID and link</td><td>(In C10)</td></tr>
+<tr><td>**Usage guide**</td><td>1-page "How to use error library" doc</td><td>1h</td></tr>
+<tr><td>**Training materials**</td><td>Simple training for support staff</td><td>2h</td></tr>
+<tr><td>**C9 Subtotal**</td><td>**5h**</td></tr>
+<br>
+<p>---</p>
+<br>
+<h2>VII. Module Detailed Design</h2>
+<br>
+<h3>7.1 Quick Onboarding Module (PE1)</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Physical Form**</td><td>Markdown document</td></tr>
+<tr><td>**Core Content**</td><td>5-step interactive checklist</td></tr>
+<tr><td>**Interaction Method**</td><td>Markdown checkboxes</td></tr>
+<tr><td>**Progress Tracking**</td><td>Manual check + completion count</td></tr>
+<tr><td>**Estimated Hours**</td><td>15h (content 10h + testing 5h)</td></tr>
+<br>
+<p><strong>Document Structure:</strong></p>
+<pre><code># 5-Minute Quick Start
+
+## Pre-start Check
+- [ ] OpenClaw and dependencies installed
+- [ ] Feishu app credentials obtained (App ID, App Secret)
+- [ ] 5 minutes free time
+
+## Step 1: Config Check (2 min)
+- [ ] Run config check script
+  ```bash
+  python scripts/check-config.py
+  ```
+- [ ] Confirm output shows ".env file exists"
+- [ ] Fix according to prompts if warnings
+
+## Step 2: Send First Message (2 min)
+- [ ] Copy code to test file
+  ```python
+  from openclaw import send_message
+  send_message("test", "Hello from OpenClaw!")
+  ```
+- [ ] Run code
+- [ ] Confirm Feishu group received message
+
+## Step 3: Completion Celebration (1 min)
+- [ ] 🎉 Congrats on completing first task!
+- [ ] Screenshot and share your achievement
+- [ ] Continue next: [Config Wizard](02-Config-Wizard.md)
+
+## Problems?
+- View [Error Solution Library](03-Error-Guide.md)
+- Or run [One-click Diagnosis](scripts/diagnose.py)</code></pre>
+<br>
+<h3>7.2 Config Wizard Module (PE2 + PE3)</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Physical Form**</td><td>.env.template + Python scripts</td></tr>
+<tr><td>**Core Content**</td><td>5 core config templates + validation scripts</td></tr>
+<tr><td>**Interaction Method**</td><td>File replacement + command line</td></tr>
+<tr><td>**Estimated Hours**</td><td>35h (templates 10h + scripts 15h + testing 10h)</td></tr>
+<br>
+<p><strong>Template Structure:</strong></p>
+<pre><code># .env.template
+# Feishu app configuration
+FEISHU_APP_ID=cli_xxxxxxxxxxxxx
+FEISHU_APP_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# Group ID (group for bot to join)
+FEISHU_GROUP_ADMIN=oc_xxxxxxxxxxxxx
+
+# API configuration
+DASHSCOPE_API_KEY=sk-xxxxxxxxxxxxxxxx
+
+# Model configuration
+DEFAULT_MODEL=bailian/qwen3.5-plus</code></pre>
+<br>
+<h3>7.3 Diagnosis Report Module (PE4 + PE5)</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Physical Form**</td><td>Python script + Markdown template</td></tr>
+<tr><td>**Core Content**</td><td>Comprehensive diagnosis check + report generation</td></tr>
+<tr><td>**Interaction Method**</td><td>Command line + view report</td></tr>
+<tr><td>**Estimated Hours**</td><td>25h (script 15h + template 5h + testing 5h)</td></tr>
+<br>
+<p><strong>Report Structure:</strong></p>
+<pre><code># OpenClaw Config Diagnosis Report
+
+**Generated:** 2026-03-19 18:30
+**Overall Score:** 85/100
+
+## ✅ Passed (5/7)
+- FEISHU_APP_ID: Configured
+- FEISHU_APP_SECRET: Configured
+- ...
+
+## ⚠️ Warnings (1/7)
+- DEFAULT_MODEL: Not configured (using default)
+  Solution: [View](Error-Guide.md#err-config-005)
+
+## ❌ Errors (1/7)
+- FEISHU_GROUP_ADMIN: Config invalid
+  Solution: [View](Error-Guide.md#err-config-002)</code></pre>
+<br>
+<h3>7.4 Error Guidance Module (PE6 + PE7)</h3>
+<br>
+<tr><td>Attribute</td><td>Description</td></tr>
+<tr><td>**Physical Form**</td><td>Markdown doc + script templates</td></tr>
+<tr><td>**Core Content**</td><td>50 error solutions + 3-5 guidance scripts</td></tr>
+<tr><td>**Interaction Method**</td><td>Document browsing + search</td></tr>
+<tr><td>**Estimated Hours**</td><td>30h (error library 25h + scripts 5h)</td></tr>
+<br>
+<p><strong>Error Library Structure:</strong></p>
+<pre><code># Error Solution Library
+
+## Config Errors (ERR-CONFIG-xxx)
+- ERR-CONFIG-001: FEISHU_APP_ID not configured
+- ERR-CONFIG-002: FEISHU_GROUP_ID config invalid
+- ...
+
+## Permission Errors (ERR-PERM-xxx)
+- ERR-PERM-001: Feishu app insufficient permissions
+- ...
+
+## Network Errors (ERR-NET-xxx)
+- ERR-NET-001: API timeout
+- ...</code></pre>
+<br>
+<p><strong>Single Error Template:</strong></p>
+<pre><code>### ERR-CONFIG-001: FEISHU_APP_ID Not Configured
+
+**Error Message:**</code></pre>
+<p>ValueError: FEISHU_APP_ID is not set</p>
+<pre><code>
+**Cause:**
+.env file not configured with FEISHU_APP_ID
+
+**Solution Steps:**
+1. Open .env file
+2. Add: FEISHU_APP_ID=your_app_id
+3. Re-run
+
+**Related Resources:**
+- [Config Wizard](02-Config-Wizard.md)
+- [Feishu App Creation Guide](Link)</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>VIII. Hours Estimation Update</h2>
+<br>
+<h3>8.1 Module Hours Summary</h3>
+<br>
+<tr><td>Module</td><td>Physical Elements</td><td>Original Est.</td><td>New Est.</td><td>Change</td></tr>
+<tr><td>**Quick Onboarding**</td><td>PE1</td><td>15h</td><td>15h</td><td>Unchanged</td></tr>
+<tr><td>**Config Wizard**</td><td>PE2+PE3</td><td>35h</td><td>35h</td><td>Unchanged</td></tr>
+<tr><td>**Diagnosis Report**</td><td>PE4+PE5</td><td>20h</td><td>25h</td><td>+5h (report template optimization)</td></tr>
+<tr><td>**Error Guidance**</td><td>PE6+PE7</td><td>25h</td><td>30h</td><td>+5h (C9 integration)</td></tr>
+<tr><td>**C9 Peer Guidance**</td><td>PE7</td><td>-</td><td>5h</td><td>New (light guidance)</td></tr>
+<tr><td>**Content Production**</td><td>All</td><td>95h</td><td>100h</td><td>+5h (C9 integration)</td></tr>
+<tr><td>**Total**</td><td>**190h**</td><td>**210h**</td><td>**+20h**</td></tr>
+<br>
+<h3>8.2 Hours Distribution</h3>
+<br>
+<pre><code>Hours Distribution (Total 210 hours)
+│
+├── Quick Onboarding Module      15h (7%)
+├── Config Wizard Module         35h (17%)
+├── Diagnosis Report Module      25h (12%)
+├── Error Guidance Module        30h (14%)
+├── C9 Peer Guidance              5h (2%)
+└── Content Production/Testing  100h (48%)</code></pre>
+<br>
+<h3>8.3 Timeline Update</h3>
+<br>
+<tr><td>Phase</td><td>Original Plan</td><td>New Plan</td><td>Description</td></tr>
+<tr><td>Phase 5: Architecture Design</td><td>03-20~22</td><td>03-20~22</td><td>Unchanged</td></tr>
+<tr><td>Phase 6: Design Presentation</td><td>03-23~25</td><td>03-23~26</td><td>+1 day (C9 integration)</td></tr>
+<tr><td>**MVP Delivery**</td><td>03-25</td><td>03-26</td><td>+1 day</td></tr>
+<tr><td>**Total Hours**</td><td>190h</td><td>210h</td><td>+20h (still controllable)</td></tr>
+<br>
+<p>---</p>
+<br>
+<h2>IX. Intellectual Property Strategy</h2>
+<br>
+<h3>9.1 IP Type Analysis</h3>
+<br>
+<tr><td>IP Type</td><td>Applicable Content</td><td>Protection Method</td><td>Decision</td></tr>
+<tr><td>**Copyright**</td><td>Document content, script templates</td><td>Automatic protection</td><td>✅ Apply</td></tr>
+<tr><td>**Trademark**</td><td>Product name/Logo</td><td>Registration protection</td><td>⚠️ Temporarily not registering</td></tr>
+<tr><td>**Patent**</td><td>Innovative methods/processes</td><td>Apply for patent</td><td>❌ Not applicable</td></tr>
+<tr><td>**Trade Secret**</td><td>Internal processes/data</td><td>Confidentiality agreement</td><td>❌ Not applicable</td></tr>
+<br>
+<h3>9.2 Copyright Strategy</h3>
+<br>
+<p><strong>Applicable Content:</strong></p>
+<p>- ✅ All Markdown document content</p>
+<p>- ✅ Error solution library</p>
+<p>- ✅ Peer guidance script templates</p>
+<p>- ✅ Diagnosis report template</p>
+<br>
+<p><strong>Copyright Statement:</strong></p>
+<pre><code>© 2026 OpenClaw Onboarding Project
+CC BY-NC-SA 4.0 License
+(Attribution - NonCommercial - ShareAlike)</code></pre>
+<br>
+<p><strong>License Description:</strong></p>
+<p>- ✅ Allow sharing and copying</p>
+<p>- ✅ Allow modification and adaptation</p>
+<p>- ⚠️ Must attribute original author</p>
+<p>- ❌ Prohibit commercial use</p>
+<p>- ⚠️ Derivative works need same license</p>
+<br>
+<p>---</p>
+<br>
+<h2>X. Phase 5 Completion Confirmation</h2>
+<br>
+<h3>10.1 Deliverables Checklist</h3>
+<br>
+<tr><td>Deliverable</td><td>Status</td><td>Path</td></tr>
+<tr><td>Product Architecture Document</td><td>✅ Complete</td><td>`09-Product-Architecture.md`</td></tr>
+<tr><td>Function-Physical Mapping</td><td>✅ Complete</td><td>Section III</td></tr>
+<tr><td>Product Architecture Diagram</td><td>✅ Complete</td><td>Section IV</td></tr>
+<tr><td>Module Interface Definition</td><td>✅ Complete</td><td>Section V</td></tr>
+<tr><td>C9+C10 Integration Design</td><td>✅ Complete</td><td>Section VI</td></tr>
+<tr><td>Hours Estimation Update</td><td>✅ Complete</td><td>Section VIII</td></tr>
+<br>
+<h3>10.2 Phase 5 Review Checklist</h3>
+<br>
+<tr><td>Review Item</td><td>Status</td><td>Description</td></tr>
+<tr><td>Is architecture modular?</td><td>✅ Pass</td><td>4 independent modules</td></tr>
+<tr><td>Are module interfaces clear?</td><td>✅ Pass</td><td>4 standardized interfaces</td></tr>
+<tr><td>Is C9+C10 integration reasonable?</td><td>✅ Pass</td><td>Light guidance + error library</td></tr>
+<tr><td>Is hours estimation reasonable?</td><td>✅ Pass</td><td>210h, +20h controllable</td></tr>
+<tr><td>Is IP strategy appropriate?</td><td>✅ Pass</td><td>CC BY-NC-SA 4.0</td></tr>
+<tr><td>Can we enter Phase 6?</td><td>✅ Pass</td><td>Recommend entering design presentation</td></tr>
+<br>
+<h3>10.3 Review Conclusion</h3>
+<br>
+<p><strong>Decision:</strong> ✅ <strong>Phase 5 complete, approved to enter Phase 6 - Design Presentation</strong></p>
+<br>
+<p><strong>MVP Architecture Confirmed:</strong></p>
+<p>- 4 core modules (Quick Onboarding, Config Wizard, Diagnosis Report, Error Guidance)</p>
+<p>- 7 physical elements (docs + scripts + templates)</p>
+<p>- 6 MVP concepts (C1+C4+C7+C9+C10+C15)</p>
+<p>- Total 210 hours (~5.25 person-weeks)</p>
+<br>
+<p><strong>Reviewer:</strong> Consulting-Coordinator  </p>
+<p><strong>Review Date:</strong> 2026-03-19</p>
+<br>
+<p>---</p>
+<br>
+<h2>XI. Next Steps</h2>
+<br>
+<p><strong>Execute Immediately:</strong></p>
+<p>1. ✅ Phase 5 deliverables complete</p>
+<p>2. ⏳ Wait for PM/user review</p>
+<p>3. ⏳ Enter Phase 6 after review approval</p>
+<br>
+<p><strong>Phase 6 Preparation:</strong></p>
+<p>- Prepare final design document templates</p>
+<p>- Prepare user testing plans</p>
+<p>- Prepare deliverables checklist</p>
+<p>- Goal: Complete MVP all content production and testing</p>
+<br>
+<p>---</p>
+<br>
+<p><em>Product Architecture Design v1.0 — 2026-03-19</em>  </p>
+<p><em>4 Modules + 7 Physical Elements + C9 Light Guidance Integration</em>  </p>
+<p><em>Phase 5 Complete, Awaiting Review → Phase 6 (Final Phase)</em></p>
+<br>
+
+    <hr>
+    <footer style="text-align: center; color: #666; padding: 20px;">
+        <p>© 2026 OpenClaw Onboarding Project · CC BY-NC-SA 4.0</p>
+    </footer>
+</body>
+</html>

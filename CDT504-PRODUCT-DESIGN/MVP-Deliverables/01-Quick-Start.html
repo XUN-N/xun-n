@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 Quick Start</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; }
+        h2 { color: #764ba2; margin-top: 30px; }
+        h3 { color: #555; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        pre code { background: none; padding: 0; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #667eea; color: white; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        a { color: #667eea; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        blockquote { border-left: 4px solid #667eea; margin: 0; padding-left: 20px; color: #666; }
+        ul, ol { padding-left: 30px; }
+        .nav { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 30px; }
+        .nav a { margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">← Back to Home</a>
+        <a href="https://github.com/openclaw">GitHub</a>
+    </div>
+<h1>5-Minute Quick Start OpenClaw</h1>
+<br>
+<blockquote>**After 5 minutes, you may not be an expert yet, but you're already on your way.**</blockquote>
+<br>
+<p>---</p>
+<br>
+<h2>Hello, Welcome to the World of OpenClaw</h2>
+<br>
+<p>Before we begin, I want to ask you a question:</p>
+<br>
+<blockquote>**Have you ever experienced this—**> </blockquote>
+<blockquote>Downloaded a powerful tool, opened it with full expectation,</blockquote>
+<blockquote>but was deterred by a pile of configuration files and unfamiliar terminology?</blockquote>
+<blockquote></blockquote>
+<blockquote>You wanted to use automation to improve work efficiency,</blockquote>
+<blockquote>but got stuck at the first step of "environment variable configuration"?</blockquote>
+<blockquote>> You searched for many tutorials, but each assumed you already knew a lot,</blockquote>
+<blockquote>and finally could only silently close it, telling yourself "maybe I'm not suitable"?</blockquote>
+<br>
+<p><strong>If yes, this is not your problem. It's the tool's problem.</strong></p>
+<br>
+<p>So, we made this quick start guide. The goal is only one:</p>
+<br>
+<blockquote>**Let you complete your first successful experience in 5 minutes.**</blockquote>
+<br>
+<p>Not 30 minutes, not 1 hour, but 5 minutes.</p>
+<br>
+<p>---</p>
+<br>
+<h2>Pre-start Check (30 sec)</h2>
+<br>
+<p>Please first confirm these 3 items (all very simple):</p>
+<br>
+<p>- [ ] <strong>OpenClaw and dependencies installed</strong></p>
+<p>  - If not installed yet → <a href="Link">Installation Guide</a></p>
+<p>  - Estimated time: 3 minutes</p>
+<br>
+<p>- [ ] <strong>Feishu app credentials obtained</strong></p>
+<p>  - If not obtained yet → <a href="Link">Feishu App Creation Guide</a></p>
+<p>  - Need: App ID, App Secret, Group ID</p>
+<br>
+<p>- [ ] <strong>5 minutes free time</strong></p>
+<p>  - Need focus, not recommended to operate while in meetings</p>
+<br>
+<p><strong>All confirmed? Good, let's start.</strong></p>
+<br>
+<p>---</p>
+<br>
+<h2>Step 1: Config Check (2 min)</h2>
+<br>
+<h3>1.1 Open Terminal</h3>
+<br>
+<pre><code># Enter your OpenClaw directory
+cd /path/to/your/openclaw</code></pre>
+<br>
+<h3>1.2 Run Config Check Script</h3>
+<br>
+<pre><code>python scripts/check-config.py</code></pre>
+<br>
+<h3>1.3 View Output</h3>
+<br>
+<p><strong>✅ If you see:</strong></p>
+<pre><code>✅ .env file exists
+✅ FEISHU_APP_ID configured
+✅ FEISHU_APP_SECRET configured
+✅ All basic config checks passed</code></pre>
+<br>
+<p>→ Congratulations, go to Step 2.</p>
+<br>
+<p><strong>❌ If you see warnings or errors:</strong></p>
+<br>
+<p>Don't panic, this is normal. Fix according to prompts:</p>
+<br>
+<pre><code>⚠️ .env file does not exist
+   Solution: Copy .env.template to .env
+   Command: cp .env.template .env</code></pre>
+<br>
+<p><strong>Problems?</strong></p>
+<p>- <a href="03-Error-Guide.md">View error solutions</a></p>
+<p>- Or run one-click diagnosis: <code>python scripts/diagnose.py</code></p>
+<br>
+<p>---</p>
+<br>
+<h2>Step 2: Send First Message (2 min)</h2>
+<br>
+<h3>2.1 Create Test File</h3>
+<br>
+<pre><code># Create a test file
+touch test_message.py</code></pre>
+<br>
+<h3>2.2 Copy Following Code</h3>
+<br>
+<pre><code>from openclaw import send_message
+
+# Send test message
+send_message(
+    target="test",  # Target group
+    message="Hello from OpenClaw! 🎉"
+)
+
+print("✅ Message sent successfully!")</code></pre>
+<br>
+<h3>2.3 Run Code</h3>
+<br>
+<pre><code>python test_message.py</code></pre>
+<br>
+<h3>2.4 Check Results</h3>
+<br>
+<p><strong>Open your Feishu group and see if message received:</strong></p>
+<br>
+<pre><code>┌─────────────────────────────────────┐
+│  OpenClaw Bot                       │
+│  Hello from OpenClaw! 🎉            │
+└─────────────────────────────────────┘</code></pre>
+<br>
+<p><strong>See it? Congratulations!</strong></p>
+<br>
+<blockquote>**This is your first OpenClaw automated message.**</blockquote>
+<blockquote></blockquote>
+<blockquote>From now on, you can control Feishu bot with code.</blockquote>
+<br>
+<p><strong>Don't see it?</strong></p>
+<br>
+<p>Don't worry, 90% of problems are config issues:</p>
+<br>
+<p>1. Run diagnosis script: <code>python scripts/diagnose.py</code></p>
+<p>2. View error code in diagnosis report</p>
+<p>3. <a href="03-Error-Guide.md">Find corresponding solution</a></p>
+<br>
+<p>---</p>
+<br>
+<h2>Step 3: Completion Celebration (1 min)</h2>
+<br>
+<h3>🎉 Congratulations on completing your first task!</h3>
+<br>
+<p>You have:</p>
+<p>- ✅ Completed config check</p>
+<p>- ✅ Sent first message</p>
+<p>- ✅ Verified OpenClaw runs normally</p>
+<br>
+<p><strong>These 5 minutes mean you're already on your way.</strong></p>
+<br>
+<p>---</p>
+<br>
+<h2>What to do next?</h2>
+<br>
+<p>After completing quick start, suggest continuing:</p>
+<br>
+<h3>1️⃣ Configure your environment (10 min)</h3>
+<p>→ <a href="02-Config-Template.md">Config Wizard</a></p>
+<p>- 5 core config items, step-by-step guidance</p>
+<p>- Each config has explanation, examples, validation</p>
+<br>
+<h3>2️⃣ Learn about common errors (5 min)</h3>
+<p>→ <a href="03-Error-Guide.md">Error Solution Library</a></p>
+<p>- 50 common error solutions</p>
+<p>- Check here when encountering problems, usually solved within 5 min</p>
+<br>
+<h3>3️⃣ Learn peer guidance (3 min)</h3>
+<p>→ <a href="04-Troubleshooting.md">Peer Guidance Scripts</a></p>
+<p>- How to solve problems independently</p>
+<p>- When to seek help</p>
+<br>
+<p>---</p>
+<br>
+<h2>FAQ</h2>
+<br>
+<p><strong>Q1: I'm stuck at Step 1, what to do?</strong></p>
+<br>
+<p>A: First run one-click diagnosis to see the specific problem:</p>
+<pre><code>python scripts/diagnose.py</code></pre>
+<p>Diagnosis report will tell you which config has problems and solution links.</p>
+<br>
+<p><strong>Q2: Message sending failed, what to do?</strong></p>
+<br>
+<p>A: 90% are config issues. Check in this order:</p>
+<p>1. Does .env file exist</p>
+<p>2. Is FEISHU_APP_ID correct</p>
+<p>3. Is FEISHU_APP_SECRET correct</p>
+<p>4. Are Feishu app permissions enabled</p>
+<p>→ <a href="03-Error-Guide.md">Detailed troubleshooting guide</a></p>
+<br>
+<p><strong>Q3: I'm a complete beginner, can I learn this?</strong></p>
+<br>
+<p>A: Yes. This guide is designed for zero foundation.</p>
+<p>- No programming experience needed (code prepared, just copy)</p>
+<p>- No technical background needed (each step has explanation)</p>
+<p>- Only need 5 minutes + willingness to try</p>
+<br>
+<p><strong>Q4: What level can I reach after learning?</strong></p>
+<br>
+<p>A: After learning, you can:</p>
+<p>- ✅ Send Feishu messages</p>
+<p>- ✅ Check if config is correct</p>
+<p>- ✅ Independently solve common problems</p>
+<br>
+<p>But this is just the beginning. Continue learning config wizard and workflow design, you can do more.</p>
+<br>
+<p>---</p>
+<br>
+<h2>Final Words</h2>
+<br>
+<p><strong>Every expert was once a beginner.</strong></p>
+<br>
+<p>The difference is, some crossed the first step, some didn't.</p>
+<br>
+<p>Today, you have crossed the first step.</p>
+<br>
+<p><strong>Welcome to the world of OpenClaw.</strong> 🎉</p>
+<br>
+<p>---</p>
+<br>
+<p><em>5-Minute Quick Start · v1.0</em>  </p>
+<p><em>© 2026 OpenClaw Onboarding Project · CC BY-NC-SA 4.0</em></p>
+<br>
+
+    <hr>
+    <footer style="text-align: center; color: #666; padding: 20px;">
+        <p>© 2026 OpenClaw Onboarding Project · CC BY-NC-SA 4.0</p>
+    </footer>
+</body>
+</html>
