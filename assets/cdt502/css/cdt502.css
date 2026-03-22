@@ -1,0 +1,402 @@
+/**
+ * CDT502 Analysis Page Styles
+ * Namespace: .cdt502-*
+ * Compatible with Jekyll Cayman/Basic themes
+ */
+
+/* ========================================
+   CSS Variables (inherit from blog theme)
+   ======================================== */
+:root {
+  --cdt502-primary: #2e86de;
+  --cdt502-secondary: #54a0ff;
+  --cdt502-accent: #5f27cd;
+  --cdt502-success: #10ac84;
+  --cdt502-warning: #f39c12;
+  --cdt502-danger: #ee5253;
+  --cdt502-dark: #2f3542;
+  --cdt502-light: #f1f2f6;
+  --cdt502-border: #dfe4ea;
+  --cdt502-text: #57606f;
+  --cdt502-text-muted: #a4b0be;
+  --cdt502-bg-card: #ffffff;
+  --cdt502-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --cdt502-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --cdt502-radius: 8px;
+  --cdt502-radius-lg: 12px;
+  --cdt502-transition: all 0.25s ease;
+}
+
+/* ========================================
+   Step Header Component
+   ======================================== */
+.cdt502-step-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  margin: 2rem 0 1.5rem;
+  background: linear-gradient(135deg, var(--cdt502-bg-card) 0%, var(--cdt502-light) 100%);
+  border-left: 4px solid var(--cdt502-primary);
+  border-radius: var(--cdt502-radius);
+  box-shadow: var(--cdt502-shadow);
+}
+
+.cdt502-step-header:first-of-type {
+  margin-top: 0;
+}
+
+.cdt502-step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 48px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--cdt502-primary), var(--cdt502-secondary));
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(46, 134, 222, 0.3);
+}
+
+.cdt502-step-content {
+  flex: 1;
+}
+
+.cdt502-step-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--cdt502-dark);
+  line-height: 1.3;
+}
+
+.cdt502-step-description {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--cdt502-text);
+  line-height: 1.6;
+}
+
+.cdt502-step-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--cdt502-border);
+}
+
+.cdt502-step-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--cdt502-primary);
+  background: rgba(46, 134, 222, 0.1);
+  border-radius: 20px;
+}
+
+.cdt502-step-tag--success {
+  color: var(--cdt502-success);
+  background: rgba(16, 172, 132, 0.1);
+}
+
+.cdt502-step-tag--warning {
+  color: var(--cdt502-warning);
+  background: rgba(243, 156, 18, 0.1);
+}
+
+/* ========================================
+   Chart Gallery Component
+   ======================================== */
+.cdt502-chart-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.cdt502-chart-gallery--single {
+  grid-template-columns: 1fr;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cdt502-chart-gallery--wide {
+  grid-template-columns: 1fr;
+}
+
+.cdt502-chart-card {
+  background: var(--cdt502-bg-card);
+  border-radius: var(--cdt502-radius-lg);
+  box-shadow: var(--cdt502-shadow);
+  overflow: hidden;
+  transition: var(--cdt502-transition);
+}
+
+.cdt502-chart-card:hover {
+  box-shadow: var(--cdt502-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.cdt502-chart-header {
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, var(--cdt502-light) 0%, #fff 100%);
+  border-bottom: 1px solid var(--cdt502-border);
+}
+
+.cdt502-chart-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cdt502-dark);
+}
+
+.cdt502-chart-subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--cdt502-text-muted);
+}
+
+.cdt502-chart-body {
+  padding: 1.25rem;
+}
+
+.cdt502-chart-body img,
+.cdt502-chart-body svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--cdt502-radius);
+}
+
+.cdt502-chart-caption {
+  padding: 0.875rem 1.25rem;
+  font-size: 0.85rem;
+  color: var(--cdt502-text);
+  background: var(--cdt502-light);
+  border-top: 1px solid var(--cdt502-border);
+}
+
+.cdt502-chart-caption code {
+  padding: 0.15rem 0.4rem;
+  font-size: 0.8rem;
+  color: var(--cdt502-accent);
+  background: rgba(95, 39, 205, 0.1);
+  border-radius: 4px;
+}
+
+/* ========================================
+   Report Block Component
+   ======================================== */
+.cdt502-report-block {
+  margin: 1.5rem 0;
+  background: var(--cdt502-bg-card);
+  border-radius: var(--cdt502-radius-lg);
+  box-shadow: var(--cdt502-shadow);
+  overflow: hidden;
+}
+
+.cdt502-report-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, var(--cdt502-dark) 0%, #3d4550 100%);
+}
+
+.cdt502-report-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-size: 1rem;
+  color: var(--cdt502-dark);
+  background: #fff;
+  border-radius: 6px;
+}
+
+.cdt502-report-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.cdt502-report-body {
+  padding: 1.25rem;
+}
+
+.cdt502-report-body > *:first-child {
+  margin-top: 0;
+}
+
+.cdt502-report-body > *:last-child {
+  margin-bottom: 0;
+}
+
+.cdt502-report-body p {
+  margin: 0.75rem 0;
+  line-height: 1.7;
+  color: var(--cdt502-text);
+}
+
+.cdt502-report-body ul,
+.cdt502-report-body ol {
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+}
+
+.cdt502-report-body li {
+  margin: 0.35rem 0;
+  color: var(--cdt502-text);
+}
+
+.cdt502-report-body strong {
+  color: var(--cdt502-dark);
+  font-weight: 600;
+}
+
+.cdt502-report-body code {
+  padding: 0.2rem 0.4rem;
+  font-size: 0.9em;
+  color: var(--cdt502-accent);
+  background: rgba(95, 39, 205, 0.08);
+  border-radius: 4px;
+}
+
+.cdt502-report-body pre {
+  padding: 1rem;
+  background: var(--cdt502-dark);
+  border-radius: var(--cdt502-radius);
+  overflow-x: auto;
+}
+
+.cdt502-report-body pre code {
+  padding: 0;
+  color: #c8d6e5;
+  background: none;
+}
+
+/* ========================================
+   Metrics Grid
+   ======================================== */
+.cdt502-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.cdt502-metric-card {
+  padding: 1rem;
+  text-align: center;
+  background: var(--cdt502-light);
+  border-radius: var(--cdt502-radius);
+  border: 1px solid var(--cdt502-border);
+}
+
+.cdt502-metric-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cdt502-primary);
+}
+
+.cdt502-metric-label {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--cdt502-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ========================================
+   Data Table
+   ======================================== */
+.cdt502-data-table {
+  width: 100%;
+  margin: 1rem 0;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.cdt502-data-table th,
+.cdt502-data-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--cdt502-border);
+}
+
+.cdt502-data-table th {
+  font-weight: 600;
+  color: var(--cdt502-dark);
+  background: var(--cdt502-light);
+}
+
+.cdt502-data-table tbody tr:hover {
+  background: rgba(46, 134, 222, 0.04);
+}
+
+.cdt502-data-table td {
+  color: var(--cdt502-text);
+}
+
+/* ========================================
+   Responsive Adjustments
+   ======================================== */
+@media (max-width: 768px) {
+  .cdt502-step-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .cdt502-step-number {
+    min-width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .cdt502-chart-gallery {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .cdt502-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .cdt502-data-table {
+    font-size: 0.85rem;
+  }
+  
+  .cdt502-data-table th,
+  .cdt502-data-table td {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cdt502-step-header {
+    padding: 1rem;
+  }
+  
+  .cdt502-step-title {
+    font-size: 1.15rem;
+  }
+  
+  .cdt502-step-description {
+    font-size: 0.9rem;
+  }
+  
+  .cdt502-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}

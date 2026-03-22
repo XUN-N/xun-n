@@ -1,0 +1,349 @@
+/* ===== Enhanced Code Block Styles for CDT502 (Rouge + Custom) ===== */
+
+/* Import JetBrains Mono font */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ===== Rouge Highlight Container ===== */
+
+.highlight {
+  position: relative !important;
+  margin: 1rem 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  border: 1px solid #1e293b !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  background: #0f172a !important;
+}
+
+.highlight pre {
+  margin: 0 !important;
+  padding: 1.25rem !important;
+  background: #0f172a !important;
+  overflow-x: auto !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace !important;
+  font-size: 0.85rem !important;
+  line-height: 1.7 !important;
+  color: #e2e8f0 !important;
+}
+
+.highlight pre code {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  background: transparent !important;
+  padding: 0 !important;
+  color: #f8f8f2 !important;
+}
+
+/* ===== Syntax Highlighting Colors - High Contrast ===== */
+
+/* Keywords - Bright Pink */
+.highlight .k,
+.highlight .kc,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt {
+  color: #ff79c6 !important;
+  font-weight: 600 !important;
+}
+
+/* Strings - Bright Green */
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx {
+  color: #50fa7b !important;
+}
+
+/* Numbers - Bright Orange */
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .il {
+  color: #ffb86c !important;
+}
+
+/* Names, Functions - Bright Cyan */
+.highlight .n,
+.highlight .na,
+.highlight .nb,
+.highlight .nc,
+.highlight .nd,
+.highlight .ne,
+.highlight .nf,
+.highlight .nl,
+.highlight .nn,
+.highlight .nx,
+.highlight .py {
+  color: #8be9fd !important;
+}
+
+/* Operators - Bright Purple */
+.highlight .o,
+.highlight .ow {
+  color: #bd93f9 !important;
+}
+
+/* Punctuation - Light Gray */
+.highlight .p {
+  color: #f8f8f2 !important;
+}
+
+/* Built-ins - Bright Red */
+.highlight .bp,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi {
+  color: #ff5555 !important;
+}
+
+/* Comments - Gray */
+.highlight .c,
+.highlight .c1,
+.highlight .cm,
+.highlight .cp,
+.highlight .cs {
+  color: #6272a4 !important;
+  font-style: italic !important;
+}
+
+/* Docstrings - Light Green */
+.highlight .sd {
+  color: #69ff94 !important;
+  font-style: italic !important;
+}
+
+/* Errors */
+.highlight .err {
+  color: #ff6b6b !important;
+  background: rgba(255, 107, 107, 0.2) !important;
+}
+
+/* Generic output */
+.highlight .go {
+  color: #f8f8f2 !important;
+}
+
+/* ===== Copy Button ===== */
+
+.code-copy-btn {
+  position: absolute !important;
+  top: 0.75rem !important;
+  right: 0.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.4rem !important;
+  padding: 0.4rem 0.75rem !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 6px !important;
+  color: #e2e8f0 !important;
+  font-size: 0.8rem !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  z-index: 10 !important;
+  opacity: 0 !important;
+}
+
+.highlight:hover .code-copy-btn {
+  opacity: 1 !important;
+}
+
+.code-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.code-copy-btn.copied {
+  background: rgba(80, 250, 123, 0.2) !important;
+  border-color: rgba(80, 250, 123, 0.4) !important;
+  color: #50fa7b !important;
+}
+
+/* ===== Language Badge ===== */
+
+.code-language-badge {
+  position: absolute !important;
+  top: 0.75rem !important;
+  left: 0.75rem !important;
+  padding: 0.25rem 0.5rem !important;
+  background: rgba(189, 147, 249, 0.2) !important;
+  color: #bd93f9 !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  border-radius: 4px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  z-index: 10 !important;
+}
+
+/* ===== Inline Code ===== */
+
+.highlight pre code {
+  background: transparent !important;
+  color: #f8f8f2 !important;
+  padding: 0 !important;
+  border: none !important;
+  font-size: inherit !important;
+}
+
+/* ===== Collapsible Code Blocks ===== */
+
+details {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  margin: 1rem 0 !important;
+  background: #ffffff !important;
+}
+
+details summary {
+  padding: 0.875rem 1rem !important;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+  color: #475569 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  transition: all 0.2s ease !important;
+  list-style: none !important;
+}
+
+details summary:hover {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%) !important;
+}
+
+details summary::marker,
+details summary::-webkit-details-marker {
+  display: none !important;
+}
+
+details summary::before {
+  content: '▶' !important;
+  font-size: 0.7rem !important;
+  transition: transform 0.2s ease !important;
+  color: #64748b !important;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg) !important;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+details .highlight {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ===== Code + Explanation Grid ===== */
+
+.code-explain-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  align-items: start !important;
+}
+
+@media (max-width: 768px) {
+  .code-explain-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.code-explain-grid .highlight {
+  margin: 0 !important;
+}
+
+.code-explain-grid .explanation {
+  font-size: 0.9rem !important;
+  line-height: 1.7 !important;
+  color: #475569 !important;
+  padding: 1rem !important;
+  background: #f8fafc !important;
+  border-radius: 12px !important;
+  border-left: 3px solid #3b82f6 !important;
+}
+
+.code-explain-grid .explanation strong {
+  color: #1d4ed8 !important;
+  font-weight: 600 !important;
+}
+
+/* ===== Terminal Style ===== */
+
+.code-terminal {
+  background: #1e1e2e !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  margin: 1rem 0 !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #313244 !important;
+}
+
+.code-terminal-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.75rem 1rem !important;
+  background: #313244 !important;
+  border-bottom: 1px solid #45475a !important;
+}
+
+.code-terminal-header .dot {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+}
+
+.code-terminal-header .dot.red { background: #ff5555 !important; }
+.code-terminal-header .dot.yellow { background: #f1fa8c !important; }
+.code-terminal-header .dot.green { background: #50fa7b !important; }
+
+.code-terminal-header .title {
+  margin-left: 0.5rem !important;
+  color: #f8f8f2 !important;
+  font-size: 0.8rem !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.code-terminal-body {
+  padding: 1rem !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.85rem !important;
+  color: #f8f8f2 !important;
+  background: #1e1e2e !important;
+}
+
+.code-terminal-body pre {
+  margin: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+.code-terminal-body code {
+  font-family: inherit !important;
+  background: transparent !important;
+}

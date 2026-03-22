@@ -1,0 +1,30 @@
+# Docker Compose for CDT501 Blog
+# 简化博客的本地开发和部署
+
+version: '3.8'
+
+services:
+  jekyll:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/srv/jekyll
+      - jekyll_bundle:/usr/local/bundle
+    environment:
+      - JEKYLL_ENV=development
+    command: bundle exec jekyll serve --host 0.0.0.0 --port 4000 --watch
+
+  # 生产环境构建（可选）
+  jekyll-build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./_site:/srv/jekyll/_site
+    command: bundle exec jekyll build
+
+volumes:
+  jekyll_bundle:

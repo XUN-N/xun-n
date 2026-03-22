@@ -1,0 +1,157 @@
+---
+layout: default
+title: CDT501 探索人工智能
+---
+
+<style>
+/* Landing page styles */
+.landing-page { background: #f0f4f8; min-height: 100vh; }
+.landing-hero {
+  background: linear-gradient(135deg, #1a73e8 0%, #4285f4 100%);
+  color: white;
+  padding: 5rem 2rem;
+  text-align: center;
+  border-radius: 0 0 32px 32px;
+}
+.landing-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+.landing-hero p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn {
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+.btn-primary { background: white; color: #1a73e8; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+.btn-secondary { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); }
+.btn-secondary:hover { background: rgba(255,255,255,0.25); }
+
+.landing-container { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+
+/* Coming soon card */
+.coming-soon-card {
+  background: white;
+  border-radius: 16px;
+  padding: 4rem 2rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  margin-bottom: 3rem;
+}
+.coming-soon-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+.coming-soon-card h2 {
+  font-size: 2rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+.coming-soon-card p {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+/* Course info */
+.course-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.info-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border-left: 4px solid #1a73e8;
+}
+.info-card h3 {
+  font-size: 1rem;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+.info-card p {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* Navigation back */
+.back-nav {
+  text-align: center;
+  margin-top: 2rem;
+}
+.back-nav a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 500;
+}
+.back-nav a:hover {
+  text-decoration: underline;
+}
+</style>
+
+<div class="landing-page">
+  <div class="landing-hero">
+    <h1>CDT501 探索人工智能</h1>
+    <p>Exploring Artificial Intelligence<br>人工智能基础理论与实践应用</p>
+    <div class="hero-btns">
+      <a href="{{ '/' | relative_url }}" class="btn btn-secondary">← 返回首页</a>
+      <a href="https://github.com/XUN-N" class="btn btn-secondary" target="_blank">💻 GitHub</a>
+    </div>
+  </div>
+
+  <div class="landing-container">
+    <!-- Coming Soon -->
+    <div class="coming-soon-card">
+      <div class="coming-soon-icon">🚧</div>
+      <h2>CDT501 Course Content Coming Soon</h2>
+      <p>
+        课程内容包括：机器学习基础、深度学习入门、
+        自然语言处理、计算机视觉等核心主题。<br><br>
+        Course content will include: Machine Learning fundamentals, 
+        Deep Learning basics, NLP, Computer Vision, and more.
+      </p>
+      <a href="{{ '/cdt502/' | relative_url }}" class="btn btn-primary">查看 CDT502 课程 →</a>
+    </div>
+
+    <!-- Course Info -->
+    <div class="course-info">
+      <div class="info-card">
+        <h3>📚 课程代码</h3>
+        <p>CDT501 - Exploring Artificial Intelligence</p>
+      </div>
+      <div class="info-card">
+        <h3>🎯 课程目标</h3>
+        <p>掌握 AI 基础理论与实际应用能力</p>
+      </div>
+      <div class="info-card">
+        <h3>⏱️ 预计课时</h3>
+        <p>12 周完整课程</p>
+      </div>
+      <div class="info-card">
+        <h3>🛠️ 技术栈</h3>
+        <p>Python, TensorFlow, PyTorch, Scikit-learn</p>
+      </div>
+    </div>
+
+    <!-- Back navigation -->
+    <div class="back-nav">
+      <a href="{{ '/' | relative_url }}">← 返回博客首页</a>
+    </div>
+  </div>
+</div>

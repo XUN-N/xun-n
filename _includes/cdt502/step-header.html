@@ -1,0 +1,25 @@
+<!--
+  CDT502 Step Header Component
+  Usage: {% include cdt502/step-header.html number=1 title="Data Cleaning" description="Clean and preprocess raw data" tags="Complete|RFM" %}
+-->
+
+<div class="cdt502-step-header">
+  <div class="cdt502-step-number">{{ include.number }}</div>
+  <div class="cdt502-step-content">
+    <h3 class="cdt502-step-title">{{ include.title }}</h3>
+    {% if include.description %}
+    <p class="cdt502-step-description">{{ include.description }}</p>
+    {% endif %}
+    {% if include.tags %}
+    <div class="cdt502-step-meta">
+      {% assign tag_list = include.tags | split: "|" %}
+      {% for tag in tag_list %}
+        {% assign tag_parts = tag | split: ":" %}
+        {% assign tag_text = tag_parts[0] | strip %}
+        {% assign tag_type = tag_parts[1] | default: "" | strip %}
+        <span class="cdt502-step-tag {% if tag_type %}cdt502-step-tag--{{ tag_type }}{% endif %}">{{ tag_text }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>

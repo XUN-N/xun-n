@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="description" content="HUMAN.OS - Personal Development Operating System Powered by OpenClaw Multi-Agent Architecture">
+  <meta name="theme-color" content="#1a73e8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="HUMAN.OS">
+  <meta name="application-name" content="HUMAN.OS">
+  
+  <title>HUMAN.OS | Investor Pitch Deck</title>
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231a73e8'/%3E%3Ctext x='50' y='65' font-size='45' text-anchor='middle' fill='white' font-family='Arial'%3EH%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%231a73e8'/%3E%3Ctext x='90' y='125' font-size='80' text-anchor='middle' fill='white' font-family='Arial'%3EH%3C/text%3E%3C/svg%3E">
+  
+  <!-- Preconnect to font domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Preload critical font weights -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYxNbPzS5CHYo3zVmQ-H71AyqMkoN8nfNA.2.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <!-- Fonts with display=swap for FCP optimization -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Critical CSS inlined for performance -->
+  <style>
+    /* Critical CSS - Above the fold content */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { 
+      font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+      font-size: 1.125rem; line-height: 1.6; color: #202124; background-color: #ffffff; overflow-x: hidden; 
+    }
+    
+    /* Skip Link for Accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #1a73e8;
+      color: #ffffff;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: 600;
+      z-index: 10000;
+      border-radius: 0 0 8px 0;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus { top: 0; outline: 3px solid #ffffff; outline-offset: -3px; }
+    
+    /* Screen reader only */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    
+    /* Presentation shell */
+    .presentation { width: 100%; height: 100vh; position: relative; overflow: hidden; }
+    .slide { 
+      width: 100%; height: 100vh; min-height: 100vh; display: none; position: relative; 
+      overflow-y: auto; overflow-x: hidden; content-visibility: auto; contain-intrinsic-size: 100vw 100vh; 
+    }
+    .slide.active { display: flex; will-change: transform, opacity; }
+    .slide-content { 
+      width: 100%; max-width: 1200px; margin: 0 auto; padding: 3rem 24px; flex: 1; 
+      display: flex; flex-direction: column; justify-content: center; 
+    }
+    
+    /* Slide Types */
+    .slide-title, .slide-closing { 
+      background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%); color: #ffffff; 
+    }
+    .slide-title h1, .slide-title h2, .slide-title h3,
+    .slide-closing h1, .slide-closing h2, .slide-closing h3 { color: #ffffff; }
+    .slide-title .slide-content, .slide-closing .slide-content { align-items: center; text-align: center; }
+    .slide-section { 
+      background: linear-gradient(135deg, #202124 0%, #3c4043 100%); color: #ffffff; 
+    }
+    .slide-section h1, .slide-section h2, .slide-section h3 { color: #ffffff; }
+    .slide-section .slide-content { align-items: center; text-align: center; }
+    .slide-content-layout { background: #ffffff; }
+    .slide-data { background: #f8f9fa; }
+    .slide-comparison { background: #ffffff; }
+    
+    /* Typography - Critical only */
+    h1, h2, h3, h4, h5, h6 { color: #1a73e8; font-weight: 700; line-height: 1.2; margin-bottom: 0.5rem; }
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2.75rem; }
+    h3 { font-size: 2rem; }
+    .slide-title h1, .slide-closing h1 { font-size: 4rem; }
+    
+    /* Progress Bar */
+    .progress-bar { 
+      position: fixed; top: 0; left: 0; height: 4px; background: #1a73e8; 
+      z-index: 1000; transition: width 300ms ease; 
+    }
+    .progress-segments { 
+      position: fixed; top: 0; left: 0; right: 0; height: 4px; display: flex; z-index: 1000; 
+    }
+    .progress-segment { 
+      height: 100%; background: #dadce0; cursor: pointer; transition: background 150ms ease; position: relative; 
+    }
+    .progress-segment:hover { background: #bdc1c6; }
+    .progress-segment.active { background: #4a9eff; }
+    .progress-segment.current { background: #1a73e8; }
+    
+    /* Navigation Controls */
+    .nav-controls { 
+      position: fixed; bottom: 2rem; right: 2rem; display: flex; gap: 1rem; z-index: 1000; 
+    }
+    .nav-btn { 
+      width: 48px; height: 48px; border: none; border-radius: 50%; background: #1a73e8; 
+      color: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: center; 
+      transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); 
+    }
+    .nav-btn:hover { background: #0d47a1; transform: scale(1.05); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+    .nav-btn:active { transform: scale(0.95); }
+    .nav-btn:disabled { background: #9aa0a6; cursor: not-allowed; transform: none; }
+    .nav-btn:focus-visible { outline: 3px solid #ffffff; outline-offset: 2px; box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.3); }
+    
+    .export-btn { background: #34a853; }
+    .export-btn:hover { background: #2e7d32; }
+    
+    .slide-counter { 
+      position: fixed; bottom: 2rem; left: 2rem; font-size: 0.875rem; color: #5f6368; z-index: 1000; 
+    }
+    
+    /* Focus Styles for Accessibility */
+    :focus-visible {
+      outline: 3px solid #1a73e8;
+      outline-offset: 2px;
+    }
+    
+    /* Announcement region for screen readers */
+    .announcement-region {
+      position: absolute;
+      left: -10000px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    
+    /* Animations - with reduced motion support */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translate3d(0, 30px, 0); }
+      to { opacity: 1; transform: translate3d(0, 0, 0); }
+    }
+    .animate-fade-up { animation: fadeUp 400ms cubic-bezier(0.4, 0, 0.2, 1) both; will-change: transform, opacity; }
+    .delay-1 { animation-delay: 50ms; }
+    .delay-2 { animation-delay: 100ms; }
+    .delay-3 { animation-delay: 150ms; }
+    .delay-4 { animation-delay: 200ms; }
+    
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      .animate-fade-up { opacity: 1; transform: none; animation: none; }
+    }
+    
+    @media (prefers-contrast: high) {
+      :root { --color-primary: #0066cc; --color-secondary: #006600; --color-accent: #cc0000; }
+      .card { border: 2px solid #757575; }
+      .nav-btn:focus-visible { outline-width: 4px; }
+    }
+    
+    /* Responsive - Mobile first */
+    @media (max-width: 1023px) {
+      h1 { font-size: 2.75rem; }
+      h2 { font-size: 2.25rem; }
+      .slide-title h1, .slide-closing h1 { font-size: 3rem; }
+      .slide-content { padding: 2rem 16px; }
+      .nav-controls { bottom: 1.5rem; right: 1.5rem; }
+    }
+    
+    @media (max-width: 767px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.75rem; }
+      h3 { font-size: 1.5rem; }
+      .slide-title h1, .slide-closing h1 { font-size: 2.5rem; }
+      .slide-content { padding: 1.5rem 16px; padding-top: 4rem; min-height: 100vh; justify-content: flex-start; }
+      .nav-btn { width: 40px; height: 40px; }
+      .nav-controls { bottom: 1rem; right: 1rem; gap: 0.5rem; }
+    }
+  </style>
+  
+  <!-- Preload main.js -->
+  <link rel="preload" href="assets/js/main.js" as="script">
+  
+  <!-- Non-critical CSS loaded asynchronously -->
+  <link rel="stylesheet" href="assets/css/main.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="assets/css/main.css"></noscript>
+</head>
+<body>
+  <!-- Skip Link for Keyboard Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Screen Reader Announcement Region -->
+  <div id="announcement-region" class="announcement-region" aria-live="polite" aria-atomic="true"></div>
+  
+  <!-- Progress Bar -->
+  <div class="progress-bar" role="progressbar" aria-label="Presentation progress" aria-valuemin="0" aria-valuemax="23" aria-valuenow="1"></div>
+  
+  <!-- Slide Counter -->
+  <div class="slide-counter" aria-live="polite" aria-atomic="true">1 / 23</div>
+  
+  <!-- Navigation Controls -->
+  <nav class="nav-controls" aria-label="Slide navigation">
+    <button class="nav-btn nav-btn-prev" aria-label="Previous slide" aria-keyshortcuts="ArrowLeft PageUp" disabled>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="15,18 9,12 15,6"></polyline>
+      </svg>
+    </button>
+    <button class="nav-btn nav-btn-next" aria-label="Next slide" aria-keyshortcuts="ArrowRight Space PageDown">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="9,18 15,12 9,6"></polyline>
+      </svg>
+    </button>
+    <button class="nav-btn export-btn" aria-label="Export to PDF" title="Export to PDF (P)" aria-keyshortcuts="KeyP">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7,10 12,15 17,10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Export Progress Overlay -->
+  <div class="export-overlay" id="exportOverlay" role="dialog" aria-modal="true" aria-label="Export progress" aria-hidden="true">
+    <div class="export-progress">
+      <h3>Generating PDF...</h3>
+      <p id="exportStatus">Capturing slide 1 of 23</p>
+      <div class="export-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Export progress">
+        <div class="export-progress-fill" id="exportProgressFill" style="width: 0%"></div>
+      </div>
+      <p class="text-muted text-small">Please wait, this may take a moment</p>
+    </div>
+  </div>
+
+  <!-- Presentation Container -->
+  <main class="presentation" role="region" aria-label="Pitch deck presentation" id="main-content" tabindex="-1">
+    
+    <!-- Slide 1: Title -->
+    <section class="slide slide-title active" data-slide="1" aria-label="Slide 1 of 23: Title" role="article">
+      <div class="slide-content">
+        <h1 class="animate-fade-up">HUMAN.OS</h1>
+        <h2 class="animate-fade-up delay-1">Personal Development Operating System</h2>
+        <p class="text-large animate-fade-up delay-2">Powered by OpenClaw Multi-Agent Architecture</p>
+        <div class="mt-6 animate-fade-up delay-3">
+          <span class="text-small">Investor Pitch Deck | March 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2: The Problem -->
+    <section class="slide slide-content-layout" data-slide="2" aria-label="Slide 2 of 23: The Problem" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">The Problem</h2>
+        <h3 class="animate-fade-up delay-1">Personal Improvement is Broken</h3>
+        
+        <div class="mt-4 animate-fade-up delay-2">
+          <h4>Current Reality</h4>
+          <div class="table-container">
+            <table role="table" aria-label="Current problems in personal improvement tools">
+              <thead>
+                <tr role="row">
+                  <th role="columnheader" scope="col">Issue</th>
+                  <th role="columnheader" scope="col">Impact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr role="row">
+                  <td role="cell"><strong>Fragmented Tools</strong></td>
+                  <td role="cell">12+ apps, no integration</td>
+                </tr>
+                <tr role="row">
+                  <td role="cell"><strong>No Personalization</strong></td>
+                  <td role="cell">One-size-fits-all solutions</td>
+                </tr>
+                <tr role="row">
+                  <td role="cell"><strong>Reactive Only</strong></td>
+                  <td role="cell">Apps wait for you to use them</td>
+                </tr>
+                <tr role="row">
+                  <td role="cell"><strong>No Context</strong></td>
+                  <td role="cell">Each tool works in isolation</td>
+                </tr>
+                <tr role="row">
+                  <td role="cell"><strong>Expensive Coaching</strong></td>
+                  <td role="cell">$200-500/month for humans</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <blockquote class="mt-4" aria-label="User quote">
+            "I have a fitness app, habit tracker, calendar, to-do list, learning app... but they don't talk to each other."
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3: The Insight -->
+    <section class="slide slide-content-layout" data-slide="3" aria-label="Slide 3 of 23: The Insight" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">The Insight</h2>
+        <h3 class="animate-fade-up delay-1">10 Proven Efficiency Theories Exist</h3>
+        
+        <p class="text-large text-primary font-semibold animate-fade-up delay-2">But they require <strong>manual implementation</strong>:</p>
+        
+        <div class="table-container mt-4 animate-fade-up delay-3">
+          <table role="table" aria-label="Efficiency theories and implementation problems">
+            <thead>
+              <tr role="row">
+                <th role="columnheader" scope="col">Theory</th>
+                <th role="columnheader" scope="col">Problem</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row">
+                <td role="cell"><strong>Deliberate Practice</strong></td>
+                <td role="cell">Hard to design targeted drills</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Flow State</strong></td>
+                <td role="cell">Can't detect your peak hours</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Spaced Repetition</strong></td>
+                <td role="cell">Forgetting curves are personal</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Atomic Habits</strong></td>
+                <td role="cell">Tracking 1% improvements is tedious</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Pareto (80/20)</strong></td>
+                <td role="cell">Identifying leverage takes analysis</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Deep Work</strong></td>
+                <td role="cell">Distractions win without protection</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <p class="text-large text-secondary font-bold mt-4 text-center animate-fade-up delay-4">What if these theories were AUTOMATED?</p>
+      </div>
+    </section>
+
+    <!-- Slide 4: The Solution -->
+    <section class="slide slide-content-layout" data-slide="4" aria-label="Slide 4 of 23: The Solution" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">The Solution</h2>
+        <h3 class="animate-fade-up delay-1">HUMAN.OS — Multi-Agent Personal Development System</h3>
+        
+        <div class="card mt-4 animate-fade-up delay-2" role="region" aria-label="System architecture diagram">
+          <pre><code aria-label="Architecture diagram">
+┌─────────────────────────────────────────────────────┐
+│                   HUMAN.OS                          │
+├─────────────────────────────────────────────────────┤
+│  Meta-Coordinator (orchestrates all agents)         │
+├─────────────────────────────────────────────────────┤
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐            │
+│  │ Habit    │ │ Focus    │ │ Learning │            │
+│  │ Architect│ │ Guardian │ │ Optimizer│            │
+│  └──────────┘ └──────────┘ └──────────┘            │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐            │
+│  │ Flow     │ │ Task     │ │ Growth   │            │
+│  │ Engine   │ │ Router   │ │ Tracker  │            │
+│  └──────────┘ └──────────┘ └──────────┘            │
+└─────────────────────────────────────────────────────┘
+          </code></pre>
+        </div>
+        
+        <p class="text-large text-center mt-4 animate-fade-up delay-3"><strong>Agents collaborate 24/7 to optimize YOUR life</strong></p>
+      </div>
+    </section>
+
+    <!-- Slide 5: Product Features -->
+    <section class="slide slide-content-layout" data-slide="5" aria-label="Slide 5 of 23: Product Features" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">Product Features</h2>
+        <h3 class="animate-fade-up delay-1">MVP (3-Month Launch)</h3>
+        
+        <div class="table-container mt-4 animate-fade-up delay-2">
+          <table role="table" aria-label="MVP features and applied theories">
+            <thead>
+              <tr role="row">
+                <th role="columnheader" scope="col">Feature</th>
+                <th role="columnheader" scope="col">Theory Applied</th>
+                <th role="columnheader" scope="col">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row">
+                <td role="cell"><strong>Goal &amp; Habit Tracker</strong></td>
+                <td role="cell">Atomic Habits + Kaizen</td>
+                <td role="cell">1% daily improvement</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Deep Work Scheduler</strong></td>
+                <td role="cell">Deep Work + Flow + Pareto</td>
+                <td role="cell">Protect peak hours</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Smart Task Manager</strong></td>
+                <td role="cell">GTD + Pareto</td>
+                <td role="cell">Auto-prioritize 80/20</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Progress Dashboard</strong></td>
+                <td role="cell">Compound Effect</td>
+                <td role="cell">Visualize trajectory</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Onboarding Wizard</strong></td>
+                <td role="cell">—</td>
+                <td role="cell">5-minute quick wins</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <p class="text-center mt-4 animate-fade-up delay-3"><span class="text-secondary font-bold">70% theory coverage in v1.0 (7/10 theories)</span></p>
+      </div>
+    </section>
+
+    <!-- Slide 6: Product Roadmap -->
+    <section class="slide slide-content-layout" data-slide="6" aria-label="Slide 6 of 23: Product Roadmap" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">Product Roadmap</h2>
+        <h3 class="animate-fade-up delay-1">Phased Feature Rollout</h3>
+        
+        <div class="table-container mt-4 animate-fade-up delay-2">
+          <table role="table" aria-label="Product roadmap by version">
+            <thead>
+              <tr role="row">
+                <th role="columnheader" scope="col">Version</th>
+                <th role="columnheader" scope="col">Timeline</th>
+                <th role="columnheader" scope="col">Key Features</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row">
+                <td role="cell"><strong>v1.0 MVP</strong></td>
+                <td role="cell">Month 1-3</td>
+                <td role="cell">Core productivity (5 features)</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>v1.5</strong></td>
+                <td role="cell">Month 4-6</td>
+                <td role="cell">Spaced Repetition, AI Coach</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>v2.0</strong></td>
+                <td role="cell">Month 7-12</td>
+                <td role="cell">Wearables, Teams, Marketplace</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="mt-4 animate-fade-up delay-3">
+          <h4>Future Vision</h4>
+          <ul role="list">
+            <li role="listitem"><strong>FLOW.ENGINE</strong> — Flow state detection &amp; protection</li>
+            <li role="listitem"><strong>QUANTUM.ME</strong> — Advanced self-quantification</li>
+            <li role="listitem"><strong>RELATIONSHIP.NEURAL</strong> — Social capital optimization</li>
+            <li role="listitem"><strong>PURPOSE.ALIGN</strong> — Ikigai alignment system</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 7: Market Opportunity -->
+    <section class="slide slide-data" data-slide="7" data-chart="market" aria-label="Slide 7 of 23: Market Opportunity" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">Market Opportunity</h2>
+        <h3 class="animate-fade-up">$10.1B Total Addressable Market</h3>
+        
+        <div class="chart-container animate-fade-up" role="img" aria-label="Market segments donut chart showing Personalized Learning at $4.8B, Virtual Tutors at $3.2B, and AI Assessment at $2.1B">
+          <canvas id="marketChart" role="img" aria-label="Market size breakdown chart"></canvas>
+        </div>
+        
+        <div class="table-container mt-4 animate-fade-up">
+          <table role="table" aria-label="Market segments by size and growth">
+            <thead>
+              <tr role="row">
+                <th role="columnheader" scope="col">Segment</th>
+                <th role="columnheader" scope="col">Size</th>
+                <th role="columnheader" scope="col">CAGR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row">
+                <td role="cell"><strong>Personalized Learning</strong></td>
+                <td role="cell">$4.8B</td>
+                <td role="cell">28%</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Virtual Tutors</strong></td>
+                <td role="cell">$3.2B</td>
+                <td role="cell">29.8%</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>AI Assessment</strong></td>
+                <td role="cell">$2.1B</td>
+                <td role="cell">25%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="mt-4 animate-fade-up">
+          <h4>Target Users</h4>
+          <ul role="list">
+            <li role="listitem"><strong>Primary:</strong> Productivity enthusiasts (25-45, tech-savvy)</li>
+            <li role="listitem"><strong>Secondary:</strong> Professionals seeking growth</li>
+            <li role="listitem"><strong>Expansion:</strong> Teams, enterprises, education</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 8: Competitive Landscape -->
+    <section class="slide slide-comparison" data-slide="8" aria-label="Slide 8 of 23: Competitive Landscape" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">Competitive Landscape</h2>
+        <h3 class="animate-fade-up delay-1">Why We Win</h3>
+        
+        <div class="table-container mt-4 animate-fade-up delay-2">
+          <table role="table" aria-label="Competitive comparison">
+            <thead>
+              <tr role="row">
+                <th role="columnheader" scope="col">Competitor</th>
+                <th role="columnheader" scope="col">Limitation</th>
+                <th role="columnheader" scope="col">Our Advantage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row">
+                <td role="cell"><strong>ChatGPT/Claude</strong></td>
+                <td role="cell">Single agent</td>
+                <td role="cell">Multi-agent orchestra</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Mobile Apps</strong></td>
+                <td role="cell">Siloed, reactive</td>
+                <td role="cell">Cross-domain, proactive</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Human Coaches</strong></td>
+                <td role="cell">Expensive, limited hours</td>
+                <td role="cell">24/7, affordable</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>LMS Platforms</strong></td>
+                <td role="cell">Education only</td>
+                <td role="cell">Life-wide optimization</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="card card-featured mt-4 animate-fade-up delay-3" role="region" aria-label="Competitive moat">
+          <h4>Our Moat</h4>
+          <p><strong>Specialization + Coordination + Persistence + Proactivity + Privacy</strong></p>
+          <p class="text-muted mb-0">Competitors need fundamental architecture changes to replicate.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 9: Business Model -->
+    <section class="slide slide-content-layout" data-slide="9" aria-label="Slide 9 of 23: Business Model" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">Business Model</h2>
+        <h3 class="animate-fade-up delay-1">Three Pricing Tiers</h3>
+        
+        <div class="table-container mt-4 animate-fade-up delay-2">
+          <table role="table" aria-label="Pricing tiers comparison">
+            <thead>
+              <tr role="row">
+                <th role="columnheader" scope="col">Tier</th>
+                <th role="columnheader" scope="col">Price</th>
+                <th role="columnheader" scope="col">Target</th>
+                <th role="columnheader" scope="col">Features</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row">
+                <td role="cell"><strong>Foundation</strong></td>
+                <td role="cell">$29/mo</td>
+                <td role="cell">Individuals</td>
+                <td role="cell">Core productivity (3 features)</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Growth</strong></td>
+                <td role="cell">$99/mo</td>
+                <td role="cell">Power users</td>
+                <td role="cell">All MVP + AI Coach</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Complete</strong></td>
+                <td role="cell">$399/mo</td>
+                <td role="cell">Executives</td>
+                <td role="cell">Full ecosystem + priority</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="mt-4 animate-fade-up delay-3">
+          <h4>Revenue Streams</h4>
+          <ol role="list">
+            <li role="listitem"><strong>B2C Subscriptions</strong> (80% Year 1)</li>
+            <li role="listitem"><strong>B2B Teams</strong> (15% Year 1)</li>
+            <li role="listitem"><strong>Marketplace/Integrations</strong> (5% Year 1)</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 10: Financial Projections -->
+    <section class="slide slide-data" data-slide="10" data-chart="revenue" aria-label="Slide 10 of 23: Financial Projections" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">Financial Projections</h2>
+        <h3 class="animate-fade-up">3-Year Revenue Roadmap</h3>
+        
+        <div class="chart-container animate-fade-up" role="img" aria-label="3-year growth projection chart showing ARR from $1.2M to $10M and customers from 5,000 to 50,000">
+          <canvas id="revenueChart" role="img" aria-label="Revenue and customer growth chart"></canvas>
+        </div>
+        
+        <div class="table-container mt-4 animate-fade-up">
+          <table role="table" aria-label="Financial projections by year">
+            <thead>
+              <tr role="row">
+                <th role="columnheader" scope="col">Metric</th>
+                <th role="columnheader" scope="col">Year 1</th>
+                <th role="columnheader" scope="col">Year 2</th>
+                <th role="columnheader" scope="col">Year 3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row">
+                <td role="cell"><strong>Customers</strong></td>
+                <td role="cell">5,000</td>
+                <td role="cell">20,000</td>
+                <td role="cell">50,000</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>ARR</strong></td>
+                <td role="cell">$1.2M</td>
+                <td role="cell">$5M</td>
+                <td role="cell">$10M+</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>MRR</strong></td>
+                <td role="cell">$100K</td>
+                <td role="cell">$417K</td>
+                <td role="cell">$833K+</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>NRR</strong></td>
+                <td role="cell">105%</td>
+                <td role="cell">115%</td>
+                <td role="cell">120%</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>LTV:CAC</strong></td>
+                <td role="cell">3:1</td>
+                <td role="cell">4:1</td>
+                <td role="cell">5:1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="mt-4 animate-fade-up">
+          <h4>Key Assumptions</h4>
+          <ul role="list">
+            <li role="listitem">10% free-to-paid conversion</li>
+            <li role="listitem">60% annual retention</li>
+            <li role="listitem">$200 CAC, $800 LTV (Year 1)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 11: Go-to-Market Strategy -->
+    <section class="slide slide-content-layout" data-slide="11" aria-label="Slide 11 of 23: Go-to-Market Strategy" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">Go-to-Market Strategy</h2>
+        
+        <div class="mt-4 animate-fade-up delay-1">
+          <h3>Phase 1: Early Adopters (Month 1-6)</h3>
+          <ul role="list">
+            <li role="listitem">Product Hunt launch</li>
+            <li role="listitem">Productivity community outreach (Reddit, Twitter)</li>
+            <li role="listitem">Influencer partnerships</li>
+            <li role="listitem">Free trial (14 days)</li>
+          </ul>
+        </div>
+        
+        <div class="mt-4 animate-fade-up delay-2">
+          <h3>Phase 2: Growth (Month 7-18)</h3>
+          <ul role="list">
+            <li role="listitem">Content marketing (SEO, YouTube)</li>
+            <li role="listitem">B2B pilot programs</li>
+            <li role="listitem">Integration marketplace (Notion, Obsidian)</li>
+          </ul>
+        </div>
+        
+        <div class="mt-4 animate-fade-up delay-3">
+          <h3>Phase 3: Scale (Month 19-36)</h3>
+          <ul role="list">
+            <li role="listitem">Enterprise sales team</li>
+            <li role="listitem">International expansion</li>
+            <li role="listitem">White-label licensing</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 12: Why OpenClaw? -->
+    <section class="slide slide-content-layout" data-slide="12" aria-label="Slide 12 of 23: Why OpenClaw?" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">Why OpenClaw?</h2>
+        <h3 class="animate-fade-up delay-1">Technical Foundation</h3>
+        
+        <div class="table-container mt-4 animate-fade-up delay-2">
+          <table role="table" aria-label="OpenClaw capabilities status">
+            <thead>
+              <tr role="row">
+                <th role="columnheader" scope="col">Capability</th>
+                <th role="columnheader" scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row">
+                <td role="cell"><strong>Multi-Agent Architecture</strong></td>
+                <td role="cell"><span class="text-secondary">✅ Built-in</span></td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Persistent Sessions</strong></td>
+                <td role="cell"><span class="text-secondary">✅ Built-in</span></td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Cross-Channel Support</strong></td>
+                <td role="cell"><span class="text-secondary">✅ Feishu, Discord, Telegram</span></td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Memory System</strong></td>
+                <td role="cell"><span class="text-secondary">✅ Long-term context</span></td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Skill Extensibility</strong></td>
+                <td role="cell"><span class="text-secondary">✅ Plugin system</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="card card-featured mt-4 animate-fade-up delay-3" role="region" aria-label="Speed to market advantage">
+          <h4>Speed to Market</h4>
+          <p class="text-large text-primary font-bold mb-0">3-month MVP leveraging existing OpenClaw infrastructure</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 13: Team Requirements -->
+    <section class="slide slide-content-layout" data-slide="13" aria-label="Slide 13 of 23: Team Requirements" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">Team Requirements</h2>
+        <h3 class="animate-fade-up delay-1">Development Team (MVP)</h3>
+        
+        <div class="table-container mt-4 animate-fade-up delay-2">
+          <table role="table" aria-label="Team composition">
+            <thead>
+              <tr role="row">
+                <th role="columnheader" scope="col">Role</th>
+                <th role="columnheader" scope="col">Headcount</th>
+                <th role="columnheader" scope="col">Focus</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row">
+                <td role="cell"><strong>Full-Stack Developer</strong></td>
+                <td role="cell">2</td>
+                <td role="cell">Core features</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>AI/ML Engineer</strong></td>
+                <td role="cell">1</td>
+                <td role="cell">Agent optimization</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Product Designer</strong></td>
+                <td role="cell">1</td>
+                <td role="cell">UX/UI</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Technical Lead</strong></td>
+                <td role="cell">1</td>
+                <td role="cell">Architecture</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="text-center mt-6 animate-fade-up delay-3">
+          <p class="text-large text-primary font-bold">Total: 5 people × 3 months</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 14: Success Metrics -->
+    <section class="slide slide-data" data-slide="14" aria-label="Slide 14 of 23: Success Metrics" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">Success Metrics</h2>
+        <h3 class="animate-fade-up delay-1">Key Performance Indicators</h3>
+        
+        <div class="table-container mt-4 animate-fade-up delay-2">
+          <table role="table" aria-label="Key performance indicators">
+            <thead>
+              <tr role="row">
+                <th role="columnheader" scope="col">Category</th>
+                <th role="columnheader" scope="col">Metric</th>
+                <th role="columnheader" scope="col">Target</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row">
+                <td role="cell"><strong>Growth</strong></td>
+                <td role="cell">Activation Rate</td>
+                <td role="cell">40%</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Retention</strong></td>
+                <td role="cell">Week-1 Retention</td>
+                <td role="cell">50%</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Monetization</strong></td>
+                <td role="cell">Free → Paid Conversion</td>
+                <td role="cell">10%</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Satisfaction</strong></td>
+                <td role="cell">NPS</td>
+                <td role="cell">&gt;50</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Unit Economics</strong></td>
+                <td role="cell">LTV:CAC</td>
+                <td role="cell">&gt;4:1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 15: The Ask -->
+    <section class="slide slide-content-layout" data-slide="15" aria-label="Slide 15 of 23: The Ask" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">The Ask</h2>
+        <h3 class="animate-fade-up delay-1">Funding Requirements</h3>
+        
+        <div class="table-container mt-4 animate-fade-up delay-2">
+          <table role="table" aria-label="Funding allocation">
+            <thead>
+              <tr role="row">
+                <th role="columnheader" scope="col">Use</th>
+                <th role="columnheader" scope="col">Amount</th>
+                <th role="columnheader" scope="col">Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row">
+                <td role="cell"><strong>Product Development</strong></td>
+                <td role="cell">60%</td>
+                <td role="cell">MVP → v2.0</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Marketing</strong></td>
+                <td role="cell">25%</td>
+                <td role="cell">User acquisition</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Operations</strong></td>
+                <td role="cell">15%</td>
+                <td role="cell">Infrastructure, legal</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="mt-4 animate-fade-up delay-3">
+          <h4>Milestones</h4>
+          <ul role="list">
+            <li role="listitem"><strong>Month 3:</strong> MVP launch, 500 users</li>
+            <li role="listitem"><strong>Month 6:</strong> $50K MRR, PMF validation</li>
+            <li role="listitem"><strong>Month 12:</strong> $100K MRR, Series A ready</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 16: Vision -->
+    <section class="slide slide-section" data-slide="16" aria-label="Slide 16 of 23: Vision" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">Vision</h2>
+        <h3 class="animate-fade-up delay-1">Accelerate Human Evolution Through Agent Orchestration</h3>
+        
+        <div class="mt-6 animate-fade-up delay-2">
+          <h3>Year 3 Goal</h3>
+          <blockquote class="mt-4" aria-label="Vision statement">
+            "Every ambitious individual has a team of AI agents dedicated to their personal growth — working 24/7 to help them become the best version of themselves."
+          </blockquote>
+          <p class="text-large text-center mt-6 animate-fade-up delay-3"><strong>HUMAN.OS makes this possible.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 17: Next Steps -->
+    <section class="slide slide-content-layout" data-slide="17" aria-label="Slide 17 of 23: Next Steps" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">Next Steps</h2>
+        <h3 class="animate-fade-up delay-1">Immediate Actions</h3>
+        
+        <div class="mt-4 animate-fade-up delay-2">
+          <ol role="list">
+            <li role="listitem"><span class="text-secondary">✅ <strong>Research Complete</strong></span> — Market, competitors, efficiency theories</li>
+            <li role="listitem"><span class="text-secondary">✅ <strong>Product Spec Complete</strong></span> — Features, UX, metrics</li>
+            <li role="listitem"><span class="text-accent">🔲 <strong>Technical Architecture</strong></span> — Agent system design</li>
+            <li role="listitem"><span class="text-accent">🔲 <strong>MVP Development</strong></span> — 3-month sprint</li>
+            <li role="listitem"><span class="text-accent">🔲 <strong>Beta Launch</strong></span> — 100 early adopters</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 18: Thank You -->
+    <section class="slide slide-closing" data-slide="18" aria-label="Slide 18 of 23: Thank You" role="article">
+      <div class="slide-content">
+        <h1 class="animate-fade-up">Thank You</h1>
+        <h2 class="animate-fade-up delay-1">Let's Build the Future of Personal Development</h2>
+        
+        <div class="mt-6 animate-fade-up delay-2">
+          <p class="text-large"><strong>Contact:</strong> [Your Email]</p>
+          <p class="text-large"><strong>Website:</strong> human-os.ai (coming soon)</p>
+          <p class="text-large"><strong>Repository:</strong> OpenClaw Platform</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 19: Appendix - Efficiency Theories -->
+    <section class="slide slide-content-layout" data-slide="19" aria-label="Slide 19 of 23: Appendix - Efficiency Theories" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">Appendix</h2>
+        <h3 class="animate-fade-up delay-1">Efficiency Theories Implemented</h3>
+        
+        <div class="mt-4 animate-fade-up delay-2">
+          <ol role="list">
+            <li role="listitem"><strong>Deliberate Practice</strong> — Expert skill acquisition</li>
+            <li role="listitem"><strong>Flow State</strong> — Peak performance optimization</li>
+            <li role="listitem"><strong>Spaced Repetition</strong> — Long-term retention</li>
+            <li role="listitem"><strong>Pareto Principle</strong> — High-leverage focus</li>
+            <li role="listitem"><strong>Atomic Habits</strong> — 1% daily improvement</li>
+            <li role="listitem"><strong>5-Hour Rule</strong> — Continuous learning</li>
+            <li role="listitem"><strong>Compound Effect</strong> — Small choices, big results</li>
+            <li role="listitem"><strong>Kaizen</strong> — Continuous improvement</li>
+            <li role="listitem"><strong>Deep Work</strong> — Focus protection</li>
+            <li role="listitem"><strong>GTD</strong> — Workflow mastery</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 20: Appendix - User Personas -->
+    <section class="slide slide-content-layout" data-slide="20" aria-label="Slide 20 of 23: Appendix - User Personas" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">Appendix</h2>
+        <h3 class="animate-fade-up delay-1">User Personas — Target Customers</h3>
+        
+        <div class="table-container mt-4 animate-fade-up delay-2">
+          <table role="table" aria-label="User personas">
+            <thead>
+              <tr role="row">
+                <th role="columnheader" scope="col">Persona</th>
+                <th role="columnheader" scope="col">Profile</th>
+                <th role="columnheader" scope="col">Need</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row">
+                <td role="cell"><strong>Gabriel</strong></td>
+                <td role="cell">PM, tech-savvy</td>
+                <td role="cell">Habit consistency</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Priya</strong></td>
+                <td role="cell">Executive, parent</td>
+                <td role="cell">Voice-first, quick wins</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Sam</strong></td>
+                <td role="cell">Pragmatic</td>
+                <td role="cell">Trust-building, proof</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Alex</strong></td>
+                <td role="cell">Developer</td>
+                <td role="cell">Privacy, gentle support</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Chris</strong></td>
+                <td role="cell">Digital nomad</td>
+                <td role="cell">Cross-platform sync</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 21: Appendix - Competitive Matrix -->
+    <section class="slide slide-comparison" data-slide="21" data-chart="competitive" aria-label="Slide 21 of 23: Appendix - Competitive Matrix" role="article">
+      <div class="slide-content">
+        <h2 class="animate-fade-up">Appendix</h2>
+        <h3 class="animate-fade-up">Competitive Matrix</h3>
+        
+        <div class="chart-container animate-fade-up" role="img" aria-label="Competitive radar chart comparing HUMAN.OS, ChatGPT, and Human Coaching across 7 dimensions">
+          <canvas id="competitiveChart" role="img" aria-label="Competitive comparison radar chart"></canvas>
+        </div>
+        
+        <div class="table-container mt-4 animate-fade-up">
+          <table role="table" aria-label="Competitive feature matrix">
+            <thead>
+              <tr role="row">
+                <th role="columnheader" scope="col">Feature</th>
+                <th class="text-center" role="columnheader" scope="col">HUMAN.OS</th>
+                <th class="text-center" role="columnheader" scope="col">ChatGPT</th>
+                <th class="text-center" role="columnheader" scope="col">Apps</th>
+                <th class="text-center" role="columnheader" scope="col">Coaching</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row">
+                <td role="cell"><strong>Multi-Agent</strong></td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+                <td class="text-center text-accent" role="cell">❌</td>
+                <td class="text-center text-accent" role="cell">❌</td>
+                <td class="text-center text-accent" role="cell">❌</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>24/7 Available</strong></td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+                <td class="text-center text-accent" role="cell">❌</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Proactive</strong></td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+                <td class="text-center text-accent" role="cell">❌</td>
+                <td class="text-center text-accent" role="cell">❌</td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Cross-Domain</strong></td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+                <td class="text-center text-accent" role="cell">❌</td>
+                <td class="text-center text-accent" role="cell">❌</td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Affordable</strong></td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+                <td class="text-center text-accent" role="cell">❌</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Personalized</strong></td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+                <td class="text-center text-accent" role="cell">❌</td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+              </tr>
+              <tr role="row">
+                <td role="cell"><strong>Privacy-First</strong></td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+                <td class="text-center text-accent" role="cell">❌</td>
+                <td class="text-center text-accent" role="cell">❌</td>
+                <td class="text-center text-secondary" role="cell">✅</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 22: Section Divider - Build The Future -->
+    <section class="slide slide-section" data-slide="22" aria-label="Slide 22 of 23: Build The Future" role="article">
+      <div class="slide-content">
+        <h1 class="animate-fade-up">Build The Future</h1>
+        <h2 class="animate-fade-up delay-1">Of Personal Development</h2>
+        <p class="text-large mt-4 animate-fade-up delay-2">Agent-powered. Human-centered.</p>
+      </div>
+    </section>
+
+    <!-- Slide 23: Final CTA -->
+    <section class="slide slide-closing" data-slide="23" aria-label="Slide 23 of 23: Join Us" role="article">
+      <div class="slide-content">
+        <h1 class="animate-fade-up">Join Us</h1>
+        <h2 class="animate-fade-up delay-1">In Revolutionizing How Humans Grow</h2>
+        
+        <div class="mt-6 animate-fade-up delay-2">
+          <p class="text-large">Ready to invest in the future of human potential?</p>
+          <div class="mt-4">
+            <p class="text-large"><strong>Email:</strong> invest@human-os.ai</p>
+            <p class="text-large"><strong>Deck:</strong> human-os.ai/pitch</p>
+          </div>
+        </div>
+        
+        <div class="mt-6 animate-fade-up delay-3">
+          <p class="text-caption">© 2026 HUMAN.OS. All rights reserved.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!-- Desktop Navigation -->
+<nav class="nav" aria-label="Main navigation">
+    {% for item in site.navigation %}
+    <li class="nav-item">
+        <a class="nav-link {% if page.url == item.link %}active{% endif %}" 
+           href="{{ item.link | relative_url }}"
+           aria-current="{% if page.url == item.link %}page{% endif %}">
+            {{ item.title }}
+        </a>
+    </li>
+    {% endfor %}
+    
+    <!-- Theme Toggle -->
+    <button 
+        class="theme-toggle" 
+        aria-label="Toggle dark mode"
+        title="Toggle theme (light/dark)"
+        tabindex="0"
+    >
+        <span class="icon-moon" aria-hidden="true">🌙</span>
+        <span class="icon-sun" aria-hidden="true">☀️</span>
+    </button>
+</nav>
+
+<!-- Mobile Menu Toggle -->
+<button 
+    class="menu-toggle" 
+    aria-label="Toggle mobile menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+    title="Open menu"
+>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+</button>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Mobile navigation">
+        {% for item in site.navigation %}
+        <a href="{{ item.link | relative_url }}"
+           class="{% if page.url == item.link %}active{% endif %}"
+           aria-current="{% if page.url == item.link %}page{% endif %}">
+            {{ item.title }}
+        </a>
+        {% endfor %}
+        
+        <!-- Mobile Theme Toggle -->
+        <button 
+            class="theme-toggle mobile-theme-toggle" 
+            aria-label="Toggle dark mode"
+            title="Toggle theme"
+            style="margin-top: var(--space-lg);"
+        >
+            <span class="icon-moon" aria-hidden="true">🌙</span>
+            <span class="icon-sun" aria-hidden="true">☀️</span>
+            <span style="margin-left: var(--space-sm);">Toggle Theme</span>
+        </button>
+    </nav>
+</div>

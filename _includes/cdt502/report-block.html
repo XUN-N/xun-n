@@ -1,0 +1,18 @@
+<!--
+  CDT502 Report Block Component
+  Usage: {% include cdt502/report-block.html title="Analysis Report" icon="📊" %}
+-->
+
+<div class="cdt502-report-block">
+  <div class="cdt502-report-header">
+    <div class="cdt502-report-icon">{{ include.icon | default: "📄" }}</div>
+    <h4 class="cdt502-report-title">{{ include.title }}</h4>
+  </div>
+  <div class="cdt502-report-body">
+    {% if include.content %}
+      {{ include.content | markdownify }}
+    {% else %}
+      {{ include.inner | markdownify }}
+    {% endif %}
+  </div>
+</div>

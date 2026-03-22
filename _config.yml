@@ -1,0 +1,89 @@
+# CDT501 Personal Blog Configuration
+title: XUN's Blog
+description: A light-themed tech blog
+url: https://xun-n.github.io
+baseurl: /xun-n
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:year/:month/:day/:title.html
+
+# Exclude from build
+exclude:
+  - README.md
+  - Makefile
+  - screenshot.png
+  - Gemfile
+  - Gemfile.lock
+  - DEPLOY-GUIDE.html
+  - DEPLOYMENT.md
+  - DOCKER-SETUP.md
+  - PROJECT-SUMMARY.md
+  - QUICK-DEPLOY.md
+  - QUICK-START.md
+  - UPDATE-SUMMARY.md
+  - cdt502-preview.html
+  - cdt502-step1-preview.html
+
+# Collections
+collections:
+  projects:
+    output: true
+  cdt502_steps:
+    output: true
+    permalink: /cdt502/steps/:name/
+  cdt502_source:
+    output: true
+    permalink: /cdt502/source/:name/
+
+# Navigation
+navigation:
+  - title: Home
+    link: /
+  - title: Blog
+    link: /blog.html
+  - title: CDT501
+    link: /cdt501/
+  - title: CDT502
+    link: /cdt502/
+  - title: About
+    link: /about.html
+  - title: Projects
+    link: /projects.html
+
+# Social links
+social:
+  github: https://github.com/XUN-N
+  email: xun@example.com
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: XUN
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: project
+  - scope:
+      path: ""
+      type: "cdt501_pages"
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: "cdt502_steps"
+    values:
+      layout: cdt502-step
+  - scope:
+      path: ""
+      type: "cdt502_source"
+    values:
+      layout: cdt502-source
+es:
+      layout: cdt502-source

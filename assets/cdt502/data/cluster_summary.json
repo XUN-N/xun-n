@@ -1,0 +1,48 @@
+{
+  "total_customers": 4339,
+  "n_clusters": 4,
+  "cluster_distribution": {
+    "0": 3225,
+    "1": 17,
+    "2": 1095,
+    "3": 2
+  },
+  "cluster_statistics": {
+    "cluster_0": {
+      "count": 3225,
+      "recency_mean": 40.95,
+      "recency_std": 35.04,
+      "frequency_mean": 4.81,
+      "frequency_std": 5.85,
+      "monetary_mean": 1950.36,
+      "monetary_std": 3648.22
+    },
+    "cluster_1": {
+      "count": 17,
+      "recency_mean": 6.82,
+      "recency_std": 10.04,
+      "frequency_mean": 75.76,
+      "frequency_std": 55.41,
+      "monetary_mean": 104778.59,
+      "monetary_std": 74792.5
+    },
+    "cluster_2": {
+      "count": 1095,
+      "recency_mean": 245.59,
+      "recency_std": 67.65,
+      "frequency_mean": 1.59,
+      "frequency_std": 1.45,
+      "monetary_mean": 520.91,
+      "monetary_std": 1480.85
+    },
+    "cluster_3": {
+      "count": 2,
+      "recency_mean": 163.5,
+      "recency_std": 229.81,
+      "frequency_mean": 1.5,
+      "frequency_std": 0.71,
+      "monetary_mean": 122828.05,
+      "monetary_std": 64551.0
+    }
+  }
+}

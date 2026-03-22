@@ -1,0 +1,393 @@
+---
+layout: default
+---
+
+<!-- Enhanced Code Styles -->
+<link rel="stylesheet" href="{{ '/assets/css/cdt502-code.css' | relative_url }}">
+<script src="{{ '/assets/js/cdt502-code.js' | relative_url }}" defer></script>
+
+<style>
+/* ===== CDT502 Page Shared Styles ===== */
+:root {
+  --cdt502-bg: #f8fafc;
+  --cdt502-card: #ffffff;
+  --cdt502-text: #1e293b;
+  --cdt502-text-secondary: #64748b;
+  --cdt502-accent-blue: #3b82f6;
+  --cdt502-accent-green: #10b981;
+  --cdt502-accent-orange: #f59e0b;
+  --cdt502-border: #e2e8f0;
+  --cdt502-code-bg: #1e1e2e;
+}
+
+.cdt502-page {
+  background: var(--cdt502-bg);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+/* Breadcrumb */
+.cdt502-breadcrumb {
+  max-width: 1100px;
+  margin: 0 auto 1.5rem;
+  padding: 0 2rem;
+  font-size: 0.875rem;
+  color: var(--cdt502-text-secondary);
+}
+.cdt502-breadcrumb a {
+  color: var(--cdt502-accent-blue);
+  text-decoration: none;
+}
+.cdt502-breadcrumb a:hover { text-decoration: underline; }
+
+/* Main grid: sidebar + content */
+.cdt502-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2rem;
+}
+
+/* Progress Rail (sidebar) */
+.progress-rail {
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+}
+.progress-rail-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cdt502-text-secondary);
+  margin-bottom: 1rem;
+}
+.progress-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.progress-step {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--cdt502-text-secondary);
+  font-size: 0.8rem;
+  transition: all 0.15s;
+}
+.progress-step:hover {
+  background: var(--cdt502-border);
+  color: var(--cdt502-text);
+}
+.progress-step.active {
+  background: rgba(59,130,246,0.1);
+  color: var(--cdt502-accent-blue);
+  font-weight: 600;
+}
+.progress-step.done {
+  color: var(--cdt502-accent-green);
+}
+.step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.progress-step.active .step-num {
+  background: var(--cdt502-accent-blue);
+  border-color: var(--cdt502-accent-blue);
+  color: white;
+}
+.progress-step.done .step-num {
+  background: var(--cdt502-accent-green);
+  border-color: var(--cdt502-accent-green);
+  color: white;
+}
+
+/* Step content area */
+.step-content {
+  min-width: 0;
+}
+
+/* Step header */
+.step-header {
+  background: linear-gradient(135deg, var(--cdt502-accent-blue) 0%, #6366f1 100%);
+  color: white;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.step-header .step-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+.step-header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+.step-header .step-subtitle {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+.step-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+.step-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.875rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+.step-nav a:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* Section styling */
+.step-section {
+  background: var(--cdt502-card);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.step-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--cdt502-border);
+  color: var(--cdt502-text);
+}
+
+/* Decision highlight */
+.decision-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(245,158,11,0.1);
+  color: #d97706;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+/* Strategy card */
+.strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.strategy-card {
+  background: var(--cdt502-bg);
+  border: 1px solid var(--cdt502-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+.strategy-card h4 {
+  font-size: 0.9rem;
+  color: var(--cdt502-accent-blue);
+  margin-bottom: 0.5rem;
+}
+.strategy-card p {
+  font-size: 0.875rem;
+  color: var(--cdt502-text-secondary);
+  line-height: 1.5;
+}
+
+/* Code + Explain grid */
+.code-explain-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+@media (max-width: 768px) {
+  .code-explain-grid { grid-template-columns: 1fr; }
+}
+
+.code-explain-grid .explanation {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.code-explain-grid .explanation strong {
+  color: var(--cdt502-accent-blue);
+}
+
+/* Code block overrides */
+pre {
+  background: var(--cdt502-code-bg) !important;
+  border-radius: 8px !important;
+  padding: 1.25rem !important;
+  font-size: 0.82rem !important;
+  overflow-x: auto;
+  tab-size: 4;
+}
+code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace !important;
+}
+
+/* Inline code */
+p code, li code {
+  background: rgba(59,130,246,0.08);
+  color: #2563eb;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* Collapsible code */
+details {
+  border: 1px solid var(--cdt502-border);
+  border-radius: 8px;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+summary {
+  padding: 0.75rem 1rem;
+  background: var(--cdt502-bg);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--cdt502-text-secondary);
+  user-select: none;
+}
+summary:hover { background: var(--cdt502-border); }
+details[open] summary {
+  border-bottom: 1px solid var(--cdt502-border);
+  color: var(--cdt502-text);
+}
+details pre {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+/* Figure */
+.figure-block {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+.figure-block img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.figure-caption {
+  font-size: 0.8rem;
+  color: var(--cdt502-text-secondary);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Key findings */
+.findings-list {
+  list-style: none;
+  padding: 0;
+}
+.findings-list li {
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--cdt502-accent-green);
+  background: rgba(16,185,129,0.05);
+  margin-bottom: 0.5rem;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9rem;
+}
+
+/* Prev/Next bottom nav */
+.bottom-step-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--cdt502-border);
+}
+.bottom-step-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  background: var(--cdt502-card);
+  border: 1px solid var(--cdt502-border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--cdt502-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+.bottom-step-nav a:hover {
+  border-color: var(--cdt502-accent-blue);
+  color: var(--cdt502-accent-blue);
+  box-shadow: 0 2px 8px rgba(59,130,246,0.1);
+}
+.bottom-step-nav a.next { margin-left: auto; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .cdt502-layout {
+    grid-template-columns: 1fr;
+  }
+  .progress-rail {
+    display: none;
+  }
+}
+</style>
+
+<div class="cdt502-page">
+  <div class="cdt502-breadcrumb">
+    <a href="{{ '/' | relative_url }}">Home</a> /
+    <a href="{{ '/cdt502/' | relative_url }}">CDT502</a> /
+    <span>{{ page.title }}</span>
+  </div>
+
+  <div class="cdt502-layout">
+    <!-- Progress Rail Sidebar -->
+    <aside class="progress-rail">
+      <div class="progress-rail-title">分析流程</div>
+      <nav class="progress-steps">
+        {% assign steps = site.cdt502_steps | sort: 'step_number' %}
+        {% for step in steps %}
+          {% assign s = step.step_number %}
+          {% assign is_active = false %}
+          {% if page.step_number == s %}{% assign is_active = true %}{% endif %}
+          {% assign is_done = false %}
+          {% if page.step_number > s %}{% assign is_done = true %}{% endif %}
+          <a href="{{ step.url | relative_url }}"
+             class="progress-step {% if is_active %}active{% elsif is_done %}done{% endif %}">
+            <span class="step-num">{% if is_done %}✓{% else %}{{ s }}{% endif %}</span>
+            <span>{{ step.step_name }}</span>
+          </a>
+        {% endfor %}
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="step-content">
+      {{ content }}
+    </main>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+---
+layout: default
+title: Projects
+---
+
+<section>
+    <h1 style="margin-bottom: 1rem; font-size: 2.5rem; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+        Projects
+    </h1>
+    <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
+        A collection of things I've built and contributed to.
+    </p>
+</section>
+
+{% if site.projects.size > 0 %}
+<div class="card-grid">
+    {% for project in site.projects %}
+    <div class="card">
+        <h3 class="card-title">
+            <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+        </h3>
+        {% if project.subtitle %}
+        <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;">
+            {{ project.subtitle }}
+        </p>
+        {% endif %}
+        <p class="card-excerpt">{{ project.excerpt | strip_html | truncatewords: 20 }}</p>
+        
+        {% if project.tags %}
+        <div style="margin-top: 1rem;">
+            {% for tag in project.tags limit: 5 %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        {% if project.github %}
+        <div style="margin-top: 1.5rem;">
+            <a href="{{ project.github }}" target="_blank" style="color: var(--accent-blue); font-size: 0.9rem; font-weight: 600;">
+                View on GitHub →
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div style="text-align: center; padding: 4rem 2rem; background: var(--bg-secondary); border-radius: var(--radius-lg);">
+    <h3 style="color: var(--text-secondary); margin-bottom: 1rem;">No projects yet</h3>
+    <p style="color: var(--text-muted);">Check back soon for upcoming work!</p>
+</div>
+{% endif %}
+
+<!-- Call to Action -->
+<section style="margin-top: 3rem; background: var(--accent-gradient); padding: 2.5rem; border-radius: var(--radius-lg); text-align: center; color: white;">
+    <h2 style="margin-bottom: 1rem; font-size: 1.75rem;">Want to Collaborate?</h2>
+    <p style="margin-bottom: 1.5rem; opacity: 0.9;">
+        I'm always open to working on interesting projects and collaborating with fellow developers.
+    </p>
+    <a href="mailto:{{ site.social.email }}" class="btn" style="background: white; color: var(--accent-blue);">
+        Get in Touch
+    </a>
+</section>
