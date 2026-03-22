@@ -1687,6 +1687,10 @@ section {
   border-top: 3px solid #f59e0b;
 }
 
+.card-highlight-green {
+  border-top: 3px solid #10b981;
+}
+
 /* Dark mode adjustments for card variants */
 [data-theme="dark"] .card-highlight-purple {
   border-top-color: #a78bfa;
@@ -1698,6 +1702,10 @@ section {
 
 [data-theme="dark"] .card-highlight-gradient {
   border-top-color: #fbbf24;
+}
+
+[data-theme="dark"] .card-highlight-green {
+  border-top-color: #34d399;
 }
 
 /* ===== Responsive for Intro Sections ===== */
