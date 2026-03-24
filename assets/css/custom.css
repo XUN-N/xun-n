@@ -640,8 +640,13 @@ section {
 
 .featured-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-xl);
+}
+
+/* For 3 cards, first card spans 2 columns on desktop for visual hierarchy */
+.featured-grid .featured-card:first-child {
+  grid-column: span 2;
 }
 
 .featured-card {
@@ -1244,6 +1249,10 @@ section {
   .featured-grid {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
+  }
+  
+  .featured-grid .featured-card:first-child {
+    grid-column: span 1;
   }
   
   /* Card grid to single column */
