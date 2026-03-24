@@ -10,6 +10,15 @@
     </li>
     {% endfor %}
     
+    <!-- HUMAN.OS Navigation Link -->
+    <li class="nav-item">
+        <a class="nav-link {% if page.url == '/human-os/' %}active{% endif %}" 
+           href="{{ '/human-os/' | relative_url }}"
+           aria-current="{% if page.url == '/human-os/' %}page{% endif %}">
+            HUMAN.OS
+        </a>
+    </li>
+    
     <!-- Theme Toggle -->
     <button 
         class="theme-toggle" 
@@ -45,6 +54,13 @@
             {{ item.title }}
         </a>
         {% endfor %}
+        
+        <!-- HUMAN.OS Mobile Link -->
+        <a href="{{ '/human-os/' | relative_url }}"
+           class="{% if page.url == '/human-os/' %}active{% endif %}"
+           aria-current="{% if page.url == '/human-os/' %}page{% endif %}">
+            HUMAN.OS
+        </a>
         
         <!-- Mobile Theme Toggle -->
         <button 
