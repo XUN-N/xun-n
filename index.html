@@ -19,7 +19,7 @@ title: Home
 <section class="nav-cards-section" id="blog-nav" data-animate>
     <div class="nav-cards-grid">
         <!-- Blog -->
-        <div class="nav-card" data-animate-stagger>
+        <div class="nav-card">
             <div class="nav-card-icon">📝</div>
             <h3 class="nav-card-title">
                 <a href="{{ '/blog.html' | relative_url }}">Blog</a>
@@ -30,7 +30,7 @@ title: Home
         </div>
 
         <!-- Projects -->
-        <div class="nav-card" data-animate-stagger>
+        <div class="nav-card">
             <div class="nav-card-icon">🚀</div>
             <h3 class="nav-card-title">
                 <a href="{{ '/projects.html' | relative_url }}">Projects</a>
@@ -41,7 +41,7 @@ title: Home
         </div>
 
         <!-- HUMAN.OS -->
-        <div class="nav-card" data-animate-stagger>
+        <div class="nav-card">
             <div class="nav-card-icon">🧠</div>
             <h3 class="nav-card-title">
                 <a href="{{ '/human-os/' | relative_url }}">HUMAN.OS</a>
@@ -52,7 +52,7 @@ title: Home
         </div>
 
         <!-- CDT501 -->
-        <div class="nav-card" data-animate-stagger>
+        <div class="nav-card">
             <div class="nav-card-icon">🤖</div>
             <h3 class="nav-card-title">
                 <a href="{{ '/cdt501/' | relative_url }}">CDT501</a>
@@ -63,7 +63,7 @@ title: Home
         </div>
 
         <!-- CDT502 -->
-        <div class="nav-card" data-animate-stagger>
+        <div class="nav-card">
             <div class="nav-card-icon">📊</div>
             <h3 class="nav-card-title">
                 <a href="{{ '/cdt502/' | relative_url }}">CDT502</a>
@@ -74,7 +74,7 @@ title: Home
         </div>
 
         <!-- CDT504 -->
-        <div class="nav-card" data-animate-stagger>
+        <div class="nav-card">
             <div class="nav-card-icon">🎨</div>
             <h3 class="nav-card-title">
                 <a href="{{ '/CDT504-PRODUCT-DESIGN/' | relative_url }}">CDT504</a>
@@ -85,7 +85,7 @@ title: Home
         </div>
 
         <!-- About -->
-        <div class="nav-card" data-animate-stagger>
+        <div class="nav-card">
             <div class="nav-card-icon">👤</div>
             <h3 class="nav-card-title">
                 <a href="{{ '/about.html' | relative_url }}">About</a>
@@ -98,7 +98,7 @@ title: Home
 </section>
 
 <!-- Featured Posts -->
-<section class="featured-section" id="projects-nav" data-animate>
+<section class="featured-section" id="projects-nav">
     <div class="section-header">
         <h2 class="section-title">Featured Posts</h2>
         <a href="{{ '/blog.html' | relative_url }}" class="view-all-link">
@@ -107,7 +107,7 @@ title: Home
     </div>
     <div class="featured-grid">
         {% for post in site.posts limit: 3 %}
-        <article class="featured-card" data-animate-stagger>
+        <article class="featured-card">
             <a href="{{ post.url | relative_url }}" class="featured-card-link">
                 <div class="featured-card-image">
                     {% if post.image %}
@@ -139,7 +139,7 @@ title: Home
 </section>
 
 <!-- Project Highlights -->
-<section class="project-highlights" data-animate>
+<section class="project-highlights">
     <div class="section-header">
         <h2 class="section-title">Featured Projects</h2>
         <a href="{{ '/projects.html' | relative_url }}" class="view-all-link">
@@ -148,7 +148,7 @@ title: Home
     </div>
     <div class="card-grid">
         {% for project in site.projects limit: 3 %}
-        <div class="card" data-animate-stagger>
+        <div class="card">
             <h3 class="card-title">
                 <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
             </h3>
@@ -169,7 +169,7 @@ title: Home
 </section>
 
 <!-- CTA Section -->
-<section class="cta-section" data-animate>
+<section class="cta-section">
     <div class="cta-content">
         <h2 class="cta-title">Want to Collaborate?</h2>
         <p class="cta-description">I'm always open to working on interesting projects and collaborating with fellow developers. Let's build something amazing together!</p>
